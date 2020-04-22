@@ -1,0 +1,10 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        "vca-jsx",
+        "@vue/cli-plugin-babel/preset"
+      ]
+    }
+  }
+}
