@@ -1,36 +1,16 @@
-import Test from '~/components/Test';
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { Button } from "fsxa-ui";
+import "vue-tsx-support/enable-check";
+import { Vue, Component } from "vue-property-decorator";
+import { FSXAComposedNavigation } from "fsxa-pattern-library";
 import "fsxa-ui/dist/fsxa-ui.css";
+import * as tsx from "vue-tsx-support";
 
 @Component
-export default class IndexPage extends Vue {
+export default class IndexPage extends tsx.Component<{}> {
   render() {
     return (
-      <div class="container">
-          <div>
-            <h1 class="title">enterprise-pwa</h1>
-            <h2 class="subtitle">Demo PWA built with FSXA</h2>
-            <Test title="Das ist mein Title" />
-            <Button size="lg" variant="default">Blakeks</Button>
-            <div class="links">
-              <a
-                href="https://nuxtjs.org/"
-                target="_blank"
-                class="button--green"
-              >
-                Documentation
-              </a>
-              <a
-                href="https://github.com/nuxt/nuxt.js"
-                target="_blank"
-                class="button--grey"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="container p-20">
+        <FSXAComposedNavigation handleNavClick={() => console.log("CLICK")} />
+      </div>
     )
   }
 }

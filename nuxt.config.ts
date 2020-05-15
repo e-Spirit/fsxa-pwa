@@ -1,3 +1,4 @@
+import path from 'path'
 import { Configuration } from '@nuxt/types/config'
 
 const config: Configuration = {
@@ -29,7 +30,7 @@ const config: Configuration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-composition-api.js'],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -60,7 +61,12 @@ const config: Configuration = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config) {
+      config!.resolve!.alias!.vue = path.resolve('./node_modules/vue')
+    }
+  },
+  server: {
+    port: 4000
   }
 }
 

@@ -7,10 +7,8 @@ declare global {
     // tslint:disable no-empty-interface
     interface ElementClass extends Vue {}
     interface ElementAttributesProperty {
-      $props: {} // specify the property name to use
+      // $tsxProps: {} // specify the property name to use
     }
-    interface IntrinsicElements {
-      [elem: string]: any
-    }
+    interface IntrinsicElements {}
   }
 }
