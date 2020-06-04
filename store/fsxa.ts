@@ -3,11 +3,11 @@ import axios from 'axios'
 
 const { getters, mutations, actions, state } = getFSXAModule(
   new FSXAApi(axios, {
-    apiKey: '49be300d-5314-8fa5-6768-7814ed22509b',
+    apiKey: 'f5a14f78-d8b8-4525-a814-63b49e0436ee',
     caas:
-      'https://demo-caas-api.e-spirit.cloud/390d0e28-90bf-4640-8211-ea63f3f794e6/preview.content',
+      'https://caas.staging.delivery-platform.e-spirit.live/0b975076-5061-44e6-bbce-c1d9f73f6606/preview.content',
     navigationService:
-      'https://coba-demo-navigationservice.e-spirit.cloud/navigation/preview.390d0e28-90bf-4640-8211-ea63f3f794e6',
+      'https://do-caas-core02.navigation.prod.delivery-platform.e-spirit.live/navigation/preview.0b975076-5061-44e6-bbce-c1d9f73f6606',
     locale: 'de_DE'
   })
 )

@@ -3,3 +3,7 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+:root {
+    --fsxa-text-highlight-color: #FF0000;
+}

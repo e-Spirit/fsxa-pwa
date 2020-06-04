@@ -54,6 +54,9 @@ const config: Configuration = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  tailwindcss: {
+    configPath: 'node_modules/fsxa-ui/tailwind.config.js'
+  },
   /*
    ** Build configuration
    */
@@ -65,6 +68,7 @@ const config: Configuration = {
       config!.resolve!.alias!.vue = path.resolve('./node_modules/vue')
     }
   },
+  buildDir: 'dist',
   server: {
     port: 4000
   }
