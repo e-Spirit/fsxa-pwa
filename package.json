@@ -24,8 +24,9 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "core-js": "^3.6.5",
     "fsxa-pattern-library": "file:../fsxa-pattern-library",
-    "fsxa-ui": "file:../fsxa-ui",
+    "fsxa-ui": "^0.1.8",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

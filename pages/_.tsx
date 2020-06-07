@@ -1,8 +1,8 @@
 import 'vue-tsx-support/enable-check'
 import { Component } from 'vue-property-decorator'
 import { FSXAPage, FSXAConfigProvider } from 'fsxa-pattern-library'
-import 'fsxa-ui/dist/fsxa-ui.css'
 import 'fsxa-pattern-library/dist/fsxa-pattern-library.css'
+import 'fsxa-ui/dist/fsxa-ui.css'
 import * as tsx from 'vue-tsx-support'
 
 @Component
