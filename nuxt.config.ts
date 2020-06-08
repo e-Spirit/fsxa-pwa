@@ -66,7 +66,7 @@ const config: Configuration = {
   },
   buildDir: 'dist',
   server: {
-    port: 4000
+    port: 3000
   }
 }
 
