@@ -1,7 +1,7 @@
 import { getFSXAModule, FSXAApi } from 'fsxa-pattern-library'
 import axios from 'axios'
 
-const { getters, mutations, actions, state } = getFSXAModule(
+export default getFSXAModule(
   new FSXAApi(axios, {
     apiKey: process.env.FSXA_API_KEY as string,
     mode: process.env.FSXA_MODE as 'preview' | 'release',
@@ -23,5 +23,3 @@ const { getters, mutations, actions, state } = getFSXAModule(
     locale: process.env.FSXA_LOCALE as string
   })
 )
-
-export { getters, mutations, actions, state }
