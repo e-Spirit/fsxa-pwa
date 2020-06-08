@@ -41,7 +41,6 @@ const config: Configuration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
@@ -66,7 +65,7 @@ const config: Configuration = {
   },
   buildDir: 'dist',
   server: {
-    port: 4000
+    port: 3000
   }
 }
 
