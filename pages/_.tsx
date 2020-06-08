@@ -10,7 +10,7 @@ export default class IndexPage extends tsx.Component<{}> {
     const path = this.$router.currentRoute.path
     return (
       <div class="w-full">
-        <FSXAConfigProvider devMode>
+        <FSXAConfigProvider>
           <FSXAPage
             path={path}
             handleRouteChange={(route) => this.$router.push({ path: route })}
