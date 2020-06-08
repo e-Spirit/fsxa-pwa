@@ -1,6 +1,6 @@
 import 'vue-tsx-support/enable-check'
 import { Component } from 'vue-property-decorator'
-import { FSXAPage } from 'fsxa-pattern-library'
+import { FSXAPage, FSXAConfigProvider } from 'fsxa-pattern-library'
 import * as tsx from 'vue-tsx-support'
 import './../assets/css/global.css'
 
@@ -10,10 +10,12 @@ export default class IndexPage extends tsx.Component<{}> {
     const path = this.$router.currentRoute.path
     return (
       <div class="w-full">
-        <FSXAPage
-          path={path}
-          handleRouteChange={(route) => this.$router.push({ path: route })}
-        />
+        <FSXAConfigProvider devMode>
+          <FSXAPage
+            path={path}
+            handleRouteChange={(route) => this.$router.push({ path: route })}
+          />
+        </FSXAConfigProvider>
       </div>
     )
   }
