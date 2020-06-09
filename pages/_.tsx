@@ -12,7 +12,6 @@ export default class IndexPage extends tsx.Component<{}> {
     return (
       <div class="w-full">
         <FSXAConfigProvider
-          devMode={true}
           sections={{
             call_to_action: CallToActionSection
           }}
