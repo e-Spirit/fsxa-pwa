@@ -10,7 +10,7 @@ export default class IndexPage extends tsx.Component<{}> {
   render() {
     const path = this.$router.currentRoute.path
     return (
-      <div class="w-full">
+      <div class="w-full w-full">
         <FSXAConfigProvider sections={{ call_to_action: CallToActionSection }}>
           <FSXAPage
             path={path}
