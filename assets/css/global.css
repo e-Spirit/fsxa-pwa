@@ -1,2 +1,6 @@
 @import "fsxa-ui/dist/fsxa-ui.css";
 @import "fsxa-pattern-library/dist/fsxa-pattern-library.css";
+
+:root {
+    --fsxa-text-highlight-color: #FF00FF;
+}
