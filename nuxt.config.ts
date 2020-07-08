@@ -26,7 +26,10 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    'fsxa-ui/dist/fsxa-ui.css',
+    'fsxa-pattern-library/dist/fsxa-pattern-library.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
