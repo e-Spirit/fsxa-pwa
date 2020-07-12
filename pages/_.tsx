@@ -11,7 +11,18 @@ export default class IndexPage extends tsx.Component<{}> {
     return (
       <div class="w-full w-full">
         <FSXAPage
-          path={path}
+          currentPath={path}
+          defaultLocale="de_DE"
+          locales={[
+            {
+              label: 'DE',
+              value: 'de_DE'
+            },
+            {
+              label: 'EN',
+              value: 'en_GB'
+            }
+          ]}
           handleRouteChange={(route) => this.$router.push({ path: route })}
         />
       </div>
