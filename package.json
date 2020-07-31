@@ -26,8 +26,8 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "core-js": "^2.6.10",
-    "fsxa-pattern-library": "^0.1.52",
-    "fsxa-ui": "^0.1.30",
+    "fsxa-pattern-library": "0.1.61",
+    "fsxa-ui": "0.1.38",
     "nuxt": "^2.0.0",
     "tailwindcss": "^1.4.6"
   },

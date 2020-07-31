@@ -2,7 +2,7 @@ import path from 'path'
 import { Configuration } from '@nuxt/types/config'
 
 const config: Configuration = {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -26,10 +26,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: [
-    'fsxa-ui/dist/fsxa-ui.css',
-    'fsxa-pattern-library/dist/fsxa-pattern-library.css'
-  ],
+  css: ['fsxa-ui/dist/fsxa-ui.css'],
   /*
    ** Plugins to load before mounting the App
    */
