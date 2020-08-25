@@ -2,7 +2,7 @@ import path from 'path'
 import { Configuration } from '@nuxt/types/config'
 
 const config: Configuration = {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -26,7 +26,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['fsxa-ui/dist/fsxa-ui.css'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -42,6 +42,7 @@ const config: Configuration = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    'fsxa-nuxt-module',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
