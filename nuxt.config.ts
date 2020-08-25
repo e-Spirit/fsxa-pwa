@@ -2,7 +2,7 @@ import path from 'path'
 import { Configuration } from '@nuxt/types/config'
 
 const config: Configuration = {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
