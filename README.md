@@ -1,3 +1,14 @@
+# FSXA-PWA
+The FSXA-PWA is an example project and can be used as basis for developing your own PWA 
+in the context of the FirstSpirit Experience Accelerator.
+
+### About the FSXA
+The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital 
+experience platform, combining a headless approach with enterprise capabilities. 
+If you are interested in the FSXA check this 
+[Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html). You can order 
+a demo [online](https://www.e-spirit.com/us/specialpages/forms/on-demand-demo/).
+
 ## Getting Started
 
 ### Create `.env` file in root-directory
@@ -34,7 +45,7 @@ $ npm run start
 $ npm run generate
 ```
 
-This project is using the [fsxa-pattern-library](https://www.npmjs.com/package/fsxa-pattern-library) and [fsxa-ui](https://www.npmjs.com/package/fsxa-ui)
+This project is using the [FSXA-Pattern-Library](https://www.npmjs.com/package/fsxa-pattern-library) and [FSXA-UI](https://www.npmjs.com/package/fsxa-ui)
 
 The pattern-library is referenced in two entry points.
 
@@ -62,7 +73,7 @@ Every FSXAInstance can be wrapped with an `FSXAConfigProvider`-Instance. By pass
 
 ### Adding new Section Templates
 
-It is very easy to add new section templates. Just create your own template in the components-folder and make sure that you extends the `FSXABaseSection` provided by the pattern-library.
+It is very easy to add new section templates. Just create your own template in the components-folder and make sure that you extends the `FSXABaseSection` provided by the FSXA-Pattern-Library.
 
 ```bash
 # /src/components/MyNewSectionTemplate.jsx
@@ -100,7 +111,7 @@ import MyNewSectionTemplate from "~/components/MyNewSectionTemplate.tsx"
 
 ### Changing visual appearance with CSS-Variables
 
-The fsxa-ui library provides multiple css-variables that can be set to change visual characteristics of the components.
+The FSXA-UI library provides multiple css-variables that can be set to change visual characteristics of the components.
 
 ```bash
 ~/assets/css/global.css
@@ -110,3 +121,19 @@ The fsxa-ui library provides multiple css-variables that can be set to change vi
     --fsxa-text-highlight-color: #FF0000;
 }
 ```
+
+## Legal Notices
+FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com) AG, Dortmund, Germany.
+The FSXA-PWA is subject to the Apache-2.0 license.
+
+## Disclaimer
+This document is provided for information purposes only.
+e-Spirit may change the contents hereof without notice. 
+This document is not warranted to be error-free, nor subject to any 
+other warranties or conditions, whether expressed orally or 
+implied in law, including implied warranties and conditions of 
+merchantability or fitness for a particular purpose. e-Spirit 
+specifically disclaims any liability with respect to this document 
+and no contractual obligations are formed either directly or 
+indirectly by this document. The technologies, functionality, services, 
+and processes described herein are subject to change without notice.
