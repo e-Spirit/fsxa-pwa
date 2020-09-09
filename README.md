@@ -1,12 +1,14 @@
 # FSXA-PWA
-The FSXA-PWA is an example project and can be used as basis for developing your own PWA 
+
+The FSXA-PWA is an example project and can be used as basis for developing your own PWA
 in the context of the FirstSpirit Experience Accelerator.
 
 ### About the FSXA
-The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital 
-experience platform, combining a headless approach with enterprise capabilities. 
-If you are interested in the FSXA check this 
-[Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html). You can order 
+
+The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
+experience platform, combining a headless approach with enterprise capabilities.
+If you are interested in the FSXA check this
+[Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html). You can order
 a demo [online](https://www.e-spirit.com/us/specialpages/forms/on-demand-demo/).
 
 ## Getting Started
@@ -26,6 +28,8 @@ FSXA_NAVIGATION_SERVICE= ...
 FSXA_MODE= ...
 # KEY:VALUE map where semicolon is used as separator (key:uuid;key:uuid)
 FSXA_REMOTES= ...
+# This tenantId is required, when using caas-connect module 3.0.9 and above
+FSXA_TENANT_ID=...
 ```
 
 ### How to run dev and build mode
@@ -123,17 +127,19 @@ The FSXA-UI library provides multiple css-variables that can be set to change vi
 ```
 
 ## Legal Notices
+
 FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com) AG, Dortmund, Germany.
 The FSXA-PWA is subject to the Apache-2.0 license.
 
 ## Disclaimer
+
 This document is provided for information purposes only.
-e-Spirit may change the contents hereof without notice. 
-This document is not warranted to be error-free, nor subject to any 
-other warranties or conditions, whether expressed orally or 
-implied in law, including implied warranties and conditions of 
-merchantability or fitness for a particular purpose. e-Spirit 
-specifically disclaims any liability with respect to this document 
-and no contractual obligations are formed either directly or 
-indirectly by this document. The technologies, functionality, services, 
+e-Spirit may change the contents hereof without notice.
+This document is not warranted to be error-free, nor subject to any
+other warranties or conditions, whether expressed orally or
+implied in law, including implied warranties and conditions of
+merchantability or fitness for a particular purpose. e-Spirit
+specifically disclaims any liability with respect to this document
+and no contractual obligations are formed either directly or
+indirectly by this document. The technologies, functionality, services,
 and processes described herein are subject to change without notice.
