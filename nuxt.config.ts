@@ -2,7 +2,7 @@ import path from 'path'
 import { Configuration } from '@nuxt/types/config'
 
 const config: Configuration = {
-  mode: 'universal',
+  ssr: true,
   /*
    ** Headers of the page
    */
