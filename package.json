@@ -27,9 +27,9 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "consola": "^2.15.0",
     "core-js": "^2.6.10",
-    "fsxa-nuxt-module": "^2.2.0",
+    "fsxa-nuxt-module": "^2.2.1",
     "fsxa-pattern-library": "^1.5.0",
-    "fsxa-ui": "0.1.38",
+    "fsxa-ui": "^0.1.38",
     "nuxt": "^2.0.0",
     "tailwindcss": "^1.4.6"
   },
