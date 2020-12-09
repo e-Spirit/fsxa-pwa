@@ -1,7 +1,6 @@
 import {
   FSXABaseAppLayout,
   FSXAGetters,
-  AppLocale,
   FSXAAppState
 } from 'fsxa-pattern-library'
 import {
@@ -21,7 +20,9 @@ interface CurrentPage extends NavigationItem {
   content: APIPage
 }
 
-const getDropdownOptions = (locales: AppLocale[] = []): Option[] => {
+const getDropdownOptions = (
+  locales: Record<string, string>[] = []
+): Option[] => {
   return locales.map((locale) => {
     if (typeof locale === 'string')
       return {
@@ -54,10 +55,6 @@ const mapStructureItemToNavigationItem = (
   name: 'AppLayout'
 })
 class AppLayout extends FSXABaseAppLayout {
-  get currentPage(): CurrentPage | null {
-    return this.$store.getters[FSXAGetters.currentPage]
-  }
-
   get navigationData(): NavigationData | null {
     return this.$store.getters[FSXAGetters.navigationData]
   }
@@ -73,49 +70,57 @@ class AppLayout extends FSXABaseAppLayout {
       )
     }
     return (
-      <Navigation
-        items={navItems}
-        isActiveItem={(item) =>
-          Boolean(
-            this.currentPage &&
-              this.currentPage.content &&
-              item.id === this.currentPage.content.refId
-          )
-        }
-        handleNavClick={({ id }) =>
-          this.handleRouteChangeRequest({
-            pageId: id
-          })
-        }
-      >
-        {this.locales ? (
-          <Dropdown
-            value={this.locale}
-            options={getDropdownOptions(this.locales)}
-            handleChange={(newLocale) => this.handleLocaleChange(newLocale.key)}
-          >
-            <i class="fas fa-globe-europe" />
-          </Dropdown>
-        ) : null}
-      </Navigation>
+      <div class="flex items-center justify-center space-x-3">
+        <Navigation
+          items={navItems}
+          isActiveItem={() => false}
+          handleNavClick={({ id }) =>
+            this.triggerRouteChange({
+              pageId: id
+            })
+          }
+        ></Navigation>
+        <Dropdown
+          value={this.locale}
+          options={getDropdownOptions([
+            {
+              value: 'de_DE',
+              label: 'DE'
+            },
+            {
+              value: 'en_GB',
+              label: 'EN'
+            }
+          ])}
+          handleChange={(newLocale) =>
+            this.triggerRouteChange({
+              locale: newLocale.key
+            })
+          }
+        >
+          Bla
+          <i class="fas fa-globe-europe" />
+        </Dropdown>
+      </div>
     )
   }
+
   renderFooter() {
     const handleLinkClick = (link: FooterLink) => {
       const nextPage = this.navigationData?.idMap[link.referenceId]
       if (nextPage)
-        this.handleRouteChangeRequest({
+        this.triggerRouteChange({
           pageId: nextPage.id,
           route: nextPage?.seoRoute
         })
     }
-    if (this.settings) {
-      const links: FooterLink[] = this.settings.data.gc_linklist
+    if (this.globalSettings) {
+      const links: FooterLink[] = this.globalSettings.data.gc_linklist
         .filter(
-          (link) =>
+          (link: any) =>
             link.data.lt_link.referenceType && link.data.lt_link.referenceId
         )
-        .map((link) => {
+        .map((link: any) => {
           return {
             referenceId: link.data.lt_link.referenceId,
             label: link.data.lt_text,
@@ -130,19 +135,22 @@ class AppLayout extends FSXABaseAppLayout {
         })
       return (
         <Footer
-          copyright={this.settings.data.gc_copyright as string}
+          copyright={this.globalSettings.data.gc_copyright as string}
           links={links}
           handleClick={handleLinkClick}
-          data-preview-id={this.settings.id}
+          data-preview-id={this.globalSettings.id}
         >
-          {this.settings.data.gs_logo ? (
-            <img src={this.settings.data.gs_logo.resolutions.ORIGINAL.url} />
+          {this.globalSettings.data.gs_logo ? (
+            <img
+              src={this.globalSettings.data.gs_logo.resolutions.ORIGINAL.url}
+            />
           ) : null}
         </Footer>
       )
     }
     return null
   }
+
   render() {
     return ['initializing', 'not_initialized'].includes(this.appState) ? (
       <Loader />
@@ -151,7 +159,7 @@ class AppLayout extends FSXABaseAppLayout {
         renderNavigation={this.renderNavigation}
         renderFooter={this.renderFooter}
       >
-        {this.appState === 'fetching' ? <Loader /> : this.content}
+        {this.$slots.default}
       </Page>
     )
   }

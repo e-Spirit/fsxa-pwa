@@ -1,26 +1,22 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
     "jsx": "preserve",
-    "lib": ["esnext", "esnext.asynciterable", "dom"],
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": [
-      "@types/node",
-      "@nuxt/types",
-      "fsxa-nuxt-module/node_modules/fsxa-ui/src/fsxa-ui.d.ts"
-    ]
+    "types": ["@types/node", "@nuxt/types"]
   },
-  "include": ["node_modules/vue-tsx-support/enable-check.d.ts"]
+  "exclude": ["**/node_modules"]
 }

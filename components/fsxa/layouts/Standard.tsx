@@ -1,38 +1,37 @@
-import Component from "vue-class-component";
-import { FSXABaseLayout } from "fsxa-pattern-library";
-import { Layouts } from "fsxa-ui";
-import { FSXAGetters } from "fsxa-pattern-library";
-import { NavigationData, Image } from "fsxa-api";
-import { Sections } from "fsxa-ui";
+import Component from 'vue-class-component'
+import { FSXABaseLayout, FSXAGetters } from 'fsxa-pattern-library'
+import { NavigationData, Image } from 'fsxa-api'
+import { Sections } from 'fsxa-ui'
 
 interface HeaderSectionPayload {
-  pt_text: string;
-  pt_picture?: Image;
-  pageId: string;
+  pt_text: string
+  pt_picture?: Image
+  pageId: string
 }
 
 @Component({
-  name: "FSXAStandardLayout",
+  name: 'FSXAStandardLayout'
 })
 class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
   get navigationData(): NavigationData {
-    return this.$store.getters[FSXAGetters.navigationData];
+    return this.$store.getters[FSXAGetters.navigationData]
   }
+
   renderHeader() {
-    const currentPage = this.navigationData.idMap[this.data.pageId];
+    const currentPage = this.navigationData.idMap[this.data.pageId]
     return (
       <Sections.HeaderSection
         title={this.data.pt_text}
         breadcrumbs={
           currentPage
-            ? currentPage.parentIds.map(parentId => {
-                const page = this.navigationData.idMap[parentId];
+            ? currentPage.parentIds.map((parentId) => {
+                const page = this.navigationData.idMap[parentId]
                 return {
-                  label: page.label || "",
+                  label: page.label || '',
                   path: page.seoRoute,
                   referenceId: parentId,
-                  referenceType: "PageRef",
-                };
+                  referenceType: 'PageRef'
+                }
               })
             : []
         }
@@ -42,25 +41,25 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
                 src: this.data.pt_picture.resolutions.ORIGINAL.url,
                 dimensions: {
                   width: this.data.pt_picture.resolutions.ORIGINAL.width,
-                  height: this.data.pt_picture.resolutions.ORIGINAL.height,
-                },
+                  height: this.data.pt_picture.resolutions.ORIGINAL.height
+                }
               }
             : undefined
         }
         handleItemClick={(item: any) =>
-          this.handleRouteChangeRequest({ pageId: item.referenceId })
+          this.triggerRouteChange({ pageId: item.referenceId })
         }
       />
-    );
+    )
   }
+
   render() {
-    if (this.content.length === 0) return null;
     return (
-      <Layouts.SingleColumnLayout data-preview-id={this.content[0].previewId}>
+      <div>
         {this.renderHeader()}
-        {this.content.length > 0 && this.renderContentElements(0)}
-      </Layouts.SingleColumnLayout>
-    );
+        {this.renderContentByName('content')}
+      </div>
+    )
   }
 }
-export default StandardLayout;
+export default StandardLayout

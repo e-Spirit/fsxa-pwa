@@ -26,7 +26,7 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['fsxa-ui/dist/fsxa-ui.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -58,6 +58,22 @@ const config: Configuration = {
    ** Build configuration
    */
   build: {
+    babel: {
+      plugins: [
+        [
+          '@babel/plugin-proposal-decorators',
+          {
+            legacy: true
+          }
+        ],
+        [
+          '@babel/plugin-proposal-class-properties',
+          {
+            loose: true
+          }
+        ]
+      ]
+    },
     /*
      ** You can extend webpack config here
      */
