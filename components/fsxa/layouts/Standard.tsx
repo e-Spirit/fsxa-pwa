@@ -1,7 +1,8 @@
 import Component from 'vue-class-component'
 import { FSXABaseLayout, FSXAGetters } from 'fsxa-pattern-library'
-import { NavigationData, Image } from 'fsxa-api'
+import { NavigationData, Image, NavigationItem } from 'fsxa-api'
 import { Sections } from 'fsxa-ui'
+import { Breadcrumb } from 'fsxa-ui/src/types/sections'
 
 interface HeaderSectionPayload {
   pt_text: string
@@ -17,32 +18,43 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
     return this.$store.getters[FSXAGetters.navigationData]
   }
 
+  get breadcrumbs() {
+    const indexPage: NavigationItem = this.navigationData.idMap[
+      this.navigationData.seoRouteMap[this.navigationData.pages.index]
+    ]
+    const breadcrumbs: Breadcrumb[] = [
+      {
+        label: indexPage.label,
+        path: indexPage.seoRoute,
+        referenceId: indexPage.id,
+        referenceType: 'PageRef'
+      }
+    ]
+    if (this.currentPage) {
+      this.currentPage.parentIds.forEach((parentId) => {
+        const page = this.navigationData.idMap[parentId]
+        breadcrumbs.push({
+          label: page.label || '',
+          path: page.seoRoute,
+          referenceId: parentId,
+          referenceType: 'PageRef'
+        })
+      })
+    }
+    return breadcrumbs
+  }
+
   renderHeader() {
-    const currentPage = this.navigationData.idMap[this.data.pageId]
     return (
       <Sections.HeaderSection
         title={this.data.pt_text}
-        breadcrumbs={
-          currentPage
-            ? currentPage.parentIds.map((parentId) => {
-                const page = this.navigationData.idMap[parentId]
-                return {
-                  label: page.label || '',
-                  path: page.seoRoute,
-                  referenceId: parentId,
-                  referenceType: 'PageRef'
-                }
-              })
-            : []
-        }
+        breadcrumbs={this.breadcrumbs}
         backgroundImage={
           this.data.pt_picture?.resolutions.ORIGINAL
             ? {
+                type: 'image',
                 src: this.data.pt_picture.resolutions.ORIGINAL.url,
-                dimensions: {
-                  width: this.data.pt_picture.resolutions.ORIGINAL.width,
-                  height: this.data.pt_picture.resolutions.ORIGINAL.height
-                }
+                resolutions: this.data.pt_picture.resolutions
               }
             : undefined
         }

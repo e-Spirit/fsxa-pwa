@@ -1,15 +1,15 @@
 import Component from 'vue-class-component'
-import { FSXABaseSection } from 'fsxa-pattern-library'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
 import { Sections } from 'fsxa-ui'
-import { Image } from 'fsxa-api'
+import { Image, RichTextElement } from 'fsxa-api'
 
 export interface Payload {
-  st_headline: string
+  st_headline: RichTextElement[]
   st_jumbo_headline: string
   st_kicker: string
   st_picture?: Image
   st_picture_alt: string | null
-  st_text: string
+  st_text: RichTextElement[]
   st_button?: {
     data: {
       lt_button_text: string
@@ -27,23 +27,21 @@ class TeaserSection extends FSXABaseSection<Payload> {
   render() {
     return (
       <Sections.TeaserSection
-        headline={this.payload.st_headline}
+        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
         kicker={this.payload.st_kicker}
-        text={'Blakeks'}
+        text={(<FSXARichText content={this.payload.st_text} />) as any}
         buttonText={this.payload.st_button?.data.lt_button_text}
-        handleButtonClick={() => {
+        onButtonClick={() =>
           this.triggerRouteChange({
             pageId: this.payload.st_button?.data.lt_internal.referenceId
           })
-        }}
-        image={
+        }
+        media={
           this.payload.st_picture
             ? {
+                type: 'image',
                 src: this.payload.st_picture.resolutions.ORIGINAL.url,
-                dimensions: {
-                  width: this.payload.st_picture.resolutions.ORIGINAL.width,
-                  height: this.payload.st_picture.resolutions.ORIGINAL.height
-                },
+                resolutions: this.payload.st_picture.resolutions,
                 previewId: this.payload.st_picture.previewId
               }
             : undefined

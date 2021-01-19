@@ -26,7 +26,11 @@ const config: Configuration = {
   /*
    ** Global CSS
    */
-  css: ['fsxa-ui/dist/fsxa-ui.css'],
+  css: [
+    'fsxa-pattern-library/dist/fsxa-pattern-library.css',
+    'fsxa-ui/dist/fsxa-ui.css',
+    '~/assets/css/global.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -34,7 +38,7 @@ const config: Configuration = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
   /*
    ** Nuxt.js modules
    */
@@ -51,9 +55,6 @@ const config: Configuration = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  tailwindcss: {
-    configPath: 'node_modules/fsxa-ui/tailwind.config.js'
-  },
   /*
    ** Build configuration
    */

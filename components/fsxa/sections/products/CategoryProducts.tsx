@@ -5,8 +5,9 @@ import {
 } from 'fsxa-api'
 import { FSXABaseSection } from 'fsxa-pattern-library'
 import { Component } from 'vue-property-decorator'
-import { Container, ProductListItem, Sections } from 'fsxa-ui'
+import { Container, Sections } from 'fsxa-ui'
 import Loader from '../../Loader'
+import ProductListItem from './ProductListItem'
 
 interface Payload {
   filterParams: {
@@ -60,26 +61,19 @@ class CategoryProducts extends FSXABaseSection<Payload> {
 
   render() {
     const ListSection = (Sections as any).ListSection
-    console.log(this.products)
     return (
       <Container>
         <ListSection
           items={this.products || []}
-          renderItem={(item) => (
-            <ProductListItem
-              title={item.data.tt_name}
-              description={item.data.tt_teaser_text}
-              price={item.data.tt_price}
-              image={
-                item.data.tt_teaser_image
-                  ? {
-                      src: item.data.tt_teaser_image.resolutions.ORIGINAL.url
-                    }
-                  : undefined
-              }
-              handleClick={() => this.triggerRouteChange({ route: item.route })}
-            />
-          )}
+          renderItem={(item: Dataset) => {
+            return this.renderContentElement({
+              ...item,
+              template:
+                item.template === 'products.product_list_item'
+                  ? item.template
+                  : 'products.product_list_item'
+            })
+          }}
         >
           {!this.products ? <Loader /> : undefined}
         </ListSection>

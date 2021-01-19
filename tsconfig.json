@@ -6,6 +6,7 @@
     "experimentalDecorators": true,
     "jsx": "preserve",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,

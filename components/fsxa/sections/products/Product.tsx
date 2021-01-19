@@ -1,7 +1,8 @@
-import { FSXABaseSection } from 'fsxa-pattern-library'
-import { Sections } from 'fsxa-ui'
-import { ImageRef } from 'fsxa-ui/src/types/utils'
+import { RichTextElement } from 'fsxa-api/dist/types'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { Sections, ImageRef } from 'fsxa-ui'
 import { Component } from 'vue-property-decorator'
+import { getFallbackTranslation } from '~/utils/i18n'
 
 interface Image {
   id: string
@@ -34,8 +35,8 @@ interface Payload {
   tt_name: string
   tt_price: string
   tt_abstract: string
-  tt_installation: string
-  tt_delivery: string
+  tt_installation: RichTextElement[]
+  tt_delivery: RichTextElement[]
   tt_media: Media[]
 }
 @Component({
@@ -57,38 +58,45 @@ class Product extends FSXABaseSection<Payload> {
     return (
       <Sections.ProductDetailSection
         headline={this.payload.tt_name}
-        images={this.payload.tt_media
-          ?.filter(
-            (item) => item?.data?.st_media?.resolutions?.ORIGINAL != null
-          )
-          .map<ImageRef>((item) => {
-            const {
-              previewId,
-              data: {
-                st_media: {
-                  resolutions: {
-                    ORIGINAL: { url, width, height }
-                  }
-                }
-              }
-            } = item
-            return { src: url, dimensions: { width, height }, previewId }
-          })}
-        // TODO: add translations for tt_categories, tt_compatibility
+        images={this.payload.tt_media.map((item) => ({
+          src: item.data.st_media.resolutions.ORIGINAL.url,
+          resolutions: item.data.st_media.resolutions,
+          previewId: item.previewId,
+          type: 'image'
+        }))}
         propertyList={[
-          this.toProductProperties('tt_categories', this.payload.tt_categories),
           this.toProductProperties(
-            'tt_compatibility',
+            this.globalSettings?.data.pt_label_product_categories ||
+              getFallbackTranslation([
+                this.locale,
+                'product_detail',
+                'tt_categories'
+              ]),
+            this.payload.tt_categories
+          ),
+          this.toProductProperties(
+            this.globalSettings?.data.pt_label_product_compatibility ||
+              getFallbackTranslation([
+                this.locale,
+                'product_detail',
+                'tt_compatibility'
+              ]),
             this.payload.tt_compatibility
           )
         ]}
-        // TODO: add translations for tt_delivery, tt_installation, tt_compatibility
         foldableContentList={{
-          tt_delivery: this.payload.tt_delivery,
-          tt_installation: this.payload.tt_installation,
-          tt_compatibility: `<ul>${this.payload.tt_compatibility.map(
-            ({ value }) => `<li>${value}</li>`
-          )}</ul>`
+          [this.globalSettings?.data.pt_label_product_delivery ||
+          getFallbackTranslation([
+            this.locale,
+            'product_detail',
+            'tt_delivery'
+          ])]: <FSXARichText content={this.payload.tt_delivery} />,
+          [this.globalSettings?.data.pt_label_product_installation ||
+          getFallbackTranslation([
+            this.locale,
+            'product_detail',
+            'tt_installation'
+          ])]: <FSXARichText content={this.payload.tt_installation} />
         }}
         description={this.payload.tt_abstract}
         price={this.payload.tt_price}

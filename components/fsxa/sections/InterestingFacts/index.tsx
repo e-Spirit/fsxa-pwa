@@ -1,7 +1,7 @@
 import Component from 'vue-class-component'
 import { Sections } from 'fsxa-ui'
-import { FSXABaseSection } from 'fsxa-pattern-library'
-import { Image } from 'fsxa-api'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { Image, RichTextElement } from 'fsxa-api'
 
 export interface Payload {
   st_background_image?: Image
@@ -16,7 +16,7 @@ export interface Payload {
   st_headline: string
   st_tagline: string
   /** This can contain html */
-  st_text: string
+  st_text: RichTextElement[]
 }
 @Component({
   name: 'InterestingFactsSection'
@@ -27,7 +27,7 @@ class InterestingFactsSection extends FSXABaseSection<Payload> {
       <Sections.InterestingFactsSection
         headline={this.payload.st_headline}
         tagline={this.payload.st_tagline}
-        text={'Keks'} //this.createLinksInRichText(this.payload.st_text)}
+        text={<FSXARichText content={this.payload.st_text} />}
         counters={(this.payload.st_counters || []).map((counter) => ({
           previewId: counter.previewId,
           value: counter.data.st_number,
@@ -36,13 +36,10 @@ class InterestingFactsSection extends FSXABaseSection<Payload> {
         backgroundImage={
           this.payload.st_background_image?.resolutions.ORIGINAL
             ? {
+                type: 'image',
                 src: this.payload.st_background_image.resolutions.ORIGINAL.url,
-                dimensions: {
-                  width: this.payload.st_background_image.resolutions.ORIGINAL
-                    .width,
-                  height: this.payload.st_background_image.resolutions.ORIGINAL
-                    .height
-                }
+                resolutions: this.payload.st_background_image.resolutions,
+                previewId: this.payload.st_background_image.previewId
               }
             : undefined
         }
