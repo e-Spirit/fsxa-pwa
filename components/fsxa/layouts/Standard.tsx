@@ -11,9 +11,21 @@ interface HeaderSectionPayload {
 }
 
 @Component({
-  name: 'FSXAStandardLayout'
+  name: 'FSXAStandardLayout',
+  // We will set the page-title for every page that is using the standard layout
+  head() {
+    return {
+      title: (this as any).currentPage.label
+    }
+  }
 })
 class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
+  head() {
+    return {
+      title: this.currentPage?.label
+    }
+  }
+
   get navigationData(): NavigationData {
     return this.$store.getters[FSXAGetters.navigationData]
   }
@@ -40,6 +52,17 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
           referenceType: 'PageRef'
         })
       })
+      if (this.currentPage.parentIds.length === 0) {
+        breadcrumbs.push({
+          label: this.currentPage.label,
+          path: this.currentPage.seoRoute,
+          referenceId: this.currentPage.id,
+          referenceType: 'PageRef'
+        })
+      }
+      if ((this.currentPage as any).seoRouteRegex) {
+        console.log('SeoRouteRegex')
+      }
     }
     return breadcrumbs
   }

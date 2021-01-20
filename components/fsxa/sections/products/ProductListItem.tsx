@@ -34,7 +34,9 @@ class ProductListItem extends FSXABaseSection<Payload, Meta> {
           type: 'image',
           previewId: this.payload.tt_teaser_image.previewId,
           src: this.payload.tt_teaser_image.resolutions.ORIGINAL.url,
-          resolutions: this.payload.tt_teaser_image.resolutions
+          resolutions: this.payload.tt_teaser_image.resolutions,
+          sizes:
+            '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw'
         }}
         description={this.payload.tt_teaser_text}
         price={this.payload.tt_price}

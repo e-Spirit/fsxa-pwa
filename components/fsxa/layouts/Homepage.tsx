@@ -35,13 +35,19 @@ export interface Data {
   }[]
 }
 @Component({
-  name: 'HomepageLayout'
+  name: 'HomepageLayout',
+  // We will set the page-title for every page that is using the homepage layout
+  head() {
+    return {
+      title: (this as any).currentPage.label
+    }
+  }
 })
 class HomepageLayout extends FSXABaseLayout<Data> {
   render() {
     return (
       <div>
-        <div class="tw-w-full screen-height-without-header apply-header-height-as-bottom-padding">
+        <div class="tw-w-full screen-height-without-header apply-header-height-as-bottom-padding tw-bg-white">
           <Sections.FullWidthSliderSection
             slides={this.data.pt_slider.map((slide) => ({
               buttonContent: slide.data.st_button.data.lt_button_text,

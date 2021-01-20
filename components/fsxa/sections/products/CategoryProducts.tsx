@@ -5,9 +5,8 @@ import {
 } from 'fsxa-api'
 import { FSXABaseSection } from 'fsxa-pattern-library'
 import { Component } from 'vue-property-decorator'
-import { Container, Sections } from 'fsxa-ui'
+import { Sections } from 'fsxa-ui'
 import Loader from '../../Loader'
-import ProductListItem from './ProductListItem'
 
 interface Payload {
   filterParams: {
@@ -43,6 +42,13 @@ class CategoryProducts extends FSXABaseSection<Payload> {
         value: this.payload.schema
       }
     ]
+    if (this.payload.filterParams.category) {
+      params.push({
+        field: 'formData.tt_categories.value.label',
+        operator: ComparisonQueryOperatorEnum.EQUALS,
+        value: this.payload.filterParams.category
+      })
+    }
     const response = await this.fsxaApi.fetchByFilter(params, this.locale)
     this.setStoredItem(this.storedKey, response)
   }
@@ -62,22 +68,24 @@ class CategoryProducts extends FSXABaseSection<Payload> {
   render() {
     const ListSection = (Sections as any).ListSection
     return (
-      <Container>
+      <div class="tw-px-4 md:tw-px-6 lg:tw-px-8">
         <ListSection
           items={this.products || []}
-          renderItem={(item: Dataset) => {
-            return this.renderContentElement({
-              ...item,
-              template:
-                item.template === 'products.product_list_item'
-                  ? item.template
-                  : 'products.product_list_item'
-            })
+          scopedSlots={{
+            item: (item: Dataset) => {
+              return this.renderContentElement({
+                ...item,
+                template:
+                  item.template === 'products.product_list_item'
+                    ? item.template
+                    : 'products.product_list_item'
+              })
+            }
           }}
         >
           {!this.products ? <Loader /> : undefined}
         </ListSection>
-      </Container>
+      </div>
     )
   }
 }

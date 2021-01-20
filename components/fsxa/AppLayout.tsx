@@ -4,7 +4,10 @@ import {
   Navigation,
   NavigationItem,
   MobileNavigation,
-  FirstLevelNavigationItem
+  FirstLevelNavigationItem,
+  Footer,
+  Layout,
+  LayoutItem
 } from 'fsxa-ui'
 import { NavigationData } from 'fsxa-api'
 import Component from 'vue-class-component'
@@ -104,6 +107,7 @@ class AppLayout extends FSXABaseAppLayout {
   }
 
   render() {
+    console.log(this.globalSettings)
     // we will append the language menu as well
     const items = [...this.navigationItems]
     // Each NavigationItem contains an array of parentIds. This helps us construct the activeItemKeys for the Navigation components
@@ -113,7 +117,7 @@ class AppLayout extends FSXABaseAppLayout {
     return ['initializing', 'not_initialized'].includes(this.appState) ? (
       <Loader />
     ) : (
-      <div class="tw-w-full tw-h-full fixed-page-content">
+      <div class="tw-w-full tw-h-full fixed-page-content tw-pb-64">
         <PageHeader
           fullscreen={this.showMobileNavigation}
           onOverlayClick={() => {
@@ -131,7 +135,18 @@ class AppLayout extends FSXABaseAppLayout {
           }}
         >
           <div class="tw-bg-white fixed-page-header tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 tw-flex tw-items-center tw-justify-between tw-scrollbar-fix-left tw-text-gray-900">
-            <a href={this.navigationData?.pages.index} class="tw-flex-shrink-0">
+            <a
+              href={this.navigationData?.pages.index}
+              class="tw-flex-shrink-0"
+              onClick={(event) => {
+                event.preventDefault()
+                this.triggerRouteChange({
+                  pageId: this.navigationData?.seoRouteMap[
+                    this.navigationData.pages.index
+                  ]
+                })
+              }}
+            >
               <img src={this.logoUrl} />
             </a>
             <div class="tw-hidden md:tw-block h-full">
@@ -164,6 +179,47 @@ class AppLayout extends FSXABaseAppLayout {
             </a>
           </div>
         </PageHeader>
+        <div class="tw-w-full tw-h-64 tw-bg-gray-100 tw-flex tw-items-center tw-text-xs tw-fixed tw-bottom-0 tw-left-0 tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 ">
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-start">
+            <a
+              href={this.navigationData?.pages.index}
+              class="tw-flex-shrink-0"
+              onClick={(event) => {
+                event.preventDefault()
+                this.triggerRouteChange({
+                  pageId: this.navigationData?.seoRouteMap[
+                    this.navigationData.pages.index
+                  ]
+                })
+              }}
+            >
+              <img src={this.logoUrl} />
+            </a>
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-center">
+            © {this.globalSettings?.data.gc_copyright}
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-end tw-gap-2">
+            {this.globalSettings?.data.gc_linklist.map((link: any) => (
+              <a
+                href={this.getUrlByPageId(link.data.lt_link.referenceId) || '#'}
+                class={`tw-text-xs hover:tw-underline ${
+                  this.currentPage?.id === link.data.lt_link.referenceId
+                    ? 'tw-text-gray-600'
+                    : ''
+                }`}
+                onClick={(event: MouseEvent) => {
+                  event.preventDefault()
+                  this.triggerRouteChange({
+                    pageId: link.data.lt_link.referenceId
+                  })
+                }}
+              >
+                {link.data.lt_text}
+              </a>
+            ))}
+          </div>
+        </div>
         {this.$slots.default}
       </div>
     )
