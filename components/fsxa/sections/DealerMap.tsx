@@ -51,7 +51,7 @@ class DealerMap extends FSXABaseSection {
 
   render() {
     return (
-      <div class="tw-w-full screen-height-without-header">
+      <div class="tw-w-full screen-height-without-header tw-bg-white">
         <Sections.GoogleMapsSection
           language={this.locale.split('_')[0]}
           apikey={process.env.GOOGLE_MAPS_APIKEY as string}

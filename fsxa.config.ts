@@ -1,5 +1,5 @@
 export default {
-  devMode: true,
+  devMode: false,
   defaultLocale: 'de_DE',
   components: {
     sections: '~/components/fsxa/sections',
@@ -8,6 +8,5 @@ export default {
     loader: '~/components/fsxa/Loader'
   },
   customRoutes: '~/customRoutes',
-  globalSettingsKey: 'global_settings',
-  logLevel: 3
+  globalSettingsKey: 'global_settings'
 }

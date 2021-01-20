@@ -29,8 +29,8 @@
     "core-js": "^2.6.10",
     "fsxa-api": "^4.0.5",
     "fsxa-nuxt-module": "^3.1.0",
-    "fsxa-pattern-library": "^2.2.1",
-    "fsxa-ui": "^2.3.4",
+    "fsxa-pattern-library": "^2.2.2",
+    "fsxa-ui": "^2.3.6",
     "lodash.get": "^4.4.2",
     "nuxt": "^2.0.0",
     "tailwindcss": "^1.9.6"
