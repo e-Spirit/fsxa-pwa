@@ -36,6 +36,7 @@ jobs:
         FSXA_NAVIGATION_SERVICE: FSXA_NAVIGATION_SERVICE
         FSXA_LOCALE: FSXA_LOCALE
         FSXA_TENANT_ID: FSXA_TENANT_ID
+        FSXA_PROJECT_ID: FSXA_PROJECT_ID
 
     - name: Release
       run: npm run semantic-release
