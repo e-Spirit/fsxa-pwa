@@ -29,9 +29,10 @@ jobs:
 
     - name: Build
       run: npm run build
+      env:
+        FSXA_MODE: preview
 
     - name: Release
       run: npm run semantic-release
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        FSXA_MODE: ${{ secrets.FSXA_MODE }}
