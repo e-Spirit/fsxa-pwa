@@ -1,0 +1,341 @@
+class App extends Vue {
+  showMobileNavigation = false;
+
+  @Watch("showMobileNavigation")
+  onShowMobileNavigationChange(nextVal: boolean) {
+    if (nextVal) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }
+
+  render() {
+    const navItems: FirstLevelNavigationItem[] = [
+      {
+        key: "home",
+        path: "/",
+        label: "Home",
+        children: [],
+      },
+      {
+        key: "solutions",
+        path: "/solutions",
+        label: "Our Solutions",
+        children: [
+          {
+            key: "products.interior",
+            path: "/products",
+            label: "Interior Equipment",
+          },
+          {
+            key: "products.indoor_cams",
+            path: "/products",
+            label: "Indoor Cams",
+          },
+          {
+            key: "products.outdoor_cams",
+            path: "/products",
+            label: "Outdoor Cams",
+          },
+          {
+            key: "products.thermostats",
+            path: "/products",
+            label: "Thermostats",
+          },
+        ],
+      },
+      {
+        key: "products",
+        path: "/products",
+        label: "Products",
+        childPlacement: "right",
+        children: [
+          {
+            key: "products.interior",
+            path: "/products",
+            label: "Interior Equipment",
+          },
+          {
+            key: "products.indoor_cams",
+            path: "/products",
+            label: "Indoor Cams",
+          },
+          {
+            key: "products.outdoor_cams",
+            path: "/products",
+            label: "Outdoor Cams",
+          },
+          {
+            key: "products.thermostats",
+            path: "/products",
+            label: "Thermostats",
+          },
+        ],
+      },
+      {
+        key: "language",
+        path: "#",
+        label: this.showMobileNavigation ? (
+          "Sprache"
+        ) : (
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        ),
+        children: [
+          {
+            key: "language.de",
+            label: "Deutsch",
+            path: "#",
+          },
+          {
+            key: "language.en",
+            label: "Englisch",
+            path: "#",
+          },
+        ],
+        childPlacement: "right",
+      },
+    ];
+    return (
+      <div class="w-full h-full pt-20 px-10">
+        <PageHeader
+          fullscreen={this.showMobileNavigation}
+          onOverlayClick={() => {
+            this.showMobileNavigation = false;
+          }}
+          scopedSlots={{
+            overlay: () =>
+              this.showMobileNavigation ? (
+                <MobileNavigation items={navItems} />
+              ) : null,
+          }}
+        >
+          <div class="bg-white px-10 z-10 flex items-stretch justify-between scrollbar-fix-left">
+            <svg
+              class="w-24 h-24 self-start flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+            </svg>
+            <div class="hidden md:block">
+              <Navigation items={navItems} />
+            </div>
+            <a
+              href="#"
+              class="flex md:hidden px-5 py-4 items-center justify-center"
+              onClick={event => {
+                event.preventDefault();
+                this.showMobileNavigation = !this.showMobileNavigation;
+              }}
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </PageHeader>
+        {/**<div
+          class={`fixed top-0 left-0 w-full shadow-md flex flex-col ${
+            this.showMobileNavigation ? "h-screen" : ""
+          }`}
+        >
+          <div class="bg-white px-10 z-10 flex items-stretch justify-end scrollbar-fix-left">
+            <svg
+              class="w-24 h-24 self-start flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+            </svg>
+            <div class="hidden md:flex flex-row">
+              {navItems.map(item => (
+                <div class="relative group overflow-hidden hover:overflow-visible">
+                  <a
+                    href="#"
+                    class="h-full flex items-center justify-center px-5 py-4 uppercase tracking-widest text-sm"
+                  >
+                    {item.label}
+                  </a>
+                  {item.children.length > 0 ? (
+                    <div
+                      class={`absolute top-100 ${
+                        item.childPlacement === "right" ? "right" : "left"
+                      }-0`}
+                    >
+                      <ul class="translate-y-8 group-hover:translate-y-1 bg-white border border-gray-300 w-56 text-sm shadow transform transition-transform duration-300 leading-5">
+                        {item.children.map((child: any) => (
+                          <li class="last:border-b-0 border-b border-gray-300">
+                            <a
+                              href="#"
+                              class="block px-5 py-2 bg-white hover:bg-gray-200"
+                            >
+                              {child.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+            <a
+              href="#"
+              class="flex md:hidden px-5 py-4 items-center justify-center"
+              onClick={event => {
+                event.preventDefault();
+                this.showMobileNavigation = !this.showMobileNavigation;
+              }}
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          {this.showMobileNavigation ? (
+            <div
+              class="w-full bg-gray-900 bg-opacity-80 flex-grow overflow-hidden"
+              onClick={event => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                this.showMobileNavigation = false;
+              }}
+            >
+              <div class="w-full max-h-full border-t border-b border-gray-300 flex items-stretch justify-start font-sans flex-col overflow-y-auto">
+                {navItems.map(this.renderItem)}
+              </div>
+            </div>
+          ) : null}
+            </div>
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie
+        mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem
+        einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+        geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine
+        Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite
+        Grammatik. Der große Oxmox riet ihr davon ab, da es dort wimmele von
+        bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das
+        Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien,
+        schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als
+        es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen
+        letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen,
+        die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der
+        Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange,
+        dann setzte es seinen Weg fort. Unterwegs traf es eine Copy. Die Copy
+        warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal
+        umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre,
+        sei das Wort "und" und das Blindtextchen solle umkehren und wieder in
+        sein eigenes, sicheres Land zurückkehren. Doch alles Gutzureden konnte
+        es nicht überzeugen und so dauerte es nicht lange, bis ihm ein paar
+        heimtückische Werbetexter auflauerten, es mit Longe und Parole betrunken
+        machten und es dann in ihre Agentur schleppten, wo sie es für ihre
+        Projekte wieder und wieder mißbrauchten. Und wenn es nicht umgeschrieben
+        wurde, dann benutzen Sie es immernoch. Weit hinten, hinter den
+        Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+        Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des
+        Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden
+        fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es
+        ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den
+        Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die
+        Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines
+        Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem
+        Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr
+        davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und
+        hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.
+        Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel
+        und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges
+        erklommen hatte, warf es einen letzten Blick zurück auf die Skyline
+        seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die
+        Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine
+        rhetorische Frage über die Wange, dann setzte es seinen Weg fort.
+        Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo
+        sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von
+        ihrem Ursprung noch übrig wäre, sei das Wort "und" und das Blindtextchen
+        solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.
+        Doch alles Gutzureden konnte es nicht überzeugen und so dauerte es nicht
+        lange, bis ihm ein paar heimtückische Werbetexter auflauerten, es mit
+        Longe und Parole betrunken machten und es dann in ihre Agentur
+        schleppten, wo sie es für ihre Projekte wieder und wieder mißbrauchten.
+        Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immernoch.
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie
+        mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem
+        einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+        geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine
+        Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite
+        Grammatik. Der große Oxmox riet ihr davon ab, da es dort wimmele von
+        bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das
+        Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien,
+        schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als
+        es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen
+        letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen,
+        die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der
+        Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange,
+        dann setzte es seinen Weg fort. Unterwegs traf es eine Copy. Die Copy
+        warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal
+        umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre,
+        sei das Wort "und" und das Blindtextchen solle umkehren und wieder in
+        sein eigenes, sicheres Land zurückkehren. Doch alles Gutzureden konnte
+        es nicht überzeugen und so dauerte es nicht lange, bis ihm ein paar
+        heimtückische Werbetexter auflauerten, es mit Longe und Parole betrunken
+        machten und es dann in ihre Agentur schleppten, wo sie es für ihre
+        Projekte wieder und wieder mißbrauchten. Und wenn es nicht umgeschrieben
+        wurde, dann benutzen Sie es immernoch.Weit hinten, hinter den
+        Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+        Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des
+        Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden
+        fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es
+        ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den
+        Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die
+        Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines
+        Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem
+        Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr
+        davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und
+        hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.
+        Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel
+        und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges
+        erklommen hatte, warf es einen
+      </div>
+    );
+    return <Documentation />;
+  }
+}
+export default App;**/
