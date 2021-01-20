@@ -107,7 +107,6 @@ class AppLayout extends FSXABaseAppLayout {
   }
 
   render() {
-    console.log(this.globalSettings)
     // we will append the language menu as well
     const items = [...this.navigationItems]
     // Each NavigationItem contains an array of parentIds. This helps us construct the activeItemKeys for the Navigation components

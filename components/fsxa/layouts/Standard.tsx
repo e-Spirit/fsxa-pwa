@@ -61,7 +61,6 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
         })
       }
       if ((this.currentPage as any).seoRouteRegex) {
-        console.log('SeoRouteRegex')
       }
     }
     return breadcrumbs
