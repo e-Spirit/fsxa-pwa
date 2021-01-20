@@ -34,4 +34,4 @@ jobs:
       run: npm run semantic-release
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        FSXA_MODE: PREVIEW
+        FSXA_MODE: ${{ secrets.FSXA_MODE }}
