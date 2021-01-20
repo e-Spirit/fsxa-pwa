@@ -31,6 +31,11 @@ jobs:
       run: npm run build
       env:
         FSXA_MODE: preview
+        FSXA_API_KEY: API_KEY
+        FSXA_CAAS: FSXA_CAAS
+        FSXA_NAVIGATION_SERVICE: FSXA_NAVIGATION_SERVICE
+        FSXA_LOCALE: FSXA_LOCALE
+        FSXA_TENANT_ID: FSXA_TENANT_ID
 
     - name: Release
       run: npm run semantic-release
