@@ -1,0 +1,228 @@
+import { FSXABaseAppLayout, FSXAGetters } from 'fsxa-pattern-library'
+import {
+  Loader,
+  Navigation,
+  NavigationItem,
+  MobileNavigation,
+  FirstLevelNavigationItem,
+  Footer,
+  Layout,
+  LayoutItem
+} from 'fsxa-ui'
+import { NavigationData } from 'fsxa-api'
+import Component from 'vue-class-component'
+import { Watch } from 'vue-property-decorator'
+import PageHeader from '../PageHeader'
+import { getFallbackTranslation } from '~/utils/i18n'
+@Component({
+  name: 'AppLayout'
+})
+class AppLayout extends FSXABaseAppLayout {
+  showMobileNavigation = false
+
+  @Watch('showMobileNavigation')
+  onShowMobileNavigationChange(nextVal: boolean) {
+    if (nextVal) {
+      document.body.classList.add('overflow-hidden')
+    } else {
+      document.body.classList.remove('overflow-hidden')
+    }
+  }
+
+  get navigationData(): NavigationData | null {
+    return this.$store.getters[FSXAGetters.navigationData]
+  }
+
+  get navigationItems(): FirstLevelNavigationItem[] {
+    return this.navigationData
+      ? this.navigationData.structure.map((item) => ({
+          key: item.id,
+          label: this.navigationData?.idMap[item.id].label,
+          path: this.getUrlByPageId(item.id) || '#',
+          children: item.children.map((child) => ({
+            key: child.id,
+            label: this.navigationData?.idMap[child.id].label,
+            path: this.getUrlByPageId(child.id) || '#'
+          }))
+        }))
+      : []
+  }
+
+  get logoUrl() {
+    return this.globalSettings?.data.gs_logo.resolutions.ORIGINAL.url
+  }
+
+  getLangNavItem(isMobile: boolean): FirstLevelNavigationItem {
+    return {
+      key: 'language',
+      path: '#',
+      label: isMobile ? (
+        this.globalSettings?.data.label_language ||
+        getFallbackTranslation([this.locale, 'language', 'label'])
+      ) : (
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      ),
+      children: [
+        {
+          key: 'language.de',
+          label:
+            this.globalSettings?.data.label_language_german ||
+            getFallbackTranslation([this.locale, 'language', 'de_DE']),
+          path: '#'
+        },
+        {
+          key: 'language.en',
+          label:
+            this.globalSettings?.data.label_language_english ||
+            getFallbackTranslation([this.locale, 'language', 'en_GB']),
+          path: '#'
+        }
+      ],
+      childPlacement: 'right'
+    }
+  }
+
+  handleNavigationClick(item: NavigationItem) {
+    if (['language.de', 'language.en'].includes(item.key as string)) {
+      this.triggerRouteChange({
+        pageId: this.currentPage?.id,
+        locale: item.key === 'language.de' ? 'de_DE' : 'en_GB'
+      })
+    } else {
+      this.triggerRouteChange({
+        pageId: item.key as string
+      })
+    }
+  }
+
+  render() {
+    // we will append the language menu as well
+    const items = [...this.navigationItems]
+    // Each NavigationItem contains an array of parentIds. This helps us construct the activeItemKeys for the Navigation components
+    const activeItemKeys = this.currentPage
+      ? [...this.currentPage.parentIds, this.currentPage.id]
+      : []
+    return ['initializing', 'not_initialized'].includes(this.appState) ? (
+      <Loader />
+    ) : (
+      <div class="tw-w-full tw-h-full fixed-page-content tw-pb-64">
+        <PageHeader
+          fullscreen={this.showMobileNavigation}
+          onOverlayClick={() => {
+            this.showMobileNavigation = false
+          }}
+          scopedSlots={{
+            overlay: () =>
+              this.showMobileNavigation ? (
+                <MobileNavigation
+                  items={[...items, this.getLangNavItem(true)]}
+                  activeItemKeys={activeItemKeys}
+                  onItemClicked={this.handleNavigationClick}
+                />
+              ) : null
+          }}
+        >
+          <div class="tw-bg-white fixed-page-header tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 tw-flex tw-items-center tw-justify-between tw-scrollbar-fix-left tw-text-gray-900">
+            <a
+              href={this.navigationData?.pages.index}
+              class="tw-flex-shrink-0"
+              onClick={(event) => {
+                event.preventDefault()
+                this.triggerRouteChange({
+                  pageId: this.navigationData?.seoRouteMap[
+                    this.navigationData.pages.index
+                  ]
+                })
+              }}
+            >
+              <img src={this.logoUrl} />
+            </a>
+            <div class="tw-hidden md:tw-block h-full">
+              <Navigation
+                items={[...items, this.getLangNavItem(false)]}
+                activeItemKeys={activeItemKeys}
+                onItemClicked={this.handleNavigationClick}
+              />
+            </div>
+            <a
+              href="#"
+              class="tw-flex -tw-mr-5 md:tw-hidden tw-px-5 tw-py-4 tw-items-center tw-justify-center"
+              onClick={(event) => {
+                event.preventDefault()
+                this.showMobileNavigation = !this.showMobileNavigation
+              }}
+            >
+              <svg
+                class="tw-w-6 tw-h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </PageHeader>
+        <div class="tw-w-full tw-h-64 tw-bg-gray-100 tw-flex tw-items-center tw-text-xs tw-fixed tw-bottom-0 tw-left-0 tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 ">
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-start">
+            <a
+              href={this.navigationData?.pages.index}
+              class="tw-flex-shrink-0"
+              onClick={(event) => {
+                event.preventDefault()
+                this.triggerRouteChange({
+                  pageId: this.navigationData?.seoRouteMap[
+                    this.navigationData.pages.index
+                  ]
+                })
+              }}
+            >
+              <img src={this.logoUrl} />
+            </a>
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-center">
+            © {this.globalSettings?.data.gc_copyright}
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-end tw-gap-2">
+            {this.globalSettings?.data.gc_linklist.map((link: any) => (
+              <a
+                href={this.getUrlByPageId(link.data.lt_link.referenceId) || '#'}
+                class={`tw-text-xs hover:tw-underline ${
+                  this.currentPage?.id === link.data.lt_link.referenceId
+                    ? 'tw-text-gray-600'
+                    : ''
+                }`}
+                onClick={(event: MouseEvent) => {
+                  event.preventDefault()
+                  this.triggerRouteChange({
+                    pageId: link.data.lt_link.referenceId
+                  })
+                }}
+              >
+                {link.data.lt_text}
+              </a>
+            ))}
+          </div>
+        </div>
+        {this.$slots.default}
+      </div>
+    )
+  }
+}
+
+export default AppLayout

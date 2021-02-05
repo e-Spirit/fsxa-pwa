@@ -1,51 +1,36 @@
-import Component from 'vue-class-component'
-import { Sections } from 'fsxa-ui'
-import { FSXABaseSection } from 'fsxa-pattern-library'
+import { RichTextElement } from 'fsxa-api/dist/types'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { Container, Sections } from 'fsxa-ui'
+import { Component } from 'vue-property-decorator'
 
-export interface Payload {
-  st_acc: Array<{
+interface Payload {
+  st_acc: {
+    id: string
     previewId: string
-    identifier: string
+    template: string
     data: {
       st_header_acc: string
-      st_text_acc: string
+      st_text_acc: RichTextElement[]
     }
-  }>
-  st_color: {
-    fsType: string
-    label: string
-    identifier: string
-  }
+  }[]
   st_header: string
 }
-
 @Component({
-  name: 'AccordionSection'
+  name: 'Accordion'
 })
-class AccordionSection extends FSXABaseSection<Payload> {
+class Accordion extends FSXABaseSection<Payload> {
   render() {
-    console.log(this.payload, (this.payload.st_acc || []).map((item) => ({
-        previewId: item.previewId,
-        title: item.data.st_header_acc,
-        text: item.data.st_text_acc
-      })))
     return (
-        <div>
-      <client-only>
+      <Container>
         <Sections.AccordionSection
           title={this.payload.st_header}
-          items={(this.payload.st_acc || []).map((item) => ({
-            previewId: item.previewId,
-            title: item.data.st_header_acc,
-            text: item.data.st_text_acc
+          items={this.payload.st_acc.map((item) => ({
+            text: <FSXARichText content={item.data.st_text_acc} />,
+            title: item.data.st_header_acc
           }))}
-          dark={
-            this.payload.st_color.identifier == 'acc-bg-gray' ? true : false
-          }
         />
-      </client-only>
-      </div>
+      </Container>
     )
   }
 }
-export default AccordionSection
+export default Accordion

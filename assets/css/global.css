@@ -1,0 +1,17 @@
+.fixed-page-header {
+  height: 90px;
+}
+
+.screen-height-without-header {
+  height: calc(100vh - 90px);
+}
+
+@media (min-width: 768px) {
+  .apply-header-height-as-bottom-padding {
+    padding-bottom: 90px;
+  }
+}
+
+.fixed-page-content {
+  padding-top: 90px;
+}

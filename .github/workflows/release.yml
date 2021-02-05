@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master, next, alpha and beta branch
+on:
+  push:
+    branches: [ master, next, alpha, beta ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  release:
+    # Only release on push to master
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Install
+      run: npm install
+
+    - name: Build
+      run: npm run build
+      env:
+        FSXA_MODE: preview
+        FSXA_API_KEY: API_KEY
+        FSXA_CAAS: FSXA_CAAS
+        FSXA_NAVIGATION_SERVICE: FSXA_NAVIGATION_SERVICE
+        FSXA_LOCALE: FSXA_LOCALE
+        FSXA_TENANT_ID: FSXA_TENANT_ID
+        FSXA_PROJECT_ID: FSXA_PROJECT_ID
+
+    - name: Release
+      run: npm run semantic-release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
