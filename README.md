@@ -13,122 +13,73 @@ a demo [online](https://www.e-spirit.com/us/specialpages/forms/on-demand-demo/).
 
 ## Getting Started
 
-### Create `.env` file in root-directory
+This chapter describes how to set up the project and complete the first steps.
 
-```bash
-# APIKey used for authentication against the CaaS
-FSXA_API_KEY= ...
-# URL pointing to your CaaS Instance
-FSXA_CAAS= ...
-# ID of your project
-FSXA_PROJECT_ID= ...
-# URL pointing to the NavigationService
-FSXA_NAVIGATION_SERVICE= ...
-# Which mode should be used? (preview/release)
-FSXA_MODE= ...
-# KEY:VALUE map where semicolon is used as separator (key:uuid;key:uuid)
-FSXA_REMOTES= ...
-# This tenantId is required, when using caas-connect module 3.0.9 and above
-FSXA_TENANT_ID=...
-```
+### Requirements
 
-### How to run dev and build mode
+- [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.
+- A text editor - like [VS Code](https://code.visualstudio.com/) with the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin.
+- A terminal - like VS Code's integrated [terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
+- [Git](https://git-scm.com/) - latest major version: > 2.
 
-```bash
-# install dependencies
-$ npm install
+### Setting up the project
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+1. Open the terminal and if needed, navigate in your preferred directory where the project should be saved.
 
-# build for production and launch server
-$ npm run build
-$ npm run start
 
-# generate static project
-$ npm run generate
-```
+2. Clone the project via the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. After a few moments the project should appear in your directory.
 
-This project is using the [FSXA-Pattern-Library](https://www.npmjs.com/package/fsxa-pattern-library) and [FSXA-UI](https://www.npmjs.com/package/fsxa-ui)
 
-The pattern-library is referenced in two entry points.
+3. Navigate to the newly created folder with `cd fsxa-pwa`
 
-### /src/pages/\_.tsx
 
-The page structure in nuxt is mapped via files and folders inside of the pages folder. To leave the routing decision all requests are mapped to the generic IndexPage (\_.tsx) file. This will pass the current route to the FSXAPage. If the FSXAPage decides that a route-change is needed it will call the provided callback `handleRouteChange` with the next route and the IndexPage will pass it through the the router that is embedded in nuxt.
+4. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
 
-### /src/store/fsxa.ts
 
-The pattern-library is using Vuex in the background to be able to provide a working server-side-rendering mechanism. All fetched data is stored in the Vuex Store and is passed to the Client after hydration. Since Vuex is already included and setup in nuxt, we need to add the vuex-store-module provided by the pattern-library to the existing one. This is done via adding the file `fsxa.ts`. It exports the store, actions, getters and mutations used inside of the pattern-library. The module itself is prefixing every action and getter with `fsxa` so that there are no unwanted name clashes.
+5. The .env file must contain all the information you need to access your own system. You can get this information from your contact person at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
 
-### /src/store/index.ts
 
-Nuxt is calling the action `nuxtServerInit` in the client hydration process. To pipe the input through to the pattern-library the `index.ts` exists and is listening to the `nuxtServerInit`. The payload is passed through to the `FSXAActions.setInitialStateFromServer`.
+6. To install all needed dependencies run the command `npm install`.
 
-### Enabling Dev-Mode
 
-Every FSXAInstance can be wrapped with an `FSXAConfigProvider`-Instance. By passing the `devMode`-Prop to it the UI will be enhanced with additional components to provide useful information for the development process.
+7. After all dependencies are installed, you can start a local development server with `npm run dev`.
 
-```bash
-<FSXAConfigProvider devMode>
-    <FSXAPage />
-</FSXAConfigProvider>
-```
 
-### Adding new Section Templates
+8. After the server is started, it is accessible at http://localhost:3000 in your browser.
 
-It is very easy to add new section templates. Just create your own template in the components-folder and make sure that you extends the `FSXABaseSection` provided by the FSXA-Pattern-Library.
+### Development mode
 
-```bash
-# /src/components/MyNewSectionTemplate.jsx
+There is a development mode that helps to easily map the content coming from the CaaS.
 
-import { FSXABaseSection } from "fsxa-pattern-library"
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file.
 
-# Your custom payload. You can find out which json is passed to your component when you enable the devMode
-interface Payload {
-    ...
-}
-class MyNewSectionTemplate extends FSXABaseSection<Payload> {
-    render() {
-        return (<div>Add your custom markup in here</div>)
-    }
-}
-```
+If you are in development mode and the component that is on the page has not been developed yet, you will get an info box. This shows exactly which component is missing and what information can be addressed.
 
-At last you have to wrap your `FSXAPage` with an `FSXAConfigProvider` Instance and pass a sections configuration.
+![Missing Layout](./assets/documentation/MissingLayout.png)
 
-```bash
-import MyNewSectionTemplate from "~/components/MyNewSectionTemplate.tsx"
+If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the elements.
 
-# in your render-method
-<FSXAConfigProvider
-    sections={{
-        # you can find the template key when enabling the DevMode
-        section_template_key: MyNewSectionTemplate,
-    }}
->
-    ...
-</FSXAConfigProvider>
-```
+![QuestionMark](./assets/documentation/QuestionMark.png)
 
-> You can override existing section templates in the same way. Just pass your component with the existing sections template key. The pattern library will use the last occurrence.
+By clicking on this question mark you will get more information about which component is displayed and what information is available.
 
-### Changing visual appearance with CSS-Variables
+### Writing components
 
-The FSXA-UI library provides multiple css-variables that can be set to change visual characteristics of the components.
+If we want to start implementing the missing components, we must first specify where these files will be located. We do this in the `fsxa.config.ts`.
 
-```bash
-~/assets/css/global.css
+There we see under the entry `components` the different types that are available. There we can specify the path. The `~` stands for the root of the project.
 
-:root {
-    # This will change the highlight color to red
-    --fsxa-text-highlight-color: #FF0000;
-}
-```
+After you have created the file in these folders, you can start the implementation there. Make sure that the name of the file corresponds to the name of the required component.
+
+There are some basic components that you can use to build your own components.
+You can import `FSXABaseLayout`, `FSXABaseAppLayout`, `FSXABaseSection` from the `fsxa-pattern-library` to access the basic functionalities.
+Extend these classes with your own and access the data from the CaaS.
+
+Under the given variable `this.payload` you can access the actual payload and use it in your component.
 
 ## Legal Notices
 
-FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com) AG, Dortmund, Germany.
+FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com), Dortmund, Germany.
 The FSXA-PWA is subject to the Apache-2.0 license.
 
 ## Disclaimer
