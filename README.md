@@ -51,7 +51,7 @@ This chapter describes how to set up the project and complete the first steps.
 
 There is a development mode that helps to easily map the content coming from the CaaS.
 
-To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file.
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. You have to restart the server, when you change anything in this file.
 
 If you are in development mode and the component that is on the page has not been developed yet, you will get an info box. This shows exactly which component is missing and what information can be addressed.
 
@@ -65,17 +65,229 @@ By clicking on this question mark you will get more information about which comp
 
 ### Writing components
 
-If we want to start implementing the missing components, we must first specify where these files will be located. We do this in the `fsxa.config.ts`.
+In this section, we will develop and include the missing "Teaser" component together.
 
-There we see under the entry `components` the different types that are available. There we can specify the path. The `~` stands for the root of the project.
+When we visit the home page in the development mode, we see that one component is missing.
 
-After you have created the file in these folders, you can start the implementation there. Make sure that the name of the file corresponds to the name of the required component.
+![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
 
-There are some basic components that you can use to build your own components.
-You can import `FSXABaseLayout`, `FSXABaseAppLayout`, `FSXABaseSection` from the `fsxa-pattern-library` to access the basic functionalities.
-Extend these classes with your own and access the data from the CaaS.
+In this infobox we see what kind of component is expected and that is a `Section`. And we can see what key this section has and that is `teaser`.
 
-Under the given variable `this.payload` you can access the actual payload and use it in your component.
+In the `fsxa.config.ts` file we see that our section components are located in `~/components/fsxa/sections`.
+That is exacly the place where we want to create a new file for the component.
+
+We make sure, that we name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
+
+First we import two library that will help us write the component:
+`import Component from 'vue-class-component'` and `import { FSXABaseSection } from 'fsxa-pattern-library'`
+
+With this we can start writing our class.
+
+```typescript jsx
+@Component
+class TeaserSection extends FSXABaseSection<{}>{
+  
+}
+```
+
+Within this class we have to implement a `render` function. This function describes which HTML will be displayed in our component. 
+To keep things simple at the moment we write a simple `render` function just to see if our component is recognized.
+```typescript jsx
+render() {
+  return <div>Hello Component</div>
+}
+```
+
+At the end we export our class.
+`export default TeaserSection`
+
+Finally our `Teaser.tsx` looks like this:
+
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection } from 'fsxa-pattern-library'
+
+@Component
+class TeaserSection extends FSXABaseSection<{}> {
+  render() {
+    return <div>Hello Component</div>
+  }
+}
+
+export default TeaserSection
+```
+
+Now instead of the infobox we see our component.
+
+![Hello Component](./assets/documentation/WritingComponents/HelloComponent.png)
+
+Our component is recognized correctly. But we still do not have the information in our component which the CaaS provides.
+For that we hover over our component and click on the appearing question mark on the right side.
+
+![Available Properties](./assets/documentation/WritingComponents/AvailableProperties.png)
+
+There we can see which properties we can use to display.
+For the first example we want to display the `st_jumbo_headline`.
+
+For this we create an interface in our component and define the name of the attribute and its type.
+
+```typescript
+interface Payload {
+  st_jumbo_headline: string
+}
+```
+
+We update the use of the `FSXABaseSection` with our new payload: `class TeaserSection extends FSXABaseSection<Payload>`
+and use the `st_jumbo_headline` in our `render` function.
+
+````typescript jsx
+render() {
+    return <div>Headline: {this.payload.st_jumbo_headline}</div>
+  }
+````
+
+Every attribute in our payload we can access via `this.payload`
+
+And the result looks like this:
+![Displayed Headline](./assets/documentation/WritingComponents/DisplayedHeadline.png)
+
+Next we want to continue to implement our payload interface.
+For some objects we use interfaces from the [FSXA-Api](https://github.com/e-Spirit/fsxa-api), so we also have to import them.
+
+```typescript
+import { Image, RichTextElement } from 'fsxa-api'
+```
+
+and the final result looks like this:
+```typescript
+interface Payload {
+  st_headline: RichTextElement[]
+  st_jumbo_headline: string
+  st_kicker: string
+  st_picture?: Image
+  st_picture_alt: string | null
+  st_text: RichTextElement[]
+  st_button?: {
+    data: {
+      lt_button_text: string
+      lt_internal: {
+        referenceId: string
+        referenceType: string
+      }
+    }
+  }
+}
+```
+
+Note that attributes followed by a question mark are optional. 
+
+So that we can display all this information, we use a component from the fsxa-ui.
+First it needs to be imported: `import { Sections } from 'fsxa-ui'`
+and then used properly in our `render` function: 
+
+```typescript jsx
+render() {
+    return (
+      <Sections.TeaserSection
+        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
+        kicker={this.payload.st_kicker}
+        text={(<FSXARichText content={this.payload.st_text} />) as any}
+        buttonText={this.payload.st_button?.data.lt_button_text}
+        onButtonClick={() =>
+          this.triggerRouteChange({
+            pageId: this.payload.st_button?.data.lt_internal.referenceId
+          })
+        }
+        media={
+          this.payload.st_picture
+            ? {
+                type: 'image',
+                src: this.payload.st_picture.resolutions.ORIGINAL.url,
+                resolutions: this.payload.st_picture.resolutions,
+                previewId: this.payload.st_picture.previewId
+              }
+            : undefined
+        }
+      />
+    )
+  }
+```
+
+Because we are using richtex and want to displayed it correctly. We import FSXARichText from the [fsxa-pattern-library]()
+```typescript
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+```
+
+Finally, we can name our component. We do this in the `@Component`-annotation.
+````typescript jsx
+@Component({
+  name: 'TeaserSection'
+})
+````
+
+The final `Teaser.tsx` file looks like this: 
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { Sections } from 'fsxa-ui'
+import { Image, RichTextElement } from 'fsxa-api'
+
+interface Payload {
+  st_headline: RichTextElement[]
+  st_jumbo_headline: string
+  st_kicker: string
+  st_picture?: Image
+  st_picture_alt: string | null
+  st_text: RichTextElement[]
+  st_button?: {
+    data: {
+      lt_button_text: string
+      lt_internal: {
+        referenceId: string
+        referenceType: string
+      }
+    }
+  }
+}
+
+@Component({
+  name: 'TeaserSection'
+})
+class TeaserSection extends FSXABaseSection<Payload> {
+  render() {
+    return (
+      <Sections.TeaserSection
+        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
+        kicker={this.payload.st_kicker}
+        text={(<FSXARichText content={this.payload.st_text} />) as any}
+        buttonText={this.payload.st_button?.data.lt_button_text}
+        onButtonClick={() =>
+          this.triggerRouteChange({
+            pageId: this.payload.st_button?.data.lt_internal.referenceId
+          })
+        }
+        media={
+          this.payload.st_picture
+            ? {
+                type: 'image',
+                src: this.payload.st_picture.resolutions.ORIGINAL.url,
+                resolutions: this.payload.st_picture.resolutions,
+                previewId: this.payload.st_picture.previewId
+              }
+            : undefined
+        }
+      />
+    )
+  }
+}
+
+export default TeaserSection
+```
+
+Here you can see the result.
+![Finished Component](./assets/documentation/WritingComponents/FinishedComponent.png)
+
+
 
 ## Legal Notices
 
