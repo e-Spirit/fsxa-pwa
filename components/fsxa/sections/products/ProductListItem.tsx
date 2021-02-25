@@ -28,7 +28,7 @@ class ProductListItem extends FSXABaseSection<Payload, Meta> {
   render() {
     return (
       <UIProductListItem
-        class="tw-h-full"
+        class="h-full"
         title={this.payload.tt_name}
         image={{
           type: 'image',

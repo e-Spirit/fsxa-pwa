@@ -14,7 +14,7 @@ class Paragraph extends FSXABaseRichTextElement {
         <span
           class={
             this.data['data-fs-style'] === 'format.span_yellow_text'
-              ? 'tw-text-highlight'
+              ? 'text-highlight'
               : ''
           }
         >
