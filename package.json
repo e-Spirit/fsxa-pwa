@@ -28,6 +28,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "consola": "^2.15.0",
     "core-js": "^2.6.10",
     "fsxa-api": "^5.1.0",
