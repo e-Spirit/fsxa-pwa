@@ -1,6 +1,6 @@
 import { RichTextElement } from 'fsxa-api/dist/types'
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-import { Sections, ImageRef } from 'fsxa-ui'
+import { Sections, Accordion } from 'fsxa-ui'
 import { Component } from 'vue-property-decorator'
 import { getFallbackTranslation } from '~/utils/i18n'
 
@@ -55,6 +55,18 @@ class Product extends FSXABaseSection<Payload> {
 
   // TODO: add button with text
   render() {
+    const deliveryTitle = this.globalSettings?.data.pt_label_product_delivery ||
+    getFallbackTranslation([
+      this.locale,
+      'product_detail',
+      'tt_delivery'
+    ])
+    const installationTitle = this.globalSettings?.data.pt_label_product_installation ||
+    getFallbackTranslation([
+      this.locale,
+      'product_detail',
+      'tt_installation'
+    ])
     return (
       <Sections.ProductDetailSection
         headline={this.payload.tt_name}
@@ -84,19 +96,17 @@ class Product extends FSXABaseSection<Payload> {
             this.payload.tt_compatibility
           )
         ]}
-        foldableContentList={{
-          [this.globalSettings?.data.pt_label_product_delivery ||
-          getFallbackTranslation([
-            this.locale,
-            'product_detail',
-            'tt_delivery'
-          ])]: <FSXARichText content={this.payload.tt_delivery} />,
-          [this.globalSettings?.data.pt_label_product_installation ||
-          getFallbackTranslation([
-            this.locale,
-            'product_detail',
-            'tt_installation'
-          ])]: <FSXARichText content={this.payload.tt_installation} />
+        scopedSlots={{
+          additionalContent: () => (
+            <div class="ui-w-full ui-mx-2 ui-px-6">
+              <Accordion title={deliveryTitle} dark>
+                <FSXARichText content={this.payload.tt_delivery} />
+              </Accordion>
+              <Accordion title={installationTitle} dark>
+                <FSXARichText content={this.payload.tt_installation} />
+              </Accordion>
+            </div>
+          )
         }}
         description={this.payload.tt_abstract}
         price={this.payload.tt_price}
