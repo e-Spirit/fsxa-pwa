@@ -27,7 +27,7 @@ This chapter describes how to set up the project and complete the first steps.
 1. Open the terminal and if needed, navigate in your preferred directory where the project should be saved.
 
 
-2. Clone the project via the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. After a few moments the project should appear in your directory.
+2. Clone the project via the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. Within a few moments the project should appear in your directory.
 
 
 3. Navigate to the newly created folder with `cd fsxa-pwa`
@@ -57,7 +57,7 @@ If you are in development mode and the component that is on the page has not bee
 
 ![Missing Layout](./assets/documentation/MissingLayout.png)
 
-If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the elements.
+If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the element.
 
 ![QuestionMark](./assets/documentation/QuestionMark.png)
 
@@ -74,11 +74,11 @@ When we visit the home page in the development mode, we see that one component i
 In this infobox we see what kind of component is expected and that is a `Section`. And we can see what key this section has and that is `teaser`.
 
 In the `fsxa.config.ts` file we see that our section components are located in `~/components/fsxa/sections`.
-That is exacly the place where we want to create a new file for the component.
+That is exactly the place where we want to create a new file for the component.
 
 We make sure, that we name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
 
-First we import two library that will help us write the component:
+First we import two libraries that will help us write the component:
 `import Component from 'vue-class-component'` and `import { FSXABaseSection } from 'fsxa-pattern-library'`
 
 With this we can start writing our class.
@@ -90,7 +90,7 @@ class TeaserSection extends FSXABaseSection<{}>{
 }
 ```
 
-Within this class we have to implement a `render` function. This function describes which HTML will be displayed in our component. 
+In this class we have to implement a `render` function. This function describes which HTML will be displayed in our component. 
 To keep things simple at the moment we write a simple `render` function just to see if our component is recognized.
 ```typescript jsx
 render() {
@@ -146,9 +146,9 @@ render() {
   }
 ````
 
-Every attribute in our payload we can access via `this.payload`
+Every attribute in our payload is accessible via `this.payload`
 
-And the result looks like this:
+The result looks like this:
 ![Displayed Headline](./assets/documentation/WritingComponents/DisplayedHeadline.png)
 
 Next we want to continue to implement our payload interface.
@@ -158,7 +158,7 @@ For some objects we use interfaces from the [FSXA-Api](https://github.com/e-Spir
 import { Image, RichTextElement } from 'fsxa-api'
 ```
 
-and the final result looks like this:
+The final interface looks like this:
 ```typescript
 interface Payload {
   st_headline: RichTextElement[]
@@ -184,6 +184,12 @@ Note that attributes followed by a question mark are optional.
 So that we can display all this information, we use a component from the fsxa-ui.
 First it needs to be imported: `import { Sections } from 'fsxa-ui'`
 and then used properly in our `render` function: 
+
+
+Because we are using richtex and want to display it correctly. We import FSXARichText from the [fsxa-pattern-library](https://github.com/e-Spirit/fsxa-pattern-library)
+```typescript
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+```
 
 ```typescript jsx
 render() {
@@ -213,12 +219,8 @@ render() {
   }
 ```
 
-Because we are using richtex and want to displayed it correctly. We import FSXARichText from the [fsxa-pattern-library]()
-```typescript
-import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-```
 
-Finally, we can name our component. We do this in the `@Component`-annotation.
+Finally, we can name our component. We do this in the `@Component` annotation.
 ````typescript jsx
 @Component({
   name: 'TeaserSection'
