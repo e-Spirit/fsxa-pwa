@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.1...v1.0.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* **tailwind prefixes:** updated fsxa-ui dependency and removed unnecessary prefixes ([1af005d](https://github.com/e-Spirit/fsxa-pwa/commit/1af005d6d27a609beba4096199e1906873da9d4e))
+
 ## [1.0.1](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.0...v1.0.1) (2021-02-01)
 
 
