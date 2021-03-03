@@ -24,9 +24,9 @@ This chapter describes how to set up the project and complete the first steps.
 
 ### Setting up the project
 
-1. Open the terminal and if needed, navigate in your preferred directory where the project should be saved.
+1. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
 
-2. Clone the project via the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. Within a few moments the project should appear in your directory.
+2. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
 
 3. Navigate to the newly created folder with `cd fsxa-pwa`
 
@@ -34,7 +34,7 @@ This chapter describes how to set up the project and complete the first steps.
 
 5. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
 
-6. To install all needed dependencies run the command `npm install`.
+6. To install the needed dependencies run the command `npm install`.
 
 7. After all dependencies are installed, you can start a local development server with `npm run dev`.
 
