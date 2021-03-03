@@ -26,34 +26,27 @@ This chapter describes how to set up the project and complete the first steps.
 
 1. Open the terminal and if needed, navigate in your preferred directory where the project should be saved.
 
-
 2. Clone the project via the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. Within a few moments the project should appear in your directory.
-
 
 3. Navigate to the newly created folder with `cd fsxa-pwa`
 
-
 4. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
 
-
-5. The .env file must contain all the information you need to access your own system. You can get this information from your contact person at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
-
+5. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
 
 6. To install all needed dependencies run the command `npm install`.
 
-
 7. After all dependencies are installed, you can start a local development server with `npm run dev`.
 
-
-8. After the server is started, it is accessible at http://localhost:3000 in your browser.
+8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
 
 ### Development mode
 
 There is a development mode that helps to easily map the content coming from the CaaS.
 
-To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. You have to restart the server, when you change anything in this file.
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
 
-If you are in development mode and the component that is on the page has not been developed yet, you will get an info box. This shows exactly which component is missing and what information can be addressed.
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
 
 ![Missing Layout](./assets/documentation/MissingLayout.png)
 
@@ -61,25 +54,29 @@ If you are in development mode and you have already implemented the component, t
 
 ![QuestionMark](./assets/documentation/QuestionMark.png)
 
-By clicking on this question mark you will get more information about which component is displayed and what information is available.
+Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
 
 ### Writing components
 
-In this section, we will develop and include the missing "Teaser" component together.
+In this section we will be exploring how to go about implementing a missing Teaser section.
 
-When we visit the home page in the development mode, we see that one component is missing.
+When you go to the home page in the development mode, you will see that one component is missing.
 
 ![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
 
-In this infobox we see what kind of component is expected and that is a `Section`. And we can see what key this section has and that is `teaser`.
+This infobox tells us that the app expects a component of type `Section`. We can also see that the key of this missing section is `teaser`.
 
-In the `fsxa.config.ts` file we see that our section components are located in `~/components/fsxa/sections`.
-That is exactly the place where we want to create a new file for the component.
+In the `fsxa.config.ts` file we can see that our section components are located in `~/components/fsxa/sections`.
+That's where you want to create a new file for the component.
 
-We make sure, that we name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
+Make sure, that you name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
 
-First we import two libraries that will help us write the component:
-`import Component from 'vue-class-component'` and `import { FSXABaseSection } from 'fsxa-pattern-library'`
+Next we need to import two classes that are required to define our new component:
+
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection } from 'fsxa-pattern-library'
+```
 
 With this we can start writing our class.
 
@@ -90,18 +87,22 @@ class TeaserSection extends FSXABaseSection<{}>{
 }
 ```
 
-In this class we have to implement a `render` function. This function describes which HTML will be displayed in our component. 
-To keep things simple at the moment we write a simple `render` function just to see if our component is recognized.
+This class expects us to implement `render` function. This function describes which HTML will be displayed in our component.
+To keep things simple for now we will write just a simple `render` function to see if our component is recognized.
+
 ```typescript jsx
 render() {
   return <div>Hello Component</div>
 }
 ```
 
-At the end we export our class.
-`export default TeaserSection`
+To wrap things up we need to export our class.
 
-Finally our `Teaser.tsx` looks like this:
+```typescript jsx
+export default TeaserSection
+```
+
+In the end our `Teaser.tsx` should look something like this:
 
 ```typescript jsx
 import Component from 'vue-class-component'
@@ -117,16 +118,16 @@ class TeaserSection extends FSXABaseSection<{}> {
 export default TeaserSection
 ```
 
-Now instead of the infobox we see our component.
+When we go back to the browser, instead of the infobox we should see our component.
 
 ![Hello Component](./assets/documentation/WritingComponents/HelloComponent.png)
 
-Our component is recognized correctly. But we still do not have the information in our component which the CaaS provides.
+Our component is recognized correctly. But we still do not display the data from the CaaS in our component.
 For that we hover over our component and click on the appearing question mark on the right side.
 
 ![Available Properties](./assets/documentation/WritingComponents/AvailableProperties.png)
 
-There we can see which properties we can use to display.
+This shows us the data available to display.
 For the first example we want to display the `st_jumbo_headline`.
 
 For this we create an interface in our component and define the name of the attribute and its type.
@@ -148,7 +149,7 @@ render() {
 
 Every attribute in our payload is accessible via `this.payload`
 
-The result looks like this:
+The result should look like this:
 ![Displayed Headline](./assets/documentation/WritingComponents/DisplayedHeadline.png)
 
 Next we want to continue to implement our payload interface.
@@ -159,6 +160,7 @@ import { Image, RichTextElement } from 'fsxa-api'
 ```
 
 The final interface looks like this:
+
 ```typescript
 interface Payload {
   st_headline: RichTextElement[]
@@ -179,17 +181,22 @@ interface Payload {
 }
 ```
 
-Note that attributes followed by a question mark are optional. 
+Note that attributes followed by a question mark are optional.
 
-So that we can display all this information, we use a component from the fsxa-ui.
-First it needs to be imported: `import { Sections } from 'fsxa-ui'`
-and then used properly in our `render` function: 
+In order to display all this information, we can use a component from the [fsxa-ui](https://github.com/e-Spirit/fsxa-ui/).
+First we need to import it. It is located under Sections in the fsxa-ui.
 
+```typescript
+import { Sections } from 'fsxa-ui'
+```
 
-Because we are using richtex and want to display it correctly. We import FSXARichText from the [fsxa-pattern-library](https://github.com/e-Spirit/fsxa-pattern-library)
+Since we are using richtext we also need to import FSXARichText from the [fsxa-pattern-library](https://github.com/e-Spirit/fsxa-pattern-library)
+
 ```typescript
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
 ```
+
+And then we can use them in our `render` function:
 
 ```typescript jsx
 render() {
@@ -219,15 +226,16 @@ render() {
   }
 ```
 
-
 Finally, we can name our component. We do this in the `@Component` annotation.
-````typescript jsx
+
+```typescript jsx
 @Component({
   name: 'TeaserSection'
 })
-````
+```
 
-The final `Teaser.tsx` file looks like this: 
+The final `Teaser.tsx` file looks like this:
+
 ```typescript jsx
 import Component from 'vue-class-component'
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
@@ -288,8 +296,6 @@ export default TeaserSection
 
 Here you can see the result.
 ![Finished Component](./assets/documentation/WritingComponents/FinishedComponent.png)
-
-
 
 ## Legal Notices
 
