@@ -6,7 +6,7 @@ import { Component } from 'vue-property-decorator'
 })
 class List extends FSXABaseRichTextElement {
   render() {
-    return <ul class="tw-list-disc ml-4">{this.renderContent()}</ul>
+    return <ul class="list-disc ml-4">{this.renderContent()}</ul>
   }
 }
 export default List

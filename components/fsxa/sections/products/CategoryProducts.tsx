@@ -68,7 +68,7 @@ class CategoryProducts extends FSXABaseSection<Payload> {
   render() {
     const ListSection = (Sections as any).ListSection
     return (
-      <div class="tw-px-4 md:tw-px-6 lg:tw-px-8 tw-bg-white">
+      <div class="px-4 md:px-6 lg:px-8 bg-white">
         <ListSection
           items={this.products || []}
           scopedSlots={{
