@@ -47,7 +47,7 @@ class HomepageLayout extends FSXABaseLayout<Data> {
   render() {
     return (
       <div>
-        <div class="tw-w-full screen-height-without-header apply-header-height-as-bottom-padding tw-bg-white">
+        <div class="w-full screen-height-without-header apply-header-height-as-bottom-padding bg-white">
           <Sections.FullWidthSliderSection
             slides={this.data.pt_slider.map((slide) => ({
               buttonContent: slide.data.st_button.data.lt_button_text,

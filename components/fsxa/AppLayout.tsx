@@ -116,7 +116,7 @@ class AppLayout extends FSXABaseAppLayout {
     return ['initializing', 'not_initialized'].includes(this.appState) ? (
       <Loader />
     ) : (
-      <div class="tw-w-full tw-h-full fixed-page-content tw-pb-64">
+      <div class="w-full h-full fixed-page-content pb-64">
         <PageHeader
           fullscreen={this.showMobileNavigation}
           onOverlayClick={() => {
@@ -133,10 +133,10 @@ class AppLayout extends FSXABaseAppLayout {
               ) : null
           }}
         >
-          <div class="tw-bg-white fixed-page-header tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 tw-flex tw-items-center tw-justify-between tw-scrollbar-fix-left tw-text-gray-900">
+          <div class="bg-white fixed-page-header px-4 md:px-16 lg:px-20 xl:px-24 flex items-center justify-between scrollbar-fix-left text-gray-900">
             <a
               href={this.navigationData?.pages.index}
-              class="tw-flex-shrink-0"
+              class="flex-shrink-0"
               onClick={(event) => {
                 event.preventDefault()
                 this.triggerRouteChange({
@@ -148,7 +148,7 @@ class AppLayout extends FSXABaseAppLayout {
             >
               <img src={this.logoUrl} />
             </a>
-            <div class="tw-hidden md:tw-block h-full">
+            <div class="hidden md:block h-full">
               <Navigation
                 items={[...items, this.getLangNavItem(false)]}
                 activeItemKeys={activeItemKeys}
@@ -157,14 +157,14 @@ class AppLayout extends FSXABaseAppLayout {
             </div>
             <a
               href="#"
-              class="tw-flex -tw-mr-5 md:tw-hidden tw-px-5 tw-py-4 tw-items-center tw-justify-center"
+              class="flex -mr-5 md:hidden px-5 py-4 items-center justify-center"
               onClick={(event) => {
                 event.preventDefault()
                 this.showMobileNavigation = !this.showMobileNavigation
               }}
             >
               <svg
-                class="tw-w-6 tw-h-6"
+                class="w-6 h-6"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -178,11 +178,11 @@ class AppLayout extends FSXABaseAppLayout {
             </a>
           </div>
         </PageHeader>
-        <div class="tw-w-full tw-h-64 tw-bg-gray-100 tw-flex tw-items-center tw-text-xs tw-fixed tw-bottom-0 tw-left-0 tw-px-4 md:tw-px-16 lg:tw-px-20 xl:tw-px-24 ">
-          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-start">
+        <div class="w-full h-64 bg-gray-100 flex items-center text-xs fixed bottom-0 left-0 px-4 md:px-16 lg:px-20 xl:px-24 ">
+          <div class="w-1/3 flex items-center justify-start">
             <a
               href={this.navigationData?.pages.index}
-              class="tw-flex-shrink-0"
+              class="flex-shrink-0"
               onClick={(event) => {
                 event.preventDefault()
                 this.triggerRouteChange({
@@ -195,16 +195,16 @@ class AppLayout extends FSXABaseAppLayout {
               <img src={this.logoUrl} />
             </a>
           </div>
-          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-center">
+          <div class="w-1/3 flex items-center justify-center">
             © {this.globalSettings?.data.gc_copyright}
           </div>
-          <div class="tw-w-1/3 tw-flex tw-items-center tw-justify-end tw-gap-2">
+          <div class="w-1/3 flex items-center justify-end gap-2">
             {this.globalSettings?.data.gc_linklist.map((link: any) => (
               <a
                 href={this.getUrlByPageId(link.data.lt_link.referenceId) || '#'}
-                class={`tw-text-xs hover:tw-underline ${
+                class={`text-xs hover:underline ${
                   this.currentPage?.id === link.data.lt_link.referenceId
-                    ? 'tw-text-gray-600'
+                    ? 'text-gray-600'
                     : ''
                 }`}
                 onClick={(event: MouseEvent) => {

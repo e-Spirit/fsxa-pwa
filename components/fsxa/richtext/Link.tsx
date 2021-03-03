@@ -18,7 +18,7 @@ class Link extends FSXABaseRichTextElement<Data> {
   render() {
     return (
       <a
-        class="tw-underline"
+        class="underline"
         href={
           this.data.type === 'internal_link'
             ? this.getUrlByPageId(this.data.data.lt_link.value.identifier) ||

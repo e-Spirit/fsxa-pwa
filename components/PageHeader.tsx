@@ -38,14 +38,14 @@ class PageHeader extends TsxComponent<
       this.$scopedSlots.overlay && this.$scopedSlots.overlay({})
     return (
       <div
-        class={`tw-fixed tw-top-0 tw-left-0 tw-w-full tw-flex tw-flex-col tw-z-10 ${
-          this.fullscreen ? 'tw-h-screen' : ''
+        class={`fixed top-0 left-0 w-full flex flex-col z-10 ${
+          this.fullscreen ? 'h-screen' : ''
         }`}
       >
         {this.$slots.default}
         {overlayContent ? (
           <div
-            class="tw-w-full tw-bg-gray-900 tw-bg-opacity-80 tw-flex-grow tw-overflow-hidden"
+            class="w-full bg-gray-900 bg-opacity-80 flex-grow overflow-hidden"
             onClick={(event) => {
               event.preventDefault()
               event.stopImmediatePropagation()
