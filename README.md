@@ -13,122 +13,293 @@ a demo [online](https://www.e-spirit.com/us/specialpages/forms/on-demand-demo/).
 
 ## Getting Started
 
-### Create `.env` file in root-directory
+This chapter describes how to set up the project and complete the first steps.
 
-```bash
-# APIKey used for authentication against the CaaS
-FSXA_API_KEY= ...
-# URL pointing to your CaaS Instance
-FSXA_CAAS= ...
-# ID of your project
-FSXA_PROJECT_ID= ...
-# URL pointing to the NavigationService
-FSXA_NAVIGATION_SERVICE= ...
-# Which mode should be used? (preview/release)
-FSXA_MODE= ...
-# KEY:VALUE map where semicolon is used as separator (key:uuid;key:uuid)
-FSXA_REMOTES= ...
-# This tenantId is required, when using caas-connect module 3.0.9 and above
-FSXA_TENANT_ID=...
+### Requirements
+
+- [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.
+- A text editor - like [VS Code](https://code.visualstudio.com/) with the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin.
+- A terminal - like VS Code's integrated [terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
+- [Git](https://git-scm.com/) - latest major version: > 2.
+
+### Setting up the project
+
+1. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
+
+2. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
+
+3. Navigate to the newly created folder with `cd fsxa-pwa`
+
+4. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
+
+5. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
+
+6. To install the needed dependencies run the command `npm install`.
+
+7. After all dependencies are installed, you can start a local development server with `npm run dev`.
+
+8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
+
+### Development mode
+
+There is a development mode that helps to easily map the content coming from the CaaS.
+
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
+
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
+
+![Missing Layout](./assets/documentation/MissingLayout.png)
+
+If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the element.
+
+![QuestionMark](./assets/documentation/QuestionMark.png)
+
+Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
+
+### Writing components
+
+In this section we will be exploring how to go about implementing a missing Teaser section.
+
+When you go to the home page in the development mode, you will see that one component is missing.
+
+![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
+
+This infobox tells us that the app expects a component of type `Section`. We can also see that the key of this missing section is `teaser`.
+
+In the `fsxa.config.ts` file we can see that our section components are located in `~/components/fsxa/sections`.
+That's where you want to create a new file for the component.
+
+Make sure, that you name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
+
+Next we need to import two classes that are required to define our new component:
+
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection } from 'fsxa-pattern-library'
 ```
 
-### How to run dev and build mode
+With this we can start writing our class.
 
-```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+```typescript jsx
+@Component
+class TeaserSection extends FSXABaseSection<{}>{
+  
+}
 ```
 
-This project is using the [FSXA-Pattern-Library](https://www.npmjs.com/package/fsxa-pattern-library) and [FSXA-UI](https://www.npmjs.com/package/fsxa-ui)
+This class expects us to implement `render` function. This function describes which HTML will be displayed in our component.
+To keep things simple for now we will write just a simple `render` function to see if our component is recognized.
 
-The pattern-library is referenced in two entry points.
-
-### /src/pages/\_.tsx
-
-The page structure in nuxt is mapped via files and folders inside of the pages folder. To leave the routing decision all requests are mapped to the generic IndexPage (\_.tsx) file. This will pass the current route to the FSXAPage. If the FSXAPage decides that a route-change is needed it will call the provided callback `handleRouteChange` with the next route and the IndexPage will pass it through the the router that is embedded in nuxt.
-
-### /src/store/fsxa.ts
-
-The pattern-library is using Vuex in the background to be able to provide a working server-side-rendering mechanism. All fetched data is stored in the Vuex Store and is passed to the Client after hydration. Since Vuex is already included and setup in nuxt, we need to add the vuex-store-module provided by the pattern-library to the existing one. This is done via adding the file `fsxa.ts`. It exports the store, actions, getters and mutations used inside of the pattern-library. The module itself is prefixing every action and getter with `fsxa` so that there are no unwanted name clashes.
-
-### /src/store/index.ts
-
-Nuxt is calling the action `nuxtServerInit` in the client hydration process. To pipe the input through to the pattern-library the `index.ts` exists and is listening to the `nuxtServerInit`. The payload is passed through to the `FSXAActions.setInitialStateFromServer`.
-
-### Enabling Dev-Mode
-
-Every FSXAInstance can be wrapped with an `FSXAConfigProvider`-Instance. By passing the `devMode`-Prop to it the UI will be enhanced with additional components to provide useful information for the development process.
-
-```bash
-<FSXAConfigProvider devMode>
-    <FSXAPage />
-</FSXAConfigProvider>
+```typescript jsx
+render() {
+  return <div>Hello Component</div>
+}
 ```
 
-### Adding new Section Templates
+To wrap things up we need to export our class.
 
-It is very easy to add new section templates. Just create your own template in the components-folder and make sure that you extends the `FSXABaseSection` provided by the FSXA-Pattern-Library.
+```typescript jsx
+export default TeaserSection
+```
 
-```bash
-# /src/components/MyNewSectionTemplate.jsx
+In the end our `Teaser.tsx` should look something like this:
 
-import { FSXABaseSection } from "fsxa-pattern-library"
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection } from 'fsxa-pattern-library'
 
-# Your custom payload. You can find out which json is passed to your component when you enable the devMode
+@Component
+class TeaserSection extends FSXABaseSection<{}> {
+  render() {
+    return <div>Hello Component</div>
+  }
+}
+
+export default TeaserSection
+```
+
+When we go back to the browser, instead of the infobox we should see our component.
+
+![Hello Component](./assets/documentation/WritingComponents/HelloComponent.png)
+
+Our component is recognized correctly. But we still do not display the data from the CaaS in our component.
+For that we hover over our component and click on the appearing question mark on the right side.
+
+![Available Properties](./assets/documentation/WritingComponents/AvailableProperties.png)
+
+This shows us the data available to display.
+For the first example we want to display the `st_jumbo_headline`.
+
+For this we create an interface in our component and define the name of the attribute and its type.
+
+```typescript
 interface Payload {
-    ...
+  st_jumbo_headline: string
 }
-class MyNewSectionTemplate extends FSXABaseSection<Payload> {
-    render() {
-        return (<div>Add your custom markup in here</div>)
+```
+
+We update the use of the `FSXABaseSection` with our new payload: `class TeaserSection extends FSXABaseSection<Payload>`
+and use the `st_jumbo_headline` in our `render` function.
+
+````typescript jsx
+render() {
+    return <div>Headline: {this.payload.st_jumbo_headline}</div>
+  }
+````
+
+Every attribute in our payload is accessible via `this.payload`
+
+The result should look like this:
+![Displayed Headline](./assets/documentation/WritingComponents/DisplayedHeadline.png)
+
+Next we want to continue to implement our payload interface.
+For some objects we use interfaces from the [FSXA-Api](https://github.com/e-Spirit/fsxa-api), so we also have to import them.
+
+```typescript
+import { Image, RichTextElement } from 'fsxa-api'
+```
+
+The final interface looks like this:
+
+```typescript
+interface Payload {
+  st_headline: RichTextElement[]
+  st_jumbo_headline: string
+  st_kicker: string
+  st_picture?: Image
+  st_picture_alt: string | null
+  st_text: RichTextElement[]
+  st_button?: {
+    data: {
+      lt_button_text: string
+      lt_internal: {
+        referenceId: string
+        referenceType: string
+      }
     }
+  }
 }
 ```
 
-At last you have to wrap your `FSXAPage` with an `FSXAConfigProvider` Instance and pass a sections configuration.
+Note that attributes followed by a question mark are optional.
 
-```bash
-import MyNewSectionTemplate from "~/components/MyNewSectionTemplate.tsx"
+In order to display all this information, we can use a component from the [fsxa-ui](https://github.com/e-Spirit/fsxa-ui/).
+First we need to import it. It is located under Sections in the fsxa-ui.
 
-# in your render-method
-<FSXAConfigProvider
-    sections={{
-        # you can find the template key when enabling the DevMode
-        section_template_key: MyNewSectionTemplate,
-    }}
->
-    ...
-</FSXAConfigProvider>
+```typescript
+import { Sections } from 'fsxa-ui'
 ```
 
-> You can override existing section templates in the same way. Just pass your component with the existing sections template key. The pattern library will use the last occurrence.
+Since we are using richtext we also need to import FSXARichText from the [fsxa-pattern-library](https://github.com/e-Spirit/fsxa-pattern-library)
 
-### Changing visual appearance with CSS-Variables
+```typescript
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+```
 
-The FSXA-UI library provides multiple css-variables that can be set to change visual characteristics of the components.
+And then we can use them in our `render` function:
 
-```bash
-~/assets/css/global.css
+```typescript jsx
+render() {
+    return (
+      <Sections.TeaserSection
+        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
+        kicker={this.payload.st_kicker}
+        text={(<FSXARichText content={this.payload.st_text} />) as any}
+        buttonText={this.payload.st_button?.data.lt_button_text}
+        onButtonClick={() =>
+          this.triggerRouteChange({
+            pageId: this.payload.st_button?.data.lt_internal.referenceId
+          })
+        }
+        media={
+          this.payload.st_picture
+            ? {
+                type: 'image',
+                src: this.payload.st_picture.resolutions.ORIGINAL.url,
+                resolutions: this.payload.st_picture.resolutions,
+                previewId: this.payload.st_picture.previewId
+              }
+            : undefined
+        }
+      />
+    )
+  }
+```
 
-:root {
-    # This will change the highlight color to red
-    --fsxa-text-highlight-color: #FF0000;
+Finally, we can name our component. We do this in the `@Component` annotation.
+
+```typescript jsx
+@Component({
+  name: 'TeaserSection'
+})
+```
+
+The final `Teaser.tsx` file looks like this:
+
+```typescript jsx
+import Component from 'vue-class-component'
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { Sections } from 'fsxa-ui'
+import { Image, RichTextElement } from 'fsxa-api'
+
+interface Payload {
+  st_headline: RichTextElement[]
+  st_jumbo_headline: string
+  st_kicker: string
+  st_picture?: Image
+  st_picture_alt: string | null
+  st_text: RichTextElement[]
+  st_button?: {
+    data: {
+      lt_button_text: string
+      lt_internal: {
+        referenceId: string
+        referenceType: string
+      }
+    }
+  }
 }
+
+@Component({
+  name: 'TeaserSection'
+})
+class TeaserSection extends FSXABaseSection<Payload> {
+  render() {
+    return (
+      <Sections.TeaserSection
+        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
+        kicker={this.payload.st_kicker}
+        text={(<FSXARichText content={this.payload.st_text} />) as any}
+        buttonText={this.payload.st_button?.data.lt_button_text}
+        onButtonClick={() =>
+          this.triggerRouteChange({
+            pageId: this.payload.st_button?.data.lt_internal.referenceId
+          })
+        }
+        media={
+          this.payload.st_picture
+            ? {
+                type: 'image',
+                src: this.payload.st_picture.resolutions.ORIGINAL.url,
+                resolutions: this.payload.st_picture.resolutions,
+                previewId: this.payload.st_picture.previewId
+              }
+            : undefined
+        }
+      />
+    )
+  }
+}
+
+export default TeaserSection
 ```
+
+Here you can see the result.
+![Finished Component](./assets/documentation/WritingComponents/FinishedComponent.png)
 
 ## Legal Notices
 
-FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com) AG, Dortmund, Germany.
+FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com), Dortmund, Germany.
 The FSXA-PWA is subject to the Apache-2.0 license.
 
 ## Disclaimer
