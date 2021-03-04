@@ -32,23 +32,23 @@ The tenantId is used by the PWA to distinguish between the different FSXA enviro
 
 We distinguish between preview and release data. Specify here which data should be loaded by the PWA.
 
-## Configuration
+### fsxa.config
 
 The following settings allow easy configuration of the PWA.
 
-### General
+#### General
 
-#### `devMode`
+##### `devMode`
 
 The `DevMode` helps you to quickly build new components or adapt existing ones.
 
 > TODO: Add screenshots and explain this a little more
 
-#### `defaultLocale`
+##### `defaultLocale`
 
 Normally the current URL is used to find out the language. If this is not possible (for example, when a user calls `/`) the `defaultLocale` is used to retrieve the navigation data via the `FSXA API`. This property is required.
 
-### Components
+#### Components
 
 The components are automatically loaded and mapped.
 It is important to note the following aspects:
@@ -76,7 +76,7 @@ export default {
 
 #### The folders configured by the following settings are automatically searched for files with the extensions `.vue`, `.tsx`, `.jsx` and `.ts`.
 
-#### Sections
+##### Sections
 
 `components.sections` - optional
 
@@ -86,7 +86,7 @@ The folder, where all your section components are located.
 
 **Default**: `"~/components/fsxa/sections"`
 
-#### Layouts
+##### Layouts
 
 `components.layouts` - optional
 
@@ -96,7 +96,7 @@ The folder, where all your layout components are located.
 
 **Default**: `"~/components/fsxa/layouts"`
 
-#### RichText
+##### RichText
 
 `components.richtext` - optional
 
@@ -106,7 +106,7 @@ The folder, where all your richtext components are located.
 
 > We recommend you to derive from FSXABaseRichTextElement to get access to useful functionality and add TypeScript support.
 
-#### AppLayout
+##### AppLayout
 
 `components.appLayout` _optional_
 
@@ -116,17 +116,17 @@ This setting is optional. **Default**: `undefined`
 
 > We recommend you to derive from FSXABaseAppLayout to get access to useful functionality and add TypeScript support.
 
-#### Loader
+##### Loader
 
 `components.loader` _optional_
 
 **Default**: `undefined`
 
-#### Custom Routes
+##### Custom Routes
 
 `customRoutes` _optional_
 
-This setting configures the folder in which your own endpoints are located. The automatism loads files with the extensions ts and js. You can learn more here.
+This setting configures the folder in which your own endpoints are located. The automatism loads files with the extensions ts and js. You can learn more in the section [CustomRoutes](advanced/CustomRoutes.md).
 
 > These settings can be configured in the following ways:
 
