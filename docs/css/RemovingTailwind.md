@@ -2,7 +2,7 @@
 
 [Index](./index.md)
 
-If you want to use a different CSS framework or none at all, you will have to remove [Tailwind CSS](https://tailwindcss.com/) first.
+This project comes with [Tailwind CSS](https://tailwindcss.com/) installed by default. If you want to use a different CSS framework or none at all, you will have to remove [Tailwind CSS](https://tailwindcss.com/) first.
 You can do this by running the following command
 
 ```bash
