@@ -23,7 +23,7 @@ For example you can make a `style.css` file next to your component
 }
 ```
 
-And then import and use it your component like this
+And then import and use it in your component like this
 
 ```typescript jsx
 ...

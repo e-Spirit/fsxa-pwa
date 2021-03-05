@@ -9,7 +9,7 @@ You can do this by running the following command
 npm uninstall tailwindcss @nuxtjs/tailwindcss
 ```
 
-Finally you have to remove the tailwind build module from the `nuxt.config.ts` file
+Next you have to remove the tailwind build module from the `nuxt.config.ts` file
 
 ```typescript
   /*
@@ -18,4 +18,4 @@ Finally you have to remove the tailwind build module from the `nuxt.config.ts` f
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
 ```
 
-Keep in mind however, that the tailwind css classes are still applied to the existing components.
+Finally you can delete the `tailwind.config.js` configuration file as it is no longer needed. This should completely remove tailwind from your project. Keep in mind however that the tailwind css classes are still applied to the existing html in your components.
