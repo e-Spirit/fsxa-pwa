@@ -1,6 +1,6 @@
 # Development Mode
 
-[Index](index.md)
+[<< Back to index](index.md)
 
 The FSXA-PWA features a development mode that helps you to easily map the content coming from the CaaS to your components.
 
