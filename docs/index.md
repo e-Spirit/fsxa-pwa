@@ -29,7 +29,7 @@
 10. Global Content
 11. Working with Images
 12. Caching (StoredContent, TTL)
-13. SSR
+13. [Server Side Rendering (SSR)](SSR.md)
 14. [Removing Presets](RemovingPresets.md)
 15. [Base Components](components/index.md) (Pattern-Lib)
     1. [FSXABaseComponent](components/FSXABaseComponent.md)
