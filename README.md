@@ -40,11 +40,27 @@ This chapter describes how to set up the project and complete the first steps.
 
 8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
 
+### Development Mode
+
+The FSXA-PWA features a [development mode](./docs/DevMode.md) that helps you to easily map the content coming from the CaaS to your components.
+
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
+
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
+
+![Missing Layout](../assets/documentation/DevMode/MissingLayout.png)
+
+If you have already implemented a component, you will see a question mark icon when hovering over the element.
+
+![QuestionMark](../assets/documentation/DevMode/QuestionMark.png)
+
+Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
+
 ### Writing components
 
 In this section we will be exploring how to go about implementing a missing Teaser section.
 
-When you go to the home page in [development mode](./docs/DevMode.md), you will see that one component is missing.
+When you go to the home page in [development mode](#development-mode), you will see that one component is missing.
 
 ![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
 
