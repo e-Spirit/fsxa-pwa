@@ -1,6 +1,6 @@
 # Adding Custom CSS to your Components
 
-[Index](./index.md)
+[<< Back to index](./index.md)
 
 This project uses the [Tailwind CSS](https://tailwindcss.com/) framework for styling. The first two sections will explain in general how you can apply custom css to your components. And the final section will go into detail about some best practices for Tailwind CSS.
 
