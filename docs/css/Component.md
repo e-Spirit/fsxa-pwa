@@ -4,11 +4,11 @@
 
 This project uses the [Tailwind CSS](https://tailwindcss.com/) framework for styling. The first two sections will explain in general how you can apply custom css to your components. And the final section will go into detail about some best practices for Tailwind CSS.
 
-1. [JSX/TSX-Components](#JSX/TSX-Components)
-2. [SFC-Components](#SFC-Components)
-3. [Tailwind CSS](#Tailwind-CSS)
+1. [JSX/TSX Components](#jsx/tsx-components)
+2. [SFC Components](#sfc-components)
+3. [Tailwind CSS](#tailwind-css)
 
-## JSX/TSX-Components
+## JSX/TSX Components
 
 When implementing components using `JSX` or `TSX`. You can simply declare your `CSS` classes in a stylesheet and import that stylesheet into your component using the Typescript or ES6 style import.
 
@@ -46,7 +46,7 @@ class Headline extends FSXABaseComponent<Payload>{
 }
 ```
 
-## SFC-Components
+## SFC Components
 
 When using vue single file components you simply add a style tag to your file and declare your CSS-Classes there. The classes are then available within the scope of your component.
 
@@ -69,7 +69,7 @@ When using vue single file components you simply add a style tag to your file an
 </style>
 ```
 
-## Tailwind-CSS
+## Tailwind CSS
 
 When using [Tailwind CSS](https://tailwindcss.com/) you have two choices to apply styles to your components. You can either apply the tailwind classes directly.
 
