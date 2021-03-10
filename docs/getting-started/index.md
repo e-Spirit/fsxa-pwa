@@ -17,7 +17,7 @@ This chapter describes how to set up the project and complete the first steps.
 
 2. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
 
-3. Navigate to the newly created folder with `cd fsxa-pwa`
+3. Navigate to the newly created folder with `cd fsxa-pwa`.
 
 4. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
 
@@ -31,11 +31,11 @@ This chapter describes how to set up the project and complete the first steps.
 
 ### Development mode
 
-There is a development mode that helps to easily map the content coming from the CaaS.
+There is a development mode that helps to easily map the content coming from the [CaaS](https://docs.e-spirit.com/module/caas/CaaS_FSM_Documentation_EN.html).
 
 To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
 
-If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information in the component can be addressed.
 
 ![Missing Layout](./../imgs/MissingLayout.png)
 
@@ -109,7 +109,7 @@ When we go back to the browser, instead of the infobox we should see our compone
 
 ![Hello Component](./../imgs/WritingComponents/HelloComponent.png)
 
-Our component is recognized correctly. But we still do not display the data from the CaaS in our component.
+Our component is recognized correctly. But we still do not display the data from the [CaaS](https://docs.e-spirit.com/module/caas/CaaS_FSM_Documentation_EN.html) in our component.
 For that we hover over our component and click on the appearing question mark on the right side.
 
 ![Available Properties](./../imgs/WritingComponents/AvailableProperties.png)
