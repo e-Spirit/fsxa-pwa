@@ -45,14 +45,11 @@ class InteractiveYouTubeVideo extends FSXABaseSection<Payload, Meta> {
     const autoplayParam = this.payload.st_autoPlay.valueOf() == true ? "?autoplay=true" : "";
     const title = this.payload.st_youtubeVideo.value[0].value.title;
     const description = this.payload.st_youtubeVideo.value[0].value.description;
-    const previewPicture = this.payload.st_youtubeVideo.value[0].value.thumbnailUrl;
     const url = "https://www.youtube-nocookie.com/embed/"
     return (
 
       <div
         data-testid="fsxa-video-section">
-
-        <Container><Headline>Most simple video section:</Headline></Container>
 
         <Container>
           {title && <Headline>{title}</Headline>}
@@ -70,30 +67,6 @@ class InteractiveYouTubeVideo extends FSXABaseSection<Payload, Meta> {
           )}
         </Container>
 
-        <Container><Headline>Alternative video section (using a TeaserSection):</Headline></Container>
-
-        <TeaserSection
-          headline={title}
-          kicker=""
-          text=""
-          media={{
-            type: "image",
-            src: previewPicture,
-            previewId: "1000",
-            alt: "Video thumbnail",
-          }}
-          scopedSlots={{
-            media: () => <div class="aspect-w-16 aspect-h-9"><iframe
-              class="m-auto"
-              src={`${url}${youtubeID}${autoplayParam}`}
-              frameborder="0"
-              allowfullscreen
-            /></div>,
-            text: () => (
-              <div class="uppercase text-sm md:pr-6 lg:pr-8">{description}</div>
-            ),
-          }}
-        />
       </div>
     )
   }
