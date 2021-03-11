@@ -42,3 +42,79 @@ npm run start
 
 This command will check your `nuxt.config.ts` to ensure it serves the correct version.
 You can find more information on this topic in the [Nuxt.js documentation](https://nuxtjs.org/docs/2.x/get-started/commands#static-deployment-pre-rendered).
+
+## Client-only Components
+
+If you want to turn SSR off for the scope of a single or multiple components you can use the `client-only` component. Any components declared within the `client-only` component will not be rendered on the server but instead on the client.
+
+You can use this for example if you want to access the `window` and/or `document` objects from a scope other than the `mounted` or `beforeMount` hooks.
+
+SFC example
+
+```vue
+<template>
+  <div>
+    <client-only>
+      <TeaserSection prop="propvalue">
+      </TeaserSection>
+    </client-only>
+  </div>
+</template>
+```
+
+TSX example
+
+```typescript jsx
+render(){
+  return(
+    <div>
+      <client-only>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+```
+
+## Lazy Loading Components
+
+You can turn any of your components into a lazy loaded component by adding the prefix `Lazy` when you refer to the component for rendering. You need to add the following line to your `nuxt.config.ts` for this to work.
+
+```json
+components: true
+```
+
+Keep in mind that adding this line will cause *all your components* (located in the `/components` folder) to be auto imported.
+
+Lazy loading means the component gets loaded when its needed rather than being loaded when the page loads. You can use this for components that are rendered conditionally (using a v-if directive for example) or for components that take a long time to load.
+
+Lazy loading also means that your component is rendered in the client thus also giving you access to the `window` and `document` objects.
+
+SFC example
+
+```vue
+<template>
+  <div>
+    <TeaserSection prop="propvalue">
+    </TeaserSection>
+    <LazyTeaserSection prop="propvalue">
+    </LazyTeaserSection>
+  </div>
+</template>
+```
+
+TSX example
+
+```typescript jsx
+render(){
+  return(
+    <div>
+      <TeaserSection prop="propvalue">
+      </TeaserSection>
+      <LazyTeaserSection prop="propvalue">
+      </LazyTeaserSection>
+    </div>
+  )
+}
+```
