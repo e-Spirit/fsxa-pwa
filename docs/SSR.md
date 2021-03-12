@@ -77,6 +77,50 @@ render(){
 }
 ```
 
+### Placeholders
+
+You can define a placeholder that will be rendered on the server and thus will be displayed while the client intializes a `client-only` component. You can either pass a string to the prop `placeholder` of the `client-only` component.
+
+```html
+<client-only placeholder="Loading ...">
+  <TeaserSection prop="propvalue">
+  </TeaserSection>
+</client-only>
+```
+
+Or you can define your own component that will be used as placeholder
+
+SFC example
+
+```vue
+<template>
+  <div>
+    <client-only>
+      <TeaserSection prop="propvalue">
+      </TeaserSection>
+      <Spinner slot="placeholder">
+      </Spinner>
+    </client-only>
+  </div>
+</template>
+```
+TSX Example
+
+```typescript jsx
+render(){
+  return(
+    <div>
+      <client-only scopedSlots={{
+        placeholder: () => <div>My Placeholder</div>
+      }}>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+```
+
 ## Lazy Loading Components
 
 You can turn any of your components into a lazy loaded component by adding the prefix `Lazy` when you refer to the component for rendering. You need to add the following line to your `nuxt.config.ts` for this to work.
@@ -97,8 +141,10 @@ SFC example
 <template>
   <div>
     <TeaserSection prop="propvalue">
+      <!-- this component will be rendered on the server -->
     </TeaserSection>
     <LazyTeaserSection prop="propvalue">
+      <!-- this component will be rendered on the client and only when it is needed -->
     </LazyTeaserSection>
   </div>
 </template>
@@ -106,13 +152,18 @@ SFC example
 
 TSX example
 
+In typescript the issue is slightly more complicated, as the typescript compiler first needs to be told that a variable extended by the prefix `Lazy` exists
+
 ```typescript jsx
+declare const LazyTeaserSection: typeof TeaserSection
 render(){
   return(
     <div>
       <TeaserSection prop="propvalue">
+        //this component will be rendered on the server
       </TeaserSection>
       <LazyTeaserSection prop="propvalue">
+        //this component will be rendered on the client and only when it is needed
       </LazyTeaserSection>
     </div>
   )
