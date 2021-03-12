@@ -8,6 +8,5 @@ export default {
     appLayout: '~/components/fsxa/AppLayout',
     loader: '~/components/fsxa/Loader'
   },
-  customRoutes: '~/customRoutes',
-  globalSettingsKey: 'global_settings'
+  customRoutes: '~/customRoutes'
 }
