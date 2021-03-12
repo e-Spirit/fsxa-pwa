@@ -33,7 +33,7 @@
     "fsxa-api": "^5.1.0",
     "fsxa-nuxt-module": "^3.2.0",
     "fsxa-pattern-library": "^3.1.0",
-    "fsxa-ui": "^4.0.0",
+    "fsxa-ui": "^4.0.1",
     "lodash.get": "^4.4.2",
     "nuxt": "^2.0.0",
     "tailwindcss": "^1.9.6"
