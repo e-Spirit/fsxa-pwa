@@ -22,6 +22,8 @@ If you are in development mode and a component on the page has not been develope
 
 ![Missing Layout](../assets/documentation/DevMode/MissingLayout.png)
 
+The `components` map can be found in the `fsxa.config.ts` in the root directory of your project.
+
 ## Info box
 
 If you have already implemented a component, you will see a question mark icon when hovering over the element.
@@ -32,7 +34,7 @@ Clicking on this question mark will provide you with more information about whic
 
 ### Data/Payload
 
-This tab shows you all of the data that is available in the scope of this component.
+This tab shows you all of the data that is available in the scope of this component. The data is defined by the FirstSpirit Template used to describe the current section or layout.
 
 ![InfoboxData](../assets/documentation/DevMode/InfoboxData.png)
 
@@ -44,9 +46,58 @@ This tab sometimes contains information about the route, the FirstSpirit databas
 
 ### Slots
 
-This tab contains all the content that is passed into slots. Slots are a powerful way to customize your components. They allow for parts of the html to be defined by the consumer of a component.
+This tab only appears on layout components. It tells you which slots of your layout component are being used. You can control where you render the slot but you will get prerendered content passed into it. If for example you have a layout with two named slots, `header` and `content` the following would be an example of how you would render the slots in your component.
+
+SFC example
+
+```vue
+<template>
+    <div class="header">
+        <slot name="header" />
+    </div>
+    <div class="content">
+        <slot name="content" />
+    </div>
+</template>
+```
+
+TSX examples
+
+If you don't extend [FSXABaseLayout](components/FSXABaseLayout.md)
+
+```typescript jsx
+render(){
+    return(
+        <div class="header">
+            {this.$scopedSlots.header}
+        </div>
+        <div class="content">
+            {this.$scopedSlots.content}
+        </div>
+    )
+}
+```
+
+If you extend [FSXABaseLayout](components/FSXABaseLayout.md)
+
+```typescript jsx
+class MyComponent extends <FSXABaseLayout>{
+    render(){
+        return(
+            <div class="header">
+                {this.renderContentByName("header")}
+            </div>
+            <div class="content">
+                {this.renderContentByName("content")}
+            </div>
+        )
+    }
+}
+```
 
 ![InfoboxSlots](../assets/documentation/DevMode/InfoboxSlots.png)
+
+For more information on slots, check out the [Vue.js documentation](https://vuejs.org/v2/guide/components-slots.html)
 
 ## Errors
 

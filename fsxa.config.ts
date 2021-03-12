@@ -1,5 +1,5 @@
 export default {
-  devMode: true,
+  devMode: false,
   defaultLocale: 'de_DE',
   components: {
     sections: '~/components/fsxa/sections',
