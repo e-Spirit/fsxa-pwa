@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.2...v1.0.3) (2021-03-12)
+
+
+### Bug Fixes
+
+* **product list view:** fixed an issue where product category filtering only worked in german ([bc28092](https://github.com/e-Spirit/fsxa-pwa/commit/bc2809269f891ceb791bf0e74b570dc7c54a2f5a))
+
 ## [1.0.2](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.1...v1.0.2) (2021-03-03)
 
 
