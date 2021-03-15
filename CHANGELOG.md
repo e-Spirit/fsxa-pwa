@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.3...v1.1.0) (2021-03-15)
+
+
+### Features
+
+* Upgraded fsxa-api, fsxa-ui, fsxa-pattern-library and fsxa-nuxt-module ([#12](https://github.com/e-Spirit/fsxa-pwa/issues/12)) ([8a5515a](https://github.com/e-Spirit/fsxa-pwa/commit/8a5515a72386ab22779a11d89d426d0903c813d0))
+
 ## [1.0.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.2...v1.0.3) (2021-03-12)
 
 
