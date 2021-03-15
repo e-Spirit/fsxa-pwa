@@ -178,7 +178,7 @@ class AppLayout extends FSXABaseAppLayout {
             </a>
           </div>
         </PageHeader>
-        <div class="w-full h-64 bg-gray-100 flex items-center text-xs fixed bottom-0 left-0 px-4 md:px-16 lg:px-20 xl:px-24 z-0">
+        <div class="w-full h-64 bg-gray-100 flex items-center text-xs fixed bottom-0 left-0 px-4 md:px-16 lg:px-20 xl:px-24">
           <div class="w-1/3 flex items-center justify-start">
             <a
               href={this.navigationData?.pages.index}
