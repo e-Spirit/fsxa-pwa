@@ -2,7 +2,7 @@ import { FSXABaseRichTextElement } from 'fsxa-pattern-library'
 import { Component } from 'vue-property-decorator'
 
 @Component({
-  name: 'RichTextParagraph'
+  name: 'RichTextBlock'
 })
 class Block extends FSXABaseRichTextElement {
   render() {
