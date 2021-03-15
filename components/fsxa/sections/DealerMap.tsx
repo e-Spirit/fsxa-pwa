@@ -54,14 +54,14 @@ class DealerMap extends FSXABaseSection {
       <div class="w-full screen-height-without-header bg-white">
         <Sections.GoogleMapsSection
           language={this.locale.split('_')[0]}
-          apikey={process.env.GOOGLE_MAPS_APIKEY as string}
+          apikey={process.env.FSXA_MAPS_APIKEY as string}
           startLocation={
             this.locations && this.locations.length > 0
               ? {
                   lat: parseFloat(this.locations[0].data.tt_lat),
                   lng: parseFloat(this.locations[0].data.tt_long)
                 }
-              : undefined
+              : { lat: 51.5142273, lng: 7.4652789 } // Dortmund
           }
           locations={
             this.locations
