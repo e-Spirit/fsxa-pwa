@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.1.0...v1.2.0) (2021-03-16)
+
+
+### Features
+
+* TNG-733 Add simple InteractiveYouTubeVideo component ([#13](https://github.com/e-Spirit/fsxa-pwa/issues/13)) ([ad026b9](https://github.com/e-Spirit/fsxa-pwa/commit/ad026b925be467b72ab85e4d9fe105fdf38dca78))
+
 # [1.1.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.0.3...v1.1.0) (2021-03-15)
 
 
