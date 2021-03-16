@@ -11,7 +11,7 @@ export interface Payload {
     fsType: string
     name: string
     value: {}
-  },
+  }
   st_youtubeVideo: {
     fsType: string
     name: string
@@ -39,25 +39,31 @@ export interface Meta {
   name: 'InteractiveYouTubeVideo'
 })
 class InteractiveYouTubeVideo extends FSXABaseSection<Payload, Meta> {
-
   render() {
-    const youtubeID = this.payload.st_youtubeVideo.value[0].identifier;
-    const autoplayParam = this.payload.st_autoPlay.valueOf() ? "?autoplay=true" : "";
-    const title = this.payload.st_youtubeVideo.value[0].value.title;
-    const description = this.payload.st_youtubeVideo.value[0].value.description;
-    const url = "https://www.youtube-nocookie.com/embed/"
+    const youtubeID = this.payload.st_youtubeVideo.value[0].identifier
+    const autoplayParam = this.payload.st_autoPlay.valueOf()
+      ? '?autoplay=true'
+      : ''
+    const title = this.payload.st_youtubeVideo.value[0].value.title
+    const description = this.payload.st_youtubeVideo.value[0].value.description
+    const url = 'https://www.youtube-nocookie.com/embed/'
     return (
       <Container>
         {title ? <Headline>{title}</Headline> : null}
         {title ? <LineSeparator /> : null}
         <div class="aspect-w-16 aspect-h-9 my-3">
-          {youtubeID ?
+          {youtubeID ? (
             <iframe
               class="m-auto"
               src={`${url}${youtubeID}${autoplayParam}`}
               frameborder="0"
               allowfullscreen
-            /> : <div><i>No YouTube identifier provided.</i></div>}
+            />
+          ) : (
+            <div>
+              <i>No YouTube identifier provided.</i>
+            </div>
+          )}
         </div>
         {description ? (
           <div class="m-1 uppercase text-sm md:pr-6 lg:pr-8">{description}</div>

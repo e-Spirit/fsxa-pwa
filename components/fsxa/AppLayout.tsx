@@ -4,10 +4,7 @@ import {
   Navigation,
   NavigationItem,
   MobileNavigation,
-  FirstLevelNavigationItem,
-  Footer,
-  Layout,
-  LayoutItem
+  FirstLevelNavigationItem
 } from 'fsxa-ui'
 import { NavigationData } from 'fsxa-api'
 import Component from 'vue-class-component'

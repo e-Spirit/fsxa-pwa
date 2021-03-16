@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+// eslint-disable-next-line import/named
 import { FSXAMiddlewareContext } from 'fsxa-nuxt-module'
 
 export default {

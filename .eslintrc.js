@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     node: true
   },
+  ignorePatterns: ['.gitignore', '*.d.ts'],
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier',
