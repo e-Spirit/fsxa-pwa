@@ -40,13 +40,15 @@ This tab shows you all of the data that is available in the scope of this compon
 
 ### Meta
 
-This tab sometimes contains information about the route, the FirstSpirit database scheme and entity types, previewId
+This tab sometimes contains information about the route, the FirstSpirit database scheme, entity types, previewId and other FirstSpirit related meta information.
 
 ![InfoboxMeta](../assets/documentation/DevMode/InfoboxMeta.png)
 
 ### Slots
 
 This tab only appears on layout components. It tells you which slots of your layout component are being used. You can control where you render the slot but you will get prerendered content passed into it. If for example you have a layout with two named slots, `header` and `content` the following would be an example of how you would render the slots in your component.
+
+![InfoboxSlots](../assets/documentation/DevMode/InfoboxSlots.png)
 
 SFC example
 
@@ -94,8 +96,6 @@ class MyComponent extends <FSXABaseLayout>{
     }
 }
 ```
-
-![InfoboxSlots](../assets/documentation/DevMode/InfoboxSlots.png)
 
 For more information on slots, check out the [Vue.js documentation](https://vuejs.org/v2/guide/components-slots.html)
 
