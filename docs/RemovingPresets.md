@@ -10,7 +10,7 @@
 
 ### Introduction
 
-This chapter introduces optional dependencies. Why we have them in our project and how you can easily remove them.
+This chapter introduces optional dependencies, why we have them in our project and how you can easily remove them.
 ### FSXA-UI
 
 The [FSXA-UI](https://github.com/e-Spirit/fsxa-ui) is a component library containing all sections that have been implemented in our project 'Smart Living'.
@@ -31,27 +31,20 @@ npm uninstall fsxa-ui
 The FSXA UI must be removed from all components in the `components/fsxa` folder.
 
 The best way to see if a component is used is to look at the imports at the beginning of a file.
-If the FSXA-UI is imported there, this import and from the `render` function the component must be removed.
+If the FSXA-UI is imported there, remove the import. Also remove any elements from FSXA-UI used in the `render` function.
 
 Also, the CSS file `'fsxa-ui/dist/fsxa-ui.css'` must be removed from the `css` attribute from the `nuxt.config.ts` file.
 
 ### TailwindCSS
 
-[TailwindCSS](https://tailwindcss.com/) is a utility-first CSS framework. With which the writing of own CSS classes is no longer necessary.
+[TailwindCSS](https://tailwindcss.com/) is a utility-first CSS framework, with which the writing of own CSS classes is no longer necessary.
 #### Why do we use this?
 
 We use TailwindCSS to create responsive designs without having to create additional CSS files.
 
 #### How to remove
 
-First, TailwindCSS and the required dependencies must be removed.
-```shell
-npm uninstall @nuxtjs/tailwindcss tailwindcss @tailwindcss/postcss7-compat postcss autoprefixer
-```
-
-Also, in `nuxt.config.ts` for the `buildModules` attribute, the `'@nuxtjs/tailwindcss'` entry must be removed.
-
-Attention: By removing TailwindCSS, the classes used in the components are of course no longer present, so the styling will now look different.
+See this [Removing Tailwind](./css/RemovingTailwind.md) chapter.
 
 ### Vue-TSX-Support
 
@@ -88,4 +81,4 @@ npm uninstall cz-conventional-changelog commitizen @semantic-release/changelog @
 
 Also, the scripts need to be removed.
 <br />
-To do this, the entries `commit`, `commitmsg` and `semantic-release` must be removed in `package.json` under the attribute `scripts`.
+To do this, the entries `commit`, `commitmsg`, and `semantic-release` must be removed in `package.json` under the attribute `scripts`.
