@@ -2,13 +2,13 @@
 
 ### .env-File
 
-The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you fully automatically.
+The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you automatically.
 
 All of the following variables are required.
 
 #### `FSXA_API_KEY` `string`
 
-This API key is required by the PWA to obtain authorized access to the CaaS and navigation service. Our Customer Success Management team (insert mailto link here) will gladly provide you with this key after the successful provisioning of your FSXA environment.
+This API key is required by the PWA to obtain authorized access to the CaaS and navigation service. Our Customer Success Management team ([team-csm@e-spirit.com](mailto:team-csm@e-spirit.com)) will be happy to provide you with this key after the successful provisioning of your FSXA environment.
 
 #### `FSXA_CAAS` `string`
 
@@ -30,7 +30,7 @@ The tenantId is used by the PWA to distinguish between the different FSXA enviro
 
 #### `FSXA_MODE` `"preview" | "release"`
 
-We distinguish between preview and release data. Specify here which data should be loaded by the PWA.
+We distinguish between preview and release data. This is the traditional FirstSpirit way. Specify here which data should be loaded by the PWA.
 
 ### fsxa.config
 
@@ -40,9 +40,7 @@ The following settings allow easy configuration of the PWA.
 
 ##### `devMode`
 
-The `DevMode` helps you to quickly build new components or adapt existing ones.
-
-> TODO: Add screenshots and explain this a little more
+The `DevMode` helps you to quickly build new components or adapt existing ones. See [Getting Started](getting-started/index.md) for screenshots and more details.
 
 ##### `defaultLocale`
 
