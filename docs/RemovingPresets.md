@@ -17,8 +17,7 @@ The [FSXA-UI](https://github.com/e-Spirit/fsxa-ui) is a component library contai
 
 #### Why do we use this?
 
-We use this component library to display the individual components in the PWA.
-We do not have to implement them here, but provide them with a detailed documentation.
+We created this component library so that all components from our standard project are available to everyone. Since we also need exactly these components in this project, they are also used here.
 
 #### How to remove
 
