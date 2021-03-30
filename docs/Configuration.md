@@ -21,8 +21,8 @@ The URL under which the navigation service is available. This URL is only used o
 #### `FSXA_PROJECT_ID` `string`
 
 Several projects can be configured on your FirstSpirit server. In order for the PWA to know which data it needs to access, it needs the UUID of the relevant project.
-
-> TODO: Should we elaborate a bit more on how to find the project id?
+For the project(s) provided by e-Spirit you will be given this data too.
+For other projects you can look at *Project Properties* in *ServerManager*, then *Project Components*, then *CaaS Connect Project App*.
 
 #### `FSXA_TENANT_ID` `string`
 
