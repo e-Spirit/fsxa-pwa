@@ -46,7 +46,7 @@ The `DevMode` helps you to quickly build new components or adapt existing ones. 
 
 Normally the current URL is used to find out the language. If this is not possible (for example, when a user calls `/`) the `defaultLocale` is used to retrieve the navigation data via the `FSXA API`. This property is required.
 
-#### Components
+#### `Components`
 
 The components are automatically loaded and mapped.
 It is important to note the following aspects:
@@ -74,7 +74,7 @@ export default {
 
 #### The folders configured by the following settings are automatically searched for files with the extensions `.vue`, `.tsx`, `.jsx` and `.ts`.
 
-##### Sections
+##### `Sections`
 
 `components.sections` - optional
 
@@ -84,7 +84,7 @@ The folder, where all your section components are located.
 
 **Default**: `"~/components/fsxa/sections"`
 
-##### Layouts
+##### `Layouts`
 
 `components.layouts` - optional
 
@@ -94,7 +94,7 @@ The folder, where all your layout components are located.
 
 **Default**: `"~/components/fsxa/layouts"`
 
-##### RichText
+##### `RichText`
 
 `components.richtext` - optional
 
@@ -104,7 +104,7 @@ The folder, where all your richtext components are located.
 
 > We recommend you to derive from FSXABaseRichTextElement to get access to useful functionality and add TypeScript support.
 
-##### AppLayout
+##### `AppLayout`
 
 `components.appLayout` _optional_
 
@@ -114,17 +114,23 @@ This setting is optional. **Default**: `undefined`
 
 > We recommend you to derive from FSXABaseAppLayout to get access to useful functionality and add TypeScript support.
 
-##### Loader
+##### `Loader`
 
 `components.loader` _optional_
 
 **Default**: `undefined`
 
-##### Custom Routes
+##### `CustomRoutes`
 
 `customRoutes` _optional_
 
 This setting configures the folder in which your own endpoints are located. The automatism loads files with the extensions ts and js. You can learn more in the section [CustomRoutes](advanced/CustomRoutes.md).
+
+##### `LogLevel`
+
+`logLevel` _optional_
+
+Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
 
 > These settings can be configured in the following ways:
 
@@ -140,7 +146,9 @@ This setting configures the folder in which your own endpoints are located. The 
     sections: "~/components/fsxa/sections",
     layouts: "~/components/fsxa/layouts",
     richtext: "~/components/fsxa/richtext",
-  }
+  },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
 }
 ```
 
@@ -158,7 +166,9 @@ This setting configures the folder in which your own endpoints are located. The 
       sections: "~/components/fsxa/sections",
       layouts: "~/components/fsxa/layouts",
       richtext: "~/components/fsxa/richtext",
-    }
+    },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
   },
   ...
 }
