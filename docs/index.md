@@ -18,7 +18,7 @@
 3. [Configuration](Configuration.md) (Pattern-Lib)
    1. [.env File](Configuration.md#env-file)
    2. [fsxa.config](Configuration.md#fsxaconfig)
-4. Vuex-Store
+4. [The Vuex-Store](VuexStore.md)
 5. [DevMode](DevMode.md)
 6. [Routing](Routing.md)
 7. [Working with Richtext](Richtext.md) (Pattern-Lib)
