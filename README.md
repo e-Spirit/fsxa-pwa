@@ -12,8 +12,6 @@ experience platform, combining a headless approach with enterprise capabilities.
 
 If you are interested in the FSXA check this [Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html).
 
-Most of the developer documentation can be accessed through the [documentation index](docs/index.md) right in this repository.
-
 Detailed documentation of the FSXA-PWA's [vue components](https://enterprise-fsxa-ui.e-spirit.cloud/) is hosted separately.
 
 # Structure
