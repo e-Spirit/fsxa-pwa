@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="545.63202mm"
-   height="259.25146mm"
-   viewBox="0 0 545.63202 259.25146"
+   width="547.02997mm"
+   height="357.11105mm"
+   viewBox="0 0 547.02997 357.11105"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -212,15 +212,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.56777778"
-     inkscape:cx="870.2993"
-     inkscape:cy="637.28623"
+     inkscape:cx="613.35599"
+     inkscape:cy="692.28158"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="2389"
-     inkscape:window-height="1329"
+     inkscape:window-width="2386"
+     inkscape:window-height="1178"
      inkscape:window-x="1937"
-     inkscape:window-y="41"
+     inkscape:window-y="192"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -242,14 +242,14 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(238.13281,97.966103)">
+     transform="translate(240.65971,144.96527)">
     <rect
-       style="fill:#cbeaf2;fill-opacity:1;stroke-width:0.76586968"
+       style="fill:#cbeaf2;fill-opacity:1;stroke-width:0.90001881"
        id="rect4754"
-       width="545.63202"
-       height="259.25146"
-       x="-238.13281"
-       y="-97.966103" />
+       width="547.02997"
+       height="357.11105"
+       x="-240.65971"
+       y="-144.96527" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -268,7 +268,7 @@
          id="tspan4581" /></text>
     <g
        id="g4656"
-       transform="translate(-61.044864,-19.292197)">
+       transform="translate(-164.99949,-6.2442513)">
       <rect
          y="28.258928"
          x="46.49107"
@@ -295,7 +295,7 @@
     </g>
     <g
        id="g4663"
-       transform="translate(-304.7793,-75.421657)">
+       transform="translate(-221.31794,4.4947052)">
       <rect
          y="84.38839"
          x="102.80952"
@@ -326,48 +326,61 @@
            id="tspan4587-6"
            sodipodi:role="line">FSXA UI /</tspan></text>
     </g>
-    <rect
-       style="fill:#0099c5;fill-opacity:1;stroke-width:0.26458332"
-       id="rect4551-9"
-       width="103.56548"
-       height="32.883934"
-       x="172.8622"
-       y="8.9667311" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="205.76236"
-       y="28.243525"
-       id="text4585-1"><tspan
-         sodipodi:role="line"
-         id="tspan4583-2"
-         x="205.76236"
-         y="28.243525"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">FSXA API</tspan></text>
     <g
-       id="g4861">
+       id="g7594"
+       transform="translate(-93.954267,12.581947)">
       <rect
-         y="91.284004"
-         x="70.519966"
-         height="32.883938"
+         y="8.9667311"
+         x="172.8622"
+         height="32.883934"
          width="103.56548"
-         id="rect4551-9-7"
+         id="rect4551-9"
          style="fill:#0099c5;fill-opacity:1;stroke-width:0.26458332" />
       <text
-         id="text4585-1-0"
-         y="109.80485"
-         x="78.362694"
+         id="text4585-1"
+         y="28.243525"
+         x="205.76236"
          style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-           y="109.80485"
-           x="78.362694"
-           id="tspan4583-2-9"
-           sodipodi:role="line">FSXA Nuxt Module</tspan></text>
+           y="28.243525"
+           x="205.76236"
+           id="tspan4583-2"
+           sodipodi:role="line">FSXA API</tspan></text>
+    </g>
+    <g
+       id="g7615">
+      <g
+         transform="translate(8.3879651,6.057975)"
+         id="g4861">
+        <rect
+           style="fill:#0099c5;fill-opacity:1;stroke-width:0.26458332"
+           id="rect4551-9-7"
+           width="103.56548"
+           height="32.883938"
+           x="70.519966"
+           y="91.284004" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="120.62344"
+           y="106.54286"
+           id="text4585-1-0"><tspan
+             sodipodi:role="line"
+             id="tspan4583-2-9"
+             x="120.62344"
+             y="106.54286"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">FSXA</tspan><tspan
+             id="tspan7608"
+             sodipodi:role="line"
+             x="120.62344"
+             y="117.1262"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">Nuxt Module</tspan></text>
+      </g>
     </g>
     <g
        id="g4856"
-       transform="translate(-1.1339286,9.0399628)">
+       transform="translate(75.289751,70.551705)">
       <rect
          y="82.244041"
          x="-108.97842"
@@ -416,7 +429,7 @@
     </g>
     <g
        id="g4872"
-       transform="translate(-1.5119048,-9.0714286)">
+       transform="translate(2.9358396,-9.0714286)">
       <rect
          y="-59.40881"
          x="75.972092"
@@ -443,7 +456,7 @@
     </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6488)"
-       d="M 54.221492,41.850665 105.31016,91.284004"
+       d="M -21.380694,54.898611 88.229293,97.341979"
        id="path4882"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -451,7 +464,7 @@
        inkscape:connection-end="#g4861" />
     <path
        style="fill:#0099c5;fill-opacity:1;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
-       d="M -76.677115,91.284004 -131.83953,41.850667"
+       d="M -3.7049025,152.79575 -44.843184,121.76703"
        id="path4886"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -459,7 +472,7 @@
        inkscape:connection-end="#g4663" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5542)"
-       d="M 25.220512,8.9667313 -14.942935,-46.025121"
+       d="M -64.36599,22.014677 -66.201756,-35.5963"
        id="path5264"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -467,14 +480,15 @@
        inkscape:connection-end="#g4867" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5626)"
-       d="m -14.553794,25.408699 -83.850506,0"
+       d="m -64.551107,54.898611 -1.465536,33.984484"
        id="path5616"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
        inkscape:connection-start="#g4656"
        inkscape:connection-end="#g4663" />
     <g
-       id="g5733">
+       id="g5733"
+       transform="translate(-31.300282)">
       <rect
          y="-9.6267118"
          x="-86.675636"
@@ -516,20 +530,6 @@
            id="tspan5726-5"
            sodipodi:role="line">Consumes</tspan></text>
     </g>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:0.96499997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.965, 0.965;stroke-dashoffset:0;stroke-opacity:1"
-       d="m -55.818172,10.411204 2.107981,14.083715"
-       id="path5759"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g5733" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.065, 1.065;stroke-dashoffset:0;stroke-opacity:1"
-       d="m -128.16492,69.970192 25.64535,-0.843236"
-       id="path6154"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g5733-2" />
     <g
        id="g6192"
        transform="translate(28.538805,9.1915098)">
@@ -553,15 +553,8 @@
            sodipodi:role="line">Connects</tspan></text>
     </g>
     <path
-       style="display:inline;fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:0.96499997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.965, 0.965;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 27.60681,-10.947011 -16.403457,-0.14519"
-       id="path6194"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g6192" />
-    <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6208)"
-       d="M 203.75422,8.9667311 147.13365,-35.5963"
+       d="M 127.49858,21.548678 129.97744,-35.5963"
        id="path6198"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -569,7 +562,7 @@
        inkscape:connection-end="#g4872" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6280)"
-       d="m 89.011689,25.408698 83.850511,0"
+       d="M -14.942937,38.339507 78.907931,38.11469"
        id="path6270"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -577,7 +570,7 @@
        inkscape:connection-end="#rect4551-9" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6358)"
-       d="M 204.20321,41.850665 142.74444,91.284004"
+       d="m 127.63254,54.432612 2.21095,42.909367"
        id="path6348"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -585,7 +578,7 @@
        inkscape:connection-end="#g4861" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1.06500006;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker6656)"
-       d="m -6.5468619,107.72597 77.0668279,0"
+       d="M 51.478818,152.79575 97.30593,130.22592"
        id="path6646"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -617,12 +610,23 @@
            x="14.434928"
            sodipodi:role="line">through local API</tspan></text>
     </g>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#0099c5;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.00000003, 1.00000003;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 20.672932,88.883093 31.962505,107.20202"
-       id="path6821"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0"
-       inkscape:connection-start="#g6817" />
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#ba0065;stroke-width:0.89461255;stroke-miterlimit:4;stroke-dasharray:0.89461255, 0.89461255;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6829"
+       cx="27.020086"
+       cy="-61.694691"
+       rx="193.9077"
+       ry="43.623676" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-3.2929802"
+       y="-75.936211"
+       id="text6833"><tspan
+         sodipodi:role="line"
+         id="tspan6831"
+         x="-3.2929802"
+         y="-75.936211"
+         style="font-size:14.11111069px;fill:#ba0065;fill-opacity:1;stroke-width:0.26458332">FirstSpirit</tspan></text>
   </g>
 </svg>
