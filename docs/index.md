@@ -7,10 +7,10 @@
 # Structure
 
 1. [Introduction](Introduction.md)
-   1. General
-   2. Projects used
-   3. Architecture
-   4. Deployment?
+   1. [General](Introduction.md#general)
+   2. [Projects used](Introduction.md#projects-used)
+   3. [Architecture](Introduction.md#architecture)
+   4. [Deployment](Introduction.md#deployment)
 2. [Getting Started](getting-started/index.md)
    1. [My First Template](getting-started/index.md) (Pattern-Lib)
    2. [Adding CSS](getting-started/index.md)
