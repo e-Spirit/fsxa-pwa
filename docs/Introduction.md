@@ -20,7 +20,7 @@ The role of each of these is best seen in the architecture layout depicted below
 
 ## Architecture
 
-![FSXA Architecture](./imgs/FSXA_Architecture.png)
+![FSXA Architecture](./imgs/FSXA_PWA_Architecture.svg)
 
 ### Omnichannel Manager
 
@@ -31,11 +31,11 @@ FSXA-UI is a component library used by the FSXA-PWA and released under the Apach
 
 It contains all components used in the sample project. The Component Library is maintained and continuously extended by the e-Spirit AG.
 
-Pattern-Library
+### Pattern-Library
 
 The FSXA-Pattern-Library manages the connection to the “outside world”. This means it handles the data coming from the CaaS (the FSXA-API acting as an intermediate stage) as well as the navigational data coming from the Navigation Service and provides this data to the PWA. It also connects the PWA to the Omnichannel-Manager to have components editable in the FirstSpirit ContentCreator.
 
-FSXA-API
+### FSXA-API
 
 In headless environments, the editorial content from FirstSpirit is provided via the CaaS. In turn, the navigation structure of the page can be accessed via the Navigation Service.
 
@@ -45,7 +45,7 @@ For example, it converts the navigation service tree structure into easy to use 
 
 The responses of the CaaS are transformed as well and unnecessary information for the frontend is removed.
 
-NUXT-Module
+### NUXT-Module
 
 The FSXA-Nuxt-Module integrates the FSXA-Pattern-Library on a Node.js server. This Node.js server with NUXT is used for Server Side Rendering.
 
