@@ -1,0 +1,59 @@
+== General
+
+* Each example should provide code snippets for tsx and sfc syntax.
+* Related Pages / Sections should be linked, where possible (use anchor links for nested sections as well)
+* Related documentations should be linked (make sure that you do not link to a specific version, since this link can invalidate really quickly)
+
+== Structure
+
+[arabic]
+. link:Introduction.md[Introduction]
+[arabic]
+.. link:Introduction.md#general[General]
+.. link:Introduction.md#projects-used[Projects used]
+.. link:Introduction.md#architecture[Architecture]
+.. link:Introduction.md#deployment[Deployment]
+. link:getting-started/index.md[Getting Started]
+[arabic]
+.. link:getting-started/index.md[My First Template] (Pattern-Lib)
+.. link:getting-started/index.md[Adding CSS]
+.. link:getting-started/index.md[Changing the App Layout]
+. link:Configuration.md[Configuration] (Pattern-Lib)
+[arabic]
+.. link:Configuration.md#env-file[.env File]
+.. link:Configuration.md#fsxaconfig[fsxa.config]
+. Vuex-Store
+. link:DevMode.md[DevMode]
+. link:Routing.md[Routing]
+. link:Richtext.md[Working with Richtext] (Pattern-Lib)
+. link:css/index.md[Custom CSS]
+[arabic]
+.. link:css/Component.md[Adding Custom CSS to your Component] (Pattern-Lib)
+.. link:css/RemovingTailwind.md[Removing TailwindCSS]
+. link:ProjectProperties.md[ProjectProperties] (Pattern-Lib)
+. Global Content
+. Working with Images
+. Caching (StoredContent, TTL)
+. link:SSR.md[Server Side Rendering (SSR)]
+. link:RemovingPresets.md[Removing Presets]
+. link:components/index.md[Base Components] (Pattern-Lib)
+[arabic]
+.. link:components/FSXABaseComponent.md[FSXABaseComponent]
+.. link:components/FSXABaseLayout.md[FSXABaseLayout]
+.. link:components/FSXABaseSection.md[FSXABaseSection]
+.. link:components/FSXABaseRichTextElement.md[FSXABaseRichTextElement]
+.. link:components/FSXABaseAppLayout.md[FSXABaseAppLayout]
+. link:advanced/index.md[Advanced]
+[arabic]
+.. link:advanced/TPP-Snap.md[TPP-Snap]
+[arabic]
+... link:advanced/TPP-Snap.md#nested-elements[Nested Elements]
+... link:advanced/TPP-Snap.md#inline-editing[Inline-Editing]
+.. link:advanced/custom-api-routes/index.md[Custom API Routes]
+[arabic]
+... link:advanced/custom-api-routes/CustomSitemap.md[Example 1: Custom Sitemap]
+... link:advanced/custom-api-routes/AccessingOtherProjects.md[Example 2:Accessing other FS-Projects]
+... link:advanced/custom-api-routes/SendingMails.md[Example 3: Sending Mails]
+.. link:advanced/SEO.md[SEO] (Pattern-Lib)
+
+External CSS
