@@ -21,7 +21,7 @@ The role of each of these is best seen in the architecture layout depicted below
 
 === Architecture
 
-image:./imgs/FSXA_PWA_Architecture.svg[FSXA Architecture]
+image:../images/FSXA_PWA_Architecture.svg[FSXA Architecture]
 
 ==== FSXA UI / Component Library
 
@@ -63,4 +63,4 @@ Technology used "`behind the scenes`":
 * https://helm.sh/[Helm]
 * https://rancher.com/[Rancher]
 
-image:./imgs/ccd_tools.svg[CCD Tools,400]
+image:ccd_tools.svg[CCD Tools,400]
