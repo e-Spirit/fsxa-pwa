@@ -14,3 +14,7 @@ get navigationData(): NavigationData | null {
   return this.$store.getters[FSXAGetters.navigationData]
 }
 ```
+
+## Modules
+
+In Nuxt.js you can add your own modules to the store by defining a subfolder in the `store` folder like for example `/store/myStore`. You can then access that stores getters and mutations like this `this.$store.myStore.getters[]`. You can read more about this in the [Nuxt.js documentation](https://nuxtjs.org/docs/2.x/directory-structure/store#modules)
