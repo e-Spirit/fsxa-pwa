@@ -7,12 +7,12 @@
 == Structure
 
 [arabic]
-. link:Introduction[Introduction]
+. link:Introduction.adoc[Introduction]
 [arabic]
-.. link:Introduction#general[General]
-.. link:Introduction#projects-used[Projects used]
-.. link:Introduction#architecture[Architecture]
-.. link:Introduction#deployment[Deployment]
+.. link:Introduction.adoc#general[General]
+.. link:Introduction.adoc#projects-used[Projects used]
+.. link:Introduction.adoc#architecture[Architecture]
+.. link:Introduction.adoc#deployment[Deployment]
 . link:getting-started/index.md[Getting Started]
 [arabic]
 .. link:getting-started/index.md[My First Template] (Pattern-Lib)
