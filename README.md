@@ -20,7 +20,7 @@ Detailed documentation of the FSXA-PWA's [vue components](https://enterprise-fsx
    1. General
    2. Projects used
    3. Architecture
-   4. Deployment?
+   4. Deployment
 2. [Getting Started](./docs/getting-started/index.md#getting-started)
    1. [My First Template](./docs/getting-started/index.md#my-first-template)
    2. [Custom CSS](./docs/getting-started/index.md#custom-css)
