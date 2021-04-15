@@ -41,13 +41,43 @@ It contains labels and contentReferences which you can use to fill a navigation 
 
 In Nuxt.js [routing](https://nuxtjs.org/docs/2.x/get-started/routing) works via convention. Usually you can link to any pages you may have created in the `pages` folder using the `Nuxt-Link` component. It has a prop called `to` that takes a route as parameter. If you have subfolders in the `pages` folder you can add them to the route as well. You can also use this feature to override pages defined by the navigation service by adding a page with the same pageId as an existing page.
 
-```html
-<NuxtLink to="/">Home page</NuxtLink>
-<NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
-<NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+SFC-Example
+
+```vue
+<template>
+  <NuxtLink to="/">Home page</NuxtLink>
+  <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
+  <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+</template>
 ```
 
-However since routing is slightly more complex in the context of the FSXA-PWA, we recommend using the [triggerRouteChange function](the-triggerroutechange-function) instead of the `<nuxt-link>` component. Using this function, you can still define your own pages and override existing ones. With the added advantage of being able to link to pages in the navigation structure and switching the locale.
+TSX-Example
+
+```typescript jsx
+import { Component as TsxComponent } from 'vue-tsx-support'
+import { RouterLinkProps } from 'vue-tsx-support/options/enable-vue-router'
+
+declare global {
+  const NuxtLink: TsxComponent<RouterLinkProps | { prefetch: boolean, noPrefetch: boolean}>
+}
+
+@Component({
+  name: 'MyComponent'
+})
+class MyComponent extends TsxComponent<{ MyProps }> {
+  render(){
+    return (
+      <div>
+        <NuxtLink to="/">Home page</NuxtLink>
+        <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
+        <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+      </div>
+    )
+  }
+}
+```
+
+However since routing is slightly more complex in the context of the FSXA-PWA, we recommend using the [triggerRouteChange function](the-triggerroutechange-function) in a click event handler of the `<nuxt-link>` component or a simple `<a>` tag. Using this function, you can still define your own pages and override existing ones. With the added advantage of being able to link to pages in the navigation structure and switching the locale. Using it inside an `<a>` or `<nuxt-link>` allows users who have javascript disabled to still use the links.
 
 ### Dynamic Pages
 
@@ -57,10 +87,10 @@ To do so, you need to name the file `_slug.vue`. So for the example mentioned ab
 ```
 /pages
 |__/books
-   |__ _slug.vue
+   |__ _slug.(vue/tsx)
 ```
 
-In the `_slug.vue` file you can access the unknown route parameter like this
+In the `_slug.(vue/tsx)` file you can access the unknown route parameter like this
 
 SFC-Example
 
@@ -72,9 +102,10 @@ SFC-Example
 <script>
   export default {
     async asyncData({ params }) {
-      const book = params.book
-      const slug = params.slug
-      return { book, slug }
+      return {
+        book : params.book
+        slug : params.slug
+      }
     }
   }
 </script>
@@ -100,9 +131,7 @@ class MySlugPage extends TsxComponent<{}>{
 
   render(){
     return (
-      <div>
-        <h1>{this.book} / {this.slug}</h1>
-      </div>
+      <h1>{this.book} / {this.slug}</h1>
     )
   }
 }
