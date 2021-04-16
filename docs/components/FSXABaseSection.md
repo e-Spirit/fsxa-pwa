@@ -10,8 +10,8 @@
 ## Introduction
 
 The FSXABaseSection is there to have a basic component to be able to implement further layout sections.
-Sections define the content of a page by displaying texts, tables, pictures, etc.
-Thereby different attributes and a method are given, which should simplify the development significantly. These are described in this chapter.
+Sections form the content of a page by displaying texts, tables, pictures, etc.
+It provides different attributes and methods, which should simplify the development significantly. These are described in this chapter.
 This component inherits all the attributes and methods of the [FSXABaseComponent](FSXABaseComponent.md).
 
 ## Usage
@@ -24,7 +24,7 @@ class Component extends FSXABaseSection {}
 ```
 
 <hr>
-If you want to have type support you can provide interfaces and pass it as generics.
+If you want to have type support you can provide interfaces and pass them as generics.
 
 ```tsx
 @Component

@@ -10,7 +10,7 @@
 ## Introduction
 
 The FSXABaseAppLayout is there to have a basic component to be able to implement the general layout of the app.
-Thereby different attributes are given, which should simplify the development significantly. These are described in this chapter.<br />
+It provides different attributes, which should simplify the development significantly. These are described in this chapter.<br />
 This component inherits all the attributes and methods of the [FSXABaseComponent](FSXABaseComponent.md).
 
 ## Usage

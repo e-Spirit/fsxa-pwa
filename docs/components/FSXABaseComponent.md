@@ -10,7 +10,7 @@
 ## Introduction
 
 The FSXABaseComponent is there to have a basic component to be able to implement further components.
-Thereby different attributes and methods are given, which should simplify the development significantly. These are described in this section.
+It provides different attributes and methods, which should simplify the development significantly. These are described in this section.
 
 ## Usage
 
@@ -22,7 +22,7 @@ class Component extends FSXABaseComponent {}
 ```
 
 <hr>
-If you want to have type support for your props you can provide an interface and pass it as an generic like here the `Props` interface.
+If you want to have type support for your props you can provide an interface and pass it as a generic like the `Props` interface in this example.
 
 ```tsx
 @Component
@@ -30,7 +30,7 @@ class Component extends FSXABaseComponent<Props> {}
 ```
 
 <hr>
-If you want additionally type support for your events, you can pass a second interface.
+If additionally you want type support for your events, you can pass a second interface.
 
 ```tsx
 @Component
@@ -40,20 +40,20 @@ class LayoutComponent extends FSXABaseComponent<Props, EventsWithOn> {}
 Note: If you only want type support for your events and not the props you have to pass an empty interface `{}` as the data generic.
 
 <hr>
-To have additionally type support for your slots, you can pass a third interface.
+To additionally have type support for your slots, you can pass a third interface.
 
 ```tsx
 @Component
 class LayoutComponent extends FSXABaseComponent<Props, EventsWithOn, Slots> {}
 ```
 
-Note: If you only want type support for your slots and not the props or events you have to pass empty interfaces `{}` as the `Props` and `EventsWithOn` generic.
+Note: If you only want type support for your slots and not the props or events you have to pass empty interfaces `{}` as the `Props` and `EventsWithOn` generics.
 
 ## Properties
 
 ### `currentPage` - string
 
-This property returns the NavigationItem that is matching the current path. If null is returned, no current route could be matched to the current path.
+This property returns the NavigationItem that is matching the current path. If `null` is returned, no current route could be matched to the current path.
 
 ### `fsxaApi` - Object
 
@@ -65,11 +65,11 @@ This property returns the globally configured project properties. If no projectP
 
 ### `isEditMode` - boolean
 
-This property returns true if the app is delivering preview data. It will return false if it is released data.
+This property returns `true` if the app is delivering preview data. It will return `false` if it is released data.
 
 ### `locale` - string
 
-This property returns the current locale abbreviation the content is displayed in e.g. `en_GB`.
+This property returns the current locale abbreviation the content is displayed in, e.g. `en_GB`.
 
 ### `navigationData` - Object
 
@@ -83,7 +83,7 @@ This property returns the current navigation data.
 getStoredItem<T>(key: string): T
 ```
 
-This method returns the stored data, which is set with the given key.
+This method returns the stored data which was set with the given key.
 
 ### `getUrlByPageId`
 
@@ -103,26 +103,12 @@ This method saves your data in the `Vuex`-Store.
 <br />
 You can use this to store your data from 3rd party services that were fetched in the Server Side Rendering process to access it later in the client.
 
-You can specify a time-to-live amount in ms, that determines how long the value will be valid. The default is `300000`ms.
+You can specify a time-to-live duration in ms, that determines how long the value will be valid. The default is `300000`ms.
 
 ### `triggerRouteChange`
 
 ```typescript
 triggerRouteChange(params: {pageId?:string, route?:string, locale?:string}): Promise<void>
 ```
-
-pageId?: string;
-/\*\*
-
-- the route the pattern-library should route to
-  \*/
-  route?: string;
-  /\*\*
-- the locale the new route should be in
--
-- This can be used to switch language
-- You could specify an additional pageId or route if you want to keep the current page
-  \*/
-  locale?: string;
 
 This method will trigger a route change request. A `pageId`, `route` or `locale` can be passed in. If a corresponding page is found the route change will be triggered. Since this is only available when javascript is enabled, make sure that some kind of fallback is provided.

@@ -7,14 +7,14 @@
 
 ## Introduction
 
-The [FSXA-Pattern-Library](https://github.com/e-Spirit/fsxa-pattern-library) provides multiple base components, which come with a lot attributes and methods to help you build your PWA. <br/>
-This chapter will introduce you to these different components and describes when and how to use them.
+The [FSXA-Pattern-Library](https://github.com/e-Spirit/fsxa-pattern-library) provides multiple base components, which come with a lot of attributes and methods to help you build your PWA. <br/>
+This chapter will introduce you to these different components and will describe when and how to use them.
 
 ## Components
 
 ### [FSXABaseComponent](FSXABaseComponent.md)
 
-Basic Component for all further components, provides general attributes und methods.
+Basic Component for all further components, provides general attributes and methods.
 
 ### [FSXABaseAppLayout](FSXABaseAppLayout.md)
 
