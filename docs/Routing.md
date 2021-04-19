@@ -45,9 +45,11 @@ SFC-Example
 
 ```vue
 <template>
-  <NuxtLink to="/">Home page</NuxtLink>
-  <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
-  <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+  <div>
+    <NuxtLink to="/">Home page</NuxtLink>
+    <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
+    <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+  </div>
 </template>
 ```
 
