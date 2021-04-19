@@ -7,9 +7,14 @@ in the context of the FirstSpirit Experience Accelerator.
 
 The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
 experience platform, combining a headless approach with enterprise capabilities.
-If you are interested in the FSXA check this
-[Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html). You can order
-a demo [online](https://www.e-spirit.com/us/specialpages/forms/on-demand-demo/).
+
+## Documentation
+
+If you are interested in the FSXA check this [Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html).
+
+Most of the developer documentation can be accessed through the [documentation index](docs/index.md) right in this repository.
+
+Detailed documentation of the FSXA-PWA's [vue components](https://enterprise-fsxa-ui.e-spirit.cloud/) is hosted separately.
 
 ## Getting Started
 
@@ -40,19 +45,19 @@ This chapter describes how to set up the project and complete the first steps.
 
 8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
 
-### Development mode
+### Development Mode
 
-There is a development mode that helps to easily map the content coming from the CaaS.
+The FSXA-PWA features a [development mode](./docs/DevMode.md) that helps you to easily map the content coming from the CaaS to your components.
 
 To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
 
 If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
 
-![Missing Layout](./assets/documentation/MissingLayout.png)
+![Missing Layout](../assets/documentation/DevMode/MissingLayout.png)
 
-If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the element.
+If you have already implemented a component, you will see a question mark icon when hovering over the element.
 
-![QuestionMark](./assets/documentation/QuestionMark.png)
+![QuestionMark](../assets/documentation/DevMode/QuestionMark.png)
 
 Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
 
@@ -60,7 +65,7 @@ Clicking on this question mark will provide you with more information about whic
 
 In this section we will be exploring how to go about implementing a missing Teaser section.
 
-When you go to the home page in the development mode, you will see that one component is missing.
+When you go to the home page in [development mode](#development-mode), you will see that one component is missing.
 
 ![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
 

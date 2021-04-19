@@ -2,13 +2,13 @@
 
 ### .env-File
 
-The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you fully automatically.
+The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you automatically.
 
 All of the following variables are required.
 
 #### `FSXA_API_KEY` `string`
 
-This API key is required by the PWA to obtain authorized access to the CaaS and navigation service. Our Customer Success Management team (insert mailto link here) will gladly provide you with this key after the successful provisioning of your FSXA environment.
+This API key is required by the PWA to obtain authorized access to the CaaS and navigation service. Our Customer Success Management team ([team-csm@e-spirit.com](mailto:team-csm@e-spirit.com)) will be happy to provide you with this key after the successful provisioning of your FSXA environment.
 
 #### `FSXA_CAAS` `string`
 
@@ -21,8 +21,8 @@ The URL under which the navigation service is available. This URL is only used o
 #### `FSXA_PROJECT_ID` `string`
 
 Several projects can be configured on your FirstSpirit server. In order for the PWA to know which data it needs to access, it needs the UUID of the relevant project.
-
-> TODO: Should we elaborate a bit more on how to find the project id?
+For the project(s) provided by e-Spirit you will be given this data too.
+For other projects you can look at *Project Properties* in *ServerManager*, then *Project Components*, then *CaaS Connect Project App*.
 
 #### `FSXA_TENANT_ID` `string`
 
@@ -30,7 +30,7 @@ The tenantId is used by the PWA to distinguish between the different FSXA enviro
 
 #### `FSXA_MODE` `"preview" | "release"`
 
-We distinguish between preview and release data. Specify here which data should be loaded by the PWA.
+We distinguish between preview and release data. This is the traditional FirstSpirit way. Specify here which data should be loaded by the PWA.
 
 ### fsxa.config
 
@@ -40,15 +40,13 @@ The following settings allow easy configuration of the PWA.
 
 ##### `devMode`
 
-The `DevMode` helps you to quickly build new components or adapt existing ones.
-
-> TODO: Add screenshots and explain this a little more
+The `DevMode` helps you to quickly build new components or adapt existing ones. See [Getting Started](getting-started/index.md) for screenshots and more details.
 
 ##### `defaultLocale`
 
 Normally the current URL is used to find out the language. If this is not possible (for example, when a user calls `/`) the `defaultLocale` is used to retrieve the navigation data via the `FSXA API`. This property is required.
 
-#### Components
+#### `Components`
 
 The components are automatically loaded and mapped.
 It is important to note the following aspects:
@@ -76,7 +74,7 @@ export default {
 
 #### The folders configured by the following settings are automatically searched for files with the extensions `.vue`, `.tsx`, `.jsx` and `.ts`.
 
-##### Sections
+##### `Sections`
 
 `components.sections` - optional
 
@@ -86,7 +84,7 @@ The folder, where all your section components are located.
 
 **Default**: `"~/components/fsxa/sections"`
 
-##### Layouts
+##### `Layouts`
 
 `components.layouts` - optional
 
@@ -96,7 +94,7 @@ The folder, where all your layout components are located.
 
 **Default**: `"~/components/fsxa/layouts"`
 
-##### RichText
+##### `RichText`
 
 `components.richtext` - optional
 
@@ -106,7 +104,7 @@ The folder, where all your richtext components are located.
 
 > We recommend you to derive from FSXABaseRichTextElement to get access to useful functionality and add TypeScript support.
 
-##### AppLayout
+##### `AppLayout`
 
 `components.appLayout` _optional_
 
@@ -116,17 +114,23 @@ This setting is optional. **Default**: `undefined`
 
 > We recommend you to derive from FSXABaseAppLayout to get access to useful functionality and add TypeScript support.
 
-##### Loader
+##### `Loader`
 
 `components.loader` _optional_
 
 **Default**: `undefined`
 
-##### Custom Routes
+##### `CustomRoutes`
 
 `customRoutes` _optional_
 
 This setting configures the folder in which your own endpoints are located. The automatism loads files with the extensions ts and js. You can learn more in the section [CustomRoutes](advanced/CustomRoutes.md).
+
+##### `LogLevel`
+
+`logLevel` _optional_
+
+Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
 
 > These settings can be configured in the following ways:
 
@@ -142,7 +146,9 @@ This setting configures the folder in which your own endpoints are located. The 
     sections: "~/components/fsxa/sections",
     layouts: "~/components/fsxa/layouts",
     richtext: "~/components/fsxa/richtext",
-  }
+  },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
 }
 ```
 
@@ -160,7 +166,9 @@ This setting configures the folder in which your own endpoints are located. The 
       sections: "~/components/fsxa/sections",
       layouts: "~/components/fsxa/layouts",
       richtext: "~/components/fsxa/richtext",
-    }
+    },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
   },
   ...
 }

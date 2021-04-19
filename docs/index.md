@@ -18,7 +18,7 @@
 3. [Configuration](Configuration.md) (Pattern-Lib)
    1. [.env File](Configuration.md#env-file)
    2. [fsxa.config](Configuration.md#fsxaconfig)
-4. Vuex-Store
+4. [The Vuex-Store](VuexStore.md)
 5. [DevMode](DevMode.md)
 6. [Routing](Routing.md)
 7. [Working with Richtext](Richtext.md) (Pattern-Lib)
@@ -29,7 +29,7 @@
 10. Global Content
 11. Working with Images
 12. Caching (StoredContent, TTL)
-13. SSR
+13. [Server Side Rendering (SSR)](SSR.md)
 14. [Removing Presets](RemovingPresets.md)
 15. [Base Components](components/index.md) (Pattern-Lib)
     1. [FSXABaseComponent](components/FSXABaseComponent.md)
