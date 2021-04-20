@@ -27,7 +27,7 @@
    2. [Removing TailwindCSS](css/RemovingTailwind.md)
 9. [ProjectProperties](ProjectProperties.md) (Pattern-Lib)
 10. Global Content
-11. Working with Images
+11. [Working with Images](WorkingWithImages.md)
 12. Caching (StoredContent, TTL)
 13. [Server Side Rendering (SSR)](SSR.md)
 14. [Removing Presets](RemovingPresets.md)
