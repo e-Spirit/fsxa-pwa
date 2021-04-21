@@ -155,3 +155,182 @@ Wenn das Senden der Email erfolgreich war, haben wir die Möglichkeit mit `Nodem
 Falls das Senden nicht erfolgreich, soll der entsprechende Status Code, oder falls es diesen nicht gibt `400` und die Fehlermeldung zurück geschickt werden.
 
 Wenn du die URL die in der Konsole ausgeloggt wurde im Browser öffnest, siehst du die Nachricht die versendet wurde.
+
+Diese Email wollen wir jetzt mit unserem eigenen Inhalt versehen.
+Dafür erstellen wir erstmal ein `interface` in dem wir sagen, welche Inhalte wir verwenden wollen:
+
+```typescript
+interface MailContent {
+  email: string
+  subject: string
+  company: string
+  content: string
+}
+```
+
+Als nächstes erstellen wir zwei Funktionen, die einen Text mithilfe der Parameter erstellen sollen, einmal als ganz normaler Text und einmal als Email.
+
+```typescript
+const generateText = ({ email, subject, company, content }: MailContent) => {
+  return `
+NEW MESSAGE RECEIVED
+Data:
+Subject: ${subject}
+Email: ${email}
+Company: ${company}
+Content: ${content}
+`
+}
+
+const generateHTML = ({ email, subject, company, content }: MailContent) => {
+  return `
+  <h1>NEW MESSAGE RECEIVED</h1>
+  <p>Data: 
+  <ul>
+    <li>Email: ${email}</li>
+    <li>Subject: ${subject}</li>
+    <li>Company: ${company}</li>
+    <li>Content: <pre>${content}</pre></li>
+  </ul>
+  </p>
+`
+}
+```
+
+In unserer `sendMail` Funktionen können wir jetzt auch den Content übergeben und unsere erstellten Funktionen benutzen.
+
+```typescript
+const sendMail = async (mailContent: MailContent) => {
+  const testAccount = await nodemailer.createTestAccount()
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass
+    }
+  })
+  const info = await transporter.sendMail({
+    from: '"Sending Test Account" <sender@example.com>',
+    to: 'Receiving Test Account <receiver@example.com> ',
+    subject: 'Test',
+    text: generateText(mailContent),
+    html: generateHTML(mailContent)
+  })
+  return info
+}
+```
+
+Die gesamte Datei sollte am Ende wie folgt aussehen:
+
+```typescript
+import express, { Request, Response } from 'express'
+// eslint-disable-next-line import/named
+import { FSXAMiddlewareContext } from 'fsxa-nuxt-module'
+import nodemailer from 'nodemailer'
+
+interface MailContent {
+  email: string
+  subject: string
+  company: string
+  content: string
+}
+
+const generateText = ({ email, subject, company, content }: MailContent) => {
+  return `
+NEW MESSAGE RECEIVED
+Data:
+Subject: ${subject}
+Email: ${email}
+Company: ${company}
+Content: ${content}
+`
+}
+
+const generateHTML = ({ email, subject, company, content }: MailContent) => {
+  return `
+  <h1>NEW MESSAGE RECEIVED</h1>
+  <p>Data: 
+  <ul>
+    <li>Email: ${email}</li>
+    <li>Subject: ${subject}</li>
+    <li>Company: ${company}</li>
+    <li>Content: <pre>${content}</pre></li>
+  </ul>
+  </p>
+`
+}
+
+const sendMail = async (mailContent: MailContent) => {
+  const testAccount = await nodemailer.createTestAccount()
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass
+    }
+  })
+  const info = await transporter.sendMail({
+    from: '"Sending Test Account" <sender@example.com>',
+    to: 'Receiving Test Account <receiver@example.com> ',
+    subject: 'Test',
+    text: generateText(mailContent),
+    html: generateHTML(mailContent)
+  })
+  return info
+}
+
+const isEmailValid = (email: string) => {
+  return email.includes('@')
+}
+
+export default {
+  async handler(context: FSXAMiddlewareContext, req: Request, res: Response) {
+    const app = express()
+    app.post('/', async (req, res) => {
+      const { email, subject, company, content } = req.body
+      if (!email || !subject || !company || !content) {
+        return res.status(422).send({
+          code: 422,
+          message: 'Please provide email, subject, company and content'
+        })
+      }
+      if (!isEmailValid(email)) {
+        return res
+          .status(422)
+          .send({ code: 422, message: 'Please provide a valid email' })
+      }
+
+      sendMail({
+        email,
+        subject,
+        company,
+        content
+      })
+        .then((info) => {
+          console.log(nodemailer.getTestMessageUrl(info))
+          res.send(info)
+        })
+        .catch((err) => {
+          res
+            .status(err.responseCode || 400)
+            .send({ code: err.responseCode || 400, err })
+        })
+    })
+    return app(req, res)
+  },
+  route: '/test123'
+}
+
+const router = express.Router()
+
+router
+
+export default {
+  router,
+  route: '/mailService/'
+}
+```
