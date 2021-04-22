@@ -5,13 +5,13 @@
 1. [Introduction](#introduction)
 2. [Working with CaaS](#working-with-caas)
 3. [Resolutions in FirstSpirit](#resolutions-in-firstspirit)
-4. [Responsivity](#responsivity)
+4. [Responsiveness](#responsiveness)
 5. [Lazy Loading](#lazy-loading)
 6. [SourceSets](#sourcesets)
 
 ## Introduction
 
-In modern web design an image needs to be available in multiple croppings and resolutions in order to be rendered in all layouts across all devices. The FSXA-PWA offers a variety of tools to ensure the correct image gets loaded at the proper time. It is important to create and store the same image in multiple resolutions because this saves bandwidth
+In modern web design an image needs to be available in multiple croppings and resolutions in order to be rendered in all layouts across all devices or be usable in more than one slot (banner, slider, thumbnails, gallery etc.). The FSXA-PWA offers a variety of tools to ensure the correct image gets loaded at the proper time. In order to save on bandwidth and thus reduce page loading times it is important to generate and store the same image in multiple resolutions and croppings.
 
 ## Working with CaaS
 
@@ -33,7 +33,7 @@ The FirstSpirit CaaS contains meta information about the various resolutions you
 }
 ```
 
-As you can see, the data contains a URL reference that usually points towards the FirstSpirit CaaS media collection. Following the URL will yield all the available resolutions of the image (see example below). Each entry has a name that corresponds to the FirstSpirit image resolution that generated the image and contains a URL pointing to the location of the image in that specific resolution. This URL can point towards the CaaS or it can point to a CDN that stores your image.
+As you can see, the data contains a URL reference that usually points towards the FirstSpirit CaaS media collection. Following the URL will yield all the available resolutions of the image (see example below). Each entry has a name that corresponds to the FirstSpirit image resolution in the project settings and contains a URL pointing to the location of the image in that specific resolution. This URL can point towards the CaaS or it can point to a CDN that stores your image depending on your project configuration.
 
 ```json
 "ORIGINAL": {
@@ -61,3 +61,19 @@ As you can see, the data contains a URL reference that usually points towards th
   "url": "https://where.your.image.is.stored/d8db6f24-0bf8-4f48-be47-5e41d8d427fc/preview/Images/Product-Images/Security-Camera_echo_show5.jpg"
 },
 ```
+
+## Resolutions in FirstSpirit
+
+FirstSpirit offers a toolset to create and store multiple croppings and/or resolutions for the same image. This functionality is reflected by the CaaS. You can define your resolutions in the project settings. And a content creator can choose for each image individually which resolutions they want to have generated. There is also a cropping tool available in case a specific resolution changes the aspect ratio of an image.
+
+## Responsiveness
+
+The ability of the page layout to adapt to multiple screen resolutions and aspect ratios is called responsiveness. For images this is usually achieved by defining breakpoints for screen sizes at which the browser will switch to a different version of the image. The predefined components of the [FSXA-UI](https://enterprise-fsxa-ui.e-spirit.cloud/components/image) library use 5 breakpoints internally. Keep this in mind when developing your own components.
+
+## Lazy Loading
+
+The term lazy loading refers to loading certain resources at the latest possible moment as opposed to loading all resources at the initial rendering of a page. If you use the [FSXA-UI image component](https://enterprise-fsxa-ui.e-spirit.cloud/components/image) you can set the lazy loading prop to true and the image will only be loaded when it's on the screen. This can contribute immensely to reduce initial page loading times but should be used sparingly.
+
+## Source Sets
+
+Source sets are an HTML5 feature that allows to define multiple sources for the same `<img>` tag. There are multiple ways to use them. You can either define a source set using the srcset attribute at an `<img>` tag or you can use the `<picture>` tag and define the sources using `<source>` tags. Or you can use the [FSXA-UI image component](https://enterprise-fsxa-ui.e-spirit.cloud/components/image) which will combine all the images you provide to a source set. However you do it, the main advantage is that the browser will only request the image defined for the current viewport size. You can read more about source sets in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset)
