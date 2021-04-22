@@ -1,5 +1,8 @@
 link:../README.md[README] » Introduction
 
+:moduledir: ..
+:imagesdir: {moduledir}/images
+
 == Introduction
 
 === General
@@ -21,7 +24,7 @@ The role of each of these is best seen in the architecture layout depicted below
 
 === Architecture
 
-image:../images/FSXA_PWA_Architecture.svg[FSXA Architecture]
+image:FSXA_PWA_Architecture.svg[FSXA Architecture]
 
 ==== FSXA UI / Component Library
 
