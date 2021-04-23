@@ -1,10 +1,10 @@
 # TPP-Snap
 
-> TODO: Add some general information about TTP-Snap and explain how it is used inside of the pwa (image of the architecture?)
+TPP-Snap is a Javascript library designed to connect the FirstSpirit ContentCreator UI with dynamically generated HTML elements (like in a PWA). This connection is achieved using preview ids. When you add a known preview id as an attribute to an HTML element the TPP-Snap library will automatically decorate it using borders and buttons when your PWA is viewed in the FirstSpirit ContentCreator. The library also offers the tools to add your own buttons as you see fit.
 
 ## Nested Elements
 
-At layout and section level, our automatism takes care of enriching the UI so that the elements are editable in the ContentCreator. However, as soon as we have sections within a dataset or a section, there is currently no automatism. So you have to take action here that your child sections can also be edited in the ContentCreator.
+At layout and section level, our the FSXA takes care of enriching the UI so that the elements are editable in the ContentCreator. However, as soon as we have sections within a dataset or a section, there is currently no automatism. So you have to take action here that your child sections can also be edited in the ContentCreator.
 
 This is really simple.
 
@@ -63,4 +63,4 @@ Further information can be found in the documentation for the [TPP-Snap](https:/
 
 ## Inline Editing
 
-> TODO: https://docs.e-spirit.com/tpp/snap/index.html#inline-editing
+For some FirstSpirit input components inline editing is possible. Please refer to the [TPP-Snap documentation](https://docs.e-spirit.com/tpp/snap/index.html#inline-editing) for further information.
