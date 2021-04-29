@@ -12,295 +12,49 @@ experience platform, combining a headless approach with enterprise capabilities.
 
 If you are interested in the FSXA check this [Overview](https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html).
 
-Most of the developer documentation can be accessed through the [documentation index](docs/index.md) right in this repository.
-
 Detailed documentation of the FSXA-PWA's [vue components](https://enterprise-fsxa-ui.e-spirit.cloud/) is hosted separately.
 
-## Getting Started
-
-This chapter describes how to set up the project and complete the first steps.
-
-### Requirements
-
-- [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.
-- A text editor - like [VS Code](https://code.visualstudio.com/) with the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin.
-- A terminal - like VS Code's integrated [terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
-- [Git](https://git-scm.com/) - latest major version: > 2.
-
-### Setting up the project
-
-1. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
-
-2. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
-
-3. Navigate to the newly created folder with `cd fsxa-pwa`
-
-4. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
-
-5. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the [configuration page](TODO).
-
-6. To install the needed dependencies run the command `npm install`.
-
-7. After all dependencies are installed, you can start a local development server with `npm run dev`.
-
-8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
-
-### Development Mode
-
-The FSXA-PWA features a [development mode](./docs/DevMode.md) that helps you to easily map the content coming from the CaaS to your components.
-
-To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
-
-If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
-
-![Missing Layout](../assets/documentation/DevMode/MissingLayout.png)
-
-If you have already implemented a component, you will see a question mark icon when hovering over the element.
-
-![QuestionMark](../assets/documentation/DevMode/QuestionMark.png)
-
-Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
-
-### Writing components
-
-In this section we will be exploring how to go about implementing a missing Teaser section.
-
-When you go to the home page in [development mode](#development-mode), you will see that one component is missing.
-
-![MissingSection](./assets/documentation/WritingComponents/MissingSection.png)
-
-This infobox tells us that the app expects a component of type `Section`. We can also see that the key of this missing section is `teaser`.
-
-In the `fsxa.config.ts` file we can see that our section components are located in `~/components/fsxa/sections`.
-That's where you want to create a new file for the component.
-
-Make sure, that you name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
-
-Next we need to import two classes that are required to define our new component:
-
-```typescript jsx
-import Component from 'vue-class-component'
-import { FSXABaseSection } from 'fsxa-pattern-library'
-```
-
-With this we can start writing our class.
-
-```typescript jsx
-@Component
-class TeaserSection extends FSXABaseSection<{}>{
-  
-}
-```
-
-This class expects us to implement `render` function. This function describes which HTML will be displayed in our component.
-To keep things simple for now we will write just a simple `render` function to see if our component is recognized.
-
-```typescript jsx
-render() {
-  return <div>Hello Component</div>
-}
-```
-
-To wrap things up we need to export our class.
-
-```typescript jsx
-export default TeaserSection
-```
-
-In the end our `Teaser.tsx` should look something like this:
-
-```typescript jsx
-import Component from 'vue-class-component'
-import { FSXABaseSection } from 'fsxa-pattern-library'
-
-@Component
-class TeaserSection extends FSXABaseSection<{}> {
-  render() {
-    return <div>Hello Component</div>
-  }
-}
-
-export default TeaserSection
-```
-
-When we go back to the browser, instead of the infobox we should see our component.
-
-![Hello Component](./assets/documentation/WritingComponents/HelloComponent.png)
-
-Our component is recognized correctly. But we still do not display the data from the CaaS in our component.
-For that we hover over our component and click on the appearing question mark on the right side.
-
-![Available Properties](./assets/documentation/WritingComponents/AvailableProperties.png)
-
-This shows us the data available to display.
-For the first example we want to display the `st_jumbo_headline`.
-
-For this we create an interface in our component and define the name of the attribute and its type.
-
-```typescript
-interface Payload {
-  st_jumbo_headline: string
-}
-```
-
-We update the use of the `FSXABaseSection` with our new payload: `class TeaserSection extends FSXABaseSection<Payload>`
-and use the `st_jumbo_headline` in our `render` function.
-
-````typescript jsx
-render() {
-    return <div>Headline: {this.payload.st_jumbo_headline}</div>
-  }
-````
-
-Every attribute in our payload is accessible via `this.payload`
-
-The result should look like this:
-![Displayed Headline](./assets/documentation/WritingComponents/DisplayedHeadline.png)
-
-Next we want to continue to implement our payload interface.
-For some objects we use interfaces from the [FSXA-Api](https://github.com/e-Spirit/fsxa-api), so we also have to import them.
-
-```typescript
-import { Image, RichTextElement } from 'fsxa-api'
-```
-
-The final interface looks like this:
-
-```typescript
-interface Payload {
-  st_headline: RichTextElement[]
-  st_jumbo_headline: string
-  st_kicker: string
-  st_picture?: Image
-  st_picture_alt: string | null
-  st_text: RichTextElement[]
-  st_button?: {
-    data: {
-      lt_button_text: string
-      lt_internal: {
-        referenceId: string
-        referenceType: string
-      }
-    }
-  }
-}
-```
-
-Note that attributes followed by a question mark are optional.
-
-In order to display all this information, we can use a component from the [fsxa-ui](https://github.com/e-Spirit/fsxa-ui/).
-First we need to import it. It is located under Sections in the fsxa-ui.
-
-```typescript
-import { Sections } from 'fsxa-ui'
-```
-
-Since we are using richtext we also need to import FSXARichText from the [fsxa-pattern-library](https://github.com/e-Spirit/fsxa-pattern-library)
-
-```typescript
-import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-```
-
-And then we can use them in our `render` function:
-
-```typescript jsx
-render() {
-    return (
-      <Sections.TeaserSection
-        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
-        kicker={this.payload.st_kicker}
-        text={(<FSXARichText content={this.payload.st_text} />) as any}
-        buttonText={this.payload.st_button?.data.lt_button_text}
-        onButtonClick={() =>
-          this.triggerRouteChange({
-            pageId: this.payload.st_button?.data.lt_internal.referenceId
-          })
-        }
-        media={
-          this.payload.st_picture
-            ? {
-                type: 'image',
-                src: this.payload.st_picture.resolutions.ORIGINAL.url,
-                resolutions: this.payload.st_picture.resolutions,
-                previewId: this.payload.st_picture.previewId
-              }
-            : undefined
-        }
-      />
-    )
-  }
-```
-
-Finally, we can name our component. We do this in the `@Component` annotation.
-
-```typescript jsx
-@Component({
-  name: 'TeaserSection'
-})
-```
-
-The final `Teaser.tsx` file looks like this:
-
-```typescript jsx
-import Component from 'vue-class-component'
-import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-import { Sections } from 'fsxa-ui'
-import { Image, RichTextElement } from 'fsxa-api'
-
-interface Payload {
-  st_headline: RichTextElement[]
-  st_jumbo_headline: string
-  st_kicker: string
-  st_picture?: Image
-  st_picture_alt: string | null
-  st_text: RichTextElement[]
-  st_button?: {
-    data: {
-      lt_button_text: string
-      lt_internal: {
-        referenceId: string
-        referenceType: string
-      }
-    }
-  }
-}
-
-@Component({
-  name: 'TeaserSection'
-})
-class TeaserSection extends FSXABaseSection<Payload> {
-  render() {
-    return (
-      <Sections.TeaserSection
-        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
-        kicker={this.payload.st_kicker}
-        text={(<FSXARichText content={this.payload.st_text} />) as any}
-        buttonText={this.payload.st_button?.data.lt_button_text}
-        onButtonClick={() =>
-          this.triggerRouteChange({
-            pageId: this.payload.st_button?.data.lt_internal.referenceId
-          })
-        }
-        media={
-          this.payload.st_picture
-            ? {
-                type: 'image',
-                src: this.payload.st_picture.resolutions.ORIGINAL.url,
-                resolutions: this.payload.st_picture.resolutions,
-                previewId: this.payload.st_picture.previewId
-              }
-            : undefined
-        }
-      />
-    )
-  }
-}
-
-export default TeaserSection
-```
-
-Here you can see the result.
-![Finished Component](./assets/documentation/WritingComponents/FinishedComponent.png)
+# Structure
+
+1. [Introduction](./docs/Introduction.md)
+   1. General
+   2. Projects used
+   3. Architecture
+   4. Deployment
+2. [Getting Started](./docs/getting-started/index.md#getting-started)
+   1. [My First Template](./docs/getting-started/index.md#my-first-template)
+   2. [Custom CSS](./docs/getting-started/index.md#custom-css)
+   3. [Changing the App Layout](./docs/getting-started/index.md#changing-the-app-layout)
+3. [Configuration](./docs/Configuration.md)
+   1. [.env File](./docs/configuration.md#env-file)
+   2. [fsxa.config](./docs/Configuration.md#fsxaconfig)
+4. Vuex-Store
+5. [DevMode](./docs/DevMode.md)
+6. [Routing](./docs/Routing.md)
+7. [Working with Richtext](./docs/Richtext.md)
+8. [Custom CSS](./docs/css/index.md)
+   1. [Adding Custom CSS to your Component](./docs/css/Component.md)
+   2. [Removing TailwindCSS](./docs/css/RemovingTailwind.md)
+9. [ProjectProperties](./docs/ProjectProperties.md)
+10. Working with Images
+11. Caching (StoredContent, TTL)
+12. [Server Side Rendering (SSR)](./docs/SSR.md)
+13. [Removing Presets](./docs/RemovingPresets.md)
+14. [Base Components](./docs/components/index.md)
+    1. [FSXABaseComponent](./docs/components/FSXABaseComponent.md)
+    2. [FSXABaseLayout](./docs/components/FSXABaseLayout.md)
+    3. [FSXABaseSection](./docs/components/FSXABaseSection.md)
+    4. [FSXABaseRichTextElement](./docs/components/FSXABaseRichTextElement.md)
+    5. [FSXABaseAppLayout](./docs/components/FSXABaseAppLayout.md)
+15. Advanced
+    1. [TPP-Snap](./docs/advanced/TPP-Snap.md)
+       1. [Nested Elements](./docs/advanced/TPP-Snap.md#nested-elements)
+       2. [Inline-Editing](./docs/advanced/TPP-Snap.md#inline-editing)
+    2. [Custom API Routes](./docs/advanced/custom-api-routes/index.md)
+       1. [Example 1: Custom Sitemap](./docs/advanced/custom-api-routes/CustomSitemap.md)
+       2. [Example 2:Accessing other FS-Projects](./docs/advanced/custom-api-routes/AccessingOtherProjects.md)
+       3. [Example 3: Sending Mails](./docs/advanced/custom-api-routes/SendingMails.md)
+    3. [SEO](./docs/advanced/SEO.md)
 
 ## Legal Notices
 
