@@ -33,7 +33,7 @@ The FirstSpirit CaaS contains meta information about the various resolutions you
 }
 ```
 
-As you can see, the data contains a URL reference that usually points towards the FirstSpirit CaaS media collection. Following the URL will yield all the available resolutions of the image (see example below). Each entry has a name that corresponds to the FirstSpirit image resolution in the project settings and contains a URL pointing to the location of the image in that specific resolution. This URL can point towards the CaaS or it can point to a CDN that stores your image depending on your project configuration.
+As you can see, the data contains a URL reference that usually points towards the FirstSpirit CaaS media collection. Sending a request to that URL will yield all the available resolutions of the image in the new json result (see example below). Each entry has a name that corresponds to the FirstSpirit image resolution in the project settings and contains a URL pointing to the location of the image in that specific resolution. This URL can point towards the CaaS or it can point to a CDN that stores your image depending on your project configuration.
 
 ```json
 "ORIGINAL": {
@@ -64,7 +64,7 @@ As you can see, the data contains a URL reference that usually points towards th
 
 ## Resolutions in FirstSpirit
 
-FirstSpirit offers a toolset to create and store multiple croppings and/or resolutions for the same image. This functionality is reflected by the CaaS. You can define your resolutions in the project settings. And a content creator can choose for each image individually which resolutions they want to have generated. There is also a cropping tool available in case a specific resolution changes the aspect ratio of an image.
+FirstSpirit offers a toolset to create and store multiple croppings and/or resolutions for the same image. This functionality is reflected by the CaaS. You can define your resolutions in the project settings. An editor can choose for each image individually which resolutions they want to have generated. There is also a cropping tool available in case a specific resolution changes the aspect ratio of an image.
 
 ## Responsiveness
 
@@ -72,7 +72,7 @@ The ability of the page layout to adapt to multiple screen resolutions and aspec
 
 ## Lazy Loading
 
-The term lazy loading refers to loading certain resources at the latest possible moment as opposed to loading all resources at the initial rendering of a page. If you use the [FSXA-UI image component](https://enterprise-fsxa-ui.e-spirit.cloud/components/image) you can set the lazy loading prop to true and the image will only be loaded when it's on the screen. This can contribute immensely to reduce initial page loading times but should be used sparingly.
+The term lazy loading refers to loading certain resources at the latest possible moment as opposed to loading all resources at the initial rendering of a page. If you use the [FSXA-UI image component](https://enterprise-fsxa-ui.e-spirit.cloud/components/image) you can set the lazy loading prop to true and the image will only be loaded when it's on the screen. This can contribute immensely to reduce initial page loading times but should be used sparingly. If used too much it could result in a page that appears very laggy because images will be fetched during scrolling or other navigation interactions.
 
 ## Source Sets
 
