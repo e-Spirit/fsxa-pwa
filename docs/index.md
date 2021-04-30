@@ -38,7 +38,7 @@
     4. [FSXABaseRichTextElement](components/FSXABaseRichTextElement.md)
     5. [FSXABaseAppLayout](components/FSXABaseAppLayout.md)
 16. [Advanced](advanced/index.md)
-    1. [TPP-Snap](advanced/TPP-Snap.md)
+    1. [OCM-Snap](advanced/TPP-Snap.md)
        1. [Nested Elements](advanced/TPP-Snap.md#nested-elements)
        2. [Inline-Editing](advanced/TPP-Snap.md#inline-editing)
     2. [Custom API Routes](advanced/custom-api-routes/index.md)
