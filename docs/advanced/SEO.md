@@ -24,33 +24,28 @@ In the `nuxt.config.ts` you will find a property named head. This is basically t
   }
 ```
 
-By default, the npm package name will be your page title but you can change this to whatever you want. Any settings you add here, will be added to every page of your application. You can also import scripts by adding a script array property and even import stylesheets by adding objects to the `link` array.
+By default, the npm package name will be your page title but you can change this to whatever you want. Any settings you add here, will be added to every page of your application. You can also import scripts by adding a script array property and even import stylesheets by adding objects to the `link` array. But for SEO you will probably want to add keywords to the `meta` tag.
 
 ```javascript
-head: {
-  script: [
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
-    }
-  ],
-  link: [
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
-    }
-  ]
-}
+  head: {
+    meta: [
+      {
+        name: 'keywords'
+        content: "nuxt, fsxa, seo"
+      }
+    ]
+  }
 ```
 
 ## Local Configuration
 
-When you declare your component class you can define a `head()` function which returns an object similar to the `head` object in the global configuration. This way you have access to data and computed properties.
+In order to add tags to certain pages and not others you can use a local configuration. When you declare your component class you can define a `head()` function which returns an object similar to the `head` object in the global configuration. This way you have access to data and computed properties. Declaring meta tags both here and in the global config will cause both configurations to appear on this page. Title tags will be overwritten instead.
 
 SFC-Example
 
 ```javascript vue
 <template>
-  <h1>About page with jQuery and Roboto font</h1>
+  <h1>About page with additional keywords</h1>
 </template>
 
 <script>
@@ -63,28 +58,16 @@ SFC-Example
     head() {
       return {
         title: this.title,
-        script: [
+        meta: [
           {
-            src:
-              'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
-          }
-        ],
-        link: [
-          {
-            rel: 'stylesheet',
-            href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
+            name: 'keywords',
+            content: 'my, page, specific, keywords'
           }
         ]
       }
     }
   }
 </script>
-
-<style scoped>
-  h1 {
-    font-family: Roboto, sans-serif;
-  }
-</style>
 ```
 
 In TSX you will have to declare the `data` and `head` functions inside your `@Component` annotation.
@@ -105,16 +88,10 @@ import { FSXABaseComponent } from 'fsxa-pattern-library'
   head(){
     return {
       title: this.title,
-      script: [
+      meta: [
         {
-          src:
-            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
-        }
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap'
+          name: 'keywords',
+          content: 'my, page, specific, keywords'
         }
       ]
     }
@@ -122,7 +99,17 @@ import { FSXABaseComponent } from 'fsxa-pattern-library'
 })
 export class MyComponent extends FSXABaseComponent<{}>{
   render(){
-    return <h1 style="font-family: Roboto, sans-serif">About page with jQuery and Roboto font</h1>
+    return <h1>About page with additional keywords</h1>
   }
 }
+```
+
+In both of these examples the head of this specific page will look like this when rendered.
+
+```html
+<head>
+  <title>My dynamic data driven title</title>
+  <meta name="keywords" content="nuxt, fsxa, seo"></meta>
+  <meta name="keywords" content="my, page, specific, keywords"></meta>
+</head>
 ```
