@@ -36,7 +36,7 @@
     3. [FSXABaseSection](components/FSXABaseSection.md)
     4. [FSXABaseRichTextElement](components/FSXABaseRichTextElement.md)
     5. [FSXABaseAppLayout](components/FSXABaseAppLayout.md)
-16. [Advanced](advanced/index.md)
+15. [Advanced](advanced/index.md)
     1. [OCM-Snap](advanced/TPP-Snap.md)
        1. [Nested Elements](advanced/TPP-Snap.md#nested-elements)
        2. [Inline-Editing](advanced/TPP-Snap.md#inline-editing)
