@@ -18,4 +18,33 @@ Clicking on it will show you further information about the missing component.
 
 And finally, clicking the content tab in the info window will reveal all of the data that will be passed into your component.
 
-![RichText Data](./imgs/RichText/RichTextData.png)
+```json
+[
+  {
+    "data": {
+      "data-fs-style": "format.standard"
+    },
+    "content": [
+      {
+        "type": "text",
+        "content": "Life made ",
+        "data": {}
+      },
+      {
+        "data": {
+          "data.fs-style": "format.span_yellow_text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "content": "easier",
+            "data": {}
+          }
+        ],
+        "type": "paragraph"
+      }
+    ],
+    "type": "paragraph"
+  }
+]
+```
