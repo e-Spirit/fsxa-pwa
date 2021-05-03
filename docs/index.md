@@ -26,12 +26,11 @@
    1. [Adding Custom CSS to your Component](css/Component.md) (Pattern-Lib)
    2. [Removing TailwindCSS](css/RemovingTailwind.md)
 9. [ProjectProperties](ProjectProperties.md) (Pattern-Lib)
-10. Global Content
-11. Working with Images
-12. Caching (StoredContent, TTL)
-13. [Server Side Rendering (SSR)](SSR.md)
-14. [Removing Presets](RemovingPresets.md)
-15. [Base Components](components/index.md) (Pattern-Lib)
+10. Working with Images
+11. Caching (StoredContent, TTL)
+12. [Server Side Rendering (SSR)](SSR.md)
+13. [Removing Presets](RemovingPresets.md)
+14. [Base Components](components/index.md) (Pattern-Lib)
     1. [FSXABaseComponent](components/FSXABaseComponent.md)
     2. [FSXABaseLayout](components/FSXABaseLayout.md)
     3. [FSXABaseSection](components/FSXABaseSection.md)
