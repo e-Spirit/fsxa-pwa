@@ -21,8 +21,27 @@ The URL under which the navigation service is available. This URL is only used o
 #### `FSXA_PROJECT_ID` `string`
 
 Several projects can be configured on your FirstSpirit server. In order for the PWA to know which data it needs to access, it needs the UUID of the relevant project.
+
 For the project(s) provided by e-Spirit you will be given this data too.
+
 For other projects you can look at *Project Properties* in *ServerManager*, then *Project Components*, then *CaaS Connect Project App*.
+
+Another way to access the project_id is by [adding the following script](https://docs.e-spirit.com/odfs/template-develo/scripting/making-scripts/):
+```
+import de.espirit.firstspirit.agency.OperationAgent;
+import de.espirit.firstspirit.ui.operations.RequestOperation;
+
+message = context.requireSpecialist(OperationAgent.TYPE).getOperation(RequestOperation.TYPE);
+message.setTitle("Project UUID");
+message.setKind(RequestOperation.Kind.INFO);
+message.perform("Project UUID: " + context.project.uuid);
+```
+Use the following *display logic* to only make the script menu entry visible to project admins:
+```
+connection = context.userService.connection;
+return connection.user.isProjectAdmin(connection.project);
+```
+
 
 #### `FSXA_TENANT_ID` `string`
 
