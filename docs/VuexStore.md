@@ -1,6 +1,6 @@
-# The Vuex-Store
-
 [<< Back to Index](./index.md)
+
+# The Vuex-Store
 
 [Vuex](https://vuex.vuejs.org/#what-is-vuex) is a state management library for vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. Basically it stores all data needed to run your application.
 

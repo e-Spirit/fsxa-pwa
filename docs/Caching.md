@@ -1,6 +1,6 @@
-# Caching
-
 [<< Back to Index](./index.md)
+
+# Caching
 
 A PWA is usually a view on data hosted on a server somewhere. This means when a user loads a page for the first time, requests will be sent by the server hosting the PWA (see also [SSR](./SSR.md)) to the server that hosts the data. The page will be rendered and sent to the client where it can be viewed. The data that is required to create the current view is sent along with it and the client side storage will be hydrated with the fresh data. This allows the user to navigate the page and views without having to fetch new data from the backend. Sometimes you don't want to fetch new data from the backend to refresh a page or a view. Additionally you might want to control which data is available offline for various reasons (eg. it could be a big chunk of data). This is where caching comes in.
 
