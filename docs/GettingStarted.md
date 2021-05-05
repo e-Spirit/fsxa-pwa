@@ -1,10 +1,19 @@
-[Readme](../../README.md) » Getting Started
-
-1. [My First Template](#my-first-template)
-2. [Custom CSS](#custom-css)
-3. [Changing the App Layout](#changing-the-app-layout)
+[<< Back to Index](./index.md)
 
 # Getting Started
+
+1. [My First Template](#my-first-template)
+    * [Requirements](#requirements)
+    * [Setting up the Project](#setting-up-the-project)
+    * [Development Mode](#development-mode)
+    * [Writing Components](#writing-components)
+2. [Custom CSS](#custom-css)
+    * [Using TailwindCSS](#using-tailwindcss)
+    * [Global CSS](#global-css)
+    * [Using style in components](#using-style-in-components)
+        * [JSX/TSX Components](#jsx/tsx-components)
+        * [SFC Components](#sfc-components)
+3. [Changing the App Layout](#changing-the-app-layout)
 
 This guide describes how you can implement your first template, how to add custom CSS styling and how to change the app layout.
 
@@ -14,12 +23,12 @@ This chapter describes how to set up the project and complete the first steps.
 
 ### Requirements
 
-- [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.
-- A text editor - like [VS Code](https://code.visualstudio.com/) with the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin.
-- A terminal - like VS Code's integrated [terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
-- [Git](https://git-scm.com/) - latest major version: > 2.
+* [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.
+* A text editor - like [VS Code](https://code.visualstudio.com/) with the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin.
+* A terminal - like VS Code's integrated [terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
+* [Git](https://git-scm.com/) - latest major version: > 2.
 
-### Setting up the project
+### Setting up the Project
 
 1. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
 
@@ -37,7 +46,7 @@ This chapter describes how to set up the project and complete the first steps.
 
 8. After the server is started, it can be accessed at http://localhost:3000 in your browser.
 
-### Development mode
+### Development Mode
 
 There is a development mode that helps to easily map the content coming from the [CaaS](https://docs.e-spirit.com/module/caas/CaaS_FSM_Documentation_EN.html).
 
@@ -53,7 +62,7 @@ If you are in development mode and you have already implemented the component, t
 
 Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
 
-### Writing components
+### Writing Components
 
 In this section we will be exploring how to go about implementing a missing Teaser section.
 
@@ -291,7 +300,6 @@ export default TeaserSection
 
 Here you can see the result.
 ![Finished Component](./../imgs/WritingComponents/FinishedComponent.png)
-
 
 ## Custom CSS
 
