@@ -1,0 +1,33 @@
+.FSXA PWA
+* xref:fsxa-pwa:ROOT:index.adoc[Index]
+* xref:fsxa-pwa:ROOT:Introduction.adoc[Introduction]
+** xref:fsxa-pwa:ROOT:Introduction.adoc#_general[General]
+** xref:fsxa-pwa:ROOT:Introduction.adoc#_projects_used[Projects used]
+** xref:fsxa-pwa:ROOT:Introduction.adoc#_architecture[Architecture]
+** xref:fsxa-pwa:ROOT:Introduction.adoc#_deployment[Deployment]
+* xref:fsxa-pwa:ROOT:GettingStarted.adoc[Getting Started]
+** xref:fsxa-pwa:ROOT:GettingStarted.adoc#_my_first_template[My First Template] (Pattern-Lib)
+** xref:fsxa-pwa:ROOT:GettingStarted.adoc#_custom_css[Adding CSS]
+** xref:fsxa-pwa:ROOT:GettingStarted.adoc#_changing_the_app_layout[Changing the App Layout]
+* xref:fsxa-pwa:ROOT:Configuration.md[Configuration] (Pattern-Lib)
+** xref:fsxa-pwa:ROOT:Configuration.md#env-file[.env File]
+** xref:fsxa-pwa:ROOT:Configuration.md#fsxaconfig[fsxa.config]
+* Vuex-Store
+* xref:fsxa-pwa:ROOT:DevMode.md[DevMode]
+* xref:fsxa-pwa:ROOT:Routing.md[Routing]
+* xref:fsxa-pwa:ROOT:Richtext.md[Working with Richtext] (Pattern-Lib)
+* xref:fsxa-pwa:ROOT:css/index.md[Custom CSS]
+** xref:fsxa-pwa:ROOT:css/Component.md[Adding Custom CSS to your Component] (Pattern-Lib)
+** xref:fsxa-pwa:ROOT:css/RemovingTailwind.md[Removing TailwindCSS]
+* xref:fsxa-pwa:ROOT:ProjectProperties.md[ProjectProperties] (Pattern-Lib)
+* Global Content
+* Working with Images
+* Caching (StoredContent, TTL)
+* xref:fsxa-pwa:ROOT:SSR.md[Server Side Rendering (SSR)]
+* xref:fsxa-pwa:ROOT:RemovingPresets.md[Removing Presets]
+* xref::ROOT:components/index.md[Base Components]
+
+.Other FSXA Projects
+* xref:fsxa-nuxt-module:ROOT:index.adoc[FSXA Nuxt Module]
+* xref:fsxa-pattern-library:ROOT:index.adoc[FSXA Pattern Library]
+* xref:fsxa-ui::index.adoc[FSXA-UI]
