@@ -34,10 +34,9 @@
     "fsxa-api": "^5.2.0",
     "fsxa-nuxt-module": "^3.4.0",
     "fsxa-pattern-library": "^3.2.0",
-    "fsxa-ui": "^4.0.1",
+    "fsxa-ui": "^4.0.2",
     "lodash.get": "^4.4.2",
-    "nuxt": "^2.0.0",
-    "tailwindcss": "^1.9.6"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
@@ -46,7 +45,7 @@
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/tailwindcss": "^3.4.2",
+    "@nuxtjs/tailwindcss": "^4.1.1",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
@@ -73,6 +72,7 @@
     "nuxt-property-decorator": "^2.8.8",
     "prettier": "^1.19.1",
     "semantic-release": "^17.3.4",
+    "tailwindcss": "^2.1.1",
     "ts-jest": "^25.0.0",
     "vue-jest": "^4.0.0-beta.3",
     "vue-property-decorator": "^8.4.1",

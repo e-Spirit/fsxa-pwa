@@ -1,8 +1,5 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
+  mode: 'jit',
   purge: {
     content: [
       './pages/**/*.vue',
