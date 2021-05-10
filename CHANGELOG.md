@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.3.0...v1.4.0) (2021-05-10)
+
+
+### Features
+
+* updated tailwind and enabled jit-mode. Updated fsxa-ui ([30a3a49](https://github.com/e-Spirit/fsxa-pwa/commit/30a3a49787d6fc8928d57145ee7f527f172f64b6))
+
 # [1.3.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.2.0...v1.3.0) (2021-05-05)
 
 
