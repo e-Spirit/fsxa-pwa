@@ -1,6 +1,6 @@
-# SEO
-
 [<< Back to index](./index.md)
+
+# SEO
 
 In the FSXA-PWA there are a variety of ways to configure your meta tags for search engine optimization. You can configure them globally in the `nuxt.config.ts` or locally when you declare a component and then only when this component is rendered, which basically only makes sense for pages or layouts.
 

@@ -1,6 +1,6 @@
-# Project Properties
-
 [<< Back to index](./index.md)
+
+# Project Properties
 
 FirstSpirit provides a mechanism to configure _global project settings_ in a specific area of the project data. In the **FirstSpirit SiteArchitect** this **Global settings** area is presented as the 'gray' section found behind the cog wheels.
 
