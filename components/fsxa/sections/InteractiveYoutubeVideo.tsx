@@ -45,30 +45,28 @@ class InteractiveYouTubeVideo extends FSXABaseSection<Payload, Meta> {
       ? '?autoplay=true'
       : ''
     const title = this.payload.st_youtubeVideo.value[0].value.title
-    const description = this.payload.st_youtubeVideo.value[0].value.description
     const url = 'https://www.youtube-nocookie.com/embed/'
     return (
-      <Container>
-        {title ? <Headline>{title}</Headline> : null}
-        {title ? <LineSeparator /> : null}
-        <div class="aspect-w-16 aspect-h-9 my-3">
-          {youtubeID ? (
-            <iframe
-              class="m-auto"
-              src={`${url}${youtubeID}${autoplayParam}`}
-              frameborder="0"
-              allowfullscreen
-            />
-          ) : (
-            <div>
-              <i>No YouTube identifier provided.</i>
-            </div>
-          )}
-        </div>
-        {description ? (
-          <div class="m-1 uppercase text-sm md:pr-6 lg:pr-8">{description}</div>
-        ) : null}
-      </Container>
+      <div>
+        <Container>
+          {title ? <Headline>{title}</Headline> : null}
+          {title ? <LineSeparator /> : null}
+          <div class="aspect-w-16 aspect-h-9 my-3">
+            {youtubeID ? (
+              <iframe
+                class="m-auto"
+                src={`${url}${youtubeID}${autoplayParam}`}
+                frameborder="0"
+                allowfullscreen
+              />
+            ) : (
+              <div>
+                <i>No YouTube identifier provided.</i>
+              </div>
+            )}
+          </div>
+        </Container>
+      </div>
     )
   }
 }
