@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.0...v1.4.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* bumped fsxa-pattern-library version, removed unnecessary description in interactive video ([a22c5c2](https://github.com/e-Spirit/fsxa-pwa/commit/a22c5c271c8f9af81a06b48a744f6f9d45386639))
+
 # [1.4.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.3.0...v1.4.0) (2021-05-10)
 
 
