@@ -1,0 +1,280 @@
+== FSXA-PWA
+
+The FSXA-PWA is an example project and can be used as basis for developing your own PWA
+in the context of the FirstSpirit Experience Accelerator.
+
+=== About the FSXA
+
+The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
+experience platform, combining a headless approach with enterprise capabilities.
+
+=== Documentation
+
+If you are interested in the FSXA check this https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html[Overview].
+
+Most of the developer documentation can be accessed through the link:docs/index.md[documentation index] right in this repository.
+
+Detailed documentation of the FSXA-PWA’s https://enterprise-fsxa-ui.e-spirit.cloud/[vue components] is hosted separately.
+
+=== Getting Started
+
+This chapter describes how to set up the project and complete the first steps.
+
+==== Requirements
+
+* https://nodejs.org/en/[node] - latest LTS Version: 14.15.5.
+* A text editor - like https://code.visualstudio.com/[VS Code] with the https://marketplace.visualstudio.com/items?itemName=octref.vetur[Vetur] plugin.
+* A terminal - like VS Code’s integrated https://code.visualstudio.com/docs/editor/integrated-terminal[terminal]
+* https://git-scm.com/[Git] - latest major version: > 2.
+
+==== Setting up the project
+
+[arabic]
+. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
+. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
+. Navigate to the newly created folder with `cd fsxa-pwa`
+. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
+. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the link:TODO[configuration page].
+. To install the needed dependencies run the command `npm install`.
+. After all dependencies are installed, you can start a local development server with `npm run dev`.
+. After the server is started, it can be accessed at http://localhost:3000 in your browser.
+
+==== Development Mode
+
+The FSXA-PWA features a link:./docs/DevMode.md[development mode] that helps you to easily map the content coming from the CaaS to your components.
+
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
+
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information can be addressed.
+
+image:../assets/documentation/DevMode/MissingLayout.png[Missing Layout]
+
+If you have already implemented a component, you will see a question mark icon when hovering over the element.
+
+image:../assets/documentation/DevMode/QuestionMark.png[QuestionMark]
+
+Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
+
+==== Writing components
+
+In this section we will be exploring how to go about implementing a missing Teaser section.
+
+When you go to the home page in link:#development-mode[development mode], you will see that one component is missing.
+
+image:./assets/documentation/WritingComponents/MissingSection.png[MissingSection]
+
+This infobox tells us that the app expects a component of type `Section`. We can also see that the key of this missing section is `teaser`.
+
+In the `fsxa.config.ts` file we can see that our section components are located in `~/components/fsxa/sections`.
+That’s where you want to create a new file for the component.
+
+Make sure, that you name the file just like the key that is required. In our case it is `teaser` so we name our new file `Teaser.tsx`.
+
+Next we need to import two classes that are required to define our new component:
+
+`typescript jsx import Component from 'vue-class-component' import { FSXABaseSection } from 'fsxa-pattern-library'`
+
+With this we can start writing our class.
+
+```typescript jsx
+@Component
+class TeaserSection extends FSXABaseSection<\{}>\{
+
+}
+```
+
+This class expects us to implement `render` function. This function describes which HTML will be displayed in our component.
+To keep things simple for now we will write just a simple `render` function to see if our component is recognized.
+
+`typescript jsx render() {   return <div>Hello Component</div> }`
+
+To wrap things up we need to export our class.
+
+`typescript jsx export default TeaserSection`
+
+In the end our `Teaser.tsx` should look something like this:
+
+```typescript jsx
+import Component from `vue-class-component'
+import \{ FSXABaseSection } from `fsxa-pattern-library'
+
+@Component
+class TeaserSection extends FSXABaseSection<\{}> \{
+render() \{
+return
+
+Hello Component
+
+}
+}
+
+export default TeaserSection
+```
+
+When we go back to the browser, instead of the infobox we should see our component.
+
+image:./assets/documentation/WritingComponents/HelloComponent.png[Hello Component]
+
+Our component is recognized correctly. But we still do not display the data from the CaaS in our component.
+For that we hover over our component and click on the appearing question mark on the right side.
+
+image:./assets/documentation/WritingComponents/AvailableProperties.png[Available Properties]
+
+This shows us the data available to display.
+For the first example we want to display the `st_jumbo_headline`.
+
+For this we create an interface in our component and define the name of the attribute and its type.
+
+[source,typescript]
+----
+interface Payload {
+  st_jumbo_headline: string
+}
+----
+
+We update the use of the `FSXABaseSection` with our new payload: `class TeaserSection extends FSXABaseSection<Payload>`
+and use the `st_jumbo_headline` in our `render` function.
+
+`typescript jsx render() {     return <div>Headline: {this.payload.st_jumbo_headline}</div>   }`
+
+Every attribute in our payload is accessible via `this.payload`
+
+The result should look like this:
+image:./assets/documentation/WritingComponents/DisplayedHeadline.png[Displayed Headline]
+
+Next we want to continue to implement our payload interface.
+For some objects we use interfaces from the https://github.com/e-Spirit/fsxa-api[FSXA-Api], so we also have to import them.
+
+[source,typescript]
+----
+import { Image, RichTextElement } from 'fsxa-api'
+----
+
+The final interface looks like this:
+
+[source,typescript]
+----
+interface Payload {
+  st_headline: RichTextElement[]
+  st_jumbo_headline: string
+  st_kicker: string
+  st_picture?: Image
+  st_picture_alt: string | null
+  st_text: RichTextElement[]
+  st_button?: {
+    data: {
+      lt_button_text: string
+      lt_internal: {
+        referenceId: string
+        referenceType: string
+      }
+    }
+  }
+}
+----
+
+Note that attributes followed by a question mark are optional.
+
+In order to display all this information, we can use a component from the https://github.com/e-Spirit/fsxa-ui/[fsxa-ui].
+First we need to import it. It is located under Sections in the fsxa-ui.
+
+[source,typescript]
+----
+import { Sections } from 'fsxa-ui'
+----
+
+Since we are using richtext we also need to import FSXARichText from the https://github.com/e-Spirit/fsxa-pattern-library[fsxa-pattern-library]
+
+[source,typescript]
+----
+import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+----
+
+And then we can use them in our `render` function:
+
+`typescript jsx render() {     return (       <Sections.TeaserSection         headline={(<FSXARichText content={this.payload.st_headline} />) as any}         kicker={this.payload.st_kicker}         text={(<FSXARichText content={this.payload.st_text} />) as any}         buttonText={this.payload.st_button?.data.lt_button_text}         onButtonClick={() =>           this.triggerRouteChange({             pageId: this.payload.st_button?.data.lt_internal.referenceId           })         }         media={           this.payload.st_picture             ? {                 type: 'image',                 src: this.payload.st_picture.resolutions.ORIGINAL.url,                 resolutions: this.payload.st_picture.resolutions,                 previewId: this.payload.st_picture.previewId               }             : undefined         }       />     )   }`
+
+Finally, we can name our component. We do this in the `@Component` annotation.
+
+`typescript jsx @Component({   name: 'TeaserSection' })`
+
+The final `Teaser.tsx` file looks like this:
+
+```typescript jsx
+import Component from `vue-class-component'
+import \{ FSXABaseSection, FSXARichText } from `fsxa-pattern-library'
+import \{ Sections } from `fsxa-ui'
+import \{ Image, RichTextElement } from `fsxa-api'
+
+interface Payload \{
+st_headline: RichTextElement[]
+st_jumbo_headline: string
+st_kicker: string
+st_picture?: Image
+st_picture_alt: string | null
+st_text: RichTextElement[]
+st_button?: \{
+data: \{
+lt_button_text: string
+lt_internal: \{
+referenceId: string
+referenceType: string
+}
+}
+}
+}
+
+@Component(\{
+name: `TeaserSection'
+})
+class TeaserSection extends FSXABaseSection \{
+render() \{
+return (
+<Sections.TeaserSection
+headline=\{() as any}
+kicker=\{this.payload.st_kicker}
+text=\{() as any}
+buttonText=\{this.payload.st_button?.data.lt_button_text}
+onButtonClick=\{() =>
+this.triggerRouteChange(\{
+pageId: this.payload.st_button?.data.lt_internal.referenceId
+})
+}
+media=\{
+this.payload.st_picture
+? \{
+type: `image',
+src: this.payload.st_picture.resolutions.ORIGINAL.url,
+resolutions: this.payload.st_picture.resolutions,
+previewId: this.payload.st_picture.previewId
+}
+: undefined
+}
+/>
+)
+}
+}
+
+export default TeaserSection
+```
+
+Here you can see the result.
+image:./assets/documentation/WritingComponents/FinishedComponent.png[Finished Component]
+
+=== Legal Notices
+
+FSXA-PWA is a product of http://www.e-spirit.com[e-Spirit AG], Dortmund, Germany.
+The FSXA-PWA is subject to the Apache-2.0 license.
+
+=== Disclaimer
+
+This document is provided for information purposes only.
+e-Spirit may change the contents hereof without notice.
+This document is not warranted to be error-free, nor subject to any
+other warranties or conditions, whether expressed orally or
+implied in law, including implied warranties and conditions of
+merchantability or fitness for a particular purpose. e-Spirit
+specifically disclaims any liability with respect to this document
+and no contractual obligations are formed either directly or
+indirectly by this document. The technologies, functionality, services,
+and processes described herein are subject to change without notice.

@@ -1,0 +1,13 @@
+= FSXA PWA
+
+== General
+
+* Each example should provide code snippets for tsx and sfc syntax.
+* Related Pages / Sections should be linked, where possible (use anchor links for nested sections as well)
+* Related documentations should be linked (make sure that you do not link to a specific version, since this link can invalidate really quickly)
+
+== Structure
+
+include::../nav.adoc[]
+
+External CSS
