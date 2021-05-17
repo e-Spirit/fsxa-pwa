@@ -14,7 +14,7 @@ If you are interested in the FSXA check this [Overview](https://docs.e-spirit.co
 
 Detailed documentation of the FSXA-PWA's [vue components](https://enterprise-fsxa-ui.e-spirit.cloud/) is hosted separately.
 
-# Structure
+### Table of contents
 
 1. [Introduction](./docs/Introduction.md)
    1. [General](./docs/Introduction.md#general)
