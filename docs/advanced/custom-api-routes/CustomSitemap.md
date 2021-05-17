@@ -1,3 +1,5 @@
+# Custom Sitemap
+
 In this chapter we will describe how to implement a Rest interface so that you can define your own sitemap.
 
 Please note the general preface on how to define CustomRoutes. Here we build directly on it.

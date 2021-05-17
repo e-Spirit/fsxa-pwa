@@ -1,3 +1,5 @@
+# Sending Mails
+
 In this chapter you will implement a REST-API, that can send emails.
 For this purpose, you will use the FSXA-PWA Project to add a new route and implement it with [Nodemailer](https://github.com/nodemailer/nodemailer).
 
