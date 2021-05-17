@@ -4,6 +4,12 @@
 
 This chapter describes how to set up the project and complete the first steps.
 
+1. [Requirements](#requirements)
+2. [Setting up the Project](#setting-up-the-project)
+3. [Development Mode](#development-mode)
+4. [Writing JSX/TSX Components](./TSX-Components.md)
+5. [Writing Single File Components](./SFC-Components.md)
+
 ## Requirements
 
 * [node](https://nodejs.org/en/) - latest LTS Version: 14.15.5.

@@ -254,7 +254,7 @@ And then we pass it to our template. We can use the `@` shorthand to define an e
   ...
 ```
 
-When you put everything together your final `Teaser.vue` file should look like this.
+When you put everything together your final `Teaser.vue` file should look like this:
 
 ```vue
 <template>

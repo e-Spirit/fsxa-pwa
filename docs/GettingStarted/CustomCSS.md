@@ -3,6 +3,11 @@
 There are a few ways to include your own CSS. 
 In this chapter a short overview will be provided. For further details please visit this [page](./docs/css/index.md).
 
+1. [Using TailwindCSS](#using-tailwindcss)
+2. [Global CSS](#global-css)
+3. [Using Style in JSX/TSX components](#using-style-in-jsx/tsx-components)
+4. [Using Style in SFC components](#using-style-in-sfc-components)
+
 ## Using TailwindCSS
 
 [TailwindCSS](https://tailwindcss.com/) is included by default in the FSXA-PWA. 
