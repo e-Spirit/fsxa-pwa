@@ -1,6 +1,6 @@
-# Routing
-
 [<< Back to index](./index.md)
+
+# Routing
 
 1. [FirstSpirit Navigation Service](#firstspirit-navigation-service)
 2. [Basic Routing Principles](#basic-routing-principles)

@@ -1,6 +1,17 @@
-[README](../README.md) » Introduction
+[<< Back to Index](./index.md)
 
 # Introduction
+
+1. [General](#general)
+2. [Projects used](#projects-used)
+3. [Architecture](#architecture)
+    * [FSXA UI / Component Library](#fsxa-ui-/-component-library)
+    * [FSXA NUXT Module](#fsxa-nuxt-module)
+    * [FSXA Pattern Library](#fsxa-pattern-library)
+    * [FSXA API](#fsxa-api)
+    * [Omnichannel Manager](#omnichannel-manager)
+    * [FirstSpirit CaaS](#firstspirit-caas)
+4. [Deployment](#deployment)
 
 ## General
 

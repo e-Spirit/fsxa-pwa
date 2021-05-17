@@ -1,4 +1,4 @@
-[Readme](../../README.md) » [BaseComponents](../README.md) » FSXABaseComponent
+[<< Back to Index](./index.md)
 
 # FSXABaseComponent
 

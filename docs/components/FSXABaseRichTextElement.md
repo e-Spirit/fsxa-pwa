@@ -1,4 +1,4 @@
-[Readme](../../README.md) » [BaseComponents](../README.md) » FSXABaseRichTextElement
+[<< Back to Index](./index.md)
 
 # FSXABaseRichTextElement
 

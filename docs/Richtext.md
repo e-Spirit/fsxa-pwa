@@ -1,3 +1,5 @@
+[<< Back to Index](./index.md)
+
 # Working with RichText
 
 RichText allows you to display information in the FirstSpirit context using great and customisable formatting. This brings with it a certain complexity.

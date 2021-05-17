@@ -1,9 +1,6 @@
-[Readme](../../README.md) » BaseComponents
+[<< Back to Index](../index.md)
 
-# FSXABaseSection
-
-1. [Introduction](#introduction)
-2. [Components](#components)
+# Base Components
 
 ## Introduction
 

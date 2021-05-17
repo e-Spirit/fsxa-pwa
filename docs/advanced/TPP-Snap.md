@@ -1,6 +1,8 @@
-# OCM-Snap
+[<< Back to Index](./index.md)
 
-[OCM-Snap](https://docs.e-spirit.com/tpp/index.html.en) is a Javascript library designed to connect the FirstSpirit ContentCreator UI with dynamically generated HTML elements (like in a PWA). This connection is achieved using preview ids. When you add a known preview id as an attribute to an HTML element the Snap library will automatically decorate it using borders and buttons when your PWA is viewed in the FirstSpirit ContentCreator. This allows editors to edit the contents of dynamically generated HTML Elements. The library also offers the tools to add your own buttons to the UI as you see fit.
+# TPP-Snap
+
+TPP-Snap from the [OmnichannelManager](https://docs.e-spirit.com/tpp/index.html.en) is a JavaScript library designed to connect the FirstSpirit ContentCreator UI with dynamically generated HTML elements (like in a PWA). This connection is achieved using preview ids. When you add a known preview id as an attribute to an HTML element the Snap library will automatically decorate it using borders and buttons when your PWA is viewed in the FirstSpirit ContentCreator. This allows editors to edit the contents of dynamically generated HTML Elements. The library also offers the tools to add your own buttons to the UI as you see fit.
 
 ## Nested Elements
 

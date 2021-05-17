@@ -1,6 +1,6 @@
-# Server Side Rendering (SSR)
-
 [<< Back to index](./index.md)
+
+# Server Side Rendering (SSR)
 
 The FSXA-PWA project is based on the [Nuxt.js](https://nuxtjs.org) framework which supports server side rendering ([SSR](https://ssr.vuejs.org/#what-is-server-side-rendering-ssr)). In a single page application which uses client side rendering (CSR) the webserver only serves an almost empty HTML page and usually larger amounts of JavaScript. The JavaScript then gets executed in the browser where all the required JSON data gets requested. The application then renders the view using the requested data. The SSR approach is different in that the JSON data gets requested from the webserver and the rendering of the view takes place there. A fully rendered page is then sent to the client. This allows for search engines to crawl the pages more easily since they do not have the necessity to be able to execute JavaScript code. It also saves time on the initial download of the page because there is no additional code execution step in between downloads. Nuxt.js uses a hybrid approach where the generated JavaScript bundle is able to hydrate the client (ie. request JSON data and render on the client side) from this point onwards.
 

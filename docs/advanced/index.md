@@ -1,6 +1,6 @@
-# Advanced
-
 [<< Back to index](../index.md)
+
+# Advanced
 
 These features can help you to achieve a more polished user experience. You can define your own api endpoints for example to have a contact form that sends a mail when submitted. You can provide a better user experience for your content creators using TPP-Snap. Or help your PWA to be found more easily using SEO techniques.
 

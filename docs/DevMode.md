@@ -1,6 +1,6 @@
-# Development Mode
+[<< Back to Index](./index.md)
 
-[Readme](./index.md) » Development Mode
+# Development Mode
 
 1. [Introduction](#introduction)
 2. [Missing Components](#missing-components)
