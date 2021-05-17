@@ -1,0 +1,188 @@
+[<< Back to index](./index.md)
+
+# Routing
+
+1. [FirstSpirit Navigation Service](#firstspirit-navigation-service)
+2. [Basic Routing Principles](#basic-routing-principles)
+3. [The triggerRouteChange Function](#the-triggerroutechange-function)
+
+## FirstSpirit Navigation Service
+
+The FSXA-PWA directly maps the navigation structure of the underlying FirstSpirit project into the predefined navigation component. This is achieved using the navigation service which maps all of the routes as defined in FirstSpirit to CaaS URLs. The data is fetched by the [FSXA-API](https://github.com/e-Spirit/fsxa-api). Here is an example of navigation data.
+
+```json
+  "c8a158a3-2ba3-427c-a7e4-7d41d9844464": {
+      "id": "c8a158a3-2ba3-427c-a7e4-7d41d9844464",
+      "parentIds": [
+          "5a7cdf48-5031-4fcd-b6c7-99e802d0ce57"
+      ],
+      "label": "Home",
+      "contentReference": "https://url.to.your.content",
+      "caasDocumentId": "c8a158a3-2ba3-427c-a7e4-7d41d9844464",
+      "seoRoute": "/Home/",
+      "seoRouteRegex": null,
+      "customData": null
+  },
+  "aa684dc6-2220-4d71-b468-f3e056b0c4f0": {
+      "id": "aa684dc6-2220-4d71-b468-f3e056b0c4f0",
+      "parentIds": [],
+      "label": "Our Solutions",
+      "contentReference": "https://url.to.your.content",
+      "caasDocumentId": "4bd4e5af-c55d-4b46-b335-58e284f2f4c6",
+      "seoRoute": "/Our-Solutions/",
+      "seoRouteRegex": null,
+      "customData": null
+  },
+```
+
+It contains labels and contentReferences which you can use to fill a navigation menu or sitemap.
+
+## Basic Routing Principles
+
+In Nuxt.js [routing](https://nuxtjs.org/docs/2.x/get-started/routing) works via convention. Usually you can link to any pages you may have created in the `pages` folder using the `Nuxt-Link` component. It has a prop called `to` that takes a route as parameter. If you have subfolders in the `pages` folder you can add them to the route as well. You can also use this feature to override pages defined by the navigation service by adding a page with the same pageId as an existing page.
+
+SFC-Example
+
+```vue
+<template>
+  <div>
+    <NuxtLink to="/">Home page</NuxtLink>
+    <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
+    <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+  </div>
+</template>
+```
+
+TSX-Example
+
+```typescript jsx
+import { Component as TsxComponent } from 'vue-tsx-support'
+import { RouterLinkProps } from 'vue-tsx-support/options/enable-vue-router'
+
+declare global {
+  const NuxtLink: TsxComponent<RouterLinkProps | { prefetch: boolean, noPrefetch: boolean}>
+}
+
+@Component({
+  name: 'MyComponent'
+})
+class MyComponent extends TsxComponent<{ MyProps }> {
+  render(){
+    return (
+      <div>
+        <NuxtLink to="/">Home page</NuxtLink>
+        <NuxtLink to="/myPage">Links to MyPage.vue in the pages folder </NuxtLink>
+        <NuxtLink to="/aboutPages/myAboutPage">Links to MyAboutPage.vue in the pages/aboutPages folder.</NuxtLink>
+      </div>
+    )
+  }
+}
+```
+
+However since routing is slightly more complex in the context of the FSXA-PWA, we recommend using the [triggerRouteChange function](the-triggerroutechange-function) in a click event handler of the `<nuxt-link>` component or a simple `<a>` tag. Using this function, you can still define your own pages and override existing ones. With the added advantage of being able to link to pages in the navigation structure and switching the locale. Using it inside an `<a>` or `<nuxt-link>` allows users who have javascript disabled to still use the links.
+
+### Dynamic Pages
+
+You can also define pages that use an unknown subroute like for example `/books/:title` where title can be anything.
+To do so, you need to name the file `_slug.vue`. So for the example mentioned above the directory structure would be the following
+
+```
+/pages
+|__/books
+   |__ _slug.(vue/tsx)
+```
+
+In the `_slug.(vue/tsx)` file you can access the unknown route parameter like this
+
+SFC-Example
+
+```vue
+<template>
+  <h1>{{ this.book }} / {{ this.slug }}</h1>
+</template>
+
+<script>
+  export default {
+    async asyncData({ params }) {
+      return {
+        book : params.book
+        slug : params.slug
+      }
+    }
+  }
+</script>
+```
+
+TSX-Example
+
+```typescript jsx
+import { Component as TsxComponent } from 'vue-tsx-support'
+import Component from 'vue-class-component'
+
+@Component({
+  name: 'MySlugPage',
+  asyncData: async ( { params } ) => {
+    return { 
+      book: params.book
+      slug: params.slug 
+    }
+  }
+})
+class MySlugPage extends TsxComponent<{}>{
+  slug: string = ""
+
+  render(){
+    return (
+      <h1>{this.book} / {this.slug}</h1>
+    )
+  }
+}
+export default MySlugPage
+```
+
+## The triggerRouteChange Function
+
+When you implement a component that extends [FSXABaseComponent](components/FSXABaseComponent.md) (or one of its derived classes)you get access to the `triggerRouteChange` function. You can either pass it a FirstSpirit `pageId`, a `route` (like in the `<NuxtLink>` component) or a `locale`. If you pass it a locale it will cause your app to stay on the same page but change the language.
+
+SFC-Example
+
+```vue
+<template>
+  <a href="#"
+    v-on:click="handleClick($event, '/')"
+  >Home Page</a>
+</template>
+```
+
+In your script tag where you define your component props, data and methods you will have to define the handleClick method like this.
+
+```javascript
+//...
+methods: {
+  handleClick(event, route) {
+    event.preventDefault()
+    this.triggerRouteChange({
+      route
+    })
+  }
+}
+```
+
+TSX-Example
+
+```typescript jsx
+render(){
+  return(
+    <a href="#"
+      onclick={(event) => {
+        event.preventDefault()
+        this.triggerRouteChange({
+          {
+            route: "/"
+          }
+        })
+      }}
+    >Home Page</a>
+  )
+}
+```
