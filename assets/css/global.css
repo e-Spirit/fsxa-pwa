@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .fixed-page-header {
   height: 90px;
 }
@@ -14,4 +16,8 @@
 
 .fixed-page-content {
   padding-top: 90px;
+}
+
+body {
+  @apply font-body;
 }

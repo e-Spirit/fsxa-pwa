@@ -1,6 +1,6 @@
 import Component from 'vue-class-component'
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-import { Sections } from 'fsxa-ui'
+import { ImageRef, Sections } from 'fsxa-ui'
 import { Image, RichTextElement } from 'fsxa-api'
 
 export interface Payload {
@@ -40,12 +40,23 @@ class TeaserSection extends FSXABaseSection<Payload> {
           this.payload.st_picture
             ? {
                 type: 'image',
-                src: this.payload.st_picture.resolutions.ORIGINAL.url,
+                src: this.payload.st_picture.resolutions.portrait.url,
                 resolutions: this.payload.st_picture.resolutions,
                 previewId: this.payload.st_picture.previewId
               }
             : undefined
         }
+        scopedSlots={{
+          media: (image: ImageRef) => (
+            <img
+              class="rounded mt-20"
+              data-preview-id={image.previewId}
+              data-tpp-context-image-resolution="portrait"
+              src={image.src}
+              alt={image.alt}
+            />
+          )
+        }}
       />
     )
   }

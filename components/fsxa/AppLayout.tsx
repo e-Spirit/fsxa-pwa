@@ -58,16 +58,18 @@ class AppLayout extends FSXABaseAppLayout {
         getFallbackTranslation([this.locale, 'language', 'label'])
       ) : (
         <svg
-          class="w-6 h-6"
-          fill="currentColor"
-          viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
           <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
-            clip-rule="evenodd"
-          ></path>
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+          />
         </svg>
       ),
       children: [
@@ -131,6 +133,13 @@ class AppLayout extends FSXABaseAppLayout {
           }}
         >
           <div class="bg-white fixed-page-header px-4 md:px-16 lg:px-20 xl:px-24 flex items-center justify-between scrollbar-fix-left text-gray-900">
+            <div class="hidden md:block h-full">
+              <Navigation
+                items={[...items, this.getLangNavItem(false)]}
+                activeItemKeys={activeItemKeys}
+                onItemClicked={this.handleNavigationClick}
+              />
+            </div>
             <a
               href={this.navigationData?.pages.index}
               class="flex-shrink-0"
@@ -145,13 +154,6 @@ class AppLayout extends FSXABaseAppLayout {
             >
               <img src={this.logoUrl} />
             </a>
-            <div class="hidden md:block h-full">
-              <Navigation
-                items={[...items, this.getLangNavItem(false)]}
-                activeItemKeys={activeItemKeys}
-                onItemClicked={this.handleNavigationClick}
-              />
-            </div>
             <a
               href="#"
               class="flex -mr-5 md:hidden px-5 py-4 items-center justify-center"

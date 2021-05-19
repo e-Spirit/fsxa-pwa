@@ -14,7 +14,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        highlight: '#D5DD02'
+        highlight: '#4169e1'
+      },
+      fontFamily: {
+        body: 'Montserrat'
       }
     }
   },

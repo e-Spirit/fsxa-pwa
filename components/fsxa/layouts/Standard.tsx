@@ -1,7 +1,7 @@
 import Component from 'vue-class-component'
 import { FSXABaseLayout, FSXAGetters } from 'fsxa-pattern-library'
 import { NavigationData, Image, NavigationItem } from 'fsxa-api'
-import { Sections } from 'fsxa-ui'
+import { Sections, Image as FSXAImage } from 'fsxa-ui'
 import { Breadcrumb } from 'fsxa-ui/src/types/sections'
 
 interface HeaderSectionPayload {
@@ -70,7 +70,6 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
     return (
       <Sections.HeaderSection
         title={this.data.pt_text}
-        breadcrumbs={this.breadcrumbs}
         backgroundImage={
           this.data.pt_picture?.resolutions.ORIGINAL
             ? {
@@ -83,6 +82,18 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
         handleItemClick={(item: any) =>
           this.triggerRouteChange({ pageId: item.referenceId })
         }
+        scopedSlots={{
+          title: (title) => (
+            <h2 class="my-10 text-6xl tracking-wide">{title}</h2>
+          ),
+          backgroundImage: ({ src }) => (
+            <FSXAImage
+              src={src}
+              class="absolute top-0 left-0 w-full h-full"
+              darken="40"
+            />
+          )
+        }}
       />
     )
   }
