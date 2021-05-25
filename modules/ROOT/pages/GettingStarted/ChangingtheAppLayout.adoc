@@ -3,7 +3,7 @@
 In the app layout you can specify a frame for all pages.
 For example, if all pages include navigation, it can be specified there.
 
-Thereby the FSXABaseAppLayout is extended to adjust attributes like the `appState` and `appError`. More information can be found xref:components/FSXABaseAppLayout.adoc[here].
+Thereby the FSXABaseAppLayout is extended to adjust attributes like the `appState` and `appError`. More information can be found link:../components/FSXABaseAppLayout{outfilesuffix}[here].
 
 In the JSX/TSX context `{this.$slots.default}` defines where the contents of the container will be displayed.
 
@@ -34,4 +34,4 @@ Example:
 </template>
 ----
 
-Furthermore, here you have all the possibilities that have already been described in the chapters xref:GettingStarted/MyFirstTemplate.adoc[My First Template] and xref:GettingStarted/CustomCSS.adoc[Custom CSS].
+Furthermore, here you have all the possibilities that have already been described in the chapters link:MyFirstTemplate{outfilesuffix}[My First Template] and link:CustomCSS{outfilesuffix}[Custom CSS].

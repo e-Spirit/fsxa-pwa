@@ -1,7 +1,7 @@
 = Custom CSS
 
 There are a few ways to include your own CSS.
-In this chapter a short overview will be provided. For further details please visit this xref:css/index.adoc[page].
+In this chapter a short overview will be provided. For further details please visit this link:css/index{outfilesuffix}[page].
 
 . <<Using TailwindCSS>>
 . <<Global CSS>>

@@ -10,7 +10,7 @@
 The FSXABaseSection is there to have a basic component to be able to implement further layout sections.
 Sections form the content of a page by displaying texts, tables, pictures, etc.
 It provides different attributes and methods, which should simplify the development significantly. These are described in this chapter.
-This component inherits all the attributes and methods of the xref:components/FSXABaseComponent.adoc[FSXABaseComponent].
+This component inherits all the attributes and methods of the link:FSXABaseComponent{outfilesuffix}[FSXABaseComponent].
 
 == Usage
 

@@ -10,7 +10,7 @@
 The FSXABaseRichTextElement is there to have a basic component to be able to implement further rich text elements.
 Usually a rich text contains multiple elements like links, lists, blocks etc.
 It provides different attributes and methods, which should simplify the development significantly. These are described in this chapter.
-This component inherits all the attributes and methods of the xref:components/FSXABaseComponent.adoc[FSXABaseComponent].
+This component inherits all the attributes and methods of the link:FSXABaseComponent{outfilesuffix}[FSXABaseComponent].
 
 == Usage
 
@@ -54,4 +54,4 @@ If the content is a string, the string will be rendered.
 If there a more nested elements which are implemented these will be rendered.
 If there a more nested elements which are *not* implemented and the `devMode` is enabled, the `MissingRichTextComponent` will appear. This component provides additional information which element is missing and what information it provides.
 
-For more information see xref:DevMode.adoc[DevMode].
+For more information see link:../DevMode{outfilesuffix}[DevMode].
