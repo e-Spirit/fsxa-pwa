@@ -22,7 +22,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 *** xref:modules/ROOT/pages/Introduction.adoc#_projects_used[Projects used]
 *** xref:modules/ROOT/pages/Introduction.adoc#_architecture[Architecture]
 *** xref:modules/ROOT/pages/Introduction.adoc#_deployment[Deployment]
-** xref:modules/ROOT/pages/GettingStarted/index.adoc[Getting Started]
+** xref:modules/ROOT/pages/GettingStarted.adoc[Getting Started]
 *** xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
 *** xref:modules/ROOT/pages/GettingStarted/CustomCSS.adoc[Adding CSS]
 *** xref:modules/ROOT/pages/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]

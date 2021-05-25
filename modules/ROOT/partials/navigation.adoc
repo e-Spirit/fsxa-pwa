@@ -4,7 +4,7 @@
 *** xref:fsxa-pwa::Introduction.adoc#_projects_used[Projects used]
 *** xref:fsxa-pwa::Introduction.adoc#_architecture[Architecture]
 *** xref:fsxa-pwa::Introduction.adoc#_deployment[Deployment]
-** xref:fsxa-pwa::GettingStarted/index.adoc[Getting Started]
+** xref:fsxa-pwa::GettingStarted.adoc[Getting Started]
 *** xref:fsxa-pwa::GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
 *** xref:fsxa-pwa::GettingStarted/CustomCSS.adoc[Adding CSS]
 *** xref:fsxa-pwa::GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
