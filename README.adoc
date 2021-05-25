@@ -16,52 +16,51 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 
 ### Table of contents
 
-* xref:modules/ROOT/pages/index.adoc[FSXA PWA]
-** xref:modules/ROOT/pages/Introduction.adoc[Introduction]
-*** xref:modules/ROOT/pages/Introduction.adoc#_general[General]
-*** xref:modules/ROOT/pages/Introduction.adoc#_projects_used[Projects used]
-*** xref:modules/ROOT/pages/Introduction.adoc#_architecture[Architecture]
-*** xref:modules/ROOT/pages/Introduction.adoc#_deployment[Deployment]
-** xref:modules/ROOT/pages/GettingStarted.adoc[Getting Started]
-*** xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
-*** xref:modules/ROOT/pages/GettingStarted/CustomCSS.adoc[Adding CSS]
-*** xref:modules/ROOT/pages/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
-** xref:modules/ROOT/pages/Configuration.adoc[Configuration] (Pattern-Lib)
-*** xref:modules/ROOT/pages/Configuration.adoc#_env_file[.env File]
-*** xref:modules/ROOT/pages/Configuration.adoc#_fsxa_config[fsxa.config]
-** xref:modules/ROOT/pages/VuexStore.adoc[The Vuex Store]
-** xref:modules/ROOT/pages/DevMode.adoc[DevMode]
-** xref:modules/ROOT/pages/Routing.adoc[Routing]
-** xref:modules/ROOT/pages/Richtext.adoc[Working with Richtext] (Pattern-Lib)
-** xref:modules/ROOT/pages/css/index.adoc[Custom CSS]
-*** xref:modules/ROOT/pages/css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
-*** xref:modules/ROOT/pages/css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
-** xref:modules/ROOT/pages/ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
-** xref:modules/ROOT/pages/WorkingWithImages.adoc[Working with Images]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#_introduction[Introduction]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#_working_with_caas[Working with CaaS]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#resolutions-in-firstspirit[Resolutions in FirstSpirit]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#_responsiveness[Responsiveness]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#_lazy_loading[Lazy Loading]
-*** xref:modules/ROOT/pages/WorkingWithImages.adoc#_sourcesets[SourceSets]
-** xref:modules/ROOT/pages/Caching.adoc[Caching] (StoredContent, TTL)
-** xref:modules/ROOT/pages/SSR.adoc[Server Side Rendering (SSR)]
-** xref:modules/ROOT/pages/RemovingPresets.adoc[Removing Presets]
-** xref:modules/ROOT/pages/components/index.adoc[Base Components]
-*** xref:modules/ROOT/pages/components/FSXABaseComponent.adoc[FSXABaseComponent]
-*** xref:modules/ROOT/pages/components/FSXABaseLayout.adoc[FSXABaseLayout]
-*** xref:modules/ROOT/pages/components/FSXABaseSection.adoc[FSXABaseSection]
-*** xref:modules/ROOT/pages/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
-*** xref:modules/ROOT/pages/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
-** xref:modules/ROOT/pages/advanced/index.adoc[Advanced]
-*** xref:modules/ROOT/pages/advanced/TPP-Snap.adoc[TPP-Snap]
-**** xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#nested_elements[Nested Elements]
-**** xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#inline_editing[Inline-Editing]
-*** xref:modules/ROOT/pages/advanced/custom-api-routes/index.adoc[Custom API Routes]
-**** xref:modules/ROOT/pages/advanced/custom-api-routes/CustomSitemap.adoc[Example 1: Custom Sitemap]
-**** xref:modules/ROOT/pages/advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
-**** xref:modules/ROOT/pages/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
-*** xref:modules/ROOT/pages/advanced/SEO.adoc[SEO]
+. xref:modules/ROOT/pages/Introduction.adoc[Introduction]
+.. xref:modules/ROOT/pages/Introduction.adoc#_general[General]
+.. xref:modules/ROOT/pages/Introduction.adoc#_projects_used[Projects used]
+.. xref:modules/ROOT/pages/Introduction.adoc#_architecture[Architecture]
+.. xref:modules/ROOT/pages/Introduction.adoc#_deployment[Deployment]
+. xref:modules/ROOT/pages/GettingStarted.adoc[Getting Started]
+.. xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
+.. xref:modules/ROOT/pages/GettingStarted/CustomCSS.adoc[Adding CSS]
+.. xref:modules/ROOT/pages/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
+. xref:modules/ROOT/pages/Configuration.adoc[Configuration] (Pattern-Lib)
+.. xref:modules/ROOT/pages/Configuration.adoc#_env_file[.env File]
+.. xref:modules/ROOT/pages/Configuration.adoc#_fsxa_config[fsxa.config]
+. xref:modules/ROOT/pages/VuexStore.adoc[The Vuex Store]
+. xref:modules/ROOT/pages/DevMode.adoc[DevMode]
+. xref:modules/ROOT/pages/Routing.adoc[Routing]
+. xref:modules/ROOT/pages/Richtext.adoc[Working with Richtext] (Pattern-Lib)
+. xref:modules/ROOT/pages/css/index.adoc[Custom CSS]
+.. xref:modules/ROOT/pages/css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
+.. xref:modules/ROOT/pages/css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
+. xref:modules/ROOT/pages/ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
+. xref:modules/ROOT/pages/WorkingWithImages.adoc[Working with Images]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#_introduction[Introduction]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#_working_with_caas[Working with CaaS]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#resolutions-in-firstspirit[Resolutions in FirstSpirit]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#_responsiveness[Responsiveness]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#_lazy_loading[Lazy Loading]
+.. xref:modules/ROOT/pages/WorkingWithImages.adoc#_sourcesets[SourceSets]
+. xref:modules/ROOT/pages/Caching.adoc[Caching] (StoredContent, TTL)
+. xref:modules/ROOT/pages/SSR.adoc[Server Side Rendering (SSR)]
+. xref:modules/ROOT/pages/RemovingPresets.adoc[Removing Presets]
+. xref:modules/ROOT/pages/components/index.adoc[Base Components]
+.. xref:modules/ROOT/pages/components/FSXABaseComponent.adoc[FSXABaseComponent]
+.. xref:modules/ROOT/pages/components/FSXABaseLayout.adoc[FSXABaseLayout]
+.. xref:modules/ROOT/pages/components/FSXABaseSection.adoc[FSXABaseSection]
+.. xref:modules/ROOT/pages/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
+.. xref:modules/ROOT/pages/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
+. xref:modules/ROOT/pages/advanced/index.adoc[Advanced]
+.. xref:modules/ROOT/pages/advanced/TPP-Snap.adoc[TPP-Snap]
+... xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#nested_elements[Nested Elements]
+... xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#inline_editing[Inline-Editing]
+.. xref:modules/ROOT/pages/advanced/custom-api-routes/index.adoc[Custom API Routes]
+... xref:modules/ROOT/pages/advanced/custom-api-routes/CustomSitemap.adoc[Example 1: Custom Sitemap]
+... xref:modules/ROOT/pages/advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
+... xref:modules/ROOT/pages/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
+.. xref:modules/ROOT/pages/advanced/SEO.adoc[SEO]
 
 ## Legal Notices
 
