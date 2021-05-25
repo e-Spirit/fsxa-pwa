@@ -64,7 +64,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 
 == Legal Notices
 
-FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com), Dortmund, Germany.
+FSXA-PWA is a product of http://www.e-spirit.com[e-Spirit AG], Dortmund, Germany.
 The FSXA-PWA is subject to the Apache-2.0 license.
 
 == Disclaimer
