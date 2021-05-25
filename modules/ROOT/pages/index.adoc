@@ -1,0 +1,4 @@
+= FSXA-PWA Documentation
+
+[arabic]
+include::../nav.adoc[]

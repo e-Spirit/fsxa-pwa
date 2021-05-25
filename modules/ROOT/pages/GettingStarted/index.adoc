@@ -1,0 +1,17 @@
+= Getting Started
+
+This guide describes how you can implement your first template, how to add custom CSS styling and how to change the app layout.
+
+[arabic]
+. xref:GettingStarted/MyFirstTemplate.adoc[My First Template]
+* xref:GettingStarted/MyFirstTemplate.adoc#requirements[Requirements]
+* xref:GettingStarted/MyFirstTemplate.adoc#setting-up-the-project[Setting up the Project]
+* xref:GettingStarted/MyFirstTemplate.adoc#development-mode[Development Mode]
+* xref:GettingStarted/TSX-Components.adoc[Writing JSX/TSX Components]
+* xref:GettingStarted/SFC-Components.adoc[Writing Single File Components]
+. xref:GettingStarted/CustomCSS.adoc[Custom CSS]
+* xref:GettingStarted/CustomCSS.adoc#using-tailwindcss[Using TailwindCSS]
+* xref:GettingStarted/CustomCSS.adoc#global-css[Global CSS]
+* xref:GettingStarted/CustomCSS.adoc#using-style-in-jsx/tsx-components[Using Style in JSX/TSX components]
+* xref:GettingStarted/CustomCSS.adoc#using-style-in-sfc-components[Using Style in SFC components]
+. xref:GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]

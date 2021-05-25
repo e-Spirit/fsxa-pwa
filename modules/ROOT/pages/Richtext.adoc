@@ -1,0 +1,56 @@
+= Working with RichText
+
+:moduledir: ..
+:imagesdir: {moduledir}/images
+
+RichText allows you to display information in the FirstSpirit context using great and customisable formatting. This brings with it a certain complexity.
+
+To counteract this, we have extended our automatism so that it not only loads layouts and sections, but also RichText components. In order for your component to be loaded automatically, you must place a file corresponding to the xref:Configuration.adoc#components[naming scheme] in your xref:Configuration.adoc#richtext[configured] richtext folder.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+We recommend that you derive from the xref:components/FSXABaseRichTextElement.adoc[`FSXABaseRichTextElement`]. This base class provides properties that are already mapped along with useful helper functions, such as rendering child nodes.
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+In our fsxa-pwa sample project we have already included some sample components, which you can of course use, adapt or extend. In the course of time, however, it may happen that you use formatting that does not yet have a frontend component as a counterpart or that you adapt existing formatting.
+
+If the xref:DevMode.adoc[DevMode] is activated, useful information about RichText components that are still missing is displayed.
+
+image:RichText/MissingRichText.png[Missing RichText]
+
+Clicking on it will show you further information about the missing component.
+
+image:RichText/RichTextInfoWindow.png[RichText Info Window]
+
+And finally, clicking the content tab in the info window will reveal all of the data that will be passed into your component.
+
+[source,json]
+----
+[
+  {
+    "data": {
+      "data-fs-style": "format.standard"
+    },
+    "content": [
+      {
+        "type": "text",
+        "content": "Life made ",
+        "data": {}
+      },
+      {
+        "data": {
+          "data.fs-style": "format.span_yellow_text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "content": "easier",
+            "data": {}
+          }
+        ],
+        "type": "paragraph"
+      }
+    ],
+    "type": "paragraph"
+  }
+]
+----

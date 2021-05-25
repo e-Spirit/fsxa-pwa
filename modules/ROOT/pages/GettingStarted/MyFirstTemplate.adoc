@@ -1,0 +1,55 @@
+= My First Template
+
+:moduledir: ../..
+:imagesdir: {moduledir}/images
+
+This chapter describes how to set up the project and complete the first steps.
+
+. <<Requirements>>
+. <<Setting up the Project>>
+. <<Development Mode>>
+. xref:GettingStarted/TSX-Components.adoc[Writing JSX/TSX Components]
+. xref:GettingStarted/SFC-Components.adoc[Writing Single File Components]
+
+== Requirements
+
+* https://nodejs.org/en/[node] - latest LTS Version: 14.15.5.
+* A text editor - like https://code.visualstudio.com/[VS Code] with the https://marketplace.visualstudio.com/items?itemName=octref.vetur[Vetur] plugin.
+* A terminal - like VS Code’s integrated https://code.visualstudio.com/docs/editor/integrated-terminal[terminal]
+* https://git-scm.com/[Git] - latest major version: > 2.
+
+== Setting up the Project
+
+[arabic]
+. Open the terminal and if needed, navigate to your preferred directory where the project should be saved.
+. Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
+. Navigate to the newly created folder with `cd fsxa-pwa`.
+. Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
+. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the xref:../Configuration.adoc[configuration page].
+. To install the needed dependencies run the command `npm install`.
+. After all dependencies are installed, you can start a local development server with `npm run dev`.
+. After the server is started, it can be accessed at http://localhost:3000 in your browser.
+
+== Development Mode
+
+There is a development mode that helps to easily map the content coming from the https://docs.e-spirit.com/module/caas/CaaS_FSM_Documentation_EN.html[CaaS].
+
+To enable the development mode, the variable `devMode` must be set to `true` in the `fsxa.config.ts` file. Be aware that you have to restart the server when you change anything in this file. This file is also checked into git. So be sure to change the variable back to `false` before deploying to production.
+
+If you are in development mode and a component on the page has not been developed yet, you will get an info box which shows exactly which component is missing and what information in the component can be addressed.
+
+image:MissingLayout.png[Missing Layout]
+
+If you are in development mode and you have already implemented the component, then you will see question marks when hovering over the element.
+
+image:QuestionMark.png[QuestionMark]
+
+Clicking on this question mark will provide you with more information about which component is being displayed and what data is available.
+
+== Writing Components
+
+Depending on the language you choose to implement your first Component we have provided two guides to get you started.
+
+If you prefer the classic vue single file component style xref:GettingStarted/SFC-Components.adoc[this guide] is for you.
+
+If you come from react and are already familiar with JSX/TSX or you are curious and would like to get started with it xref:GettingStarted/TSX-Components.adoc[this guide] is for you.

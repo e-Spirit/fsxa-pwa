@@ -1,0 +1,37 @@
+= Changing the App Layout
+
+In the app layout you can specify a frame for all pages.
+For example, if all pages include navigation, it can be specified there.
+
+Thereby the FSXABaseAppLayout is extended to adjust attributes like the `appState` and `appError`. More information can be found xref:components/FSXABaseAppLayout.adoc[here].
+
+In the JSX/TSX context `{this.$slots.default}` defines where the contents of the container will be displayed.
+
+Example:
+
+[source,javascript]
+----
+render(){
+  return (
+    <div>
+        <Navigation />
+        {this.$slots.default}
+    </div>)
+}
+----
+
+In the SFC context this is achieved with `<slot></slot>`.
+
+Example:
+
+[source,xml]
+----
+<template>
+  <div>
+    <Navigation />
+    <slot></slot>
+  </div>
+</template>
+----
+
+Furthermore, here you have all the possibilities that have already been described in the chapters xref:GettingStarted/MyFirstTemplate.adoc[My First Template] and xref:GettingStarted/CustomCSS.adoc[Custom CSS].
