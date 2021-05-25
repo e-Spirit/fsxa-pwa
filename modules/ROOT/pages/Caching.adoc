@@ -38,33 +38,31 @@ SFC-Example
 
 TSX-Example
 
-```typescript jsx
-@Component(\{
-name: `MyComponent',
+[source,javascript]
+----
+@Component({
+  name: 'MyComponent',
 })
-class MyComponent extends FSXABaseComponent<\{}>\{
-mounted() \{
-if(!this.myData())\{
-this.fetchData()
-}
-}
-async fetchData() \{
-const data = //make your async request to the server containing the data here
-this.setStoredItem(`myFreshData', data, 100000)
-}
+class MyComponent extends FSXABaseComponent<{}>{
+  mounted() {
+    if(!this.myData()){
+      this.fetchData()
+    } 
+  }
+  async fetchData() {
+    const data = //make your async request to the server containing the data here
+    this.setStoredItem('myFreshData', data, 100000)
+  }
 
-get myData()\{
-return this.getStoredItem(`myFreshData') || null
+  get myData(){
+    return this.getStoredItem('myFreshData') || null
+  }
+  render(){
+    return(
+      <div>
+        this.myData ? myData : null
+      </div>
+    )
+  }
 }
-render()\{
-return(
-
-....
-    this.myData ? myData : null
-  </div>
-)
-....
-
-}
-}
-```
+----

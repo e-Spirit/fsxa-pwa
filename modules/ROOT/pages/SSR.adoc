@@ -67,7 +67,19 @@ SFC example
 
 TSX example
 
-`typescript jsx render(){   return(     <div>       <client-only>         <TeaserSection prop="propvalue">         </TeaserSection>       </client-only>     </div>   ) }`
+[source,javascript]
+----
+render(){
+  return(
+    <div>
+      <client-only>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+----
 
 === Placeholders
 
@@ -101,7 +113,21 @@ SFC example
 
 TSX Example
 
-`typescript jsx render(){   return(     <div>       <client-only scopedSlots={{         placeholder: () => <div>My Placeholder</div>       }}>         <TeaserSection prop="propvalue">         </TeaserSection>       </client-only>     </div>   ) }`
+[source,javascript]
+----
+render(){
+  return(
+    <div>
+      <client-only scopedSlots={{
+        placeholder: () => <div>My Placeholder</div>
+      }}>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+----
 
 == Lazy Loading Components
 

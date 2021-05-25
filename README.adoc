@@ -1,20 +1,20 @@
-# FSXA-PWA
+= FSXA-PWA
 
 The FSXA-PWA is an example project and can be used as basis for developing your own PWA
 in the context of the FirstSpirit Experience Accelerator.
 
-## About the FSXA
+== About the FSXA
 
 The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
 experience platform, combining a headless approach with enterprise capabilities.
 
-## Documentation
+== Documentation
 
 If you are interested in the FSXA check this link:https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html[Overview].
 
 Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spirit.cloud/[vue components] is hosted separately.
 
-### Table of contents
+=== Table of contents
 
 . xref:modules/ROOT/pages/Introduction.adoc[Introduction]
 .. xref:modules/ROOT/pages/Introduction.adoc#general[General]
@@ -62,12 +62,12 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 ... xref:modules/ROOT/pages/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
 .. xref:modules/ROOT/pages/advanced/SEO.adoc[SEO]
 
-## Legal Notices
+== Legal Notices
 
 FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com), Dortmund, Germany.
 The FSXA-PWA is subject to the Apache-2.0 license.
 
-## Disclaimer
+== Disclaimer
 
 This document is provided for information purposes only.
 e-Spirit may change the contents hereof without notice.
