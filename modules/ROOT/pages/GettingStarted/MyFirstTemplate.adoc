@@ -8,8 +8,8 @@ This chapter describes how to set up the project and complete the first steps.
 . <<Requirements>>
 . <<Setting up the Project>>
 . <<Development Mode>>
-. xref:GettingStarted/TSX-Components.adoc[Writing JSX/TSX Components]
-. xref:GettingStarted/SFC-Components.adoc[Writing Single File Components]
+. link:TSX-Components.html[Writing JSX/TSX Components]
+. link:SFC-Components.html[Writing Single File Components]
 
 == Requirements
 
@@ -25,7 +25,7 @@ This chapter describes how to set up the project and complete the first steps.
 . Clone the project using the terminal command `git clone https://github.com/e-Spirit/fsxa-pwa.git`. The project should be downloaded into a folder called `fsxa-pwa`.
 . Navigate to the newly created folder with `cd fsxa-pwa`.
 . Copy the existing `.env.template` file and paste it with the new name `.env` or simply run the command `cp .env.template .env`.
-. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the xref:../Configuration.adoc[configuration page].
+. The .env file must contain all the information you need to access your own system. You can get this information from your contact at e-Spirit AG. By default, this file is located in the `.gitignore` and is therefore not persisted. Each required attribute is explained briefly, for a more detailed description please check the link:../Configuration.html[configuration page].
 . To install the needed dependencies run the command `npm install`.
 . After all dependencies are installed, you can start a local development server with `npm run dev`.
 . After the server is started, it can be accessed at http://localhost:3000 in your browser.
@@ -50,6 +50,6 @@ Clicking on this question mark will provide you with more information about whic
 
 Depending on the language you choose to implement your first Component we have provided two guides to get you started.
 
-If you prefer the classic vue single file component style xref:GettingStarted/SFC-Components.adoc[this guide] is for you.
+If you prefer the classic vue single file component style link:SFC-Components.html[this guide] is for you.
 
-If you come from react and are already familiar with JSX/TSX or you are curious and would like to get started with it xref:GettingStarted/TSX-Components.adoc[this guide] is for you.
+If you come from react and are already familiar with JSX/TSX or you are curious and would like to get started with it link:TSX-Components.html[this guide] is for you.

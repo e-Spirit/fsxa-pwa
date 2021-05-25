@@ -8,7 +8,7 @@
 
 The FSXABaseAppLayout is there to have a basic component to be able to implement the general layout of the app.
 It provides different attributes, which should simplify the development significantly. These are described in this chapter.
-This component inherits all the attributes and methods of the xref:components/FSXABaseComponent.adoc[FSXABaseComponent].
+This component inherits all the attributes and methods of the link:FSXABaseComponent.html[FSXABaseComponent].
 
 == Usage
 
