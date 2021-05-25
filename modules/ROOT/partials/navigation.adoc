@@ -15,7 +15,7 @@
 ** xref:fsxa-pwa::DevMode.adoc[DevMode]
 ** xref:fsxa-pwa::Routing.adoc[Routing]
 ** xref:fsxa-pwa::Richtext.adoc[Working with Richtext] (Pattern-Lib)
-** xref:fsxa-pwa::css/index.adoc[Custom CSS]
+** xref:fsxa-pwa::css.adoc[Custom CSS]
 *** xref:fsxa-pwa::css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
 *** xref:fsxa-pwa::css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
 ** xref:fsxa-pwa::ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
@@ -29,17 +29,17 @@
 ** xref:fsxa-pwa::Caching.adoc[Caching] (StoredContent, TTL)
 ** xref:fsxa-pwa::SSR.adoc[Server Side Rendering (SSR)]
 ** xref:fsxa-pwa::RemovingPresets.adoc[Removing Presets]
-** xref:fsxa-pwa::components/index.adoc[Base Components]
+** xref:fsxa-pwa::components.adoc[Base Components]
 *** xref:fsxa-pwa::components/FSXABaseComponent.adoc[FSXABaseComponent]
 *** xref:fsxa-pwa::components/FSXABaseLayout.adoc[FSXABaseLayout]
 *** xref:fsxa-pwa::components/FSXABaseSection.adoc[FSXABaseSection]
 *** xref:fsxa-pwa::components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
 *** xref:fsxa-pwa::components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
-** xref:fsxa-pwa::advanced/index.adoc[Advanced]
+** xref:fsxa-pwa::advanced.adoc[Advanced]
 *** xref:fsxa-pwa::advanced/TPP-Snap.adoc[TPP-Snap]
 **** xref:fsxa-pwa::advanced/TPP-Snap.adoc#nested_elements[Nested Elements]
 **** xref:fsxa-pwa::advanced/TPP-Snap.adoc#inline_editing[Inline-Editing]
-*** xref:fsxa-pwa::advanced/custom-api-routes/index.adoc[Custom API Routes]
+*** xref:fsxa-pwa::custom-api-routes.adoc[Custom API Routes]
 **** xref:fsxa-pwa::advanced/custom-api-routes/CustomSitemap.adoc[Example 1: Custom Sitemap]
 **** xref:fsxa-pwa::advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
 **** xref:fsxa-pwa::advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]

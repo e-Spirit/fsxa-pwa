@@ -32,7 +32,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 . xref:modules/ROOT/pages/DevMode.adoc[DevMode]
 . xref:modules/ROOT/pages/Routing.adoc[Routing]
 . xref:modules/ROOT/pages/Richtext.adoc[Working with Richtext] (Pattern-Lib)
-. xref:modules/ROOT/pages/css/index.adoc[Custom CSS]
+. xref:modules/ROOT/pages/css.adoc[Custom CSS]
 .. xref:modules/ROOT/pages/css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
 .. xref:modules/ROOT/pages/css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
 . xref:modules/ROOT/pages/ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
@@ -46,17 +46,17 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 . xref:modules/ROOT/pages/Caching.adoc[Caching] (StoredContent, TTL)
 . xref:modules/ROOT/pages/SSR.adoc[Server Side Rendering (SSR)]
 . xref:modules/ROOT/pages/RemovingPresets.adoc[Removing Presets]
-. xref:modules/ROOT/pages/components/index.adoc[Base Components]
+. xref:modules/ROOT/pages/components.adoc[Base Components]
 .. xref:modules/ROOT/pages/components/FSXABaseComponent.adoc[FSXABaseComponent]
 .. xref:modules/ROOT/pages/components/FSXABaseLayout.adoc[FSXABaseLayout]
 .. xref:modules/ROOT/pages/components/FSXABaseSection.adoc[FSXABaseSection]
 .. xref:modules/ROOT/pages/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
 .. xref:modules/ROOT/pages/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
-. xref:modules/ROOT/pages/advanced/index.adoc[Advanced]
+. xref:modules/ROOT/pages/advanced.adoc[Advanced]
 .. xref:modules/ROOT/pages/advanced/TPP-Snap.adoc[TPP-Snap]
 ... xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#nested-elements[Nested Elements]
 ... xref:modules/ROOT/pages/advanced/TPP-Snap.adoc#inline-editing[Inline-Editing]
-.. xref:modules/ROOT/pages/advanced/custom-api-routes/index.adoc[Custom API Routes]
+.. xref:modules/ROOT/pages/custom-api-routes.adoc[Custom API Routes]
 ... xref:modules/ROOT/pages/advanced/custom-api-routes/CustomSitemap.adoc[Example 1: Custom Sitemap]
 ... xref:modules/ROOT/pages/advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
 ... xref:modules/ROOT/pages/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
