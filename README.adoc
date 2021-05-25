@@ -1,0 +1,82 @@
+# FSXA-PWA
+
+The FSXA-PWA is an example project and can be used as basis for developing your own PWA
+in the context of the FirstSpirit Experience Accelerator.
+
+## About the FSXA
+
+The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
+experience platform, combining a headless approach with enterprise capabilities.
+
+## Documentation
+
+If you are interested in the FSXA check this link:https://docs.e-spirit.com/module/fsxa/overview/benefits-hybrid/index.html[Overview].
+
+Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spirit.cloud/[vue components] is hosted separately.
+
+### Table of contents
+
+* xref:docs/index.adoc[FSXA PWA]
+** xref:docs/Introduction.adoc[Introduction]
+*** xref:docs/Introduction.adoc#_general[General]
+*** xref:docs/Introduction.adoc#_projects_used[Projects used]
+*** xref:docs/Introduction.adoc#_architecture[Architecture]
+*** xref:docs/Introduction.adoc#_deployment[Deployment]
+** xref:docs/GettingStarted/index.adoc[Getting Started]
+*** xref:docs/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
+*** xref:docs/GettingStarted/CustomCSS.adoc[Adding CSS]
+*** xref:docs/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
+** xref:docs/Configuration.adoc[Configuration] (Pattern-Lib)
+*** xref:docs/Configuration.adoc#_env_file[.env File]
+*** xref:docs/Configuration.adoc#_fsxa_config[fsxa.config]
+** xref:docs/VuexStore.adoc[The Vuex Store]
+** xref:docs/DevMode.adoc[DevMode]
+** xref:docs/Routing.adoc[Routing]
+** xref:docs/Richtext.adoc[Working with Richtext] (Pattern-Lib)
+** xref:docs/css/index.adoc[Custom CSS]
+*** xref:docs/css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
+*** xref:docs/css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
+** xref:docs/ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
+** xref:docs/WorkingWithImages.adoc[Working with Images]
+*** xref:docs/WorkingWithImages.adoc#_introduction[Introduction]
+*** xref:docs/WorkingWithImages.adoc#_working_with_caas[Working with CaaS]
+*** xref:docs/WorkingWithImages.adoc#resolutions-in-firstspirit[Resolutions in FirstSpirit]
+*** xref:docs/WorkingWithImages.adoc#_responsiveness[Responsiveness]
+*** xref:docs/WorkingWithImages.adoc#_lazy_loading[Lazy Loading]
+*** xref:docs/WorkingWithImages.adoc#_sourcesets[SourceSets]
+** xref:docs/Caching.adoc[Caching] (StoredContent, TTL)
+** xref:docs/SSR.adoc[Server Side Rendering (SSR)]
+** xref:docs/RemovingPresets.adoc[Removing Presets]
+** xref:docs/components/index.adoc[Base Components]
+*** xref:docs/components/FSXABaseComponent.adoc[FSXABaseComponent]
+*** xref:docs/components/FSXABaseLayout.adoc[FSXABaseLayout]
+*** xref:docs/components/FSXABaseSection.adoc[FSXABaseSection]
+*** xref:docs/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
+*** xref:docs/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
+** xref:docs/advanced/index.adoc[Advanced]
+*** xref:docs/advanced/TPP-Snap.adoc[TPP-Snap]
+**** xref:docs/advanced/TPP-Snap.adoc#nested_elements[Nested Elements]
+**** xref:docs/advanced/TPP-Snap.adoc#inline_editing[Inline-Editing]
+*** xref:docs/advanced/custom-api-routes/index.adoc[Custom API Routes]
+**** xref:docs/advanced/custom-api-routes/CustomSitemap.adoc[Example 1: Custom Sitemap]
+**** xref:docs/advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
+**** xref:docs/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
+*** xref:docs/advanced/SEO.adoc[SEO]
+
+## Legal Notices
+
+FSXA-PWA is a product of [e-Spirit AG](http://www.e-spirit.com), Dortmund, Germany.
+The FSXA-PWA is subject to the Apache-2.0 license.
+
+## Disclaimer
+
+This document is provided for information purposes only.
+e-Spirit may change the contents hereof without notice.
+This document is not warranted to be error-free, nor subject to any
+other warranties or conditions, whether expressed orally or
+implied in law, including implied warranties and conditions of
+merchantability or fitness for a particular purpose. e-Spirit
+specifically disclaims any liability with respect to this document
+and no contractual obligations are formed either directly or
+indirectly by this document. The technologies, functionality, services,
+and processes described herein are subject to change without notice.
