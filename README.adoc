@@ -25,6 +25,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 .. xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
 .. xref:modules/ROOT/pages/GettingStarted/CustomCSS.adoc[Adding CSS]
 .. xref:modules/ROOT/pages/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
+.. xref:fsxa-pwa::GettingStarted/UseExistingProject.adoc[Using an Existing Project With the FSXA PWA]
 . xref:modules/ROOT/pages/Configuration.adoc[Configuration] (Pattern-Lib)
 .. xref:modules/ROOT/pages/Configuration.adoc#env-file[.env File]
 .. xref:modules/ROOT/pages/Configuration.adoc#fsxa-config[fsxa.config]

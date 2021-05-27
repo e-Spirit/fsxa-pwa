@@ -8,6 +8,7 @@
 *** xref:fsxa-pwa::GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
 *** xref:fsxa-pwa::GettingStarted/CustomCSS.adoc[Adding CSS]
 *** xref:fsxa-pwa::GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
+*** xref:fsxa-pwa::GettingStarted/UseExistingProject.adoc[Using an Existing Project With the FSXA PWA]
 ** xref:fsxa-pwa::Configuration.adoc[Configuration] (Pattern-Lib)
 *** xref:fsxa-pwa::Configuration.adoc#_env_file[.env File]
 *** xref:fsxa-pwa::Configuration.adoc#_fsxa_config[fsxa.config]

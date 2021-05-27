@@ -1,0 +1,44 @@
+= Using an Existing Project With the FSXA PWA
+
+:moduledir: ../..
+:imagesdir: {moduledir}/images
+
+* CaaS and Nav-Service need to be configured and working
+* you need do have certain project settings
+
+* any other prerequisites?
+* import scripts for switching OCM to local environment
+* Get configuration values for .env file
+* Configure PWA
+* enable devmode
+* start implementing vue templates.
+
+== Configure CaaS and Navigation Service
+
+image:SM_Project_Components.png[Project Components]
+
+
+== Clone and Configure PWA
+
+== any other prerequisites?
+
+== import scripts for switching OCM to local environment
+
+Where to get these scripts from? (I know they are in Scripts/CaaS-Zero in our demo project).
+
+== Get configuration values for .env file
+
+See chapter link:../Configuration{outfilesuffix}[Configuration].
+
+URLs for CaaS and Navigation Service can be retrieved from the Server Manager, from the two respective project components (see above).
+
+The Configuration chapter describes how to get the Project ID.
+
+What's with the Tenant ID?
+
+== Configure PWA
+== Enable devmode
+
+See chapter link:../DevMode{outfilesuffix}[DevMode].
+
+== start implementing vue templates.
