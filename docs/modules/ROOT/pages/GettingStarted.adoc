@@ -14,3 +14,5 @@ This guide describes how you can implement your first template, how to add custo
 * xref:GettingStarted/CustomCSS.adoc#_using_style_in_jsx_tsx_components[Using Style in JSX/TSX components]
 * xref:GettingStarted/CustomCSS.adoc#_using_style_in_sfc_components[Using Style in SFC components]
 . xref:GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
+. xref:GettingStarted/UseExistingProject.adoc[Using an Existing Project With the PWA]
+
