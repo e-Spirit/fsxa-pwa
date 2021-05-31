@@ -22,20 +22,20 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 .. xref:modules/ROOT/pages/Introduction.adoc#architecture[Architecture]
 .. xref:modules/ROOT/pages/Introduction.adoc#deployment[Deployment]
 . xref:modules/ROOT/pages/GettingStarted.adoc[Getting Started]
-.. xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
+.. xref:modules/ROOT/pages/GettingStarted/MyFirstTemplate.adoc[My First Template]
 .. xref:modules/ROOT/pages/GettingStarted/CustomCSS.adoc[Adding CSS]
 .. xref:modules/ROOT/pages/GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
-. xref:modules/ROOT/pages/Configuration.adoc[Configuration] (Pattern-Lib)
+. xref:modules/ROOT/pages/Configuration.adoc[Configuration]
 .. xref:modules/ROOT/pages/Configuration.adoc#env-file[.env File]
 .. xref:modules/ROOT/pages/Configuration.adoc#fsxa-config[fsxa.config]
 . xref:modules/ROOT/pages/VuexStore.adoc[The Vuex Store]
 . xref:modules/ROOT/pages/DevMode.adoc[DevMode]
 . xref:modules/ROOT/pages/Routing.adoc[Routing]
-. xref:modules/ROOT/pages/Richtext.adoc[Working with Richtext] (Pattern-Lib)
+. xref:modules/ROOT/pages/Richtext.adoc[Working with Richtext]
 . xref:modules/ROOT/pages/css.adoc[Custom CSS]
-.. xref:modules/ROOT/pages/css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
+.. xref:modules/ROOT/pages/css/Component.adoc[Adding Custom CSS to your Component]
 .. xref:modules/ROOT/pages/css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
-. xref:modules/ROOT/pages/ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
+. xref:modules/ROOT/pages/ProjectProperties.adoc[ProjectProperties]
 . xref:modules/ROOT/pages/WorkingWithImages.adoc[Working with Images]
 .. xref:modules/ROOT/pages/WorkingWithImages.adoc#introduction[Introduction]
 .. xref:modules/ROOT/pages/WorkingWithImages.adoc#working-with-caas[Working with CaaS]
@@ -43,7 +43,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 .. xref:modules/ROOT/pages/WorkingWithImages.adoc#responsiveness[Responsiveness]
 .. xref:modules/ROOT/pages/WorkingWithImages.adoc#lazy-loading[Lazy Loading]
 .. xref:modules/ROOT/pages/WorkingWithImages.adoc#sourcesets[SourceSets]
-. xref:modules/ROOT/pages/Caching.adoc[Caching] (StoredContent, TTL)
+. xref:modules/ROOT/pages/Caching.adoc[Caching]
 . xref:modules/ROOT/pages/SSR.adoc[Server Side Rendering (SSR)]
 . xref:modules/ROOT/pages/RemovingPresets.adoc[Removing Presets]
 . xref:modules/ROOT/pages/components.adoc[Base Components]

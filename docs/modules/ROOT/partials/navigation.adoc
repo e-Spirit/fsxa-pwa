@@ -5,20 +5,20 @@
 *** xref:fsxa-pwa::Introduction.adoc#_architecture[Architecture]
 *** xref:fsxa-pwa::Introduction.adoc#_deployment[Deployment]
 ** xref:fsxa-pwa::GettingStarted.adoc[Getting Started]
-*** xref:fsxa-pwa::GettingStarted/MyFirstTemplate.adoc[My First Template] (Pattern-Lib)
+*** xref:fsxa-pwa::GettingStarted/MyFirstTemplate.adoc[My First Template]
 *** xref:fsxa-pwa::GettingStarted/CustomCSS.adoc[Adding CSS]
 *** xref:fsxa-pwa::GettingStarted/ChangingtheAppLayout.adoc[Changing the App Layout]
-** xref:fsxa-pwa::Configuration.adoc[Configuration] (Pattern-Lib)
+** xref:fsxa-pwa::Configuration.adoc[Configuration]
 *** xref:fsxa-pwa::Configuration.adoc#_env_file[.env File]
 *** xref:fsxa-pwa::Configuration.adoc#_fsxa_config[fsxa.config]
 ** xref:fsxa-pwa::VuexStore.adoc[The Vuex Store]
 ** xref:fsxa-pwa::DevMode.adoc[DevMode]
 ** xref:fsxa-pwa::Routing.adoc[Routing]
-** xref:fsxa-pwa::Richtext.adoc[Working with Richtext] (Pattern-Lib)
+** xref:fsxa-pwa::Richtext.adoc[Working with Richtext]
 ** xref:fsxa-pwa::css.adoc[Custom CSS]
-*** xref:fsxa-pwa::css/Component.adoc[Adding Custom CSS to your Component] (Pattern-Lib)
+*** xref:fsxa-pwa::css/Component.adoc[Adding Custom CSS to your Component]
 *** xref:fsxa-pwa::css/RemovingTailwind.adoc[Removing Tailwind CSS for your Project]
-** xref:fsxa-pwa::ProjectProperties.adoc[ProjectProperties] (Pattern-Lib)
+** xref:fsxa-pwa::ProjectProperties.adoc[ProjectProperties]
 ** xref:fsxa-pwa::WorkingWithImages.adoc[Working with Images]
 *** xref:fsxa-pwa::WorkingWithImages.adoc#_introduction[Introduction]
 *** xref:fsxa-pwa::WorkingWithImages.adoc#_working_with_caas[Working with CaaS]
@@ -26,7 +26,7 @@
 *** xref:fsxa-pwa::WorkingWithImages.adoc#_responsiveness[Responsiveness]
 *** xref:fsxa-pwa::WorkingWithImages.adoc#_lazy_loading[Lazy Loading]
 *** xref:fsxa-pwa::WorkingWithImages.adoc#_sourcesets[SourceSets]
-** xref:fsxa-pwa::Caching.adoc[Caching] (StoredContent, TTL)
+** xref:fsxa-pwa::Caching.adoc[Caching]
 ** xref:fsxa-pwa::SSR.adoc[Server Side Rendering (SSR)]
 ** xref:fsxa-pwa::RemovingPresets.adoc[Removing Presets]
 ** xref:fsxa-pwa::components.adoc[Base Components]
