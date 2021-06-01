@@ -1,0 +1,27 @@
+= Base Components
+
+== Introduction
+
+The https://github.com/e-Spirit/fsxa-pattern-library[FSXA-Pattern-Library] provides multiple base components, which come with a lot of attributes and methods to help you build your PWA.
+This chapter will introduce you to these different components and will describe when and how to use them.
+
+== Components
+
+=== xref:components/FSXABaseComponent.adoc[FSXABaseComponent]
+Basic Component for all further components, provides general attributes and methods.
+
+=== xref:components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
+
+Basic Component to implement the general layout of the app.
+
+=== xref:components/FSXABaseLayout.adoc[FSXABaseLayout]
+
+Basic Component to implement a page layout.
+
+=== xref:components/FSXABaseSection.adoc[FSXABaseSection]
+
+Basic Component to implement a section of a page.
+
+=== xref:components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
+
+Basic Component to implement a rich text element.

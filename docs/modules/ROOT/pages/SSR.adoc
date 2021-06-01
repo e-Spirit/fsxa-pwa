@@ -1,0 +1,182 @@
+= Server Side Rendering (SSR)
+
+The FSXA-PWA project is based on the https://nuxtjs.org[Nuxt.js] framework which supports server side rendering (https://ssr.vuejs.org/#what-is-server-side-rendering-ssr[SSR]). In a single page application which uses client side rendering (CSR) the webserver only serves an almost empty HTML page and usually larger amounts of JavaScript. The JavaScript then gets executed in the browser where all the required JSON data gets requested. The application then renders the view using the requested data. The SSR approach is different in that the JSON data gets requested from the webserver and the rendering of the view takes place there. A fully rendered page is then sent to the client. This allows for search engines to crawl the pages more easily since they do not have the necessity to be able to execute JavaScript code. It also saves time on the initial download of the page because there is no additional code execution step in between downloads. Nuxt.js uses a hybrid approach where the generated JavaScript bundle is able to hydrate the client (ie. request JSON data and render on the client side) from this point onwards.
+
+In order to utilize SSR you need a node.js environment to serve the webpage. This also means that when writing code in this project you have to keep in mind that you do not have access to the `window` or `document` objects except in the `beforeMount` or `mounted` hooks.
+
+SSR is enabled in the FSXA-PWA by default. You can build the project for SSR deployment using
+
+[source,bash]
+----
+npm run build
+----
+
+This will create a `dist` folder in your working directory with all the files required to run your application in SSR mode. You can start serving the application using
+
+[source,bash]
+----
+npm run start
+----
+
+You can turn SSR off in the `nuxt.config.ts`by setting `ssr` to `false`.
+
+== Prerendered HTML
+
+If all you need is xref:SEO.adoc[SEO] you can also generate prerendered HTML pages by adding the following line to the `Configuration` object in the `nuxt.config.ts`. In this case you also do not need to serve the HTML from a node.js environment.
+
+[source,javascript]
+----
+target: "static",
+----
+
+You can then generate all available routes as HTML using
+
+[source,bash]
+----
+npm run generate
+----
+
+This will create a `dist` folder in your working directory containing all the files required to statically host your application. It will generate static HTML for all the pages in the `pages` folder. It is therefore recommended to only be used in case pages are defined. You can put these files on your own webserver or host them directly from your working directory using the following command.
+
+[source,bash]
+----
+npm run start
+----
+
+You can find more information on this topic in the https://nuxtjs.org/docs/2.x/get-started/commands#static-deployment-pre-rendered[Nuxt.js documentation].
+
+== Client-only Components
+
+If you want to turn SSR off for the scope of a single or multiple components you can use the `client-only` component. Any components declared within the `client-only` component will not be rendered on the server but instead on the client.
+
+You can use this for example if you want to access the `window` and/or `document` objects from a scope other than the `mounted` or `beforeMount` hooks.
+
+SFC example
+
+[source,xml]
+----
+<template>
+  <div>
+    <client-only>
+      <TeaserSection prop="propvalue">
+      </TeaserSection>
+    </client-only>
+  </div>
+</template>
+----
+
+TSX example
+
+[source,javascript]
+----
+render(){
+  return(
+    <div>
+      <client-only>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+----
+
+=== Placeholders
+
+You can define a placeholder that will be rendered on the server and thus will be displayed while the client intializes a `client-only` component. You can either pass a string to the prop `placeholder` of the `client-only` component.
+
+[source,xml]
+----
+<client-only placeholder="Loading ...">
+  <TeaserSection prop="propvalue">
+  </TeaserSection>
+</client-only>
+----
+
+Or you can define your own component that will be used as placeholder
+
+SFC example
+
+[source,xml]
+----
+<template>
+  <div>
+    <client-only>
+      <TeaserSection prop="propvalue">
+      </TeaserSection>
+      <Spinner slot="placeholder">
+      </Spinner>
+    </client-only>
+  </div>
+</template>
+----
+
+TSX Example
+
+[source,javascript]
+----
+render(){
+  return(
+    <div>
+      <client-only scopedSlots={{
+        placeholder: () => <div>My Placeholder</div>
+      }}>
+        <TeaserSection prop="propvalue">
+        </TeaserSection>
+      </client-only>
+    </div>
+  )
+}
+----
+
+== Lazy Loading Components
+
+You can turn any of your components into a lazy loaded component by adding the prefix `Lazy` when you refer to the component for rendering. You need to add the following line to your `nuxt.config.ts` for this to work.
+
+[source,json]
+----
+components: true
+----
+
+Keep in mind that adding this line will cause _all your components_ (located in the `/components` folder) to be auto imported.
+
+Lazy loading means the component gets loaded when it’s needed rather than being loaded when the page loads. You can use this for components that are rendered conditionally (using a v-if directive for example) or for components that take a long time to load.
+
+Lazy loading also means that your component is rendered in the client thus also giving you access to the `window` and `document` objects.
+
+SFC example
+
+[source,xml]
+----
+<template>
+  <div>
+    <TeaserSection prop="propvalue">
+      <!-- this component will be rendered on the server -->
+    </TeaserSection>
+    <LazyTeaserSection prop="propvalue">
+      <!-- this component will be rendered on the client and only when it is needed -->
+    </LazyTeaserSection>
+  </div>
+</template>
+----
+
+TSX example
+
+In typescript the issue is slightly more complicated, as the typescript compiler first needs to be told that a variable extended by the prefix `Lazy` exists
+
+[source,javacript]
+----
+declare const LazyTeaserSection: typeof TeaserSection
+render(){
+  return(
+    <div>
+      <TeaserSection prop="propvalue">
+        //this component will be rendered on the server
+      </TeaserSection>
+      <LazyTeaserSection prop="propvalue">
+        //this component will be rendered on the client and only when it is needed
+      </LazyTeaserSection>
+    </div>
+  )
+}
+----

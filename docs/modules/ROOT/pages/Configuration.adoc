@@ -1,0 +1,211 @@
+= Configuration
+
+== .env-File
+
+The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you automatically.
+
+All of the following variables are required.
+
+=== FSXA_API_KEY `string`
+
+This API key is required by the PWA to obtain authorized access to the CaaS and navigation service. Our Customer Success Management team (team-csm@e-spirit.com) will be happy to provide you with this key after the successful provisioning of your FSXA environment.
+
+=== FSXA_CAAS `string`
+
+The URL under which the CaaS can be reached. This URL is only used on the server and is not visible to the user in the client.
+
+=== FSXA_NAVIGATION_SERVICE `string`
+
+The URL under which the navigation service is available. This URL is only used on the server and is not visible to the user in the client.
+
+=== FSXA_PROJECT_ID `string`
+
+Several projects can be configured on your FirstSpirit server. In order for the PWA to know which data it needs to access, it needs the UUID of the relevant project.
+
+For the project(s) provided by e-Spirit you will be given this data too.
+
+For other projects you can look at _Project Properties_ in _ServerManager_, then _Project Components_, then _CaaS Connect Project App_.
+
+Another way to access the project_id is by https://docs.e-spirit.com/odfs/template-develo/scripting/making-scripts/[adding the following script]:
+
+....
+import de.espirit.firstspirit.agency.OperationAgent;
+import de.espirit.firstspirit.ui.operations.RequestOperation;
+
+message = context.requireSpecialist(OperationAgent.TYPE).getOperation(RequestOperation.TYPE);
+message.setTitle("Project UUID");
+message.setKind(RequestOperation.Kind.INFO);
+message.perform("Project UUID: " + context.project.uuid);
+....
+
+Use the following _display logic_ to only make the script menu entry visible to project admins:
+
+....
+connection = context.userService.connection;
+return connection.user.isProjectAdmin(connection.project);
+....
+
+=== FSXA_TENANT_ID `string`
+
+The tenantId is used by the PWA to distinguish between the different FSXA environments provided to you.
+
+=== FSXA_MODE `"preview"` | `"release"`
+
+We distinguish between preview and release data. This is the traditional FirstSpirit way. Specify here which data should be loaded by the PWA.
+
+== fsxa.config
+
+The following settings allow easy configuration of the PWA.
+
+=== General
+
+==== devMode
+
+The `DevMode` helps you to quickly build new components or adapt existing ones. See xref:GettingStarted/index.adoc[Getting Started] for screenshots and more details.
+
+==== defaultLocale
+
+Normally the current URL is used to find out the language. If this is not possible (for example, when a user calls `/`) the `defaultLocale` is used to retrieve the navigation data via the `FSXA API`. This property is required.
+
+=== Components
+
+The components are automatically loaded and mapped.
+It is important to note the following aspects:
+
+File names should be defined in camelCase. These are subsequently converted to snake_case. Folders are also mapped and separate the converted identifier with a `.`. The exception here is the `index` file. This leads to the following mapping:
+
+* `teaser.tsx` → `teaser`
+* `Teaser/index.vue` → `teaser`
+* `NewsTeaserSection.tsx` → `news_teaser_section`
+* `InterestingFacts/index.tsx` → `interesting_facts`
+* `InterestingFacts/SubComponent.tsx` → `interesting_facts.sub_component`
+* `InterestingFacts/components/Counter.vue` → `interesting_facts.components.counter`
+
+You can override this automatism by creating an `index.ts` / `index.js` in the configured folder.
+
+[source,javascript]
+----
+import MyCustomTeaserComponent from '...'
+import Counter from '...'
+
+export default {
+  teaser: MyCustomTeaserComponent,
+  'interesting_facts.components.counter': Counter
+}
+----
+
+=== Project Folders
+
+*The folders configured by the following settings are automatically searched for files with the extensions `.vue`, `.tsx`, `.jsx` and `.ts`.*
+
+==== Sections
+
+`components.sections` - optional
+
+The folder, where all your section components are located.
+
+_____________________________________________________________________________________________________________________________________________________
+We recommend you to derive from xref:components/FSXABaseSection.adoc[FSXABaseSection] to get access to useful functionality and add TypeScript support.
+_____________________________________________________________________________________________________________________________________________________
+
+*Default*: `"~/components/fsxa/sections"`
+
+==== Layouts
+
+`components.layouts` - optional
+
+The folder, where all your layout components are located.
+
+________________________________________________________________________________________________________________
+We recommend you to derive from FSXABaseLayout to get access to useful functionality and add TypeScript support.
+________________________________________________________________________________________________________________
+
+*Default*: `"~/components/fsxa/layouts"`
+
+==== RichText
+
+`components.richtext` - optional
+
+The folder, where all your richtext components are located.
+
+*Default*: `"~/components/fsxa/richtext"`
+
+_________________________________________________________________________________________________________________________
+We recommend you to derive from FSXABaseRichTextElement to get access to useful functionality and add TypeScript support.
+_________________________________________________________________________________________________________________________
+
+==== AppLayout
+
+`components.appLayout` _optional_
+
+You have the option to specify an AppLayout component that is rendered as a global wrapper around your mapped content.
+
+This setting is optional. *Default*: `undefined`
+
+___________________________________________________________________________________________________________________
+We recommend you to derive from FSXABaseAppLayout to get access to useful functionality and add TypeScript support.
+___________________________________________________________________________________________________________________
+
+==== Loader
+
+`components.loader` _optional_
+
+*Default*: `undefined`
+
+==== CustomRoutes
+
+`customRoutes` _optional_
+
+This setting configures the folder in which your own endpoints are located. The automatism loads files with the extensions ts and js. You can learn more in the section xref:advanced/custom-api-routes/index.adoc[CustomRoutes].
+
+==== LogLevel
+
+`logLevel` _optional_
+
+Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
+
+_______________________________________________________
+These settings can be configured in the following ways:
+_______________________________________________________
+
+=== fsxa.config.ts / fsxa.config.js
+
+[source,javascript]
+----
+{
+  devMode: true,
+  defaultLocale: "de_DE"
+  // each of the entries is optional
+  // default values mentioned above will be used
+  components: {
+    sections: "~/components/fsxa/sections",
+    layouts: "~/components/fsxa/layouts",
+    richtext: "~/components/fsxa/richtext",
+  },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
+}
+----
+
+=== nuxt.config
+
+[source,javascript]
+----
+{
+  ...,
+  fsxa: {
+    devMode: true,
+    defaultLocale: "de_DE"
+    // each of the entries is optional
+    // default values mentioned above will be used
+    components: {
+      sections: "~/components/fsxa/sections",
+      layouts: "~/components/fsxa/layouts",
+      richtext: "~/components/fsxa/richtext",
+    },
+  customRoutes: '~/customRoutes',
+  logLevel: 3
+  },
+  ...
+}
+----

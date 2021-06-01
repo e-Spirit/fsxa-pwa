@@ -1,0 +1,3 @@
+= FSXA-PWA Documentation
+
+include::../nav.adoc[]

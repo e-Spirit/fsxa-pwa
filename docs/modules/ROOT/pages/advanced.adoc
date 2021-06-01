@@ -1,0 +1,7 @@
+= Advanced
+
+These features can help you to achieve a more polished user experience. You can define your own api endpoints for example to have a contact form that sends a mail when submitted. You can provide a better user experience for your content creators using TPP-Snap. Or help your PWA to be found more easily using SEO techniques.
+
+. xref:custom-api-routes.adoc[Custom API endpoints]
+. xref:advanced/TPP-Snap.adoc[TPP-Snap]
+. xref:advanced/SEO.adoc[SEO]
