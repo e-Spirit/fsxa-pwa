@@ -1,6 +1,6 @@
 = Writing Single File Components
 
-:moduledir: ..
+:moduledir: ../..
 :imagesdir: {moduledir}/images
 
 In this section we will be exploring how to go about implementing a missing Teaser section using the classic vue single file components.
