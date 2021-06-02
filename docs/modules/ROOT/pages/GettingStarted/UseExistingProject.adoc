@@ -3,16 +3,6 @@
 :moduledir: ../..
 :imagesdir: {moduledir}/images
 
-* CaaS and Nav-Service need to be configured and working
-* you need do have certain project settings
-
-* any other prerequisites?
-* import scripts for switching OCM to local environment
-* Get configuration values for .env file
-* Configure PWA
-* enable devmode
-* start implementing vue templates.
-
 == Configure CaaS and Navigation Service
 
 image:SM_Project_Components.png[Project Components]
@@ -22,16 +12,114 @@ Use the *ServerManager* to install two *Project components* for your project, if
 * CaaS Connect Project App
 * Navigation Project Configuration
 
-
 == Clone and Configure PWA
 
 Get the link:https://github.com/e-Spirit/fsxa-pwa/[FSXA-PWA from github].
 
-== any other prerequisites?
+== Import scripts for switching OCM to local environment
 
-== import scripts for switching OCM to local environment
+If you have the _PWA Smart Living Global_ FirstSpirit project you find the scripts there under _Scripts/CaaS-Zero_.
 
-Where to get these scripts from? (I know they are in Scripts/CaaS-Zero in our demo project).
+image:SetApplicationURL.png[script set_application_url]
+
+Here are the script's parts:
+
+=== properties / display logic
+
+----
+connection = context.userService.connection;
+return connection.user.isProjectAdmin(connection.project);
+----
+
+=== form
+
+[source,xml]
+----
+<CMS_MODULE>
+
+  <CMS_LABEL>
+    <LANGINFOS>
+      <LANGINFO lang="*" label="With this action you can change the URL of the embedded application."/>
+      <LANGINFO lang="DE" label="Hiermit können Sie die URL der eingebetteten Applikation ändern."/>
+    </LANGINFOS>
+  </CMS_LABEL>
+
+  <CMS_LABEL>
+    <LANGINFOS>
+      <LANGINFO lang="*" label="(only for demonstation purposes)"/>
+      <LANGINFO lang="DE" label="(nur für Demozwecke)"/>
+    </LANGINFOS>
+  </CMS_LABEL>
+
+  <CMS_INPUT_TEXT name="url" useLanguages="no">
+    <LANGINFOS>
+      <LANGINFO lang="*" label="App URL (full qualified)"/>
+      <LANGINFO lang="DE" label="URL der Applikation (voll qualifiziert)"/>
+    </LANGINFOS>
+  </CMS_INPUT_TEXT>
+
+</CMS_MODULE>
+----
+
+=== rules
+
+[source,xml]
+----
+<RULES>
+	<RULE>
+		<WITH>
+			<OR>
+				<MATCHES regex="(^http[s]?://.*)|(^$)">
+					<PROPERTY name="VALUE" source="url"/>
+				</MATCHES>
+			</OR>
+		</WITH>
+		<DO>
+			<VALIDATION scope="SAVE">
+				<PROPERTY name="VALID" source="url"/>
+				<MESSAGE lang="*" text="URL must start with 'http://' or 'https://'"/>
+				<MESSAGE lang="*" text="URL muss mit 'http://' oder 'https://' beginnen"/>
+			</VALIDATION>
+		</DO>
+	</RULE>
+</RULES>
+----
+
+===
+
+[source,java]
+----
+import de.espirit.firstspirit.agency.OperationAgent;
+import de.espirit.firstspirit.ui.operations.RequestOperation;
+
+project = context.project;
+
+defaults = context.getScript().getFormDefaults();
+defaults.get(null, "url").set(project.getWebeditPreviewUrl());
+
+formData = context.showForm(false);
+
+if (formData == null) {
+    return null;
+}
+
+url = formData.get(null, "url").get();
+
+project.lock();
+try {
+    project.setWebeditPreviewUrl(url);
+    project.save();
+} finally {
+    project.unlock();
+}
+
+message = context.requireSpecialist(OperationAgent.TYPE).getOperation(RequestOperation.TYPE);
+message.setTitle("Success");
+message.setKind(RequestOperation.Kind.INFO);
+message.perform("App URL set to\n\n\t" + url + "\n\nPlease reload page now...");
+----
+
+With this script you can simply switch the OCM URL to _localhost:3000_ from ContentCreator, once you have your PWA running locally under that address.
 
 == Get configuration values for .env file
 
@@ -39,13 +127,20 @@ See chapter link:../Configuration{outfilesuffix}[Configuration].
 
 URLs for CaaS and Navigation Service can be retrieved from the Server Manager, from the two respective project components (see above).
 
-The Configuration chapter describes how to get the Project ID.
+The Configuration chapter also describes how to get the Project ID.
 
-What's with the Tenant ID?
+The FSXA_TENANT_ID is your company name as used in the first element of our _.e-spirit.hosting_ addresses. If you access FirstSpirit under _company_x.e-spirit.hosting_, your Tenant ID should be _company_x_.
 
 == Configure PWA
+
+The documentation chapter link:../Configuration{outfilesuffix}[Configuration] also describes some other settings you can apply to your PWA (defaultLocale, logLevel, ...)
+
 == Enable devmode
 
 See chapter link:../DevMode{outfilesuffix}[DevMode].
 
-== start implementing vue templates.
+== Start implementing vue templates.
+
+Your project will probably have sections that are not supported by the default PWA. Now you can start implementing vue components for them.
+
+See chapter link:SFC-Components{outfilesuffix}[SFC-Components].
