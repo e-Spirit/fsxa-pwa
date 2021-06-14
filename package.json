@@ -4,6 +4,9 @@
   "description": "Demo PWA built with FSXA",
   "license": "Apache-2.0",
   "private": true,
+  "contributors": [
+    "Dominik Barczewski <barczewski@e-spirit.com>"
+  ],
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",

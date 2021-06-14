@@ -61,7 +61,7 @@ The following settings allow easy configuration of the PWA.
 
 ==== devMode
 
-The `DevMode` helps you to quickly build new components or adapt existing ones. See xref:GettingStarted/index.adoc[Getting Started] for screenshots and more details.
+The `DevMode` helps you to quickly build new components or adapt existing ones. See xref:GettingStarted/MyFirstTemplate.adoc[Getting Started] for screenshots and more details.
 
 ==== defaultLocale
 
