@@ -131,20 +131,12 @@ class AppLayout extends FSXABaseAppLayout {
           }}
         >
           <div class="bg-white fixed-page-header px-4 md:px-16 lg:px-20 xl:px-24 flex items-center justify-between scrollbar-fix-left text-gray-900">
-            <a
-              href={this.navigationData?.pages.index}
-              class="flex-shrink-0"
-              onClick={(event) => {
-                event.preventDefault()
-                this.triggerRouteChange({
-                  pageId: this.navigationData?.seoRouteMap[
-                    this.navigationData.pages.index
-                  ]
-                })
-              }}
+            <nuxt-link
+              to={this.navigationData?.pages.index}
+              class="tw-flex-shrink-0"
             >
               <img src={this.logoUrl} />
-            </a>
+            </nuxt-link>
             <div class="hidden md:block h-full">
               <Navigation
                 items={[...items, this.getLangNavItem(false)]}
@@ -177,47 +169,29 @@ class AppLayout extends FSXABaseAppLayout {
         </PageHeader>
         <div class="w-full h-64 bg-gray-100 flex items-center text-xs fixed bottom-0 left-0 px-4 md:px-16 lg:px-20 xl:px-24">
           <div class="w-1/3 flex items-center justify-start">
-            <a
-              href={this.navigationData?.pages.index}
+            <nuxt-link
+              to={this.navigationData?.pages.index}
               class="flex-shrink-0"
-              onClick={(event) => {
-                event.preventDefault()
-                this.triggerRouteChange({
-                  pageId: this.navigationData?.seoRouteMap[
-                    this.navigationData.pages.index
-                  ]
-                })
-              }}
             >
               <img src={this.logoUrl} />
-            </a>
+            </nuxt-link>
           </div>
           <div class="w-1/3 flex items-center justify-center">
             © {this.globalSettings?.data.ps_footer.gc_copyright}
           </div>
           <div class="w-1/3 flex items-center justify-end gap-2">
-            {this.globalSettings?.data.ps_footer.gc_linklist.map(
-              (link: any) => (
-                <a
-                  href={
-                    this.getUrlByPageId(link.data.lt_link.referenceId) || '#'
-                  }
-                  class={`text-xs hover:underline ${
-                    this.currentPage?.id === link.data.lt_link.referenceId
-                      ? 'text-gray-600'
-                      : ''
-                  }`}
-                  onClick={(event: MouseEvent) => {
-                    event.preventDefault()
-                    this.triggerRouteChange({
-                      pageId: link.data.lt_link.referenceId
-                    })
-                  }}
-                >
-                  {link.data.lt_text}
-                </a>
-              )
-            )}
+            {this.globalSettings?.data.gc_linklist.map((link: any) => (
+              <nuxt-link
+                to={this.getUrlByPageId(link.data.lt_link.referenceId) || '#'}
+                class={`text-xs hover:underline ${
+                  this.currentPage?.id === link.data.lt_link.referenceId
+                    ? 'text-gray-600'
+                    : ''
+                }`}
+              >
+                {link.data.lt_text}
+              </nuxt-link>
+            ))}
           </div>
         </div>
         <div class="bg-white relative">{this.$slots.default}</div>
