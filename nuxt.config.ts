@@ -1,7 +1,7 @@
 import path from 'path'
-import { Configuration } from '@nuxt/types/config'
+import { NuxtConfig } from '@nuxt/types/config'
 
-const config: Configuration = {
+const config: NuxtConfig = {
   ssr: true,
   /*
    ** Headers of the page
@@ -38,14 +38,17 @@ const config: Configuration = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/pwa'
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     'fsxa-nuxt-module',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
