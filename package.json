@@ -31,9 +31,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/dotenv": "^1.4.0",
     "fsxa-nuxt-module": "^3.4.0",
-    "nuxt-prometheus-module": "^0.1.4",
-    "nuxt-start": "2.15.7",
-    "nuxt-winston-log": "^1.2.0"
+    "nuxt-start": "2.15.7"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
