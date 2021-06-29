@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.1...v1.4.2) (2021-06-29)
+
+
+### Bug Fixes
+
+* Optimize dependencies for runtime environments ([#39](https://github.com/e-Spirit/fsxa-pwa/issues/39)) ([4f13102](https://github.com/e-Spirit/fsxa-pwa/commit/4f1310255c1dd8c511bba2816c88fe7f98e2eb8d))
+
 ## [1.4.1](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.0...v1.4.1) (2021-05-12)
 
 
