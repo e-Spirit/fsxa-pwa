@@ -65,3 +65,16 @@ Technology used "`behind the scenes`":
 * https://rancher.com/[Rancher]
 
 image:ccd_tools.svg[CCD Tools,400]
+
+=== Running the application in a production environment
+In the deployment process e-Spirit uses Docker to containerize the applications.
+To verify your pwa is compliant to the provided Dockerfile, you can use the Dockerfile.template.
+You just need to change the template file in such way, that your custom env parameters are set accordingly to you `.env` file.
+
+Once you have updated your template just rename the file to `Dockerfile`.
+If you then execute `docker build .` and the image could be built successfully, 
+your application will be compliant with the e-Spirit build pipeline.
+
+Please note: 
+Due to security aspects providing a custom Dockerfile will stop the build pipeline. 
+Make sure not to commit a Dockerfile to your project's repository.
