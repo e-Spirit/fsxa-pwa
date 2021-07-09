@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.2...v1.4.3) (2021-07-09)
+
+
+### Bug Fixes
+
+* **misc:** provide Dockerfile.template and documentation & bumped few versions ([1bba352](https://github.com/e-Spirit/fsxa-pwa/commit/1bba352f14586df5afd5c1df29193c757d1878a1))
+
 ## [1.4.2](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.1...v1.4.2) (2021-06-29)
 
 
