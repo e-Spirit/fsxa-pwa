@@ -3,6 +3,8 @@
 :moduledir: ../..
 :imagesdir: {moduledir}/images
 
+This chapter covers the basic steps that are required to use your existing FirstSpirit project with the FSXA-PWA.
+
 == Configure CaaS and Navigation Service
 
 image:SM_Project_Components.png[Project Components]
