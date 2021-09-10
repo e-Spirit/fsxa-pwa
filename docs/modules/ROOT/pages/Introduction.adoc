@@ -16,7 +16,7 @@ The FSXA PWA connects to several other projects:
 * https://github.com/e-Spirit/fsxa-pattern-library[FSXA-Pattern-Library]
 * https://github.com/e-Spirit/fsxa-api[FSXA-API]
 * http://docs.e-spirit.com/tpp/[Omnichannel Manager]
-* https://docs.e-spirit.com/module/caas/CaaS_Platform_Documentation_EN.html[FirstSpirit CaaS]
+* https://docs.e-spirit.com/module/caas-platform/CaaS_Platform_Documentation_EN.html[FirstSpirit CaaS]
 
 The role of each of these is best seen in the architecture layout depicted below:
 
