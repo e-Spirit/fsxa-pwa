@@ -6,7 +6,7 @@ import {
   MobileNavigation,
   FirstLevelNavigationItem
 } from 'fsxa-ui'
-import { NavigationData } from 'fsxa-api'
+import type { NavigationData } from 'fsxa-api'
 import Component from 'vue-class-component'
 import { Watch } from 'vue-property-decorator'
 import PageHeader from '../PageHeader'
@@ -137,9 +137,10 @@ class AppLayout extends FSXABaseAppLayout {
               onClick={(event) => {
                 event.preventDefault()
                 this.triggerRouteChange({
-                  pageId: this.navigationData?.seoRouteMap[
-                    this.navigationData.pages.index
-                  ]
+                  pageId:
+                    this.navigationData?.seoRouteMap[
+                      this.navigationData.pages.index
+                    ]
                 })
               }}
             >
@@ -183,9 +184,10 @@ class AppLayout extends FSXABaseAppLayout {
               onClick={(event) => {
                 event.preventDefault()
                 this.triggerRouteChange({
-                  pageId: this.navigationData?.seoRouteMap[
-                    this.navigationData.pages.index
-                  ]
+                  pageId:
+                    this.navigationData?.seoRouteMap[
+                      this.navigationData.pages.index
+                    ]
                 })
               }}
             >

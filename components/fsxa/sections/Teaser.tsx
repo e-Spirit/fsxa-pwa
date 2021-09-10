@@ -1,7 +1,7 @@
 import Component from 'vue-class-component'
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
 import { Sections } from 'fsxa-ui'
-import { Image, RichTextElement } from 'fsxa-api'
+import type { Image, RichTextElement } from 'fsxa-api'
 
 export interface Payload {
   st_headline: RichTextElement[]

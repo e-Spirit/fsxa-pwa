@@ -8,15 +8,13 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier',
-    'prettier/vue',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended'
   ],
-  plugins: [
-    'prettier'
-  ],
+  plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    "camelcase": "off"
+    camelcase: 'off',
+    'vue/script-setup-uses-vars': 'off'
   }
 }

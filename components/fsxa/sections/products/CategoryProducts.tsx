@@ -1,8 +1,5 @@
-import {
-  ComparisonQueryOperatorEnum,
-  Dataset,
-  QueryBuilderQuery
-} from 'fsxa-api'
+import type { Dataset, QueryBuilderQuery } from 'fsxa-api'
+import { ComparisonQueryOperatorEnum } from 'fsxa-api'
 import { FSXABaseSection } from 'fsxa-pattern-library'
 import { Component } from 'vue-property-decorator'
 import { Sections } from 'fsxa-ui'
@@ -31,7 +28,8 @@ class CategoryProducts extends FSXABaseSection<Payload> {
 
   // TODO: this function is for backwards compatibility, remove it if backwards compatibility is no longer required
   getFilterKey(categoryString: string): string {
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/
+    const uuidRegex =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/
     if (uuidRegex.test(categoryString)) {
       return 'formData.tt_categories.value.identifier'
     } else {

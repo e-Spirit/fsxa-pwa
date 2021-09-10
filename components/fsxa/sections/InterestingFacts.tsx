@@ -1,7 +1,7 @@
 import Component from 'vue-class-component'
 import { Sections } from 'fsxa-ui'
 import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
-import { Image, RichTextElement } from 'fsxa-api'
+import type { Image, RichTextElement } from 'fsxa-api'
 
 export interface Payload {
   st_background_image?: Image
