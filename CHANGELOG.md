@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.3...v1.4.4) (2021-09-14)
+
+
+### Bug Fixes
+
+* update dependencies | TNG-1006 ([#42](https://github.com/e-Spirit/fsxa-pwa/issues/42)) ([22087f9](https://github.com/e-Spirit/fsxa-pwa/commit/22087f99b0d51141f7da08f1391a0147e8713320))
+
 ## [1.4.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.2...v1.4.3) (2021-07-09)
 
 
