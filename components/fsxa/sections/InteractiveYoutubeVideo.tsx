@@ -1,6 +1,6 @@
 import { Component } from 'vue-property-decorator'
 
-import { RichTextElement } from 'fsxa-api'
+import type { RichTextElement } from 'fsxa-api'
 import { FSXABaseSection } from 'fsxa-pattern-library'
 import { Headline, Container, LineSeparator } from 'fsxa-ui'
 

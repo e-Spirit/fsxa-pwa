@@ -1,6 +1,6 @@
 import Component from 'vue-class-component'
 import { FSXABaseLayout, FSXAGetters } from 'fsxa-pattern-library'
-import { NavigationData, Image, NavigationItem } from 'fsxa-api'
+import type { NavigationData, Image, NavigationItem } from 'fsxa-api'
 import { Sections } from 'fsxa-ui'
 import { Breadcrumb } from 'fsxa-ui/src/types/sections'
 
@@ -31,9 +31,10 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
   }
 
   get breadcrumbs() {
-    const indexPage: NavigationItem = this.navigationData.idMap[
-      this.navigationData.seoRouteMap[this.navigationData.pages.index]
-    ]
+    const indexPage: NavigationItem =
+      this.navigationData.idMap[
+        this.navigationData.seoRouteMap[this.navigationData.pages.index]
+      ]
     const breadcrumbs: Breadcrumb[] = [
       {
         label: indexPage.label,
@@ -59,8 +60,6 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
           referenceId: this.currentPage.id,
           referenceType: 'PageRef'
         })
-      }
-      if ((this.currentPage as any).seoRouteRegex) {
       }
     }
     return breadcrumbs

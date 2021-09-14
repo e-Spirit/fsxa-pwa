@@ -1,4 +1,4 @@
-import { ActionTree } from 'vuex'
+import type { ActionTree } from 'vuex'
 import { RootState, FSXAActions } from 'fsxa-pattern-library'
 
 export interface State extends RootState {}

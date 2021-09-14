@@ -62,8 +62,9 @@ class HomepageLayout extends FSXABaseLayout<Data> {
             }))}
             onClick={({ slideIndex }) =>
               this.triggerRouteChange({
-                route: this.data.pt_slider[slideIndex].data.st_button.data
-                  .lt_product_link.route
+                route:
+                  this.data.pt_slider[slideIndex].data.st_button.data
+                    .lt_product_link.route
               })
             }
           />
