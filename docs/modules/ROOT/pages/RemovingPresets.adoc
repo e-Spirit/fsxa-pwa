@@ -87,3 +87,23 @@ npm uninstall cz-conventional-changelog commitizen @semantic-release/changelog @
 Also, the scripts need to be removed.
 
 To do this, the entries `commit`, `commitmsg`, and `semantic-release` must be removed in `package.json` under the attribute `scripts`.
+
+== Cypress
+https://github.com/cypress-io/cypress is a library that allows End-2-End testing.
+
+*Why do we use this?*
+
+We want to make sure the PWA is working how it should work
+
+*How to remove*
+
+First, all the required dependencies must be removed.
+
+[source,shell]
+----
+npm uninstall cypress start-server-and-test
+----
+
+Also, the scripts need to be removed.
+
+To do this, the entries `cy:open` and `test:e2e`, must be removed in `package.json` under the attribute `scripts`.
