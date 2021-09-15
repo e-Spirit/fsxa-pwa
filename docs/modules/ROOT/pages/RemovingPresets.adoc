@@ -5,6 +5,7 @@
 . <<TailwindCSS>>
 . <<Vue-TSX-Support>>
 . <<Semantic-Release>>
+. <<Cypress>>
 
 == Introduction
 
@@ -93,11 +94,11 @@ https://github.com/cypress-io/cypress is a library that allows End-2-End testing
 
 *Why do we use this?*
 
-We want to make sure the PWA is working how it should work
+We want to make sure the PWA is working how it should work. Therefore End-2-End tests can be quiet useful since no manual testing will be required anymore
 
 *How to remove*
 
-First, all the required dependencies must be removed.
+First, all the required dependencies must be removed. Also Remove the Cypress folder.
 
 [source,shell]
 ----

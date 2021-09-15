@@ -15,6 +15,7 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    camelcase: 'off'
+    camelcase: 'off',
+    'vue/script-setup-uses-vars': 'off'
   }
 }

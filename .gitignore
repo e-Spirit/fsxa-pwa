@@ -93,3 +93,4 @@ sw.*
 Dockerfile
 
 cypress/videos/**
+cypress/screenshots/**

@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "build:local": "rimraf fsxa-pwa-*.tgz && npm version prerelease --no-git-tag-version --preid alpha && npm run build && npm pack",
     "generate": "nuxt generate",
     "start": "nuxt start",
     "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore .",
@@ -18,8 +17,9 @@
     "commit": "git-cz",
     "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
     "semantic-release": "semantic-release",
-    "cy:open": "cypress run test",
-    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:open"
+    "cy:run": "cypress run test",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run"
   },
   "lint-staged": {
     "*.{js,vue,ts,tsx}": "npm run lint"
@@ -33,7 +33,6 @@
     "@nuxt/core": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.0",
-    "cypress": "^8.3.1",
     "eslint-plugin-cypress": "^2.11.3",
     "fsxa-nuxt-module": "^3.5.1",
     "nuxt-start": "^2.15.8",
@@ -90,6 +89,9 @@
     "vue-jest": "^4.0.0-beta.3",
     "vue-property-decorator": "^8.4.1",
     "vue-tsx-support": "^2.3.3"
+  },
+  "optionalDependencies": {
+    "cypress": "^8.3.1"
   },
   "commitlint": {
     "extends": [

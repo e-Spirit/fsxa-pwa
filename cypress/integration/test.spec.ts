@@ -1,5 +1,5 @@
-describe('test', () => {
-  it('should test something', () => {
+describe('PWA', () => {
+  it('should be visitable', () => {
     cy.visit('http://localhost:3000')
   })
 })
