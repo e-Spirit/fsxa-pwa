@@ -102,7 +102,7 @@ First, all the required dependencies must be removed. Also Remove the Cypress fo
 
 [source,shell]
 ----
-npm uninstall cypress start-server-and-test
+npm uninstall cypress start-server-and-test eslint-plugin-cypress
 ----
 
 Also, the scripts need to be removed.

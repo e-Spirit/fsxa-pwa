@@ -25,18 +25,7 @@ jobs:
         node-version: 12.x
 
     - name: Install
-      run: npm install
-
-    - name: Build
-      run: npm run build
-      env:
-        FSXA_MODE: preview
-        FSXA_API_KEY: API_KEY
-        FSXA_CAAS: FSXA_CAAS
-        FSXA_NAVIGATION_SERVICE: FSXA_NAVIGATION_SERVICE
-        FSXA_LOCALE: FSXA_LOCALE
-        FSXA_TENANT_ID: FSXA_TENANT_ID
-        FSXA_PROJECT_ID: FSXA_PROJECT_ID
+      run: npm install --no-optional
 
     - name: Release
       run: npm run semantic-release

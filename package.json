@@ -33,10 +33,9 @@
     "@nuxt/core": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.0",
-    "eslint-plugin-cypress": "^2.11.3",
     "fsxa-nuxt-module": "^3.5.1",
-    "nuxt-start": "^2.15.8",
-    "start-server-and-test": "^1.14.0"
+    "nuxt-start": "^2.15.8"
+
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
@@ -91,7 +90,9 @@
     "vue-tsx-support": "^2.3.3"
   },
   "optionalDependencies": {
-    "cypress": "^8.3.1"
+    "cypress": "^8.3.1",
+    "start-server-and-test": "^1.14.0",
+    "eslint-plugin-cypress": "^2.11.3"
   },
   "commitlint": {
     "extends": [
