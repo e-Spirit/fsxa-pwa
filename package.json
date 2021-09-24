@@ -19,7 +19,7 @@
     "semantic-release": "semantic-release",
     "cy:run": "cypress run test",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run"
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:open"
   },
   "lint-staged": {
     "*.{js,vue,ts,tsx}": "npm run lint"

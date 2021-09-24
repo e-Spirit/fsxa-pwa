@@ -94,3 +94,5 @@ Dockerfile
 
 cypress/videos/**
 cypress/screenshots/**
+
+cypress.json

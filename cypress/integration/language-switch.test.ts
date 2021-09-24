@@ -17,9 +17,9 @@ describe('Language-Switch', () => {
     cy.get(
       '.h-full.ui-flex.ui-items-center.ui-justify-center.ui-px-5.ui-py-4.ui-uppercase.ui-tracking-widest.ui-text-xs'
     )
-      .contains('Fachhändler')
+      .contains('Unsere Lösungen')
       .click()
-    cy.url().should('eq', 'http://localhost:3000/Fachhaendler/')
+    cy.url().should('eq', 'http://localhost:3000/Unsere-L%C3%B6sungen/')
     cy.get(
       '.h-full.ui-flex.ui-items-center.ui-justify-center.ui-px-5.ui-py-4.ui-uppercase.ui-tracking-widest.ui-text-xs'
     )
@@ -28,13 +28,13 @@ describe('Language-Switch', () => {
       .get('.ui-block.ui-px-5.ui-py-2')
       .contains('Englisch')
       .click({ force: true })
-    cy.url().should('eq', 'http://localhost:3000/Specialized-Dealers/')
+    cy.url().should('eq', 'http://localhost:3000/Our-Solutions/')
   })
   it('should refer to the correct URL after navigating backwards', () => {
     cy.get(
       '.h-full.ui-flex.ui-items-center.ui-justify-center.ui-px-5.ui-py-4.ui-uppercase.ui-tracking-widest.ui-text-xs'
     )
-      .contains('Fachhändler')
+      .contains('Unsere Lösungen')
       .click()
     cy.get(
       '.h-full.ui-flex.ui-items-center.ui-justify-center.ui-px-5.ui-py-4.ui-uppercase.ui-tracking-widest.ui-text-xs'
@@ -44,21 +44,11 @@ describe('Language-Switch', () => {
       .get('.ui-block.ui-px-5.ui-py-2')
       .contains('Englisch')
       .click({ force: true })
-    cy.go('back')
-    cy.url().should('eq', 'http://localhost:3000/Fachhaendler/')
-  })
-})
-describe('content-projection', () => {
-  it('should display the current product after language switch in correct language', () => {
-    cy.visit('http://localhost:3000/Produkte/Thermo-NUK-33.html')
+    cy.go(-1)
     cy.get(
-      '.h-full.ui-flex.ui-items-center.ui-justify-center.ui-px-5.ui-py-4.ui-uppercase.ui-tracking-widest.ui-text-xs'
+      'ui-mx-auto.ui-relative.sm:ui-container.ui-px-6.md:ui-px-10.lg:ui-px-12.ui-py-6.md:ui-py-12.lg:ui-py-24'
     )
       .last()
-      .trigger('mouseover')
-      .get('.ui-block.ui-px-5.ui-py-2')
-      .contains('Englisch')
-      .click({ force: true })
-    cy.url().should('eq', 'http://localhost:3000/Products/Thermo-NUK-33.html')
+      .should('contain', 'Klimatisierung')
   })
 })
