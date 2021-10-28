@@ -53,6 +53,12 @@ The tenantId is used by the PWA to distinguish between the different FSXA enviro
 
 We distinguish between preview and release data. This is the traditional FirstSpirit way. Specify here which data should be loaded by the PWA.
 
+=== FSXA_API_BASE_URL `string`
+
+This environment variable makes it possible to extend the FSXA API middleware path.
+
+This can be helpful when running multiple projects under the same domain. Otherwise, all projects access data via the same FSXA API middleware.
+
 == fsxa.config
 
 The following settings allow easy configuration of the PWA.
