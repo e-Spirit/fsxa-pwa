@@ -93,7 +93,6 @@ class AppLayout extends FSXABaseAppLayout {
   handleNavigationClick(item: NavigationItem) {
     if (['language.de', 'language.en'].includes(item.key as string)) {
       this.triggerRouteChange({
-        pageId: this.currentPage?.id,
         locale: item.key === 'language.de' ? 'de_DE' : 'en_GB'
       })
     } else {
