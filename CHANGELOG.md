@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.4...v1.4.5) (2021-11-03)
+
+
+### Bug Fixes
+
+* fix language switch and provide further documentation ([#46](https://github.com/e-Spirit/fsxa-pwa/issues/46)) ([7f73410](https://github.com/e-Spirit/fsxa-pwa/commit/7f7341057811d0601e439cf671830db1eda9031a))
+
 ## [1.4.4](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.3...v1.4.4) (2021-09-14)
 
 
