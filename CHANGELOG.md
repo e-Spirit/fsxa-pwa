@@ -5,12 +5,17 @@
 
 * fix language switch and provide further documentation ([#46](https://github.com/e-Spirit/fsxa-pwa/issues/46)) ([7f73410](https://github.com/e-Spirit/fsxa-pwa/commit/7f7341057811d0601e439cf671830db1eda9031a))
 
+### Documenation
+* add a new chapter for debbuging
+* add documentation for usage of FSXA_API_BASE_URL environment variable
+
+
 ## [1.4.4](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.3...v1.4.4) (2021-09-14)
 
 
 ### Bug Fixes
 
-* update dependencies | TNG-1006 ([#42](https://github.com/e-Spirit/fsxa-pwa/issues/42)) ([22087f9](https://github.com/e-Spirit/fsxa-pwa/commit/22087f99b0d51141f7da08f1391a0147e8713320))
+* update dependencies ([#42](https://github.com/e-Spirit/fsxa-pwa/issues/42)) ([22087f9](https://github.com/e-Spirit/fsxa-pwa/commit/22087f99b0d51141f7da08f1391a0147e8713320))
 
 ## [1.4.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.2...v1.4.3) (2021-07-09)
 
