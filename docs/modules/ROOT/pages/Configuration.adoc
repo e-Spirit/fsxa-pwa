@@ -152,6 +152,14 @@ ________________________________________________________________________________
 
 *Default*: `undefined`
 
+==== 404 Page
+
+`components.page404` _optional_
+
+You can provide a component that will be used when no matching route could be found.
+
+*Default*: `undefined`
+
 ==== CustomRoutes
 
 `customRoutes` _optional_
