@@ -50,8 +50,10 @@ const otherProject = new FSXAApi(FSXAContentMode.PREVIEW, {
 ----
 
 As `mode` `remote` must be selected. The attributes in the `config` must also be filled. We recommend to write this data
-into the `.env` file and then call it with the help of `process.env`. This way there is no danger that important
-data will not be pushed.
+into the `.env` file, import it safely into the app by adding it to `publicRuntimeConfig` or `privateRuntimeConfig`
+within your `nuxt.config.js` (further information here:
+https://nuxtjs.org/docs/configuration-glossary/configuration-runtime-config/), and use it during runtime by accessing
+`$config` prop within components. This way there is no danger that important data will not be pushed.
 
 This data is *not* displayed in the client when the application is running,
 because this code is executed exclusively on the server.

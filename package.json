@@ -29,7 +29,6 @@
   "dependencies": {
     "@nuxt/core": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/dotenv": "^1.4.0",
     "fsxa-nuxt-module": "^3.5.1",
     "nuxt-start": "^2.15.8"
   },
