@@ -94,7 +94,8 @@ https://github.com/cypress-io/cypress is a library that allows End-2-End testing
 
 *Why do we use this?*
 
-We want to make sure the PWA is working how it should work. Therefore End-2-End tests can be quiet useful since no manual testing will be required anymore
+We use Cypress to ensure functionality and verify changes within the PWA. 
+We have written automated end-2-end tests using the Cypress framework, which should reduce the manual testing effort.
 
 *How to remove*
 
