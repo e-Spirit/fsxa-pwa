@@ -5,6 +5,7 @@
 . <<TailwindCSS>>
 . <<Vue-TSX-Support>>
 . <<Semantic-Release>>
+. <<Cypress>>
 
 == Introduction
 
@@ -87,3 +88,24 @@ npm uninstall cz-conventional-changelog commitizen @semantic-release/changelog @
 Also, the scripts need to be removed.
 
 To do this, the entries `commit`, `commitmsg`, and `semantic-release` must be removed in `package.json` under the attribute `scripts`.
+
+== Cypress
+https://github.com/cypress-io/cypress is a library that allows End-2-End testing.
+
+*Why do we use this?*
+
+We use Cypress to ensure functionality and verify changes within the PWA. 
+We have written automated end-2-end tests using the Cypress framework, which should reduce the manual testing effort.
+
+*How to remove*
+
+First, all the required dependencies must be removed.
+
+[source,shell]
+----
+npm uninstall cypress start-server-and-test eslint-plugin-cypress
+----
+
+Also, the cypress folder and the scripts need to be removed.
+
+To do this, you can delete the folder `cypress` from your filesystem and remove the entries `cy:open` and `test:e2e` in `package.json` under the attribute `scripts`.
