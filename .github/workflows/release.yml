@@ -6,7 +6,7 @@ name: CI
 # events but only for the master, next, alpha and beta branch
 on:
   push:
-    branches: [ master, next, alpha, beta ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,7 +22,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 14.x
 
     - name: Install
       run: npm install --no-optional

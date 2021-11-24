@@ -17,7 +17,7 @@
     "commit": "git-cz",
     "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
     "semantic-release": "semantic-release",
-    "cy:run": "cypress run test",
+    "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run"
   },
@@ -88,7 +88,7 @@
     "vue-tsx-support": "^2.3.3"
   },
   "optionalDependencies": {
-    "cypress": "^9.0.0",
+    "cypress": "^9.1.0",
     "eslint-plugin-cypress": "^2.11.3",
     "start-server-and-test": "^1.14.0"
   },
