@@ -1,5 +1,5 @@
 import Component from 'vue-class-component'
-import { FSXABaseSection, FSXARichText } from 'fsxa-pattern-library'
+import { FSXABaseSection, FSXARichText, FSXAInEdit } from 'fsxa-pattern-library'
 import { Sections } from 'fsxa-ui'
 import type { Image, RichTextElement } from 'fsxa-api'
 
@@ -27,9 +27,27 @@ class TeaserSection extends FSXABaseSection<Payload> {
   render() {
     return (
       <Sections.TeaserSection
-        headline={(<FSXARichText content={this.payload.st_headline} />) as any}
-        kicker={this.payload.st_kicker}
-        text={(<FSXARichText content={this.payload.st_text} />) as any}
+        headline={
+          (
+            <FSXARichText
+              content={this.payload.st_headline}
+              editorName="st_headline"
+            />
+          ) as any
+        }
+        kicker={
+          (
+            <FSXAInEdit
+              content={this.payload.st_kicker}
+              editorName="st_kicker"
+            />
+          ) as any
+        }
+        text={
+          (
+            <FSXARichText content={this.payload.st_text} editorName="st_text" />
+          ) as any
+        }
         buttonText={this.payload.st_button?.data.lt_button_text}
         onButtonClick={() =>
           this.triggerRouteChange({
