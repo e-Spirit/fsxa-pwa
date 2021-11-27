@@ -8,5 +8,6 @@ export default {
     appLayout: '~/components/fsxa/AppLayout',
     loader: '~/components/fsxa/Loader'
   },
-  customRoutes: '~/customRoutes'
+  customRoutes: '~/customRoutes',
+  fsTppVersion: '2.4'
 }
