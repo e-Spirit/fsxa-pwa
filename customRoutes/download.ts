@@ -15,10 +15,10 @@ export default {
         error: 'No identifier was specified'
       })
     }
-    const media = await context.fsxaAPI.fetchElement(
-      req.params.identifier,
-      req.query.locale as string
-    )
+    const media = await context.fsxaAPI.fetchElement({
+      id: req.params.identifier,
+      locale: req.query.locale as string
+    })
     if (media.resolutions && media.resolutions.ORIGINAL) {
       return res.redirect(media.resolutions.ORIGINAL.url)
     }
