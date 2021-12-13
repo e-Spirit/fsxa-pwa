@@ -23,6 +23,8 @@ const config: NuxtConfig = {
    ** env variables
    */
   publicRuntimeConfig: {
+    NUXT_HOST: process.env.NUXT_HOST,
+    NUXT_PORT: process.env.NUXT_PORT,
     FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY
   },
   privateRuntimeConfig: {},
@@ -56,7 +58,13 @@ const config: NuxtConfig = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'fsxa-nuxt-module'
+    [
+      'fsxa-nuxt-module',
+      {
+        NUXT_HOST: process.env.NUXT_HOST,
+        NUXT_PORT: process.env.NUXT_PORT
+      }
+    ]
   ],
   /*
    ** Axios module configuration
