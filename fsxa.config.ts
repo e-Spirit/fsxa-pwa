@@ -6,7 +6,8 @@ export default {
     layouts: '~/components/fsxa/layouts',
     richtext: '~/components/fsxa/richtext',
     appLayout: '~/components/fsxa/AppLayout',
-    loader: '~/components/fsxa/Loader'
+    loader: '~/components/fsxa/Loader',
+    page404: '~/components/fsxa/Page404'
   },
   customRoutes: '~/customRoutes',
   fsTppVersion: '2.4'

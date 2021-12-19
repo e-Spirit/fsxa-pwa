@@ -16,8 +16,8 @@ class DealerMap extends FSXABaseSection {
   }
 
   async fetchItems() {
-    const items = await this.fsxaApi.fetchByFilter(
-      [
+    const items = await this.fsxaApi.fetchByFilter({
+      filters: [
         {
           field: 'entityType',
           operator: ComparisonQueryOperatorEnum.EQUALS,
@@ -29,8 +29,8 @@ class DealerMap extends FSXABaseSection {
           value: 'locations'
         }
       ],
-      this.locale
-    )
+      locale: this.locale
+    })
     this.setStoredItem('dealer_map_locations', items)
   }
 
@@ -54,7 +54,7 @@ class DealerMap extends FSXABaseSection {
       <div class="w-full screen-height-without-header bg-white">
         <Sections.GoogleMapsSection
           language={this.locale.split('_')[0]}
-          apikey={process.env.FSXA_MAPS_APIKEY as string}
+          apikey={this.$config.FSXA_MAPS_APIKEY as string}
           startLocation={
             this.locations && this.locations.length > 0
               ? {

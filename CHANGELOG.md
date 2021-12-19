@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.5...v2.0.0) (2021-12-15)
+
+
+### Features
+
+* enable usage of navigationFilter and preFilterFetch ([#54](https://github.com/e-Spirit/fsxa-pwa/issues/54)) ([228aaec](https://github.com/e-Spirit/fsxa-pwa/commit/228aaec399133251858cd6c38824d5cccd24ca39)), closes [#53](https://github.com/e-Spirit/fsxa-pwa/issues/53)
+
+
+### BREAKING CHANGES
+
+* The original fsxa-api class was removed and the new ones FSXAProxyApi and FSXARemoteApi are used. Their have a slightly different, but better, method signatures. For more information, please read the migration guide in the CHANGELOG of the FSXA-API.
+
+* Environment variables FSXA_HOST and FSXA_PORT has be configured in your production environments. Make sure to set the variables in your PWA deployments. In testing scenarios, localhost:3000 will be used.
+
 ## [1.4.5](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.4...v1.4.5) (2021-11-03)
 
 
@@ -5,12 +19,17 @@
 
 * fix language switch and provide further documentation ([#46](https://github.com/e-Spirit/fsxa-pwa/issues/46)) ([7f73410](https://github.com/e-Spirit/fsxa-pwa/commit/7f7341057811d0601e439cf671830db1eda9031a))
 
+### Documentation
+* add a new chapter for debugging ([#48](https://github.com/e-Spirit/fsxa-pwa/issues/48)) ([6407861](https://github.com/e-Spirit/fsxa-pwa/commit/6407861839c7aa887613b85f1262dc3f9f1a763f))
+* add documentation for usage of FSXA_API_BASE_URL environment variable ([#45](https://github.com/e-Spirit/fsxa-pwa/issues/45)) ([dcd122a](https://github.com/e-Spirit/fsxa-pwa/commit/dcd122ae8b34cc3fcec8758007e905051083c4b0))
+
+
 ## [1.4.4](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.3...v1.4.4) (2021-09-14)
 
 
 ### Bug Fixes
 
-* update dependencies | TNG-1006 ([#42](https://github.com/e-Spirit/fsxa-pwa/issues/42)) ([22087f9](https://github.com/e-Spirit/fsxa-pwa/commit/22087f99b0d51141f7da08f1391a0147e8713320))
+* update dependencies ([#42](https://github.com/e-Spirit/fsxa-pwa/issues/42)) ([22087f9](https://github.com/e-Spirit/fsxa-pwa/commit/22087f99b0d51141f7da08f1391a0147e8713320))
 
 ## [1.4.3](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.2...v1.4.3) (2021-07-09)
 

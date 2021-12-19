@@ -20,6 +20,17 @@ const config: NuxtConfig = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
+   ** env variables
+   */
+  publicRuntimeConfig: {
+    NUXT_HOST: process.env.NUXT_HOST,
+    NUXT_PORT: process.env.NUXT_PORT,
+    FSXA_HOST: process.env.FSXA_HOST,
+    FSXA_PORT: process.env.FSXA_PORT,
+    FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY
+  },
+  privateRuntimeConfig: {},
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
@@ -49,9 +60,15 @@ const config: NuxtConfig = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'fsxa-nuxt-module',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    [
+      'fsxa-nuxt-module',
+      {
+        NUXT_HOST: process.env.NUXT_HOST,
+        NUXT_PORT: process.env.NUXT_PORT,
+        FSXA_HOST: process.env.FSXA_HOST,
+        FSXA_PORT: process.env.FSXA_PORT
+      }
+    ]
   ],
   /*
    ** Axios module configuration

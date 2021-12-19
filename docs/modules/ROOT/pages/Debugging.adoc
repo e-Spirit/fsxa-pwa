@@ -1,0 +1,38 @@
+= Debugging
+
+== Preparations
+
+=== Download IDE
+
+You should have an IDE with debug feature installed in its latest version. Our recommendation for this is xref:https://code.visualstudio.com/[Visual Studio Code].
+
+=== Config Debugger in VS Code
+
+After clicking the "Run and Debug" button in the sidebar you can access your `launch.json` file by clicking on the cog at the top.
+
+If there is no cog, your workspace has no `launch.json` file created yet. You can do so by clicking on the corresponding text in the sidebar.
+
+After this click on "Add Configuration..." and select "Chrome: Launch" to add a new configuration entry to the file.
+
+As the final step add a new line defining the devtool property: `"devtool": "source-map"`.
+
+Your file should look somehow like this now:
+```
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "devtool": "source-map"
+    }
+  ]
+}
+```
+
+Keep in mind to change the port in the url if using another port. After that you can start the application in the default terminal.
+
+Click on the launch button at the bottom bar of VS Code to launch a Chrome window where the debugger is attached to. You can set breakpoints wherever you want to debug your code by either toggling a red dot on the left side of each line by clicking there.

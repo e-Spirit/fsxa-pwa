@@ -79,6 +79,7 @@ dist
 
 # IDE / Editor
 .idea
+.vscode
 
 # Service worker
 sw.*
@@ -91,3 +92,6 @@ sw.*
 
 # Dockerfile
 Dockerfile
+
+cypress/videos/**
+cypress/screenshots/**
