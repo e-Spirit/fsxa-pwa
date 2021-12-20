@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.0...v2.0.1) (2021-12-20)
+
+
+### Bug Fixes
+
+* Update fsxa-nuxt-module version ([#55](https://github.com/e-Spirit/fsxa-pwa/issues/55)) ([a931813](https://github.com/e-Spirit/fsxa-pwa/commit/a931813a55f4dacf2f2c16b0d77e6c934e7fa00f))
+
 # [2.0.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.5...v2.0.0) (2021-12-15)
 
 
