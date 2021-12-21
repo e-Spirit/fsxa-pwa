@@ -27,6 +27,7 @@ const config: NuxtConfig = {
     NUXT_PORT: process.env.NUXT_PORT,
     FSXA_HOST: process.env.FSXA_HOST,
     FSXA_PORT: process.env.FSXA_PORT,
+    FSXA_MODE: process.env.FSXA_MODE,
     FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY
   },
   privateRuntimeConfig: {},
@@ -66,7 +67,8 @@ const config: NuxtConfig = {
         NUXT_HOST: process.env.NUXT_HOST,
         NUXT_PORT: process.env.NUXT_PORT,
         FSXA_HOST: process.env.FSXA_HOST,
-        FSXA_PORT: process.env.FSXA_PORT
+        FSXA_PORT: process.env.FSXA_PORT,
+        FSXA_MODE: process.env.FSXA_MODE
       }
     ]
   ],
