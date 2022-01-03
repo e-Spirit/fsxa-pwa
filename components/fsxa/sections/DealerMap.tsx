@@ -16,7 +16,7 @@ class DealerMap extends FSXABaseSection {
   }
 
   async fetchItems() {
-    const items = await this.fsxaApi.fetchByFilter({
+    const { items } = await this.fsxaApi.fetchByFilter({
       filters: [
         {
           field: 'entityType',
