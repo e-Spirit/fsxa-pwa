@@ -42,7 +42,7 @@ Returns the available content. This property can contain multiple nested rich te
 
 === `editorName` - String
 
-Returns the name of the editor input componenten in the FirstSpirit template. This optional property enables the "Inline Editing" feature of xref:advanced/TPP-Snap.adoc[TPP Snap]
+Returns the name of the editor input component in the FirstSpirit template. This optional property enables the "Inline Editing" feature of xref:advanced/TPP-Snap.adoc[TPP Snap]
 
 == Methods
 
