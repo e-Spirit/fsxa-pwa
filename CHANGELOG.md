@@ -1,3 +1,17 @@
+## [2.0.2](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.1...v2.0.2) (2021-12-21)
+
+
+### Bug Fixes
+
+* **config:** add FSXA_MODE to nuxt module payload ([#56](https://github.com/e-Spirit/fsxa-pwa/issues/56)) ([35a8918](https://github.com/e-Spirit/fsxa-pwa/commit/35a8918138402fb4cec4bfdcdd7142d182c8a74d))
+
+## [2.0.1](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.0...v2.0.1) (2021-12-20)
+
+
+### Bug Fixes
+
+* Update fsxa-nuxt-module version ([#55](https://github.com/e-Spirit/fsxa-pwa/issues/55)) ([a931813](https://github.com/e-Spirit/fsxa-pwa/commit/a931813a55f4dacf2f2c16b0d77e6c934e7fa00f))
+
 # [2.0.0](https://github.com/e-Spirit/fsxa-pwa/compare/v1.4.5...v2.0.0) (2021-12-15)
 
 
