@@ -40,6 +40,10 @@ Returns all available data attributes, for example the `data-fs-style` to determ
 
 Returns the available content. This property can contain multiple nested rich text elements.
 
+=== `editorName` - String
+
+Returns the name of the editor input component in the FirstSpirit template. This optional property enables the "Inline Editing" feature of xref:advanced/TPP-Snap.adoc[TPP Snap]
+
 == Methods
 
 === `renderContent`

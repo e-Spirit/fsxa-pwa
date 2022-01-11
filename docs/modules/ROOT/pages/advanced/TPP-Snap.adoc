@@ -66,3 +66,46 @@ Further information can be found in the documentation for the https://docs.e-spi
 == Inline Editing
 
 For some FirstSpirit input components inline editing is possible. Please refer to the https://docs.e-spirit.com/tpp/snap/index.html#inline-editing[TPP-Snap documentation] for further information.
+
+We provide the `FSXAInEdit` component and the `editorName` property on the `FSXARichText` which helps to support the feature.
+
+[source,javascript]
+----
+/**
+ * This is a simplification of `~/components/fsxa/sections/Teaser.tsx` focused on
+ * the usage of the FSXAInEdit component and the `editorName` property
+ */
+
+import { FSXABaseSection, FSXARichText, FSXAInEdit } from 'fsxa-pattern-library'
+// ...
+
+class TeaserSection extends FSXABaseSection<Payload> {
+  render() {
+    return (
+      <Sections.TeaserSection
+
+        /**
+         * The `editorName` property on the FSXARichText component
+         *
+         * By adding the `editorName` property to the FSXARichText component, the component renders
+         * the needed DOM wrapper node for _inline editing_. This will only appear when in preview-mode.
+         */
+        headline={(<FSXARichText content={this.payload.st_headline} editorName="st_headline" />) as any}
+
+        /**
+         * The FSXAInEdit component
+         *
+         * For primitive values, like `string` from a CMS_INPUT_TEXT component in the FirstSpirit template,
+         * the FSXAInEdit helper component could be used. It also provides the `editoName` property which has
+         * the same bahvior as above. That means, if you are not in preview-mode the content will just piped,
+         * otherwise it is wrapped in a DOM node needed for _inline editing_.
+         */
+        kicker={(<FSXAInEdit content={this.payload.st_kicker} editorName="st_kicker" />) as any}
+        
+        // ...
+      />
+    )
+  }
+}
+
+----
