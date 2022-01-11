@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.0.0...v3.1.0) (2022-01-11)
+
+
+### Features
+
+* **Teaser:** Implement inEdit for Teaser components ([#52](https://github.com/e-Spirit/fsxa-pwa/issues/52)) ([aebefbc](https://github.com/e-Spirit/fsxa-pwa/commit/aebefbc1d70ee899d44cdab10da7e589ce266674))
+
 # [3.0.0](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.2...v3.0.0) (2022-01-11)
 
 
