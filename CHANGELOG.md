@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.2...v3.0.0) (2022-01-11)
+
+
+### Features
+
+* update usage of fetchByFilter calls from fsxa-api ([#57](https://github.com/e-Spirit/fsxa-pwa/issues/57)) ([0700ddd](https://github.com/e-Spirit/fsxa-pwa/commit/0700dddee803d17034c0c0a47c6c2529d19e112d))
+
+
+### BREAKING CHANGES
+
+* fetchByFilter's returned items are now stored in the 'items' property of the
+response
+
 ## [2.0.2](https://github.com/e-Spirit/fsxa-pwa/compare/v2.0.1...v2.0.2) (2021-12-21)
 
 
