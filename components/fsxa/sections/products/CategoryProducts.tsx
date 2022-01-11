@@ -57,11 +57,11 @@ class CategoryProducts extends FSXABaseSection<Payload> {
         value: this.payload.filterParams.category
       })
     }
-    const response = await this.fsxaApi.fetchByFilter({
+    const { items } = await this.fsxaApi.fetchByFilter({
       filters: params,
       locale: this.locale
     })
-    this.setStoredItem(this.storedKey, response)
+    this.setStoredItem(this.storedKey, items)
   }
 
   get storedKey() {
