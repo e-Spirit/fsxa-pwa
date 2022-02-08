@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.1.1...v3.2.0) (2022-02-08)
+
+
+### Features
+
+* remove FSXA_HOST and FSXA_PORT env vars ([#58](https://github.com/e-Spirit/fsxa-pwa/issues/58)) ([c1d7f2f](https://github.com/e-Spirit/fsxa-pwa/commit/c1d7f2fd4e2fe0b916a4403b162469740effde2c))
+
 ## [3.1.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.1.0...v3.1.1) (2022-01-14)
 
 
