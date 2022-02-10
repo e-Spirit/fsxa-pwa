@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.2.0...v3.2.1) (2022-02-10)
+
+
+### Bug Fixes
+
+* **404:** fix 404 after reload ([#65](https://github.com/e-Spirit/fsxa-pwa/issues/65)) ([d604b6e](https://github.com/e-Spirit/fsxa-pwa/commit/d604b6e4d5a84b2b39c0e6c55a3cd98ba99be1bf))
+
 # [3.2.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.1.1...v3.2.0) (2022-02-08)
 
 
