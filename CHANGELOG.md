@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.2.1...v3.2.2) (2022-02-16)
+
+
+### Bug Fixes
+
+* **dotenv:** read all dotenv vars and hand only needed ones to fsxa-nuxt-module ([#66](https://github.com/e-Spirit/fsxa-pwa/issues/66)) ([4877888](https://github.com/e-Spirit/fsxa-pwa/commit/48778887c3a0ce15f943788c65cfc94fa0495aa8))
+
 ## [3.2.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.2.0...v3.2.1) (2022-02-10)
 
 
