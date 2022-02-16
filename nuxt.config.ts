@@ -25,10 +25,17 @@ const config: NuxtConfig = {
   publicRuntimeConfig: {
     NUXT_HOST: process.env.NUXT_HOST,
     NUXT_PORT: process.env.NUXT_PORT,
+    FSXA_CAAS: process.env.FSXA_CAAS,
+    FSXA_PROJECT_ID: process.env.FSXA_PROJECT_ID,
+    FSXA_NAVIGATION_SERVICE: process.env.FSXA_NAVIGATION_SERVICE,
     FSXA_MODE: process.env.FSXA_MODE,
-    FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY
+    FSXA_TENANT_ID: process.env.FSXA_TENANT_ID,
+    FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY,
+    FSXA_REMOTES: process.env.FSXA_REMOTES
   },
-  privateRuntimeConfig: {},
+  privateRuntimeConfig: {
+    FSXA_API_KEY: process.env.FSXA_API_KEY
+  },
   /*
    ** Customize the progress-bar color
    */
