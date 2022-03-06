@@ -22,7 +22,7 @@ To use this base component a new class has to be created which extends the `FSXA
 class Component extends FSXABaseRichTextElement {}
 ----
 
-If you want to have type support for your data you can provide an interface and pass it as an generic like here the `Data` interface.
+If you want to have type support for your data you can provide an interface and pass it as an generic like here the `Data` interface or extend the `Link` interface in case of Links.
 
 [source,javascript]
 ----
@@ -34,7 +34,7 @@ class Component extends FSXABaseRichTextElement<Data> {}
 
 === `data` - Object
 
-Returns all available data attributes, for example the `data-fs-style` to determinate the styling.
+Returns all available data attributes, for example the `data-fs-style` to determinate the styling, respectively this is a `Link` and contains nested data that is maintained in FirstSpirit.
 
 === `content` - Array
 
