@@ -84,3 +84,4 @@ phases:
         for t in $(cat /var/webscale/tags); do
           docker push "${customer_repo}:${t}";
         done
+        
