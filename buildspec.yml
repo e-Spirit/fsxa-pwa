@@ -1,0 +1,86 @@
+
+version: 0.2
+env:
+  shell: bash
+phases:
+  install:
+    runtime-versions:
+      php: 7.4
+  build:
+    commands:
+      - customer_repo="546720391933.dkr.ecr.us-east-1.amazonaws.com/demomagento-dockerbuild"
+      - tag=$( git describe --tags --exact-match 2> /dev/null ) || true
+      - commit=$( git rev-parse --short HEAD )
+      - commit_tag="${customer_repo}:commit-${commit}"
+      - date=`date +%Y%m%d-%H%M%S`
+      - mkdir -p /var/webscale/
+      - |
+        if [[ ${CODEBUILD_WEBHOOK_TRIGGER} == branch/* ]]; then
+          BRANCH_NAME="${CODEBUILD_WEBHOOK_TRIGGER#branch/}";
+        fi;
+        if [[ ! -z ${SOURCE_VERSION} ]]; then
+          BRANCH_NAME="${SOURCE_VERSION}";
+        fi;
+        if [[ ! -z ${BRANCH_NAME} ]]; then
+          BRANCH_NAME=$( echo ${BRANCH_NAME} | sed 's/[^A-Za-z0-9\.]/-/g' | sed -r 's/-+/-/g' );
+          echo "branch-${BRANCH_NAME}" >> /var/webscale/tags;
+          echo "branch-${BRANCH_NAME}-${date}" >> /var/webscale/tags;
+        fi
+      - |
+        if [[ ${CODEBUILD_WEBHOOK_TRIGGER} == tag/* ]]; then
+          TAG_NAME="${CODEBUILD_WEBHOOK_TRIGGER#tag/}";
+        fi;
+        if [[ ! -z ${TAG_NAME} ]]; then
+          TAG_NAME=$( echo ${TAG_NAME} | sed 's/[^A-Za-z0-9\.]/-/g' | sed -r 's/-+/-/g' );
+          echo "tag-${TAG_NAME}" >> /var/webscale/tags;
+          echo "tag-${TAG_NAME}-${date}" >> /var/webscale/tags;
+        fi
+      - >
+        if ! [[ -z $commit ]]; then
+          echo "commit-${commit}-${date}" >> /var/webscale/tags;
+        fi
+      - echo "commit-${commit}" > /var/webscale/committag
+      - printf "TAGS = ${commit_tag} "
+      - for t in $(cat /var/webscale/tags); do printf ", ${t} "; done
+      - echo log into php repo
+      - cd $CODEBUILD_SRC_DIR
+      - mkdir -p ./config
+      - config_location="s3://demomagento-dockerbuild-config/"
+      - secrets_location="s3://demomagento-dockerbuild-secrets/"
+      - >
+        if [ ! -f Dockerfile ]; then
+          aws s3 cp ${config_location}Dockerfile ./Dockerfile;
+        fi
+      - aws s3 cp ${config_location}99-webscale.ini ./config/99-webscale.ini
+      - aws s3 cp ${config_location}www.conf ./config/www.conf
+      - aws s3 cp ${secrets_location}auth.json ./auth.json
+      - echo "ENV"
+      - echo REGION=us-east-1
+      - echo ACCOUNT=546720391933
+      - echo DOCKER_TAG=${latesttag}
+      - echo Build started on `date`
+      - echo Building the Docker image ...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-php-fpm
+      - docker build -f Dockerfile -t ${commit_tag} .
+      - echo success > /var/webscale/ok
+
+  post_build:
+    commands:
+      - if ! grep -qs success /var/webscale/ok; then exit 1; fi
+      - customer_repo="546720391933.dkr.ecr.us-east-1.amazonaws.com/demomagento-dockerbuild"
+      - commit_tag="${customer_repo}:$(cat /var/webscale/committag)"
+      - echo Build completed on `date`
+      - echo
+      - >
+        for t in $(cat /var/webscale/tags); do
+          docker tag ${commit_tag} "${customer_repo}:${t}";
+        done
+      - echo Pushing the docker images...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${customer_repo}
+      - echo "push commit tag ${commit_tag}"
+      - docker push ${commit_tag}
+      - echo "push version tags"
+      - >
+        for t in $(cat /var/webscale/tags); do
+          docker push "${customer_repo}:${t}";
+        done
