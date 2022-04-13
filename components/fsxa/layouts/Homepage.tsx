@@ -2,6 +2,7 @@ import Component from 'vue-class-component'
 import { FSXABaseLayout, FSXARichText } from 'fsxa-pattern-library'
 import { Sections } from 'fsxa-ui'
 import { RichTextElement } from 'fsxa-api/dist/types'
+import PhilippTest from '../sections/PhilippTest.vue'
 
 export interface Slide {}
 export interface Data {
@@ -69,6 +70,7 @@ class HomepageLayout extends FSXABaseLayout<Data> {
             }
           />
         </div>
+        <PhilippTest />
         {this.renderContentByName('content')}
       </div>
     )
