@@ -66,14 +66,7 @@ const config: NuxtConfig = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    [
-      'fsxa-nuxt-module',
-      {
-        NUXT_HOST: process.env.NUXT_HOST,
-        NUXT_PORT: process.env.NUXT_PORT,
-        FSXA_MODE: process.env.FSXA_MODE
-      }
-    ]
+    'fsxa-nuxt-module'
   ],
   /*
    ** Axios module configuration
