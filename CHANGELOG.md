@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.3.1...v3.4.0) (2022-05-17)
+
+
+### Features
+
+* **links:** consume new caas-mapper structure of Links in `RichTextElement`s ([#78](https://github.com/e-Spirit/fsxa-pwa/issues/78)) ([3c442f4](https://github.com/e-Spirit/fsxa-pwa/commit/3c442f40e2f188fcbc0ce6418d97ca60942e9964))
+
 ## [3.3.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.3.0...v3.3.1) (2022-05-06)
 
 
