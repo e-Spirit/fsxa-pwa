@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.4.0...v3.4.1) (2022-05-24)
+
+
+### Bug Fixes
+
+* **build:** refactor build config and update FSXA-STACK dependencies ([#76](https://github.com/e-Spirit/fsxa-pwa/issues/76)) ([95d3029](https://github.com/e-Spirit/fsxa-pwa/commit/95d3029bd75aa92ac4ffb952ee47f28bc5bbf97b))
+
 # [3.4.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.3.1...v3.4.0) (2022-05-17)
 
 
