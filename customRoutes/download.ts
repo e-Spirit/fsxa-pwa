@@ -15,17 +15,23 @@ export default {
         error: 'No identifier was specified'
       })
     }
-    const media = await context.fsxaAPI.fetchElement({
-      id: req.params.identifier,
-      locale: req.query.locale as string
-    })
-    if (media.resolutions && media.resolutions.ORIGINAL) {
-      return res.redirect(media.resolutions.ORIGINAL.url)
+    try {
+      const media = await context.fsxaAPI.fetchElement({
+        id: req.params.identifier,
+        locale: req.query.locale as string
+      })
+      if (media.resolutions && media.resolutions.ORIGINAL) {
+        return res.redirect(media.resolutions.ORIGINAL.url)
+      }
+      res.send({
+        error: 'Unknown media type',
+        media
+      })
+    } catch (e) {
+      res.status(500).json({
+        error: (e as Error).message
+      })
     }
-    res.send({
-      error: 'Unknown media type',
-      media
-    })
   },
   route: '/download/:identifier'
 }
