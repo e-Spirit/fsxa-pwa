@@ -32,7 +32,7 @@
   "dependencies": {
     "@nuxt/core": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
-    "fsxa-nuxt-module": "^7.1.0",
+    "fsxa-nuxt-module": "^7.1.1",
     "nuxt-start": "^2.15.8"
   },
   "devDependencies": {
@@ -70,7 +70,7 @@
     "eslint-plugin-nuxt": ">=2.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fsxa-api": "^10.1.0",
-    "fsxa-pattern-library": "^8.1.0",
+    "fsxa-pattern-library": "^8.2.0",
     "fsxa-ui": "^4.1.1",
     "husky": "^4.0.0",
     "jest": "^24.1.0",
