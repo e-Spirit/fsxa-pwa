@@ -31,7 +31,7 @@ With this we can start writing our class.
 ----
 export default {
   name: 'TeaserSection',
-  extends: [FSXABaseSection]
+  extends: FSXABaseSection
 }
 ----
 
@@ -55,7 +55,7 @@ For the time being our `Teaser.vue` file should look something like this:
 import { FSXABaseSection } from 'fsxa-pattern-library'
 export default {
   name: 'TeaserSection',
-  extends: [FSXABaseSection]
+  extends: FSXABaseSection
 }
 </script>
 ----
@@ -95,7 +95,7 @@ export default {
     'teaser-section': Sections.TeaserSection,
     'rich-text': FSXARichText
   },
-  extends: [FSXABaseSection]
+  extends: FSXABaseSection
 }
 ----
 
@@ -104,8 +104,8 @@ Using them in our template is slightly more complicated than in the TSX example.
 [source,xml]
 ----
 <template>
-  <teaser-section 
-    kicker="Some kicker text" 
+  <teaser-section
+    kicker="Some kicker text"
     headline="This is a headline"
     text="So here is a lot of text" />
 </template>
@@ -118,8 +118,8 @@ First, let’s extend the above example by rendering the headline in our own cus
 [source,xml]
 ----
 <template>
-  <teaser-section 
-    kicker="Some kicker text" 
+  <teaser-section
+    kicker="Some kicker text"
     headline="This is a headline"
     text="So here is a lot of text">
     <template v-slot:headline="customHeadline">
@@ -181,7 +181,7 @@ export default {
     'teaser-section': Sections.TeaserSection,
     'rich-text': FSXARichText
   },
-  extends: [FSXABaseSection],
+  extends: FSXABaseSection,
   methods: {
     getMedia() {
       if (this.$attrs.payload.st_picture) {
@@ -300,7 +300,7 @@ export default {
     'teaser-section': Sections.TeaserSection,
     'rich-text': FSXARichText
   },
-  extends: [FSXABaseSection],
+  extends: FSXABaseSection,
   methods: {
     getButtonText() {
       return this.$attrs.payload.st_button
