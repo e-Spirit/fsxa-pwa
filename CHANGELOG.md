@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.4.1...v3.5.0) (2022-06-01)
+
+
+### Features
+
+* add example implementation of FSXARenderContentElement ([#79](https://github.com/e-Spirit/fsxa-pwa/issues/79)) ([dedbe18](https://github.com/e-Spirit/fsxa-pwa/commit/dedbe1850f973f7830a7cd3c7c5a56614dfbc5b5))
+
 ## [3.4.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.4.0...v3.4.1) (2022-05-24)
 
 
