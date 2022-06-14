@@ -1,21 +1,8 @@
 FROM node:14.17.1-alpine3.13 AS build
 
 WORKDIR /usr/src/nuxt-app
-ARG FSXA_API_KEY
-ARG FSXA_PROJECT_ID
-ARG FSXA_TENANT_ID
-ARG FSXA_CAAS
-ARG FSXA_NAVIGATION_SERVICE
-
-ENV FSXA_API_KEY=${FSXA_API_KEY}
-ENV FSXA_PROJECT_ID=${FSXA_PROJECT_ID}
-ENV FSXA_TENANT_ID=${FSXA_TENANT_ID}
-ENV FSXA_CAAS=${FSXA_CAAS}
-ENV FSXA_NAVIGATION_SERVICE=${FSXA_NAVIGATION_SERVICE}
-ENV FSXA_MODE=preview
-
 COPY package*.json ./
-RUN npm ci --no-optional
+RUN npm ci
 COPY . .
 RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   && rm -rf node_modules && \
