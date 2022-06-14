@@ -19,8 +19,8 @@ RUN npm ci --no-optional
 COPY . .
 RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   && rm -rf node_modules && \
-  NODE_ENV=production npm ci --production --silent --no-optional \
-  && NODE_ENV=production npm install --no-optional nuxt-start@2.15.7
+  NODE_ENV=production npm ci --production --silent \
+  && NODE_ENV=production npm install nuxt-start@2.15.7
 
 FROM node:14.17.1-alpine3.13 AS runtime
 
