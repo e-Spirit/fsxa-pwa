@@ -12,20 +12,15 @@ ENV FSXA_PROJECT_ID=${FSXA_PROJECT_ID}
 ENV FSXA_TENANT_ID=${FSXA_TENANT_ID}
 ENV FSXA_CAAS=${FSXA_CAAS}
 ENV FSXA_NAVIGATION_SERVICE=${FSXA_NAVIGATION_SERVICE}
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=3000
 ENV FSXA_MODE=preview
-ENV NODE_ENV=production
 
 COPY package*.json ./
-RUN npm ci
-COPY . . 
-
+RUN npm ci --no-optional
+COPY . .
 RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   && rm -rf node_modules && \
-  NODE_ENV=production npm ci --production --silent \
-  && NODE_ENV=production npm install nuxt-start@2.15.7
-
+  NODE_ENV=production npm ci --production --silent --no-optional \
+  && NODE_ENV=production npm install --no-optional nuxt-start@2.15.7
 
 FROM node:14.17.1-alpine3.13 AS runtime
 
