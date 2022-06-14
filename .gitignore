@@ -90,8 +90,5 @@ sw.*
 # Vim swap files
 *.swp
 
-# Dockerfile
-Dockerfile
-
 cypress/videos/**
 cypress/screenshots/**
