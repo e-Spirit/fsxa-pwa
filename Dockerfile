@@ -11,22 +11,14 @@ RUN npx nuxt build --config-file nuxt.config.ts --standalone \
 
 FROM node:14.17.1-alpine3.13 AS runtime
 
-ARG FSXA_API_KEY
-ARG FSXA_PROJECT_ID
-ARG FSXA_TENANT_ID
-ARG FSXA_CAAS
-ARG FSXA_NAVIGATION_SERVICE
-
-WORKDIR /usr/src/nuxt-app
 RUN apk add --no-cache dumb-init=1.2.5-r0
 COPY --chown=node:node --from=build /usr/src/nuxt-app /usr/src/nuxt-app
 USER node
 EXPOSE 3000
-ENV FSXA_API_KEY=${FSXA_API_KEY}
-ENV FSXA_PROJECT_ID=${FSXA_PROJECT_ID}
-ENV FSXA_TENANT_ID=${FSXA_TENANT_ID}
-ENV FSXA_CAAS=${FSXA_CAAS}
-ENV FSXA_NAVIGATION_SERVICE=${FSXA_NAVIGATION_SERVICE}
+ENV FSXA_CAAS=https://enterprise-dev-caas-api.e-spirit.cloud
+ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
+ENV FSXA_HOST=0.0.0.0
+ENV FSXA_PORT=3000
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
 ENV FSXA_MODE=preview
