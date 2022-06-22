@@ -1,6 +1,7 @@
 export default {
   devMode: false,
   defaultLocale: 'de_DE',
+  useErrorBoundaryWrapper: false,
   components: {
     sections: '~/components/fsxa/sections',
     layouts: '~/components/fsxa/layouts',
