@@ -1,0 +1,71 @@
+= Proxy Configuration
+
+To use a forward proxy for all external requests made during the SSR process and for external requests made by the FSXA proxy backend, the package `global-agent` can be used.
+
+1. To install `global-agent` use:
++
+[source,shell]
+----
+npm i --save global-agent
+npm i --save-dev @types/global-agent
+----
++
+Or install as a dev dependency:
++
+[source,shell]
+----
+npm i --save-dev global-agent @types/global-agent
+----
+
+2. The `global-agent` package needs to be bootstrapped, e.g. using an inline module function (*nuxt.config.ts*):
++
+[source,typescript]
+----
+import * as globalAgent from 'global-agent'
+..
+
+const config: NuxtConfig = {
+  ..,
+  modules: [
+    ..,
+    function () {
+      this.nuxt.hook('listen', async () => globalAgent.bootstrap())
+    }
+  ],
+  ..
+}
+export default config
+----
++
+Or bootstrap only during development:
++
+[source,typescript]
+----
+import * as globalAgent from 'global-agent'
+..
+
+const config: NuxtConfig = {
+  ..,
+  modules: [
+    ..,
+    function () {
+      this.nuxt.hook('listen', async () => {
+        if (this.options.dev) {
+          globalAgent.bootstrap()
+        }
+      })
+    }
+  ],
+  ..
+}
+export default config
+----
+
+3. Finally, specify the URI of the proxy server using the environment variable `GLOBAL_AGENT_HTTP_PROXY` and exclude requests to `localhost` using `GLOBAL_AGENT_NO_PROXY`:
++
+[source,shell]
+----
+export GLOBAL_AGENT_NO_PROXY=localhost
+export GLOBAL_AGENT_HTTP_PROXY=http://localhost:8080 
+npm run dev
+----

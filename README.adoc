@@ -63,6 +63,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 ... xref:docs/modules/ROOT/pages/advanced/custom-api-routes/AccessingOtherProjects.adoc[Example 2:Accessing other FS-Projects]
 ... xref:docs/modules/ROOT/pages/advanced/custom-api-routes/SendingMails.adoc[Example 3: Sending Mails]
 .. xref:docs/modules/ROOT/pages/advanced/SEO.adoc[SEO]
+.. xref:docs/modules/ROOT/pages/advanced/ProxyConfiguration.adoc[Proxy Configuration]
 
 == Legal Notices
 
