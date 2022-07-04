@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.5.2...v3.6.0) (2022-07-04)
+
+
+### Features
+
+* **fsxa.config:** add useErrorBoundaryWrapper flag ([#84](https://github.com/e-Spirit/fsxa-pwa/issues/84)) ([68acfd6](https://github.com/e-Spirit/fsxa-pwa/commit/68acfd60e3449f66b501d7cea0191b16a7e76045))
+
 ## [3.5.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.5.1...v3.5.2) (2022-06-21)
 
 
