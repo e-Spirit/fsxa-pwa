@@ -59,10 +59,17 @@ This environment variable makes it possible to extend the FSXA API middleware pa
 
 This can be helpful when running multiple projects under the same domain. Otherwise, all projects access data via the same FSXA API middleware.
 
-Example: 
-The language abbreviation "en-gb" should be used to extend the URL. 
+Example:
+The language abbreviation "en-gb" should be used to extend the URL.
 In the `.env` file, you can configure `FSXA_API_BASE_URL=en-gb`.
-This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`  
+This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`
+
+=== FSXA_API_CACHE_ENABLED `boolean`
+Enables or disables url based caching for remote API requests.
+This will significantly improve the performance when api requests are in cache.
+
+=== FSXA_API_CACHE_TIME_IN_S `number`
+Sets the time for the cache duration in seconds.
 
 == fsxa.config
 
