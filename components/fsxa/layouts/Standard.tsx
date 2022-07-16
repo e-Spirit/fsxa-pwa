@@ -90,7 +90,9 @@ class StandardLayout extends FSXABaseLayout<HeaderSectionPayload> {
     return (
       <div>
         {this.renderHeader()}
-        {this.renderContentByName('content')}
+        {this.renderContentByName('content', {
+          showAddSectionButtonInPreview: true
+        })}
       </div>
     )
   }

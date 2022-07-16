@@ -69,7 +69,9 @@ class HomepageLayout extends FSXABaseLayout<Data> {
             }
           />
         </div>
-        {this.renderContentByName('content')}
+        {this.renderContentByName('content', {
+          showAddSectionButtonInPreview: true
+        })}
       </div>
     )
   }
