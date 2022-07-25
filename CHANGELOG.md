@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.6.2...v3.7.0) (2022-07-25)
+
+
+### Features
+
+* **add-section-button:** added an "Add Section" button in preview ([#88](https://github.com/e-Spirit/fsxa-pwa/issues/88)) ([b2925c8](https://github.com/e-Spirit/fsxa-pwa/commit/b2925c82ef0cf5348c3c97d966d18aa68b84cf7a))
+
 ## [3.6.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.6.1...v3.6.2) (2022-07-19)
 
 
