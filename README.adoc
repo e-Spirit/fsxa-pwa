@@ -7,6 +7,7 @@ in the context of the FirstSpirit Experience Accelerator.
 
 Webscale Test Trigger
 ANOTHER TRIGGER
+Why not another?
 
 The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digital
 experience platform, combining a headless approach with enterprise capabilities.
