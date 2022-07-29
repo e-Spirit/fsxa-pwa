@@ -1,4 +1,6 @@
-FROM node:14.17.1-alpine3.13 AS build
+FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.13 AS build
+
+asldkjfi
 
 WORKDIR /usr/src/nuxt-app
 ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
@@ -11,7 +13,7 @@ RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   NODE_ENV=production npm ci --production --silent \
   && NODE_ENV=production npm install nuxt-start@2.15.7
 
-FROM node:14.17.1-alpine3.13 AS runtime
+FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.13 AS runtime
 
 WORKDIR /usr/src/nuxt-app
 RUN apk add --no-cache dumb-init=1.2.5-r0
