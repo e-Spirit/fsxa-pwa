@@ -1,7 +1,5 @@
 FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.13 AS build
 
-asldkjfi
-
 WORKDIR /usr/src/nuxt-app
 ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
 ENV FSXA_MODE=preview
