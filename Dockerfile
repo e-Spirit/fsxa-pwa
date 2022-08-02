@@ -4,12 +4,12 @@ WORKDIR /usr/src/nuxt-app
 ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
 ENV FSXA_MODE=preview
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --no-optional
 COPY . .
 RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   && rm -rf node_modules && \
-  NODE_ENV=production npm ci --production --silent \
-  && NODE_ENV=production npm install nuxt-start@2.15.7
+  NODE_ENV=production npm ci --production --silent --no-optional \
+  && NODE_ENV=production npm install --no-optional nuxt-start@2.15.7
 
 FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.13 AS runtime
 

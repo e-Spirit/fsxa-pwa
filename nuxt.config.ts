@@ -66,14 +66,7 @@ const config: NuxtConfig = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    [
-      'fsxa-nuxt-module',
-      {
-        NUXT_HOST: process.env.NUXT_HOST,
-        NUXT_PORT: process.env.NUXT_PORT,
-        FSXA_MODE: process.env.FSXA_MODE
-      }
-    ]
+    'fsxa-nuxt-module'
   ],
   /*
    ** Axios module configuration
@@ -107,10 +100,7 @@ const config: NuxtConfig = {
       config!.resolve!.alias!.vue = path.resolve('./node_modules/vue')
     }
   },
-  buildDir: 'dist',
-  server: {
-    port: 3000
-  }
+  buildDir: 'dist'
 }
 
 export default config

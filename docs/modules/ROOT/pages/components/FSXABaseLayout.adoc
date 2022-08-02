@@ -63,3 +63,11 @@ renderContentByName(name: string)
 ----
 
 The prerendered sections are injected as slots into the component. You can access the slots directly through `this.$scopedSlots.contentName` or by calling this method and passing in the name of the content section.
+
+[source,javascript]
+----
+renderContentByName(name: string, options?: { showAddSectionButtonInPreview?: boolean })
+----
+
+The optional option-property `showAddSectionButtonInPreview` renders an "Add Content" button at the bottom of a slot as a feature of xref:advanced/TPP-Snap.adoc[TPP Snap].
+So it is only visible in the FirstSpirit ContentCreator.
