@@ -14,6 +14,9 @@ Use the *ServerManager* to install two *Project components* for your project, if
 * CaaS Connect Project App
 * Navigation Project Configuration
 
+We recommend to activate the "CaaS Modus" in the *Navigation Project Configuration*. 
+If you use different URLs Factories, we cannot guarantee that the navigation component inside the fsxa-stack can handle it properly. 
+
 == Clone and Configure PWA
 
 Get the link:https://github.com/e-Spirit/fsxa-pwa/[FSXA-PWA from github].
