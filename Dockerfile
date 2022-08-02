@@ -2,7 +2,11 @@ FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.
 
 WORKDIR /usr/src/nuxt-app
 ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
-ENV FSXA_MODE=preview
+ENV FSXA_MODE=release
+ENV FSXA_CAAS=$FSXA_CAAS
+ENV FSXA_API_KEY=$FSXA_API_KEY
+ENV FSXA_PROJECT_ID=$FSXA_PROJECT_ID
+ENV FSXA_TENANT_ID=$FSXA_TENANT_ID
 COPY package*.json ./
 RUN npm ci --no-optional
 COPY . .
@@ -22,7 +26,7 @@ ENV FSXA_CAAS=https://enterprise-dev-caas-api.e-spirit.cloud
 ENV FSXA_NAVIGATION_SERVICE=https://enterprise-dev-navigationservice.e-spirit.cloud/navigation
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
-ENV FSXA_MODE=preview
+ENV FSXA_MODE=release
 ENV NODE_ENV=production
 ENTRYPOINT ["dumb-init", "--"]
 CMD [ "node", "--max-old-space-size=200", "/usr/src/nuxt-app/node_modules/.bin/nuxt-start" ]
