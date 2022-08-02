@@ -1,3 +1,24 @@
+# [3.3.0](https://github.com/ianwebscale/fsxa-pwa/compare/v3.2.2...v3.3.0) (2022-08-02)
+
+
+### Bug Fixes
+
+* **build:** refactor build config and update FSXA-STACK dependencies ([#76](https://github.com/ianwebscale/fsxa-pwa/issues/76)) ([95d3029](https://github.com/ianwebscale/fsxa-pwa/commit/95d3029bd75aa92ac4ffb952ee47f28bc5bbf97b))
+* **dependencies:** update to latest fsxa-stack versions ([#77](https://github.com/ianwebscale/fsxa-pwa/issues/77)) ([bd1667f](https://github.com/ianwebscale/fsxa-pwa/commit/bd1667fa720bee37564bff3549d3b2750fafe754))
+* **dependencies:** update to latest fsxa-stack versions ([#83](https://github.com/ianwebscale/fsxa-pwa/issues/83)) ([8d2f8b5](https://github.com/ianwebscale/fsxa-pwa/commit/8d2f8b5a9da94d84804f2146d58dacc041aa9e75))
+* **dependencies:** update to latest fsxa-stack versions ([#90](https://github.com/ianwebscale/fsxa-pwa/issues/90)) ([b7bcf98](https://github.com/ianwebscale/fsxa-pwa/commit/b7bcf98cb64e42496477dfa4df45a2fd0f0e2cbd))
+* **dependencies:** update to latest version of fsxa dependencies ([#82](https://github.com/ianwebscale/fsxa-pwa/issues/82)) ([98153c1](https://github.com/ianwebscale/fsxa-pwa/commit/98153c140076b99cd5cc86267d95980b3d4f81a2))
+* **dependencies:** updatest to latest fsxa stack version ([#89](https://github.com/ianwebscale/fsxa-pwa/issues/89)) ([4a50581](https://github.com/ianwebscale/fsxa-pwa/commit/4a505813da03435c5634b139555e37592de3152c))
+
+
+### Features
+
+* **add-section-button:** added an "Add Section" button in preview ([#88](https://github.com/ianwebscale/fsxa-pwa/issues/88)) ([b2925c8](https://github.com/ianwebscale/fsxa-pwa/commit/b2925c82ef0cf5348c3c97d966d18aa68b84cf7a))
+* **fsxa.config:** add useErrorBoundaryWrapper flag ([#84](https://github.com/ianwebscale/fsxa-pwa/issues/84)) ([68acfd6](https://github.com/ianwebscale/fsxa-pwa/commit/68acfd60e3449f66b501d7cea0191b16a7e76045))
+* add example implementation of FSXARenderContentElement ([#79](https://github.com/ianwebscale/fsxa-pwa/issues/79)) ([dedbe18](https://github.com/ianwebscale/fsxa-pwa/commit/dedbe1850f973f7830a7cd3c7c5a56614dfbc5b5))
+* **dependencies:** update fsxa-stack dependencies to their latest major version ([#73](https://github.com/ianwebscale/fsxa-pwa/issues/73)) ([79763eb](https://github.com/ianwebscale/fsxa-pwa/commit/79763ebf42e3bc8e3984485b62df5d8438ab06c9))
+* **links:** consume new caas-mapper structure of Links in `RichTextElement`s ([#78](https://github.com/ianwebscale/fsxa-pwa/issues/78)) ([3c442f4](https://github.com/ianwebscale/fsxa-pwa/commit/3c442f40e2f188fcbc0ce6418d97ca60942e9964))
+
 # [3.7.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.6.2...v3.7.0) (2022-07-25)
 
 
