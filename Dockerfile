@@ -11,6 +11,7 @@ RUN npx nuxt build --config-file nuxt.config.ts --standalone \
   && rm -rf node_modules && \
   NODE_ENV=production npm ci --production --silent --no-optional \
   && NODE_ENV=production npm install --no-optional nuxt-start@2.15.7
+RUN echo hello
 
 FROM 875988342918.dkr.ecr.us-east-1.amazonaws.com/webscale-node:14.17.1-alpine3.13 AS runtime
 
