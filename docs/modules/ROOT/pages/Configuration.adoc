@@ -185,20 +185,19 @@ Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = No
 
 ==== FirstSpirit Omnichannel Manager API
 
-This external dependency is tried to be loaded from the ContentCreator (top-frame), but a fallback is loaded from a CDN if it can't be loaded from the ContentCreator directly. This fallback could be overriden with the following options.
+This is an external dependency (JavaScript-file) which is used to enable the content editing features (InEdit) when the PWA is opened in FirstSpirit ContentCreator. The PWA tries to load the script (https://docs.e-spirit.com/tpp/snap/[snap.js]) directly from the ContentCreator host, but in some cases you need to provide a custom URL, where the script could be loaded from.
 
-`fsTppVersion` _optional_
+`fsTppApiUrl` _optional_
 
-You may want to override the https://github.com/e-Spirit/fsxa-nuxt-module#options[default] https://www.npmjs.com/package/fs-tpp-api[TPP] (https://docs.e-spirit.com/tpp/snap/[Snap]) version.
+Use this, if you need to set or override the used URL to a specific `snap.js`.
 
-*Default*: `"2.2.1"`
+*Default*: `undefined`
 
+`fsTppVersion` _optional_ (DEPRECATED: use `fsTppApiUrl` instead)
 
-`fsTppCdnUrl` _optional_
+If set, this will be handled as `fsTppApiUrl: https://cdn.jsdelivr.net/npm/fs-tpp-api@{fsTppVersion}/snap.js`.
 
-You may want to override the used external CDN URL. If a the placeholder `{version}` exists it will be overriden by the version (see above).
-
-*Default*: `"https://cdn.jsdelivr.net/npm/fs-tpp-api@{version}/snap.js"`
+*Default*: `undefined`
 
 _______________________________________________________
 These settings can be configured in the following ways:
@@ -241,8 +240,6 @@ _______________________________________________________
     },
     customRoutes: '~/customRoutes',
     logLevel: 3,
-    fsTppVersion: '2.2.1',
-    fsTppCdnUrl: 'https://cdn.jsdelivr.net/npm/fs-tpp-api@{version}/snap.js',
   },
   ...
 }
