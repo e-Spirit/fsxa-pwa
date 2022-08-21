@@ -183,21 +183,18 @@ This setting configures the folder in which your own endpoints are located. The 
 
 Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
 
-==== FirstSpirit Omnichannel Manager API
+==== FirstSpirit Omnichannel Manager
 
-This is an external dependency (JavaScript-file) which is used to enable the content editing features (InEdit) when the PWA is opened in FirstSpirit ContentCreator. The PWA tries to load the script (https://docs.e-spirit.com/tpp/snap/[snap.js]) directly from the ContentCreator host, but in some cases you need to provide a custom URL, where the script could be loaded from.
+This is an external dependency (JavaScript-file) which is used to enable the content editing features (LiveEdit) when the PWA is opened in FirstSpirit ContentCreator. You'll need to specify this URL see https://github.com/e-Spirit/fsxa-pattern-library#liveedit.
 
-`fsTppApiUrl` _optional_
+`liveEditUrl` _mandatory_
 
-Use this, if you need to set or override the used URL to a specific `snap.js`.
 
-*Default*: `undefined`
+In older versions you could find:
 
-`fsTppVersion` _optional_ (DEPRECATED: use `fsTppApiUrl` instead)
+`fsTppVersion` _optional_ (DEPRECATED: use `liveEditUrl` instead)
 
-If set, this will be handled as `fsTppApiUrl: https://cdn.jsdelivr.net/npm/fs-tpp-api@{fsTppVersion}/snap.js`.
-
-*Default*: `undefined`
+If set, this will be handled as `liveEditUrl: https://cdn.jsdelivr.net/npm/fs-tpp-api@{fsTppVersion}/snap.js`.
 
 _______________________________________________________
 These settings can be configured in the following ways:
@@ -209,7 +206,8 @@ _______________________________________________________
 ----
 {
   devMode: true,
-  defaultLocale: "de_DE"
+  defaultLocale: "de_DE",
+  liveEditUrl: "https://company.e-spirit.hosting/fs5webedit/snap.js",
   // each of the entries is optional
   // default values mentioned above will be used
   components: {
@@ -230,7 +228,8 @@ _______________________________________________________
   ...,
   fsxa: {
     devMode: true,
-    defaultLocale: "de_DE"
+    defaultLocale: "de_DE",
+    liveEditUrl: "https://company.e-spirit.hosting/fs5webedit/snap.js",
     // each of the entries is optional
     // default values mentioned above will be used
     components: {
