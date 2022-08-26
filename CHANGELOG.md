@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.8.0...v3.8.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* **ReferenceResolving:** add runtime config to for maximum reference depth ([#97](https://github.com/e-Spirit/fsxa-pwa/issues/97)) ([871d138](https://github.com/e-Spirit/fsxa-pwa/commit/871d138f2437e649c05262cfbf89ef0b93350087))
+
 # [3.8.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.7.0...v3.8.0) (2022-08-11)
 
 
