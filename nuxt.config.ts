@@ -31,7 +31,8 @@ const config: NuxtConfig = {
     FSXA_MODE: process.env.FSXA_MODE,
     FSXA_TENANT_ID: process.env.FSXA_TENANT_ID,
     FSXA_MAPS_APIKEY: process.env.FSXA_MAPS_APIKEY,
-    FSXA_REMOTES: process.env.FSXA_REMOTES
+    FSXA_REMOTES: process.env.FSXA_REMOTES,
+    FSXA_MAX_REFERENCE_DEPTH: process.env.FSXA_MAX_REFERENCE_DEPTH
   },
   privateRuntimeConfig: {
     FSXA_API_KEY: process.env.FSXA_API_KEY
