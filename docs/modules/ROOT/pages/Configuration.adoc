@@ -64,6 +64,20 @@ The language abbreviation "en-gb" should be used to extend the URL.
 In the `.env` file, you can configure `FSXA_API_BASE_URL=en-gb`.
 This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`
 
+=== FSXA_SNAP_URL `string`
+
+In Preview (`FSXA_MODE=preview`) the FSXA offers a lot of _LiveEdit_ features to edit sections, images, datasets, ... in place(!) and this needs an external dependency called _Snap Library_.
+
+The current implementation is [TPP Snap](https://docs.e-spirit.com/tpp/snap/) and the URL to this script has to look like:
+
+`https://[your-firstspirit-server]/fs5webedit/snap.js` or `https://[your-firstspirit-server]/fs5webedit[_project-id]/snap.js`
+
+where `[your-firstspirit-server]` is the hostname of your firstspirit server, e.g. https://company.e-spirit.hosting and `fs5webedit[_project-id]` the path of the ContentCreator WebApp
+(just log in to your project in ContentCreator to see the path in your browser).
+
+This path should be set as `FSXA_SNAP_URL` in your `.env` file. A fallback is the _latest_ [CDN version](https://cdn.jsdelivr.net/npm/fs-tpp-api/snap.js) of this dependency, which may cause a version mismatch and is not recommended.
+
+
 == fsxa.config
 
 The following settings allow easy configuration of the PWA.
@@ -183,18 +197,11 @@ This setting configures the folder in which your own endpoints are located. The 
 
 Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
 
-==== FirstSpirit Omnichannel Manager
+==== FirstSpirit Omnichannel Manager API Version
 
-This is an external dependency (JavaScript-file) which is used to enable the content editing features (LiveEdit) when the PWA is opened in FirstSpirit ContentCreator. You'll need to specify this URL see https://github.com/e-Spirit/fsxa-pattern-library#liveedit.
+`fsTppVersion` _optional_ (DEPRECATED: use https://github.com/e-Spirit/fsxa-pwa/blob/master/docs/modules/ROOT/pages/Configuration.adoc#fsxa_snap_url-string[`FSXA_SNAP_URL`] instead)
 
-`liveEditUrl` _mandatory_
-
-
-In older versions you could find:
-
-`fsTppVersion` _optional_ (DEPRECATED: use `liveEditUrl` instead)
-
-If set, this will be handled as `liveEditUrl: https://cdn.jsdelivr.net/npm/fs-tpp-api@{fsTppVersion}/snap.js`.
+You may want to override the https://github.com/e-Spirit/fsxa-nuxt-module#options[default] https://www.npmjs.com/package/fs-tpp-api[TPP] (https://docs.e-spirit.com/tpp/snap/[Snap]) version.
 
 _______________________________________________________
 These settings can be configured in the following ways:
@@ -207,7 +214,6 @@ _______________________________________________________
 {
   devMode: true,
   defaultLocale: "de_DE",
-  liveEditUrl: "https://company.e-spirit.hosting/fs5webedit/snap.js",
   // each of the entries is optional
   // default values mentioned above will be used
   components: {
@@ -229,7 +235,6 @@ _______________________________________________________
   fsxa: {
     devMode: true,
     defaultLocale: "de_DE",
-    liveEditUrl: "https://company.e-spirit.hosting/fs5webedit/snap.js",
     // each of the entries is optional
     // default values mentioned above will be used
     components: {
