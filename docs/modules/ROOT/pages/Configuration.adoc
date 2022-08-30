@@ -2,7 +2,7 @@
 
 == .env-File
 
-The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from e-Spirit, we will do this for you automatically.
+The .env file allows you to provide required variables for the local build process. We recommend that you do not check them into your source code management. Ideally, you inject them later via your CI/CD process. If you are already using the CCD pipeline from Crownpeak Technology, we will do this for you automatically.
 
 All of the following variables are required.
 
@@ -22,7 +22,7 @@ The URL under which the navigation service is available. This URL is only used o
 
 Several projects can be configured on your FirstSpirit server. In order for the PWA to know which data it needs to access, it needs the UUID of the relevant project.
 
-For the project(s) provided by e-Spirit you will be given this data too.
+For the project(s) provided by Crownpeak Technology you will be given this data too.
 
 For other projects you can look at _Project Properties_ in _ServerManager_, then _Project Components_, then _CaaS Connect Project App_.
 
@@ -59,10 +59,10 @@ This environment variable makes it possible to extend the FSXA API middleware pa
 
 This can be helpful when running multiple projects under the same domain. Otherwise, all projects access data via the same FSXA API middleware.
 
-Example: 
-The language abbreviation "en-gb" should be used to extend the URL. 
+Example:
+The language abbreviation "en-gb" should be used to extend the URL.
 In the `.env` file, you can configure `FSXA_API_BASE_URL=en-gb`.
-This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`  
+This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`
 
 == fsxa.config
 
