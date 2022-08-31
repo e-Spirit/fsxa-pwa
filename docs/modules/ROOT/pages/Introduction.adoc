@@ -26,7 +26,7 @@ image:FSXA_PWA_Architecture.svg[FSXA Architecture]
 
 === FSXA UI / Component Library
 
-FSXA UI is a component library used by the FSXA PWA. It contains all components used in the sample project. The Component Library is maintained and continuously extended by the e-Spirit AG.
+FSXA UI is a component library used by the FSXA PWA. It contains all components used in the sample project. The Component Library is maintained and continuously extended by the Crownpeak Technology GmbH.
 
 === FSXA NUXT Module
 
@@ -67,17 +67,17 @@ Technology used "`behind the scenes`":
 image:ccd_tools.svg[CCD Tools,400]
 
 === Running the application in a production environment
-In the deployment process e-Spirit uses Docker to containerize the applications.
+In the deployment process Crownpeak Technology uses Docker to containerize the applications.
 To verify your pwa is compliant to the provided Dockerfile, you can use the Dockerfile.template.
 You just need to change the template file in such way, that your custom env parameters are set accordingly to you `.env` file.
 
 Once you have updated your template rename the file to `Dockerfile`.
-Then execute `docker build -t my-pwa .`. 
-To check the compliance with the e-Spirit build pipeline the image needs to be build and run locally.
-You can run the image locally with `docker run -p XXXX:3000 my-pwa`. 
-Where XXXX can be replaced with any free port. 
+Then execute `docker build -t my-pwa .`.
+To check the compliance with the Crownpeak Technology build pipeline the image needs to be build and run locally.
+You can run the image locally with `docker run -p XXXX:3000 my-pwa`.
+Where XXXX can be replaced with any free port.
 When the container is running, visit localhost:XXXX in a browser and the pwa should show up.
 
-Please note: 
-Due to security aspects providing a custom Dockerfile will stop the build pipeline. 
+Please note:
+Due to security aspects providing a custom Dockerfile will stop the build pipeline.
 Make sure not to commit a Dockerfile to your project's repository.
