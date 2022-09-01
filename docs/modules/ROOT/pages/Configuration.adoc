@@ -66,17 +66,7 @@ This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`
 
 === FSXA_SNAP_URL `string`
 
-In Preview (`FSXA_MODE=preview`) the FSXA offers a lot of _LiveEdit_ features to edit sections, images, datasets, ... in place(!) and this needs an external dependency called _Snap Library_.
-
-The current implementation is [TPP Snap](https://docs.e-spirit.com/tpp/snap/) and the URL to this script has to look like:
-
-`https://[your-firstspirit-server]/fs5webedit/snap.js` or `https://[your-firstspirit-server]/fs5webedit[_project-id]/snap.js`
-
-where `[your-firstspirit-server]` is the hostname of your firstspirit server, e.g. https://company.e-spirit.hosting and `fs5webedit[_project-id]` the path of the ContentCreator WebApp
-(just log in to your project in ContentCreator to see the path in your browser).
-
-This path should be set as `FSXA_SNAP_URL` in your `.env` file. A fallback is the _latest_ [CDN version](https://cdn.jsdelivr.net/npm/fs-tpp-api/snap.js) of this dependency, which may cause a version mismatch and is not recommended.
-
+See https://github.com/e-Spirit/fsxa-pattern-library/#snap-url[FSXA_SNAP_URL] in `fsxa-pattern-library`.
 
 == fsxa.config
 
@@ -199,7 +189,7 @@ Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = No
 
 ==== FirstSpirit Omnichannel Manager API Version
 
-`fsTppVersion` _optional_ (DEPRECATED: use https://github.com/e-Spirit/fsxa-pwa/blob/master/docs/modules/ROOT/pages/Configuration.adoc#fsxa_snap_url-string[`FSXA_SNAP_URL`] instead)
+`fsTppVersion` _optional_ (DEPRECATED: use https://github.com/e-Spirit/fsxa-pattern-library/#snap-url[FSXA_SNAP_URL] instead)
 
 You may want to override the https://github.com/e-Spirit/fsxa-nuxt-module#options[default] https://www.npmjs.com/package/fs-tpp-api[TPP] (https://docs.e-spirit.com/tpp/snap/[Snap]) version.
 
