@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.8.1...v3.9.0) (2022-09-01)
+
+
+### Features
+
+* **fs-tpp-api:** add FSXA_SNAP_URL env-variable ([#92](https://github.com/e-Spirit/fsxa-pwa/issues/92)) ([5e0e3bd](https://github.com/e-Spirit/fsxa-pwa/commit/5e0e3bd0fe678f371d0deb1e46c88ace71f15863))
+
 ## [3.8.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.8.0...v3.8.1) (2022-08-26)
 
 
