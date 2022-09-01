@@ -64,6 +64,10 @@ The language abbreviation "en-gb" should be used to extend the URL.
 In the `.env` file, you can configure `FSXA_API_BASE_URL=en-gb`.
 This changes the URL from `<base_url>/api/fsxa/` to `<base_url>/en-gb/api/fsxa/`
 
+=== FSXA_SNAP_URL `string`
+
+See https://github.com/e-Spirit/fsxa-pattern-library/#snap-url[FSXA_SNAP_URL] in `fsxa-pattern-library`.
+
 == fsxa.config
 
 The following settings allow easy configuration of the PWA.
@@ -185,7 +189,7 @@ Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = No
 
 ==== FirstSpirit Omnichannel Manager API Version
 
-`fsTppVersion` _optional_
+`fsTppVersion` _optional_ (DEPRECATED: use https://github.com/e-Spirit/fsxa-pattern-library/#snap-url[FSXA_SNAP_URL] instead)
 
 You may want to override the https://github.com/e-Spirit/fsxa-nuxt-module#options[default] https://www.npmjs.com/package/fs-tpp-api[TPP] (https://docs.e-spirit.com/tpp/snap/[Snap]) version.
 
@@ -199,7 +203,7 @@ _______________________________________________________
 ----
 {
   devMode: true,
-  defaultLocale: "de_DE"
+  defaultLocale: "de_DE",
   // each of the entries is optional
   // default values mentioned above will be used
   components: {
@@ -220,7 +224,7 @@ _______________________________________________________
   ...,
   fsxa: {
     devMode: true,
-    defaultLocale: "de_DE"
+    defaultLocale: "de_DE",
     // each of the entries is optional
     // default values mentioned above will be used
     components: {
@@ -228,8 +232,8 @@ _______________________________________________________
       layouts: "~/components/fsxa/layouts",
       richtext: "~/components/fsxa/richtext",
     },
-  customRoutes: '~/customRoutes',
-  logLevel: 3
+    customRoutes: '~/customRoutes',
+    logLevel: 3,
   },
   ...
 }
