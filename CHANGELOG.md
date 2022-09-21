@@ -1,3 +1,17 @@
+# [3.9.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.8.1...v3.9.0) (2022-09-01)
+
+
+### Features
+
+* **fs-tpp-api:** add FSXA_SNAP_URL env-variable ([#92](https://github.com/e-Spirit/fsxa-pwa/issues/92)) ([5e0e3bd](https://github.com/e-Spirit/fsxa-pwa/commit/5e0e3bd0fe678f371d0deb1e46c88ace71f15863))
+
+## [3.8.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.8.0...v3.8.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* **ReferenceResolving:** add runtime config to for maximum reference depth ([#97](https://github.com/e-Spirit/fsxa-pwa/issues/97)) ([871d138](https://github.com/e-Spirit/fsxa-pwa/commit/871d138f2437e649c05262cfbf89ef0b93350087))
+
 # [3.8.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.7.0...v3.8.0) (2022-08-11)
 
 
