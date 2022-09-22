@@ -32,7 +32,7 @@
   "dependencies": {
     "@nuxt/core": "^2.15.8",
     "@nuxtjs/axios": "^5.13.6",
-    "fsxa-nuxt-module": "^7.7.0",
+    "fsxa-nuxt-module": "^7.8.0",
     "nuxt-start": "^2.15.8"
   },
   "devDependencies": {
