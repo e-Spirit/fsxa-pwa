@@ -36,6 +36,7 @@
 *** xref:fsxa-pwa::components/FSXABaseSection.adoc[FSXABaseSection]
 *** xref:fsxa-pwa::components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
 *** xref:fsxa-pwa::components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
+** xref:fsxa-pwa::components/FSXARenderContentElement.adoc[Render Content Element]
 ** xref:fsxa-pwa::advanced.adoc[Advanced]
 *** xref:fsxa-pwa::advanced/TPP-Snap.adoc[TPP-Snap]
 **** xref:fsxa-pwa::advanced/TPP-Snap.adoc#nested_elements[Nested Elements]

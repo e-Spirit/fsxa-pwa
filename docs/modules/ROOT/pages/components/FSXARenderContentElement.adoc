@@ -1,4 +1,4 @@
-= FSXARenderContextElement
+= FSXARenderContentElement
 
 . <<Introduction>>
 . <<Usage>>
@@ -6,7 +6,7 @@
 
 == Introduction
 
-The FSXARenderContextElement is there to render nested components within .vue files (Single File Components).
+The FSXARenderContentElement is there to render nested components within .vue files (Single File Components).
 
 == Usage
 
