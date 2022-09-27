@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.11.0...v3.12.0) (2022-09-27)
+
+
+### Features
+
+* **docs:** fix typo in FSXARenderContentElement and add it to the navigation ([#101](https://github.com/e-Spirit/fsxa-pwa/issues/101)) ([bde7ea0](https://github.com/e-Spirit/fsxa-pwa/commit/bde7ea0116cd724adf285f9c7f540877a5eb26ef))
+
 # [3.11.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.10.0...v3.11.0) (2022-09-26)
 
 
