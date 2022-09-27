@@ -53,6 +53,7 @@ Detailed documentation of the FSXA-PWA's link:https://enterprise-fsxa-ui.e-spiri
 .. xref:docs/modules/ROOT/pages/components/FSXABaseSection.adoc[FSXABaseSection]
 .. xref:docs/modules/ROOT/pages/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
 .. xref:docs/modules/ROOT/pages/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
+. xref:docs/modules/ROOT/pages/components/FSXARenderContentElement.adoc[Render Content Element]
 . xref:docs/modules/ROOT/pages/Debugging.adoc[Debugging]
 . xref:docs/modules/ROOT/pages/advanced.adoc[Advanced]
 .. xref:docs/modules/ROOT/pages/advanced/TPP-Snap.adoc[TPP-Snap]
