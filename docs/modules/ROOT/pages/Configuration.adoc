@@ -189,7 +189,7 @@ Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = No
 
 You can also set the `logLevel` via _ENV variable_
 
-ENV variable will take the priority if set. *FSXA_LOG_LEVEL*=`3`
+ENV variable will take the priority if set, e.x. *FSXA_LOG_LEVEL*=`3`
 
 ==== FirstSpirit Omnichannel Manager API Version
 
