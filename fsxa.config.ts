@@ -1,7 +1,7 @@
 export default {
   devMode: false,
   defaultLocale: 'de_DE',
-  useErrorBoundaryWrapper: true, // TODO: switch to false, when TNG-1196 is done
+  useErrorBoundaryWrapper: false,
   components: {
     sections: '~/components/fsxa/sections',
     layouts: '~/components/fsxa/layouts',
