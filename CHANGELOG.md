@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.14.0...v3.15.0) (2022-10-06)
+
+
+### Features
+
+* **dependencies:** upgrade fsxa-nuxt-module and fsxa-pattern-library to latest version ([6c3689b](https://github.com/e-Spirit/fsxa-pwa/commit/6c3689b9cdfd6a2d51caadcc9bc1d0611dcccc3f))
+
 # [3.14.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.13.0...v3.14.0) (2022-10-05)
 
 
