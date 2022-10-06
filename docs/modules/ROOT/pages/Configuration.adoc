@@ -187,6 +187,10 @@ This setting configures the folder in which your own endpoints are located. The 
 
 Possible log levels: `0` = Info, `1` = Log, `2` = Warning, `3` = Error, `4` = None. The default is `3`.
 
+You can also set the `logLevel` via _ENV variable_
+
+ENV variable will take the priority if set, e.x. *FSXA_LOG_LEVEL*=`3`
+
 ==== FirstSpirit Omnichannel Manager API Version
 
 `fsTppVersion` _optional_ (DEPRECATED: use https://github.com/e-Spirit/fsxa-pattern-library/#snap-url[FSXA_SNAP_URL] instead)
