@@ -66,6 +66,7 @@ Developer documentation for the FSXA-PWA's vue components is part of the link:ht
 .. xref:docs/modules/ROOT/pages/advanced/SEO.adoc[SEO]
 .. xref:docs/modules/ROOT/pages/advanced/ProxyConfiguration.adoc[Proxy Configuration]
 .. xref:docs/modules/ROOT/pages/advanced/CircularReferences.adoc[Circular References]
+.. xref:docs/modules/ROOT/pages/advanced/DeploymentProtection.adoc[Protecting Deployments]
 
 == Legal Notices
 

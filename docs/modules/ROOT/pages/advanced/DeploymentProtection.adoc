@@ -1,0 +1,135 @@
+= Protecting Deployments
+
+There are some situations where any kind of anonymous access to the app is not desired.
+This might include preview deployments or internal deployments used for a corporate intranet.
+Even though prohibiting network access can be achieved through firewalls, proxies or other networking infrastructure, a simpler solution might suffice where the app itself restricts access.
+
+> **NOTE**: This document focuses solely on protecting the whole app from anonymous access. It is not meant to replace user authentication (sign-in, sign-on, etc.) or authorization requirements in your application.
+
+== Examples using Nuxt server-side middleware
+
+The following examples protect the app deployment using a Nuxt server-side (Connect/Express) application-level middleware.
+
+Registering hook for `render:setupMiddleware` event (`nuxt.config.ts`):
+
+[source,typescript]
+----
+const config: NuxtConfig = {
+    ..,
+    hooks: {
+        render: {
+            setupMiddleware(app) {
+                // Add global protection middleware (first application-level middleware
+                // of Nuxts Connect middleware chain) to secure all requests to Nuxt 
+                // Node.js server (includes requests for SSR, static assets, client
+                // bundle files, custom endpoints through server-side middleware, etc).
+                addGlobalProtection(app)
+            }
+        }
+    }
+}
+----
+
+> **NOTE**: The following code examples are merely inspirations on how to implement a protection mechanism. Do not use the code samples as is in production without prior security evaluations of both the code and dependencies used.
+
+> **NOTE**: If you prefer other technologies or authentication methods (e.g., for security reasons), you can use the same approach of using a Nuxt server-side middleware for restricting access with any Connect/Express compatible dependency (or your own implementation).
+
+=== Basic Auth Protection
+
+In this example, all access to the app is restricted by providing a username and password through HTTPs "Basic" Access Authentication scheme.
+
+> **NOTE**: Be aware that using the basic authentication scheme does have security implications such as plaintext transport of credentials in non-HTTPS environments, repeated transmittig of credentials, etc. Please consult your companies security experts or other security advisories for more information.
+
+Adding basic authentication check to Nuxt middleware chain (`hooks/addGlobalProtection.ts`):
+[source,typescript]
+----
+import { Server } from 'connect'
+import express from 'express'
+import basicAuth from 'express-basic-auth'
+
+function isInternalRequest(req: express.Request) {
+  return req.ip === '127.0.0.1' || req.path === '/api/fsxa/health'
+}
+
+export function addGlobalProtection(connectApp: Server) {
+  if (String(process.env.FSXA_GLOBAL_AUTH_DISABLED) === 'true') {
+    return
+  }
+
+  const expressApp = express()
+  const basicAuthMiddleware = basicAuth({
+    challenge: true,
+    users: {
+      [String(process.env.FSXA_GLOBAL_AUTH_USER)]: String(
+        process.env.FSXA_GLOBAL_AUTH_PASSWORD
+      )
+    }
+  })
+  expressApp.use((req, res, next) => {
+    if (!isInternalRequest(req)) {
+      return basicAuthMiddleware(req, res, next)
+    }
+    next()
+  })
+  connectApp.use(expressApp)
+}
+----
+
+For more information on how to use the `express-basic-auth` library see https://github.com/LionC/express-basic-auth#how-to-use.
+
+=== SSO Protection
+
+In the following example, all access to the app is restricted to authenticated users by delegating to a OIDC IdP (OpenID Connect Identity Provider).
+The access restriction is applied through a Nuxt server-side (Connect/Express) middleware.
+
+In this example, `express-openid-connect` is used to ensure all requests to the Nuxt application are authenticated.
+The dependency stores session state in signed and encrypted cookies, which is helpful to avoid having to manage shared sessions state for multiple app instances.
+For more information see https://github.com/auth0/express-openid-connect#getting-started.
+
+Adding authentication check to Nuxt middleware chain (`hooks/addGlobalProtection.ts`):
+[source,typescript]
+----
+import { Server } from 'connect'
+import { auth, ConfigParams, requiresAuth } from 'express-openid-connect'
+import express from 'express'
+
+function isInternalRequest(req: express.Request) {
+  return req.ip === '127.0.0.1' || req.path === '/api/fsxa/health'
+}
+
+export function addGlobalProtection(connectApp: Server) {
+  if (String(process.env.FSXA_GLOBAL_AUTH_DISABLED) === 'true') {
+    return
+  }
+  const config: ConfigParams = {
+    session: {
+      rollingDuration: 60
+    },
+    authorizationParams: {
+      response_type: 'code',
+      scope: 'openid'
+    },
+    authRequired: false,
+    baseURL: process.env.FSXA_GLOBAL_AUTH_REDIRECT_BASEURL,
+    issuerBaseURL: process.env.FSXA_GLOBAL_AUTH_ISSUER_BASEURL,
+    clientID: process.env.FSXA_GLOBAL_AUTH_CLIENT_ID,
+    clientSecret: process.env.FSXA_GLOBAL_AUTH_CLIENT_SECRET,
+    secret: process.env.FSXA_GLOBAL_AUTH_COOKIE_SECRET,
+    routes: {
+      callback: '/my-callback',
+      login: false,
+      logout: false
+    }
+  }
+  const expressApp = express()
+  expressApp.use(auth(config))
+  expressApp.use(
+    requiresAuth(
+      (req) => !isInternalRequest(req) && !req.oidc.isAuthenticated()
+    )
+  )
+  connectApp.use(expressApp)
+}
+----
+
+> **NOTE**: If you are using the Crownpeak Technology FirstSpirit SaaS Cloud, you can integrate with our SSO infrastructure in order to establish a seamless sign-on experience. Please reach out to your contact at Crownpeak Technology or our Customer Success Management (customer-success-management@crownpeak.com) for more information.
