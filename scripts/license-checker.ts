@@ -39,7 +39,7 @@ const checkLicenses = () => {
       start: path.resolve(__dirname, '..'),
       production: true,
       excludePrivatePackages: true,
-      exclude: 'BSD', // licences to exclude
+      // exclude: 'BSD', // licences to exclude
       excludePackages: `
         fsxa-api;
         fsxa-nuxt-module;
