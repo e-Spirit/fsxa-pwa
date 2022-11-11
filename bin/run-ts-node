@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Execute script with ts-node
+NODE_OPTIONS=--unhandled-rejections=strict ts-node -r tsconfig-paths/register $@
