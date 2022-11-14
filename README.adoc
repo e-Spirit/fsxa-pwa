@@ -66,6 +66,10 @@ Developer documentation for the FSXA-PWA's vue components is part of the link:ht
 .. xref:docs/modules/ROOT/pages/advanced/SEO.adoc[SEO]
 .. xref:docs/modules/ROOT/pages/advanced/ProxyConfiguration.adoc[Proxy Configuration]
 
+== Circular References Notes
+The following notes are used to indicate that there maybe some unwanted behavior of the application when using circular references data in your content. For example, a page that references itself as a child page. This can cause unwanted behavior of the application when you try to do some logging or debugging. You need to use as little circular references data as possible.
+
+
 == Legal Notices
 
 FSXA-PWA is a product of http://www.e-spirit.com[Crownpeak Technology GmbH], Dortmund, Germany.
