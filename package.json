@@ -20,7 +20,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run",
-    "license-checker": "./bin/run-ts-node scripts/license-checker.ts",
+    "license-checker": "./bin/run-ts-node ./scripts/license-checker.ts",
     "license-checker:ci": "./bin/license-checker"
   },
   "lint-staged": {
