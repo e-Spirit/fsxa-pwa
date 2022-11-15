@@ -1,0 +1,12 @@
+name: "License checker"
+on: [pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  license-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check for missing license"
+        run: npm run license-checker
