@@ -1,11 +1,9 @@
 #!/bin/sh
 
-declare -a ExcludePackages=("fsxa-api" "fsxa-pattern-library" "fsxa-nuxt-module" "fsxa-ui")
-
 # Fail on empty licenses
 NODE_OPTIONS=--unhandled-rejections=strict \
   license-checker \
-  --excludePackages "${ExcludePackages[@]}" \
+  --excludePackages "fsxa-api;fsxa-pattern-library;fsxa-nuxt-module;fsxa-ui" \
   --json \
   --excludePrivatePackages \
   --production \
