@@ -3,4 +3,4 @@ In FirstSpirit you can create circular references in your project.
 An example for circular references could be two datasets that contain a reference to each other.  
 While the FSXA stack can handle circular references, it is the responsibility of the component developer to ensure that the components handle this correctly.
 
-NOTE: The vuejs/devtools[https://github.com/vuejs/devtools] are currently *unable* to handle circular references!
+NOTE: The link:https://github.com/vuejs/devtools[vuejs devtools] are currently *unable* to handle circular references!
