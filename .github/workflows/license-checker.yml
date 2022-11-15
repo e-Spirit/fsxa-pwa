@@ -8,7 +8,16 @@ jobs:
   license-checker:
     runs-on: ubuntu-latest
     steps:
-      - name: "Install dependencies"
-        run: npm install
-      - name: "Check for missing license"
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: npm install --no-optional
+
+      - name: Check Licenses
         run: npm run license-checker
