@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.3...v3.16.0) (2022-12-14)
+
+
+### Features
+
+* **content-projections:** add new content projection routing ([#114](https://github.com/e-Spirit/fsxa-pwa/issues/114)) ([3bed4e7](https://github.com/e-Spirit/fsxa-pwa/commit/3bed4e7397d84c68f703d47179bb5e7b510798a3))
+
 ## [3.15.3](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.2...v3.15.3) (2022-11-23)
 
 
