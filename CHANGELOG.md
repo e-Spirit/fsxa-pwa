@@ -1,3 +1,10 @@
+# [3.17.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.16.1...v3.17.0) (2022-12-21)
+
+
+### Features
+
+* **dependencies:** update fsxa to latest version ([#116](https://github.com/e-Spirit/fsxa-pwa/issues/116)) ([5daf6fb](https://github.com/e-Spirit/fsxa-pwa/commit/5daf6fb5ca994b2d36c3e20bdf19424232648151))
+
 ## [3.16.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.16.0...v3.16.1) (2022-12-15)
 
 
