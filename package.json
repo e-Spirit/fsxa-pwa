@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "fsxa-api": "^10.7.0",
     "fsxa-pattern-library": "^8.14.1",
-    "fsxa-ui": "^4.1.1",
+    "fsxa-ui": "^4.2.0",
     "husky": "^4.0.0",
     "jest": "^24.1.0",
     "lint-staged": "^10.0.0",
