@@ -1,0 +1,14 @@
+= FSXADisplayHiddenSectionElement
+
+. <<Introduction>>
+. <<Usage>>
+
+== Introduction
+
+The FSXADisplayHiddenSectionElement toggles visibility of Section Elements. You can show or hide the section elements
+via environment variables. 
+
+== Usage
+
+You can add a `VUE_APP_FSXA_DISPLAY_HIDDEN_SECTIONS=true` or `VUE_APP_FSXA_DISPLAY_HIDDEN_SECTIONS=false` 
+env variable to your application. Based on true or false values, you can show or hide Section type elements.

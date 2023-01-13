@@ -54,6 +54,7 @@ Developer documentation for the FSXA-PWA's vue components is part of the link:ht
 .. xref:docs/modules/ROOT/pages/components/FSXABaseRichTextElement.adoc[FSXABaseRichTextElement]
 .. xref:docs/modules/ROOT/pages/components/FSXABaseAppLayout.adoc[FSXABaseAppLayout]
 . xref:docs/modules/ROOT/pages/components/FSXARenderContentElement.adoc[Render Content Element]
+. xref:docs/modules/ROOT/pages/components/FSXADisplayHiddenSectionElement.adoc[Display Hidden Section Element]
 . xref:docs/modules/ROOT/pages/Debugging.adoc[Debugging]
 . xref:docs/modules/ROOT/pages/advanced.adoc[Advanced]
 .. xref:docs/modules/ROOT/pages/advanced/TPP-Snap.adoc[TPP-Snap]
