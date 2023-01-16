@@ -20,7 +20,8 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run",
-    "license-checker": "./bin/run-license-checker"
+    "license-check": "./bin/check-licenses",
+    "license-print": "./bin/print-licenses"
   },
   "lint-staged": {
     "*.{js,vue,ts,tsx}": "npm run lint"

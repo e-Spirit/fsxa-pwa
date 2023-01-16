@@ -7,7 +7,6 @@ NODE_OPTIONS=--unhandled-rejections=strict \
   --json \
   --excludePrivatePackages \
   --production \
-  --failOn "; ;" \
-  --uknown \
+  --unknown \
   -- out license-checker.json \
   $@

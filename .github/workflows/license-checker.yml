@@ -20,4 +20,4 @@ jobs:
         run: npm install --no-optional
 
       - name: Check Licenses
-        run: npm run license-checker
+        run: npm run license-check
