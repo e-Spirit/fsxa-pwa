@@ -1,3 +1,38 @@
+# [3.17.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.16.1...v3.17.0) (2022-12-21)
+
+
+### Features
+
+* **dependencies:** update fsxa to latest version ([#116](https://github.com/e-Spirit/fsxa-pwa/issues/116)) ([5daf6fb](https://github.com/e-Spirit/fsxa-pwa/commit/5daf6fb5ca994b2d36c3e20bdf19424232648151))
+
+## [3.16.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.16.0...v3.16.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* **dependencies:** update fsxa to the latest version ([#115](https://github.com/e-Spirit/fsxa-pwa/issues/115)) ([60cef86](https://github.com/e-Spirit/fsxa-pwa/commit/60cef868c27a831ecc683fea4be7ad218117ce0a))
+
+# [3.16.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.3...v3.16.0) (2022-12-14)
+
+
+### Features
+
+* **content-projections:** add new content projection routing ([#114](https://github.com/e-Spirit/fsxa-pwa/issues/114)) ([3bed4e7](https://github.com/e-Spirit/fsxa-pwa/commit/3bed4e7397d84c68f703d47179bb5e7b510798a3))
+
+## [3.15.3](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.2...v3.15.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* **dependencies:** update fsxa stack dependencies to the latest version ([#111](https://github.com/e-Spirit/fsxa-pwa/issues/111)) ([9a485f5](https://github.com/e-Spirit/fsxa-pwa/commit/9a485f563b80af635f5287588824bd4ee15882f7))
+
+## [3.15.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.1...v3.15.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* **dependencies:** update to latest fsxa versions ([#107](https://github.com/e-Spirit/fsxa-pwa/issues/107)) ([a795f6d](https://github.com/e-Spirit/fsxa-pwa/commit/a795f6dfe33a8240aaddc90553d27f1580b0ce6d))
+
 ## [3.15.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.15.0...v3.15.1) (2022-10-21)
 
 
