@@ -135,8 +135,6 @@ export function addGlobalProtection(connectApp: Server) {
 }
 ----
 
-> **NOTE**: If you are using the Crownpeak Technology FirstSpirit SaaS Cloud, you can integrate with our SSO infrastructure in order to establish a seamless sign-on experience. Please reach out to your contact at Crownpeak Technology or our Customer Success Management (customer-success-management@crownpeak.com) for more information.
-
 > **NOTE**: The SameSite attribute value `None` is used for session cookies in order for the cookies to be sent with cross-site requests in non-top-level contexts (e.g., inside an iframe). Even though the SameSite attribute is not a complete mitigation strategy for cross-site request forgery (CSRF) attacks, it's worth noting that this change opens up additional classes of CSRF attacks that are not possible with the default value "Lax". If this is not required, it should be switched to the default.
  +
 Independent of which SameSite value is used, we strongly recommend using an additional layer of authentication for any sensitive actions that can be performed on the website and implementing a mechanism to mitigate CSRF (see https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html for more information).
