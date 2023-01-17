@@ -19,7 +19,9 @@
     "semantic-release": "semantic-release",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run"
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:run",
+    "license-check": "./bin/check-licenses",
+    "license-print": "./bin/print-licenses"
   },
   "lint-staged": {
     "*.{js,vue,ts,tsx}": "npm run lint"
@@ -74,6 +76,7 @@
     "fsxa-ui": "^4.2.0",
     "husky": "^4.0.0",
     "jest": "^24.1.0",
+    "license-checker": "^25.0.1",
     "lint-staged": "^10.0.0",
     "lodash.get": "^4.4.2",
     "nuxt": "^2.15.8",

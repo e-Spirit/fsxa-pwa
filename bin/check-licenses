@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Fail if any unlisted license is used. Exclude list contains known public licenses that are free to use commercially
+NODE_OPTIONS=--unhandled-rejections=strict \
+  license-checker \
+  --excludePackages "fsxa-api;fsxa-pattern-library;fsxa-nuxt-module;fsxa-ui" \
+  --exclude "MIT,ISC,BSD,BSD-2-Clause,Apache-2.0,Unlicense,CC0-1.0,CC-BY-3.0,Custom: https://github.com/dominictarr/event-stream" \
+  --json \
+  --excludePrivatePackages \
+  --production \
+  --failOn "*" \
+  --unknown \
+  $@

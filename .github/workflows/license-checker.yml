@@ -1,0 +1,23 @@
+name: "License checker"
+on: [pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  license-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: npm install --no-optional
+
+      - name: Check Licenses
+        run: npm run license-check
