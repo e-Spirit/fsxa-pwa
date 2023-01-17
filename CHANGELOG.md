@@ -1,3 +1,10 @@
+## [3.17.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.17.0...v3.17.1) (2023-01-17)
+
+
+### Bug Fixes
+
+* **protection:** add docs for app protection ([#120](https://github.com/e-Spirit/fsxa-pwa/issues/120)) ([fee4533](https://github.com/e-Spirit/fsxa-pwa/commit/fee4533cbf1d3fa4238c130856e8aaaab6065ccb))
+
 # [3.17.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.16.1...v3.17.0) (2022-12-21)
 
 
