@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Fail on empty licenses
+NODE_OPTIONS=--unhandled-rejections=strict \
+  license-checker \
+  --excludePackages "fsxa-api;fsxa-pattern-library;fsxa-nuxt-module;fsxa-ui" \
+  --json \
+  --excludePrivatePackages \
+  --production \
+  --unknown \
+  -- out license-checker.json \
+  $@
