@@ -2,6 +2,8 @@
 
 TPP-Snap from the https://docs.e-spirit.com/tpp/index.html.en[OmnichannelManager] is a JavaScript library designed to connect the FirstSpirit ContentCreator UI with dynamically generated HTML elements (like in a PWA). This connection is achieved using preview ids. When you add a known preview id as an attribute to an HTML element the Snap library will automatically decorate it using borders and buttons when your PWA is viewed in the FirstSpirit ContentCreator. This allows editors to edit the contents of dynamically generated HTML Elements. The library also offers the tools to add your own buttons to the UI as you see fit.
 
+There are some configurations you could customize, like the used xref:Configuration.adoc#fsxa_snap_url-string[version] and xref:Configuration.adoc#firstspirit-omnichannel-manager-api-version[event-hooks].
+
 == Nested Elements
 
 At layout and section level, the FSXA takes care of enriching the UI so that the elements are editable in the ContentCreator. However, as soon as we have sections within a dataset or a section, there is currently no automatism. So you have to take action here that your child sections can also be edited in the ContentCreator.
