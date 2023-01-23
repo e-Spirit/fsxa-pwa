@@ -6,9 +6,13 @@
 == Introduction
 
 The FSXADisplayHiddenSectionElement toggles visibility of Section Elements. You can show or hide the section elements
-via environment variables. 
+using an environment variable.
 
 == Usage
 
-You can add a `FSXA_DISPLAY_HIDDEN_SECTIONS=true` or `FSXA_DISPLAY_HIDDEN_SECTIONS=false` 
-env variable to your application. Based on true or false values, you can show or hide Section type elements.
+You can add the `FSXA_DISPLAY_HIDDEN_SECTIONS` env variable to your application.
+If the variable is set to `true`, all sections will be shown. This is the default setting.
+If you set it to `false`, hidden sections will not be displayed.
+
+The application determines whether a section is hidden based on its `displayed` attribute.
+Only if the attribute is present and explicitly set to `false` will a section be interpreted as hidden.
