@@ -197,6 +197,12 @@ ENV variable will take the priority if set, e.x. *FSXA_LOG_LEVEL*=`3`
 
 You may want to override the https://github.com/e-Spirit/fsxa-nuxt-module#options[default] https://www.npmjs.com/package/fs-tpp-api[TPP] (https://docs.e-spirit.com/tpp/snap/[Snap]) version.
 
+`customSnapHooks` _optional_
+
+TPP Snap provides some https://docs.e-spirit.com/tpp/snap/#oncontentchangehandler[`onXxx`-hooks] and the FSXA provides
+https://github.com/e-Spirit/fsxa-pattern-library/blob/master/src/utils/tpp-snap-hooks.ts[opinionated handler] for them.
+Set `customSnapHooks` to `true` to use your own handler instead.
+
 _______________________________________________________
 These settings can be configured in the following ways:
 _______________________________________________________
