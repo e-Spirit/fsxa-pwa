@@ -1,3 +1,10 @@
+# [3.18.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.17.1...v3.18.0) (2023-01-24)
+
+
+### Features
+
+* **config:** add support for customSnapHooks and FSXA_DISPLAY_HIDDEN_SECTIONS ([#121](https://github.com/e-Spirit/fsxa-pwa/issues/121)) ([4d82b9a](https://github.com/e-Spirit/fsxa-pwa/commit/4d82b9a11cdc4191e384567353d85c19ce3950d0)), closes [#119](https://github.com/e-Spirit/fsxa-pwa/issues/119)
+
 ## [3.17.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.17.0...v3.17.1) (2023-01-17)
 
 
