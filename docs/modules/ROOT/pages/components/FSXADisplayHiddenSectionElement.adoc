@@ -15,3 +15,6 @@ If you set it to `false`, hidden sections will not be displayed.
 
 The application determines whether a section is hidden based on its `displayed` attribute.
 Only if the attribute is present and explicitly set to `false` will a section be interpreted as hidden.
+
+> **NOTE**: The conecpt of hidden sections does not exist in the release state. 
+To avoid irritation, we recommend not setting `FSXA_DISPLAY_HIDDEN_SECTIONS` at all for applications that use the release state. 
