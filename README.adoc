@@ -9,18 +9,18 @@ The FirstSpirit Experience Accelerator (FSXA) is the hybrid solution of a digita
 experience platform, combining a headless approach with enterprise capabilities.
 The FSXA stack consists of five repositories:
 
-- [FSXA-PWA](https://github.com/e-Spirit/fsxa-pwa)
-- [FSXA-UI](https://github.com/e-Spirit/fsxa-ui)/ Component Library
-- [FSXA-Nuxt-Module](https://github.com/e-Spirit/fsxa-nuxt-module)
-- [FSXA-Pattern-Library](https://github.com/e-Spirit/fsxa-pattern-library)
-- [FSXA-API](https://github.com/e-Spirit/fsxa-api)
+* https://github.com/e-Spirit/fsxa-pwa[FSXA-PWA]
+* https://github.com/e-Spirit/fsxa-ui[FSXA-UI / Component Library]
+* https://github.com/e-Spirit/fsxa-nuxt-module[FSXA-Nuxt-Module]
+* https://github.com/e-Spirit/fsxa-pattern-library[FSXA-Pattern-Library]
+* https://github.com/e-Spirit/fsxa-api[FSXA-API]
 
 While the FSXA-API is a maintained product with a life cycle, the FSXA-PWA, FSXA-UI, FSXA-Nuxt-Module and FSXA-Pattern-Library are merely best practices examples how a project could be set up and integrate the FSXA-API.
 The latter repositories can be forked to speed up the startup time of a frontend project or to understand how common use cases can be solved in headless projects.
 The code itself can therefore also be used as documentation of best practices.
 
 The following image illustrates the product cut:
-![fsxa-stack product cut overview](docs/assets/fsxa-stack-product-status.png)
+image:docs/assets/fsxa-stack-product-status.png[fsxa-stack product cut overview]
 
 > **_Attention_**
 > Since the reference implementation does not represent a maintained product, we do not guarantee support for its use.
