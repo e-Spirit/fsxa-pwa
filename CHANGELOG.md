@@ -1,3 +1,10 @@
+## [3.19.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.19.1...v3.19.2) (2023-04-14)
+
+
+### Bug Fixes
+
+* **dependencies:** update to latest version ([#133](https://github.com/e-Spirit/fsxa-pwa/issues/133)) ([2b7287e](https://github.com/e-Spirit/fsxa-pwa/commit/2b7287e3d2833e581ed9f37ddd6b8f63f083b1c8))
+
 ## [3.19.1](https://github.com/e-Spirit/fsxa-pwa/compare/v3.19.0...v3.19.1) (2023-03-21)
 
 
