@@ -1,3 +1,10 @@
+# [3.21.0](https://github.com/e-Spirit/fsxa-pwa/compare/v3.20.2...v3.21.0) (2023-06-22)
+
+
+### Features
+
+* **dependencies:** update fsxa stack ([#142](https://github.com/e-Spirit/fsxa-pwa/issues/142)) ([8b494be](https://github.com/e-Spirit/fsxa-pwa/commit/8b494be82efce31b4cc92f3ee8e5b1293c0a0f15))
+
 ## [3.20.2](https://github.com/e-Spirit/fsxa-pwa/compare/v3.20.1...v3.20.2) (2023-06-16)
 
 
