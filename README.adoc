@@ -1,4 +1,4 @@
-= <span style="color:red">!</span> Important Notice: This Repository is Deprecated
+= ❗Important Notice: This Repository is Deprecated
 
 == Important Notice
 
