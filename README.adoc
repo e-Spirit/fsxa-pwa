@@ -1,3 +1,7 @@
+= ❗Important Notice
+
+This repository has been deprecated and is no longer actively maintained. We recommend you use the https://github.com/e-Spirit/crownpeak-pwa-template[crownpeak-pwa-template] instead.
+
 = FSXA-PWA
 
 The FSXA-PWA is an example project and can be used as basis for developing your own PWA
