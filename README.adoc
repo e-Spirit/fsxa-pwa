@@ -1,3 +1,9 @@
+= <span style="color:red">!</span> Important Notice: This Repository is Deprecated
+
+== Important Notice
+
+This repository has been deprecated and is no longer actively maintained. We recommend you use the https://github.com/e-Spirit/crownpeak-pwa-template[crownpeak-pwa-template] instead.
+
 = FSXA-PWA
 
 The FSXA-PWA is an example project and can be used as basis for developing your own PWA
@@ -103,17 +109,3 @@ specifically disclaims any liability with respect to this document
 and no contractual obligations are formed either directly or
 indirectly by this document. The technologies, functionality, services,
 and processes described herein are subject to change without notice.
-
-== Important Notice: This Repository is Deprecated
-
-This repository (fsxa-pwa) has been deprecated and is no longer actively maintained. Its usage comes with potential risks and limitations. We recommend users to consider alternative solutions for their needs.
-
-=== Alternative Solution
-
-The functionality and features of this repository have been transitioned to the `content-api` repository, which is the new replacement for FSXA stack. You can find the latest updates, improvements, and ongoing support there.
-
-Please exercise caution if you choose to continue using this repository. We will not be providing regular updates or fixes.
-
-For a more up-to-date and supported solution, please refer to the `content-api` repository.
-
-Thank you for your understanding.
